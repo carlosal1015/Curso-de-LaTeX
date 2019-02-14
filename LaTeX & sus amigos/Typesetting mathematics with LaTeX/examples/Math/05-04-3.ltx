@@ -1,0 +1,49 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%%  Mathematiksatz mit LaTeX
+%%  2. Auflage
+%% 
+%%  Beispiel 05-04-3 auf Seite 84.
+%% 
+%%  Copyright (C) 2012 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{array}
+\usepackage[table]{xcolor}
+\definecolor{umbra}{rgb}{0.8,0.8,0.5}
+\newcommand*\zero{\multicolumn{1}{>{\columncolor{white}}c}{0}}
+\StopShownPreambleCommands
+\begin{document}
+\delimitershortfall=-3pt
+\[ \left[\,
+\rowcolors{1}{umbra}{blue!10}
+\begin{array}{*{5}{c}}
+  h_{k,1,0}(n) & h_{k,1,1}(n) & h_{k,1,2}(n) & \zero & \zero\\
+  h_{k,2,0}(n) & h_{k,2,1}(n) & h_{k,2,2}(n) & \zero & \zero\\
+  h_{k,3,0}(n) & h_{k,3,1}(n) & h_{k,3,2}(n) & \zero & \zero\\
+  h_{k,4,0}(n) & h_{k,4,1}(n) & h_{k,4,2}(n) & \zero & \zero\\
+  \zero & h_{k,1,0}(n-1) & h_{k,1,1}(n-1) & h_{k,1,2}(n-1) & \zero\\
+  \zero & h_{k,2,0}(n-1) & h_{k,2,1}(n-1) & h_{k,2,2}(n-1) & \zero\\
+  \zero & h_{k,3,0}(n-1) & h_{k,3,1}(n-1) & h_{k,3,2}(n-1) & \zero\\
+  \zero & h_{k,4,0}(n-1) & h_{k,4,1}(n-1) & h_{k,4,2}(n-1) & \zero\\
+  \zero & \zero & h_{k,1,0}(n-2) & h_{k,1,1}(n-2) & h_{k,1,2}(n-2)\\
+  \zero & \zero & h_{k,2,0}(n-2) & h_{k,2,1}(n-2) & h_{k,2,2}(n-2)\\
+  \zero & \zero & h_{k,3,0}(n-2) & h_{k,3,1}(n-2) & h_{k,3,2}(n-2)\\
+  \zero & \zero & h_{k,4,0}(n-2) & h_{k,4,1}(n-2) & h_{k,4,2}(n-2)
+\end{array} \,\right]_{12\times 5}\]
+\end{document}

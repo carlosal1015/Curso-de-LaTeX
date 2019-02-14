@@ -1,0 +1,32 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example C-03-1 on page 849.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{201.70511pt}
+\setlength\parindent{0pt}
+
+\usepackage{pst-node}\SpecialCoor
+
+\begin{document}
+\begin{pspicture}(5.5,3)
+  \qdisk(5,0){2mm} \qdisk(0,2){2mm}\rput(1,1){\psline[linewidth=2pt](5,0)(0,2)}% correct
+\end{pspicture}\quad\begin{pspicture}(5.5,2)
+  \Cnode*(5,0){f1} \Cnode*(0,2){f2}
+  \rput(1,1){\psline[linewidth=2pt](f1)(f2)}% wrong, \rput witout effect
+\end{pspicture}
+\end{document}

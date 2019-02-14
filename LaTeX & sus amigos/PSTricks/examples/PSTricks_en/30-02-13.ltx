@@ -1,0 +1,33 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 30-02-13 on page 592.
+%% 
+%%  Copyright (C) 2011 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{375.57637pt}
+\setlength\parindent{0pt}
+
+\usepackage{pstricks-add}
+
+\begin{document}
+\begin{pspicture}(0,0)(\linewidth,3.5)
+ \psbrace[bracePos=0.8,braceWidth=5pt,braceWidthInner=17pt](0,0.5)(.8\linewidth,0.5){%
+   \fbox{text}}
+ \psbrace[bracePos=0.25,nodesepB=13pt,ref=C](0,2)(.8\linewidth,2){\fbox{text}}
+ \psbrace[ref=lC,nodesepA=-3cm,nodesepB=-10pt,rot=-90](.8\linewidth,2.5)(0,2.5){%
+   \fbox{some very, very long wonderful text}}
+\end{pspicture}
+\end{document}

@@ -1,0 +1,50 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 05-04-1 on page 172.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1,2
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{183.78818pt}
+\usepackage[utf8]{inputenc}% adapt maybe
+\usepackage[paper=70mm:90mm,pagesize]{typearea}
+\usepackage[utf8]{inputenc}% adapt maybe
+\areaset{50mm}{58mm}
+\setlength\parindent{0pt}
+\setlength\emergencystretch{1.5em}
+\usepackage{fancyhdr}
+\def\Lcs#1{\texttt{\textbackslash#1}}
+\lhead{\small\texttt{need}-demo}
+\pagestyle{fancy}
+\usepackage[english]{babel}
+\setcounter{page}{1}
+\renewcommand\thepage{page \arabic{page}}
+
+\usepackage{supertabular}
+\newcommand\demoText{In theory, the definition of the table environment could be
+extended to integrate the \protect\texttt{\textbackslash need} command. These two
+examples show the first two pages of a document, where the first page has
+(without \protect\texttt{\textbackslash need}) or does not have (with
+\protect\texttt{\textbackslash need}) a page break.}
+
+\begin{document}
+\section{A table}
+\demoText  \begin{center}
+\tablecaption{Caption.}
+\tablehead{\hline column1 & column2 \\}
+\begin{supertabular}{|cl|cl|}\hline
+  yyy & xxx \\\hline yyy & xxx \\\hline yyy & xxx \\\hline
+\end{supertabular}  \end{center}
+\end{document}

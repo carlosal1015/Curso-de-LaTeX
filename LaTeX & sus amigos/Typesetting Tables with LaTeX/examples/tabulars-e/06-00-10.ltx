@@ -1,0 +1,37 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 06-00-10 on page 183.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{375.57637pt}
+\setlength\parindent{0pt}
+\usepackage[utf8]{inputenc}
+\usepackage{eurosym}
+\usepackage[ngerman]{babel}
+
+\usepackage{dcolumn,booktabs,tabularx}\let\addLS\addlinespace
+
+\begin{document}
+\begin{tabularx}{0.85\linewidth}{@{} X l c D{.}{,}{2.2} @{}}\toprule
+\small Schmelzeinsätze & \small Schalter & \small kg & \multicolumn{1}{c@{}}{\euro}\\
+    \cmidrule(r){1-1}\cmidrule(lr){2-2}\cmidrule(lr){3-3}\cmidrule(l){4-4}\addLS
+Pilzdruckknopf mit Rastung und Drehentriegelung & rot& 54 & 13.$---$\\\addLS
+Pilzdruckknopf mit Rastung und Schloss     & rot     & 32 & 21.60\\\addLS
+Schlüsselantrieb mit abziehbarem Schlüssel & schwarz & 43 & 15.10\\\addLS
+Knebel mit 3~Schaltstellungen              & schwarz & 23 &  5.40\\\addLS\bottomrule
+\end{tabularx}
+\end{document}

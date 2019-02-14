@@ -1,0 +1,67 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%%  
+%%  7. Auflage
+%% 
+%%  Beispiel 35-00-14 auf Seite 824.
+%% 
+%%  Copyright (C) 2016 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{193.16928pt}
+\setlength\parindent{0pt}
+%StartShownPreambleCommands
+\usepackage{pst-solides3d}
+%StopShownPreambleCommands
+\begin{document}
+\psscalebox{0.5}{%
+\psset{viewpoint=20 -120 30 rtp2xyz,Decran=20,lightsrc=viewpoint}
+\begin{pspicture}[solidmemory,shift=*](-7,-3)(3,3)
+\psSolid[object=cube,a=4,name=Cube,linecolor=red,numfaces=all,fontsize=100,
+  RotZ=20,action=draw]
+\psImage[unitPicture=30,file=images/tiger.eps,origine=Cube 0 solidcentreface,normal=Cube 0 solidnormaleface,phi=-90]
+\psImage[unitPicture=30,file=images/tiger.eps,origine=Cube 3 solidcentreface,normal=Cube 3 solidnormaleface]
+\psImage[unitPicture=30,file=images/tiger.eps,origine=Cube 2 solidcentreface,normal=Cube 2 solidnormaleface]
+\end{pspicture}
+\qquad
+\psset{viewpoint=40 30 30 rtp2xyz,Decran=20,lightsrc=viewpoint}
+\definecolor{darkred}{RGB}{180,000,000}
+\begin{pspicture}[shift=*](-4,-3)(6,6)
+  \psSurface[ngrid=16 16,hue=0 1,fillcolor=yellow!50,
+     axesboxed,algebraic,Zmin=0,Zmax=8,
+     action=draw**,linewidth=0.2pt](-4,-4)(4,4){ (x^2+y^2)/4 }
+\pstVerb{
+  /fct {dup mul 16 add 4 div} def
+  /Sommets1 { %  y=4
+    4 -0.5 -3.5 {/xi exch def
+    xi 4 0 xi 0.5 sub 4 0 xi 0.5 sub dup 4 exch fct
+    xi dup 4 exch fct } for } def
+  /Faces1 {
+    0 4 [Sommets2] length 3 idiv 4 sub { /iF exch def
+    [ iF iF 1 add iF 2 add iF 3 add ] } for } def
+  /Sommets2 { % x=4
+    -4 0.5 3.5 {/yi exch def
+       4 yi 0 4 yi 0.5 add 0 4 yi 0.5 add dup fct
+       4 yi dup fct } for } def
+  /Faces2 {
+    0 4 [Sommets2] length 3 idiv 4 sub { /iF exch def
+    [ iF iF 1 add iF 2 add iF 3 add ] } for } def
+}%
+\psSolid[object=new,sommets=Sommets1,faces={Faces1},
+    fillcolor=darkred,linewidth=0.2pt]
+\psSolid[object=new,sommets=Sommets2,faces={Faces2},
+    fillcolor=darkred,linewidth=0.2pt]
+\end{pspicture}}
+\end{document}

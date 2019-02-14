@@ -1,0 +1,39 @@
+% !TeX document-id = {5113de6a-bb6a-4187-b852-9c4e386e8850}
+% !TeX TXS-program:compile = txs:///lualatex
+\documentclass{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.8}
+\usepackage{verbatim}
+\begin{document}
+\begin{comment}
+Por favor compile com lualatex. Demora vários minutos, seja paciente
+Exemplo do site
+https://texwelt.de/wissen/fragen/6952/kann-man-bei-pgfplots-die-argumente-trigonometrischer-funktionen-von-grad-auf-radiant-umstellen
+\end{comment}
+\begin{tikzpicture}
+  \begin{axis}[
+      view = {60}{-60},
+      hide axis,
+      colormap = {flower}{%
+        color(0cm)  = (yellow);       color(4cm)  = (orange);
+        color(8cm)  = (red!40!black); color(12cm) = (red!80!black); 
+        color(16cm) = (green);        color(20cm) = (green!20!black)},
+    ]
+    \addplot3[
+      surf,
+      z buffer = sort,       point meta = u,
+      domain   = -13.2:13.2, domain y   = -37.4:37.4,
+      samples  = 80,         samples y  = 120,
+      variable = \u,         variable y = \v      
+    ] 
+    ( { -u + (2*0.84*cosh(0.4*u)*sinh(0.4*u))/(0.4*((sqrt(0.84)*cosh(0.4*u))^2
+        + (0.4*sin(deg(sqrt(0.84)*v)))^2)) },
+      { (2*sqrt(0.84)*cosh(0.4*u)*(-(sqrt(0.84)*sin(deg(v))
+        * cos(deg(sqrt(0.84)*v))) + cos(deg(v))*sin(deg(sqrt(0.84)*v))))/(0.4
+        * ((sqrt(0.84)*cosh(0.4*u))^2 + (0.4*sin(deg(sqrt(0.84)*v)))^2)) },
+      { (2*sqrt(0.84)*cosh(0.4*u)*(-(sqrt(0.84)*cos(deg(v))
+        * cos(deg(sqrt(0.84)*v))) - sin(deg(v))*sin(deg(sqrt(0.84)*v))))/(0.4
+        * ((sqrt(0.84)*cosh(0.4*u))^2 + (0.4*sin(deg(sqrt(0.84)*v)))^2)) });
+    \end{axis}
+\end{tikzpicture}
+\end{document}

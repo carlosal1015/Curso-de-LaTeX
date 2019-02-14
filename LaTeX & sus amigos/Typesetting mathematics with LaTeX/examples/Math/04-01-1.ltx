@@ -1,0 +1,36 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%%  Mathematiksatz mit LaTeX
+%%  2. Auflage
+%% 
+%%  Beispiel 04-01-1 auf Seite 34.
+%% 
+%%  Copyright (C) 2012 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\AtBeginDocument{\setlength\parindent{0pt}}
+\StartShownPreambleCommands
+\setlength\arraycolsep{1.4pt}
+\StopShownPreambleCommands
+\begin{document}
+\[
+  z=f(x,y) \rightarrow
+  \begin{array}[b]{|rl|} y &=f(x)\\ y &= 3x^2     \end{array} \rightarrow
+  \begin{array}[c]{|rl|} x &=f(u)\\ x &= \sqrt{u} \end{array} \rightarrow
+  \begin{array}[t]{|rl|} v &=f(w)\\ v &= u^2-w^3  \end{array} \rightarrow
+  f(w)
+\]
+\end{document}

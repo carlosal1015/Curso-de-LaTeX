@@ -1,0 +1,48 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Beispiel 06-00-19 auf Seite 188.
+%% 
+%%  Copyright (C) 2010 H. Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+
+%%Run also: >>  << 
+% Show page(s) 1
+
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{194.59192pt}
+\setlength\parindent{0pt}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+
+\usepackage{dcolumn,booktabs,ragged2e,rotating,eurosym}
+\newcolumntype{C}{>{\footnotesize}c}
+\newcolumntype{N}{>{\footnotesize}l}
+\newcolumntype{P}[1]{>{\footnotesize\RaggedRight\hspace{0pt}}p{#1}}
+\newcolumntype{d}[1]{D{.}{,}{#1}}
+\newcommand\mc[2]{\multicolumn{1}{#1}{#2}}
+\newcommand\Rotate[1]{\begin{turn}{90}\rlap{#1}\end{turn}}
+
+\begin{document}
+\begin{tabular}{@{}d{1.0}*{3}{d{3.0}}d{2.0}d{3.0}d{2.2}@{}}\toprule
+  & \multicolumn{4}{N}{Leistungsaufnahme} & & \\\cmidrule(lr){2-5}
+  & \multicolumn{2}{P{7em}}{kurzzeitig beim Ein"~~und Umschalten}
+  & \multicolumn{2}{P{7em}}{nach dem Umschalten in die Dreieckstufe}
+  & \mc{C}{\raisebox{-4em}{\Rotate{Spannung}}}
+  & \mc{C@{}}{\raisebox{-4em}{\Rotate{Mehrpreis für}}
+  \raisebox{-4em}{\Rotate{abweichende}} \raisebox{-4em}{\Rotate{Spannung}}}\\
+    \cmidrule(lr){2-3}\cmidrule(lr){4-5}
+\mc{@{}C}{\Rotate{Schaltergröße}}&\mc{C}{VA}&\mc{C}{W}&\mc{C}{VA}&\mc{C}{W}&\mc{C}{VA}
+  & \mc{C}{\euro}\\\cmidrule(r){1-1}\cmidrule(lr){2-2}\cmidrule(lr){3-3}
+    \cmidrule(lr){4-4}\cmidrule(lr){5-5}\cmidrule(lr){6-6}\cmidrule(l){7-7}
+1& 120& 100& 16&  6&  24& 12.$---$\\ 2& 150& 100&  36& 12& 110& 15.$---$\\
+4& 342& 210& 60& 18& 220& 19.$---$\\ 6& 733& 320& 100& 36& 220& 29.$---$\\\bottomrule
+\end{tabular}
+\end{document}

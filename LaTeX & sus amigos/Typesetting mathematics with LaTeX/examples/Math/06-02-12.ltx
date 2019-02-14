@@ -1,0 +1,42 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%%  Mathematiksatz mit LaTeX
+%%  2. Auflage
+%% 
+%%  Beispiel 06-02-12 auf Seite 92.
+%% 
+%%  Copyright (C) 2012 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\AtBeginDocument{\setlength\parindent{0pt}
+\setcounter{section}{6}}
+\StartShownPreambleCommands
+\usepackage{amsmath} \usepackage[amsmath,thmmarks]{ntheorem}
+\theoremsymbol{\ensuremath{\triangle}}
+\theoremprework{\bigskip\hrule}  \theorempostwork{\hrule\bigskip}
+\newtheorem{Beispiel}{Beispiel}[section]
+\StopShownPreambleCommands
+\begin{document}
+Normaler Text vor der neuen Umgebung.
+\begin{Beispiel} Anwendung des Transformationstheorems:
+\begin{align*}
+ [z^n]C(z) &= [z^n]\biggl[\frac{e^{3/4}}{\sqrt{1-z}}+e^{-3/4}(1-z)^{1/2}+
+              \frac{e^{-3/4}}{4}(1-z)^{3/2}+O\Bigl((1-z)^{5/2}\Bigr)\biggr]\\[5pt]
+           &= \frac{e^{-3/4}}{\sqrt{\pi n}}-\frac{5e^{-3/4}}{8\sqrt{\pi n^3}}+
+              \frac{e^{-3/4}}{128\sqrt{\pi n^5}}+O\biggl(\frac{1}{\sqrt{\pi n^7}}\biggr)
+\end{align*}
+\end{Beispiel}
+\end{document}

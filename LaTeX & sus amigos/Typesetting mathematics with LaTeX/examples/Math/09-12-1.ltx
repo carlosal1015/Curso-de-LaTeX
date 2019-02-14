@@ -1,0 +1,46 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%%  Mathematiksatz mit LaTeX
+%%  2. Auflage
+%% 
+%%  Beispiel 09-12-1 auf Seite 187.
+%% 
+%%  Copyright (C) 2012 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\AtBeginDocument{\setlength\parindent{0pt}}
+\setcounter{equation}{5}
+\renewcommand\theequation{9.\arabic{equation}}
+\StartShownPreambleCommands
+\usepackage{amsmath,empheq,xcolor,graphicx}
+\newcommand*\mycolbox[1]{%
+  \colorbox{blue!30!yellow!40}{\hspace{1em}#1\hspace{1em}}}
+\StopShownPreambleCommands
+\begin{document}
+\begin{subequations}
+\begin{empheq}[% Beginn der Optionen
+    box=\mycolbox,
+    right={\;\makebox[.9em]{$\raisebox{-.5\totalheight+\fontdimen22\textfont2}
+              {\resizebox{!}{\EmphEqdisplayheight+\EmphEqdisplaydepth}{!}}$}},
+    left={X=Y\Rightarrow\empheqlbrace}]{alignat=3}
+%
+    A_1&=b_1 & \qquad c_1&=d_1 & \qquad e_1&= f_1
+         \tag*{\_A\raisebox{1ex}{silly}\raisebox{-1ex}{tag}\_}\\
+    A_2&=b_2 & \qquad c_2&=d_2 & \qquad  e_2&= f_2 \\
+    A_3&=b_3 & \qquad c_3&=d_3 & \qquad  e_3&= f_3
+\end{empheq}
+\end{subequations}
+\end{document}

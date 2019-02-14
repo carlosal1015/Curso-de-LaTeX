@@ -1,0 +1,161 @@
+%% 
+%%  Die DANTE-Edition
+%%  Ein Beispiel der LaTeX Referenz
+%%  3. Auflage
+%% 
+%% 
+%%  Copyright (C) 2013 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{478.00505pt}
+%StartShownPreambleCommands
+\usepackage[T1]{fontenc}
+\usepackage[scaled=0.82]{beramono}
+\usepackage[utf8]{inputenc}
+\usepackage{textcomp,array,booktabs}
+\newsavebox\Ausgabe % um die gleiche Schriftart zu bekommen
+\sbox\Ausgabe{\emph{Ausgabe}}
+\def\Lcs#1{\texttt{\textbackslash#1}}
+\def\Largb#1{\{\emph{#1}\}}
+%StopShownPreambleCommands
+\begin{document}
+\def\arraystretch{1.05}
+\begin{tabular}{@{}l@{}>{\fontfamily{cmr}\selectfont}c|
+		   l@{}>{\fontfamily{cmr}\selectfont}c|
+		   l@{}>{\fontfamily{cmr}\selectfont}c@{}}\toprule
+%\begin{tabular}{@{}l@{}c|
+%		   l@{}c|
+%		   l@{}c@{}}\toprule
+\emph{Eingabe} & \multicolumn{1}{@{}r|@{}}{\llap{\usebox\Ausgabe}} &
+\emph{Eingabe} & \multicolumn{1}{@{}r|@{}}{\llap{\usebox\Ausgabe}} &
+\emph{Eingabe} & \multicolumn{1}{@{}r@{}}{\llap{\usebox\Ausgabe}}\\\hline
+5\Lcs{textsuperscript}\{$^\circ$\} & \rule{0pt}{2.5ex}5\textsuperscript{$^\circ$}	&
+    5\texttt{\$\^{}\Lcs{circ}\$} & 5$^\circ$  &
+    \Lcs{S}\Lcs{,}9 & \S\,9  \\
+    5\Lcs{,}\Lcs{\%} & 5\,\%      &
+    \Lcs{copyright}\{\} & \copyright{}  & \\\hline
+%\Lcs{textcapitalcompwordmark} &   \textcapitalcompwordmark  &
+%\Lcs{textascendercompwordmark} &  \textascendercompwordmark   \\
+\rule{0pt}{2.5ex}%
+\Lcs{textquotestraightbase}    &  \textquotestraightbase   &
+\Lcs{textquotestraightdblbase} & \textquotestraightdblbase &
+\Lcs{texttwelveudash}          &  \texttwelveudash        \\
+\Lcs{textthreequartersemdash}  & \textthreequartersemdash  &
+\Lcs{textdollar}               & \textdollar               &
+\Lcs{textquotesingle}          & \textquotesingle         \\
+\Lcs{textasteriskcentered}     & \textasteriskcentered     &
+\Lcs{textfractionsolidus}      & \textfractionsolidus      &
+\Lcs{textminus}                & \textminus               \\
+\Lcs{textlbrackdbl}            & \textlbrackdbl            &
+\Lcs{textrbrackdbl}            & \textrbrackdbl            &
+\Lcs{textasciigrave}           & \textasciigrave          \\
+\Lcs{texttildelow}             & \texttildelow             &
+\Lcs{textasciibreve}           & \textasciibreve           &
+\Lcs{textasciicaron}           & \textasciicaron          \\
+\Lcs{textgravedbl}             & \textgravedbl             &
+\Lcs{textacutedbl}             & \textacutedbl             &
+\Lcs{textdagger}               & \textdagger              \\
+\Lcs{textdaggerdbl}            & \textdaggerdbl            &
+\Lcs{textbardbl}               & \textbardbl               &
+\Lcs{textperthousand}          & \textperthousand         \\
+\Lcs{textbullet}               & \textbullet               &
+\Lcs{textcelsius}              & \textcelsius              &
+\Lcs{textflorin}               & \textflorin              \\
+\Lcs{texttrademark}            & \texttrademark            &
+\Lcs{textcent}                 & \textcent                 &
+\Lcs{textsterling}             & \textsterling            \\
+\Lcs{textyen}                  & \textyen                  &
+\Lcs{textbrokenbar}            & \textbrokenbar            &
+\Lcs{textsection}              & \textsection             \\
+\Lcs{textasciidieresis}        & \textasciidieresis    &
+\Lcs{textcopyright}            & \textcopyright    &
+\Lcs{textordfeminine}          & \textordfeminine   \\
+\Lcs{textlnot}                 & \textlnot    &
+\Lcs{textregistered}           & \textregistered    &
+\Lcs{textasciimacron}          & \textasciimacron    \\
+\Lcs{textdegree}               & \textdegree    &
+\Lcs{textpm}                   & \textpm    &
+\Lcs{texttwosuperior}          & \texttwosuperior    \\
+\Lcs{textthreesuperior}        & \textthreesuperior   &
+\Lcs{textasciiacute}           & \textasciiacute    &
+\Lcs{textmu}                   & \textmu    \\
+\Lcs{textparagraph}            & \textparagraph    &
+\Lcs{textperiodcentered}       & \textperiodcentered  &
+\Lcs{textonesuperior}          & \textonesuperior    \\
+\Lcs{textordmasculine}         & \textordmasculine    &
+\Lcs{textonequarter}           & \textonequarter    &
+\Lcs{textonehalf}              & \textonehalf    \\
+\Lcs{textthreequarters}        & \textthreequarters  &
+\Lcs{texttimes}                & \texttimes    &
+\Lcs{textdiv}                  & \textdiv    \\
+\Lcs{texteuro}                 & \texteuro&
+\Lcs{textohm}                  & \textohm&
+\Lcs{textestimated}            & \textestimated\\
+\Lcs{textcurrency}             & \textcurrency&
+\Lcs{textleftarrow}            & \textleftarrow&
+\Lcs{textrightarrow}           & \textrightarrow\\
+\Lcs{textblank}                & \textblank&
+\Lcs{textdblhyphen} & \textdblhyphen&
+\Lcs{textzerooldstyle} & \textzerooldstyle\\
+\Lcs{textoneoldstyle} & \textoneoldstyle&
+\Lcs{texttwooldstyle} & \texttwooldstyle&
+\Lcs{textthreeoldstyle} & \textthreeoldstyle\\
+\Lcs{textfouroldstyle} & \textfouroldstyle&
+\Lcs{textfiveoldstyle} & \textfiveoldstyle&
+\Lcs{textsixoldstyle} & \textsixoldstyle\\
+\Lcs{textsevenoldstyle} & \textsevenoldstyle&
+\Lcs{texteightoldstyle} & \texteightoldstyle&
+\Lcs{textnineoldstyle} & \textnineoldstyle\\
+\Lcs{textlangle} & \textlangle&
+\Lcs{textrangle} & \textrangle&
+\Lcs{textmho} & \textmho\\
+\Lcs{textbigcircle} & \textbigcircle&
+\Lcs{textuparrow} & \textuparrow&
+\Lcs{textdownarrow} & \textdownarrow\\
+\Lcs{textborn} & \textborn&
+\Lcs{textdivorced} & \textdivorced&
+\Lcs{textdied} & \textdied\\
+\Lcs{textleaf} & \textleaf&
+\Lcs{textmarried} & \textmarried&
+\Lcs{textmusicalnote} & \textmusicalnote\\
+\Lcs{textdblhyphenchar} & \textdblhyphenchar&
+\Lcs{textdollaroldstyle} & \textdollaroldstyle&
+\Lcs{textcentoldstyle} & \textcentoldstyle\\
+\Lcs{textcolonmonetary} & \textcolonmonetary&
+\Lcs{textwon} & \textwon&
+\Lcs{textnaira} & \textnaira\\
+\Lcs{textguarani} & \textguarani&
+\Lcs{textpeso} & \textpeso&
+\Lcs{textlira} & \textlira\\
+\Lcs{textrecipe} & \textrecipe&
+\Lcs{textinterrobang} & \textinterrobang&
+\Lcs{textinterrobangdown} & \textinterrobangdown\\
+\Lcs{textdong} & \textdong&
+\Lcs{textpertenthousand} & \textpertenthousand&
+\Lcs{textpilcrow} & \textpilcrow\\
+\Lcs{textbaht} & \textbaht&
+\Lcs{textnumero} & \textnumero&
+\Lcs{textdiscount} & \textdiscount\\
+\Lcs{textopenbullet} & \textopenbullet&
+\Lcs{textservicemark} & \textservicemark&
+\Lcs{textlquill} & \textlquill\\
+\Lcs{textrquill} & \textrquill&
+\Lcs{textcopyleft} & \textcopyleft&
+\Lcs{textcircledP} & \textcircledP\\
+\Lcs{textreferencemark} & \textreferencemark&
+\Lcs{textsurd} & \textsurd &
+\Lcs{textcircled}\Largb{Ziffer} & \textcircled{7}\\\bottomrule
+\end{tabular}
+\end{document}

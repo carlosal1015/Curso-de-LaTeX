@@ -1,0 +1,52 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Beispiel 04-03-2 auf Seite 143.
+%% 
+%%  Copyright (C) 2010 H. Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+
+%%Run also: >>  << 
+% Show page(s) 1,2
+
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{173.82971pt}
+\usepackage[utf8]{inputenc}% adapt maybe
+\usepackage[paper=70mm:85mm,pagesize]{typearea}
+\areaset{60mm}{55mm}
+\usepackage[ngerman]{babel}
+\setlength\parindent{0pt}
+\usepackage{filecontents,fancyhdr}
+\lhead{\small\texttt{\textbackslash LTXtable}-Demo}
+\pagestyle{fancy}
+\setcounter{page}{1}
+\renewcommand\thepage{Seite \arabic{page}}
+\AtBeginDocument{\setlength\LTcapwidth{4cm}}
+\begin{filecontents}{LTXtab0.tex}
+\begin{longtable}{@{}>{\ttfamily}l>{\RaggedRight}X@{}}
+\caption{Dateiendungen und ihre Bedeutung}\\
+aux &  (auxiliary) Hilfsdatei, enth\"alt Querverweise usw. \\
+bbl &  (Bibliografie) Hilfsdatei, enth\"alt die Eintr\"age f\"ur die Literatur\\
+bib &  (Bibliografie) enth\"alt die Literaturdaten\\
+blg &  (Bibliografie) Logdatei, enth\"alt die Ausgaben eines BibTeX-Laufs\\
+cfg &  (configure) \TeX-Datei mit Konfigurationsinformation\\
+clo &  (class options) \TeX-Datei mit Definitionen f\"ur die Dokumentenklasse
+    und die entsprechenden Klassen-Optionen\\
+cls &  (class) Dokument-Klassendatei
+\end{longtable}
+\end{filecontents}
+
+\usepackage{ltxtable,ragged2e}
+
+\begin{document}
+\LTXtable{\linewidth}{LTXtab0}
+
+\rule{1cm}{0.5pt}\hfill Textbreite\hfill\rule{1cm}{0.5pt}
+\end{document}

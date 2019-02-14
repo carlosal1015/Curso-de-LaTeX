@@ -1,0 +1,23 @@
+\documentclass[tikz]{standalone}
+\usepackage{tkz-euclide}
+\usetkzobj{all}
+\begin{document}
+	\begin{tikzpicture}
+	\tkzDefPoint(0,0){A}
+	\tkzDefPoint(8,0){B}
+	\tkzDefPoint(6,4){C}
+	\tkzDefPoint(6,0){D}
+	
+	\tkzDrawPolygon[fill=brown!30, draw opacity=0](A,B,C)
+	\tkzDrawSegments[brown, dotted, very thick](A,C A,D)
+	\tkzDrawSegments[red, line width=1mm](B,C B,D)
+	\tkzDrawSegment[dash pattern= on 1.8mm off 1mm](C,D)
+	
+	\tkzDrawPoints[size=20, fill=blue](A,B,C)
+	\tkzDrawPoint[size=15, fill=black!70](D)
+	
+	\tkzLabelPoints(A,B,D)
+	\tkzLabelPoints[above right](C)
+	\end{tikzpicture}
+
+\end{document}

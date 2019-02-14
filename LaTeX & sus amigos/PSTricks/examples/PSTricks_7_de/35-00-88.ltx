@@ -1,0 +1,91 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%%  
+%%  7. Auflage
+%% 
+%%  Beispiel 35-00-88 auf Seite 853.
+%% 
+%%  Copyright (C) 2016 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+%StartShownPreambleCommands
+\usepackage{pst-tree,pstricks-add}
+%StopShownPreambleCommands
+\begin{document}
+\newpsstyle{dg}{fillstyle=solid,fillcolor=blue!50}
+\newpsstyle{lg}{fillstyle=solid,fillcolor=red!50}
+\newpsstyle{dh}{linestyle=dashed}
+\def\dashedbox{\psframebox[linestyle=dashed]{%
+    \vphantom{1}
+    \vrule width1.5mm height0pt depth0pt\relax}}% to tune
+\def\pslgframebox#1{\psframebox[style=lg]{#1}}
+\def\psdgframebox#1{\psframebox[style=dg]{#1}}
+\def\dedge{\ncline[linestyle=dashed]}
+\def\pssp{\hspace{2mm}}% to tune
+
+\pstree[treesep=2mm,levelsep=2cm]% to tune
+{\Tr{\psframebox{4}}}{%
+  \pstree{\Tr{\psframebox{4}}}{%
+    \Tr[name=T1]{\psframebox{4}}%
+    \Tr[name=T2]{\psframebox[style=lg]{>20}}%
+    \Tr[name=T3]{\psframebox[style=lg]{>13}}%
+  }%
+  \pstree{\Tr{\pslgframebox{<-1}}}{%
+    \Tr[name=T4]{\psdgframebox{-1}}%
+    \Tr[edge=\dedge]{\dashedbox}%
+    \Tr[edge=\dedge]{\dashedbox}%
+  }%
+  \pstree{\Tr{\pslgframebox{<-2}}}{%
+    \Tr[name=T5]{\psdgframebox{-2}}%
+    \Tr[edge=\dedge]{\dashedbox}%
+    \Tr[edge=\dedge]{\dashedbox}%
+  }%
+  \pstree{\Tr{\pslgframebox{<-11}}}{%
+    \Tr[name=T6]{\psdgframebox{-11}}%
+    \Tr[edge=\dedge]{\dashedbox}%
+    \Tr[edge=\dedge]{\dashedbox}%
+    \Tr[edge=\dedge]{\dashedbox}%
+  }%
+}
+\par\vspace{1.5cm}% to tune
+\Rnode{U1}{\psframebox{4}}\pssp
+\Rnode{U2}{\pslgframebox{5}}\pssp
+\Rnode{U3}{\psdgframebox{20}}\pssp
+\Rnode{U4}{\dashedbox}\pssp
+\Rnode{U5}{\psdgframebox{13}}\pssp
+\Rnode{U6}{\dashedbox}\pssp
+\Rnode{U7}{\pslgframebox{-1}}\pssp
+\Rnode{U8}{\pslgframebox{-12}}\pssp
+\Rnode{U9}{\pslgframebox{-2}}\pssp
+\Rnode{U10}{\pslgframebox{-8}}\pssp
+\Rnode{U11}{\pslgframebox{-11}}\pssp
+\Rnode{U12}{\pslgframebox{-40}}\pssp
+\Rnode{U13}{\pslgframebox{-19}}
+\ncline{T1}{U1}
+\ncline{T1}{U2}
+\ncline{T2}{U3}
+\dedge{T2}{U4}
+\ncline{T3}{U5}
+\dedge{T3}{U6}
+\ncline{T4}{U7}
+\ncline{T4}{U8}
+\ncline{T5}{U9}
+\ncline{T5}{U10}
+\ncline{T6}{U11}
+\ncline{T6}{U12}
+\ncline{T6}{U13}
+\end{document}

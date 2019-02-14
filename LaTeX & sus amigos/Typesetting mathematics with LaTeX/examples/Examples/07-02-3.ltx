@@ -1,0 +1,30 @@
+%% 
+%%  Example 07-02-3 
+%%  Copyright (C) 2017 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{158.31393pt}
+\setlength\parindent{0pt}
+\usepackage[T1]{fontenc}
+%StartShownPreambleCommands
+\usepackage{amsmath,graphicx}
+\def\rb#1{\rotatebox{90}{$\xleftarrow{#1}$}}
+%StopShownPreambleCommands
+\begin{document}
+\begin{tabular}{c}
+$\begin{matrix}
+\rb{text1}&\rb{text1}&\rb{text1}&\rb{text1}\\
+\end{matrix}$\\
+$\begin{bmatrix}
+X_x & Y_x & Z_x & T_x \\
+X_y & Y_y & Z_y & T_y \\
+X_z & Y_z & Z_z & T_z \\
+0   & 0   & 0   & 1
+\end{bmatrix}$
+\end{tabular}
+\end{document}

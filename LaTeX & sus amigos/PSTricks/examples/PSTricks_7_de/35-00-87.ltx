@@ -1,0 +1,80 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%%  
+%%  7. Auflage
+%% 
+%%  Beispiel 35-00-87 auf Seite 853.
+%% 
+%%  Copyright (C) 2016 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+%StartShownPreambleCommands
+\usepackage{pstricks}
+\usepackage{pst-node}
+\newcommand\sq[1]{\ensuremath{\mathsf{#1}}}
+\newcommand\mybox[1]{\psshadowbox[linecolor=gray,shadowcolor=lightgray]{#1}}
+\newcommand\pb[1]{\mybox{\ensuremath{#1}}}
+\newcommand\pw[1]{\psframebox[linewidth=0.4pt]{\sq{#1}}}
+\newcommand\ps[1]{%
+\psframebox[linewidth=0.4pt,fillcolor=blue!30,fillstyle=solid]{\sq{#1}}}
+\newcommand\rxy[2]{%
+  \makebox[0cm]{\raisebox{-1.6em}[0cm][0cm]{\hspace*{3mm}\sq{#2}}}%
+  \mybox{\textsf{1\,round($\bar #1$)}}}
+\newcommand\rxysmall[2]{%
+  \makebox[0cm]{\raisebox{-1.6em}[0cm][0cm]{\hspace*{-1.3cm}\sq{#2}}}%
+  \makebox[2mm]{\mybox{\textsf{1\,round($\bar #1$)}}}}
+\psset{linearc=0.15}
+%StopShownPreambleCommands
+\begin{document}
+  \begin{psmatrix}[mnode=r,colsep=0.8,rowsep=0.4]
+    [name=s0] \pw{s_0} \\[0pt]
+    [name=a]  \ps{a}   & [name=b] \pw{b} & [name=c] \ps{c}
+                       & [name=d] \rxy{X}{d_1\dots d_4}
+                       & [name=e] \pw{e} \\[0pt]
+    [name=f]  \pw{f} \\
+                       &                 & [name=g] \ps{g} \\
+                       & [name=h] \rxysmall{X}{h_1\dots h_4} &
+                       & [name=i] \rxy{Y}{i_1\dots i_4} \\
+                       &                 & [name=j] \pw{j} \\[0pt]
+    [name=k]  \ps{k} \\[0.4em]
+    [name=l]  \rxysmall{X}{l_1\dots l_4} \\[0pt]
+    [name=m]  \rxysmall{Y}{m_1\dots m_4} \\[1cm]
+
+    % Connexions
+    \ncline{->}{s0}{a}
+    \ncline{->}{a}{b}
+    \ncline{->}{a}{f}>{$\exists \bar Y'$}
+    \ncline{->}{b}{c}^{$\exists \bar X'$}
+    \ncline{->}{c}{d}
+    \ncline{->}{d}{e}
+    \ncangle[angleA=0,angleB=90]{->}{f}{g}\naput[npos=1.8]{$\exists\bar X'$}
+    \ncangle[angleA=180,angleB=90]{->}{g}{h}
+    \ncangle[angleA=0,angleB=90]{->}{g}{i}
+      \naput[npos=1.8]{$\exists \bar X' \exists \bar Y' ~ \bar{X}'\bar{Y}'
+                        = \bar Y\bar X$}
+    \ncangle[angleA=-90,angleB=180]{->}{h}{j}  %$
+    \ncangle[angleA=-90,angleB=0]{->}{i}{j}
+    \ncangle[angleA=-90,angleB=0]{->}{j}{k}
+    \ncangle[angleA=180,angleB=180,arm=60pt]{->}{f}{k}
+    \ncline{->}{k}{l}
+    \ncline{->}{l}{m}
+    \ncloop[arm=15pt,angleA=90,angleB=-90,loopsize=1.5,armA=12pt,armB=5pt]
+           {<-}{l}{m}
+    \ncangles[linestyle=dashed,angleA=180,angleB=-90,armA=80pt,armB=15pt]
+             {<-}{s0}{m}
+  \end{psmatrix}
+\end{document}

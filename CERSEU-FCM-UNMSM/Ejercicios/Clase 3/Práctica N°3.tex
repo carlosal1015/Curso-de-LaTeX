@@ -1,0 +1,105 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage{fancyhdr}
+\lhead{UNMSM-FCM-Ceups}
+\chead{Curso de \LaTeX}
+\rhead{Práctica dirigida N$^{\circ}$2}
+\lfoot{\textit{Prof. Carlos Alonso Aznarán Laos}}
+\cfoot{\thepage}
+\rfoot{\today}
+\pagestyle{fancy}
+\usepackage[left=2cm,right=2cm,top=3cm,bottom=3cm]{geometry}
+\author{\textit{Carlos Alonso Aznarán Laos}}
+\title{{Curso de \LaTeX}\\{\normalsize \textbf{{Práctica N$ ^{\circ}$3}}}%cómo colorear la fecha
+\begin{document}
+\maketitle
+%\noident
+%{\color{Red} \rule{\linewidth}{0.5mm}
+\begin{abstract}
+La práctica dirigida N$ ^{\circ}$3 tiene como objetivo ejercitar a los asistentes al curso de \LaTeX en el uso de formatos de edición de un documento. Comprende : formatos de párrafo, de letras, de página y la elaboración de listas.
+\end{abstract}
+
+\section{Formatos}
+
+\subsection{Alinear y enfatizar texto}
+\LaTeX presenta por defecto, textos justificados. Pero podemos cambiar la alineación de la siguiente manera:
+\begin{center}
+\textcolor{Blue}{Texto \textbf{\underline{centrado}}}
+\end{center}
+\begin{flushright}
+\textcolor{Blue}{
+\textit{Texto alineado a la \underline{\textbf{derecha}}}}
+\end{flushright}
+En este ejercicio también se \textcolor{Red}{\underline{practicó}} cómo \textcolor{Red}{\underline{enfatizar}} textos.
+
+\section{Tipo de letra y entornos quote y quotation}
+
+Comando \textbf{quote} y tipo \textbf{sffamily}.
+\begin{quote}
+\sffamily
+\textcolor{Blue}{<<\ldots si la anomia es un mal, lo es, ante todo, porque la sociedad lo sufre, no pudiendo prescindir, para vivir, de cohesión y regularidad>>. Emilio Durkheim}
+\end{quote}
+Comando \textbf{quote} y tipo \textbf{ttfamily}.
+\begin{quote}
+\ttfamily
+<<\ldots si la anomia es un mal, lo es, ante todo, porque la sociedad lo sufre, no pudiendo prescindir, para vivir, de cohesión y regularidad.>> Emilio Durkheim
+\end{quote}
+
+\section{Algunos símbolos especiales}
+
+\noindent El precio del barril de petróleo el 14 de agosto de 2015: US\$ 42.74.\\
+El conjunto $a=\{2,4,6,8\}$\\
+Descuento por temporada: 50\%\\
+Clásico de la sociología de la educación: \textit{La  reproducción} (Bordieu \& Passeron,1970).
+\pagebreak
+
+\section{Formatos de página}
+
+\pagecolor{LimeGreen}
+Aplicar el color SpringGreen a esta página.
+
+\section{Escribir listas}
+
+En realidad, no existe un único formato único de presentación de artículos científicos. Sin embargo las revistas científicas, tienden a solicitar a sus contribuyentes que incluyan las siguientes secciones:
+\begin{enumerate}
+\item Resumen
+\item Introducción
+\item Antecedentes
+\begin{itemize}
+\item[a)] Contexto histórico
+\item[b)] Teoría
+\begin{description}
+\item[Teorías a favor.] Estas teorías apoyan la hipótesis aceptada por el investigador.
+\item[Teorías en contra.] Estas teorías cuestionan la hipótesis.
+\end{description}
+\item[c)] Revisión de la literatura
+\end{itemize}
+\item Datos y metodogía
+\item Resultados
+\item Discusión
+\item Conclusiones
+\item Bibliografía
+\end{enumerate}
+\begin{thebibliography}{9} \bibitem{Hellus2015} Hellus, M.; Waldi, R. On the number of numerical semigroups containing two coprime integers $p$ and $q$. Semigroup Forum 90 (2015), no. 3, 833--842.
+\bibitem{venables} Venables, W. N., Smith D. M.and the R Core Team. An Introduction to R CRAN (2015).
+\bibitem{griffith} Griffith, A. B., Salguero-Gómez, R., Merow, C., and McMahon, S. (2016). Demography beyond the population. Journal of Ecology, 104(2), 271-280.
+\end{thebibliography}
+
+\appendix
+
+\section{Código \LaTeX}
+
+\begin{verbatim}
+\documentclass[12pt,a4paper]{article}
+\author{Carlos Alonso Aznarán Laos}
+\begin{document}
+\maketitle
+\end{document}
+\end{verbatim}
+\end{document}

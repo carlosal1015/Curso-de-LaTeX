@@ -1,0 +1,24 @@
+%% 
+%%  Example 02-11-3 
+%%  Copyright (C) 2016 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{158.31393pt}
+\setlength\parindent{0pt}
+%StartShownPreambleCommands
+\usepackage{amsmath}
+\def\clap#1{\hbox to 0pt{\hss#1\hss}}
+\def\mathclap{\mathpalette\mathclapinternal}
+\def\mathclapinternal#1#2{%
+  \clap{$\mathsurround=0pt#1{#2}$}}
+%StopShownPreambleCommands
+\begin{document}
+\[
+X = \sum_{\mathclap{1\le i\le j\le n}}X_{ij}
+\]
+\end{document}

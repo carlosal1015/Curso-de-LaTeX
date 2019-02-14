@@ -1,0 +1,135 @@
+\documentclass[a6paper,12pt,landscape]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage[spanish]{babel}
+\spanishdatedel
+\usepackage{amsfonts}
+\usepackage[pdftex]{graphicx}
+\usepackage{float}
+\usepackage{vmargin}
+\setpapersize{A4} % Define el tamaño del papel.
+\setmargins{2.5cm} % Margen izquierdo
+{1.5cm} % Margen superior
+{16.5cm} % Ancho del área de impresión
+{23.42cm} % Longitud del área de impresión.
+{0pt} % Espacio para el encabezado
+{5mm} % Espacio entre el encabezado y el texto.
+{0pt} % Espacio para el pie de página.
+{5mm} % Espacio entre el texto y el pie de página.
+\graphicspath{./images/}
+\usepackage{lipsum}
+\usepackage{subcaption}
+\usepackage{slashbox} % https://ctan.org/pkg/slashbox
+\usepackage{colortbl}
+\usepackage[table]{xcolor} % Necessary load.
+\usepackage{multicol, multirow}
+
+\input{code.tex}
+\input{colores.tex}
+
+\definecolor{verde}{HTML}{1AB36B}
+\definecolor{naranja}{HTML}{F58039}
+
+\begin{document}
+
+\renewcommand{\tabcolsep}{10pt}
+\renewcommand{\arraystretch}{1.5}
+\renewcommand{\arrayrulewidth}{1pt}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|>{\columncolor{verde}}c|c|c|c|c|c|c|c|c|}
+		\hline
+		\rowcolor{verde}
+		\multicolumn{1}{|c|}{\multirow{3}{*}{\textbf{Universidad}}}&\multicolumn{4}{c|}{Año 1996} &\multirow{3}{*}{Total}&\multicolumn{4}{c|}{Año 2010}&\multirow{3}{*}{Total} \\
+		\cline{2-5} \cline{7-10}\multicolumn{1}{|c|}{} & \multicolumn{2}{c|}{Alumnos} & \multirow{2}{*}{Docente universitario} & \multirow{2}{*}{Personal administrativo y de servicio} &  & \multicolumn{2}{c|}{Alumnos} & \multirow{2}{*}{Docente universitario} & \multirow{2}{*}{Personal administrativo y de servicio} &  \\ \cline{2-3} \cline{7-8} \multicolumn{1}{|c|}{} & Pre grado  & Post grado &  &  &   & Pre grado  & Post grado  &   &   & \\
+		\hline
+		Universidad Nacional Agraria La Molina  & 3,225 & 268  & 453  & 498 & 4,434 & 4,903 & 976 & 445  & 802  & 7,126\\
+		\rowcolor{naranja}
+		\hline
+		Universidad Nacional de Ingeniería & 6953  & 277 & 940 & 598& 8768 & 11034  & 1068 & 1210 & 1489 & 14801\\
+		\hline
+		Universidad Nacional de Educación Enrique Guzmán y Valle & 6388  & 147 & 458 & 344  & 7337  & 9178  & 2144 & 727  & 561  & 12610\\
+		\hline
+		Universidad Nacional del Callao  & 8066  & -  & 530 & 216 & 8812 & 13584& 391& 632 & 497  & 15104  \\ 
+		\hline
+		Universidad Nacional Federico Villareal& 16173 & 992 & 1492 & 862 & 19519 & 23105 & 2447 & 1936 & 1072 & 28560 \\
+		\hline
+		Universidad Nacional Mayor de San Marcos & 21341 & 3077 & 2677 & 1267 & 28362 & 28645  & 3477  & 2711 & 2786& 37619 \\
+		\hline
+	\end{tabular}
+	\caption{Tabla con colores}
+\end{table}
+
+\begin{table}[H]
+	\centering
+\begin{tabular}{|l|c|c|c|c|c|c|c|c|c|c|}
+	\hline
+	\multicolumn{1}{|c|}{\multirow{3}{*}{\textbf{Universidad}}}&\multicolumn{4}{c|}{Año 1996} &\multirow{3}{*}{Total}&\multicolumn{4}{c|}{Año 2010}&\multirow{3}{*}{Total} \\
+	\cline{2-5} \cline{7-10}\multicolumn{1}{|c|}{} & \multicolumn{2}{c|}{Alumnos} & \multirow{2}{*}{Docente universitario} & \multirow{2}{*}{Personal administrativo y de servicio} &  & \multicolumn{2}{c|}{Alumnos} & \multirow{2}{*}{Docente universitario} & \multirow{2}{*}{Personal administrativo y de servicio} &  \\ \cline{2-3} \cline{7-8} \multicolumn{1}{|c|}{} & Pre grado  & Post grado &  &  &   & Pre grado  & Post grado  &   &   & \\
+	\hline
+	Universidad Nacional Agraria La Molina  & 3,225 & 268  & 453  & 498 & 4,434 & 4,903 & 976 & 445  & 802  & 7,126\\
+	\hline
+	Universidad Nacional de Ingeniería & 6953  & 277 & 940 & 598& 8768 & 11034  & 1068 & 1210 & 1489 & 14801\\
+	\hline
+	Universidad Nacional de Educación Enrique Guzmán y Valle & 6388  & 147 & 458 & 344  & 7337  & 9178  & 2144 & 727  & 561  & 12610\\
+	\hline
+	Universidad Nacional del Callao  & 8066  & -  & 530 & 216 & 8812 & 13584& 391& 632 & 497  & 15104  \\ 
+	\hline
+	Universidad Nacional Federico Villareal& 16173 & 992 & 1492 & 862 & 19519 & 23105 & 2447 & 1936 & 1072 & 28560 \\
+	\hline
+	Universidad Nacional Mayor de San Marcos & 21341 & 3077 & 2677 & 1267 & 28362 & 28645  & 3477  & 2711 & 2786& 37619 \\
+	\hline
+	\multicolumn{1}{|c|}{TOTAL} & \textbf{62,146} & \textbf{4,751} & \textbf{6,550} & \textbf{3,785} & \textbf{} & \textbf{90,449} & \textbf{10,503} & \textbf{7,661} & \textbf{7,207}& \textbf{}\\
+	\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|>{\cellcolor{myBlue!75}}cc|c|c|}
+		\hline
+		\rowcolor{myBlue!75}
+		& \multicolumn{3}{c|}{\textcolor{white}{Tolerancia Resistiva ($\pm$)}} \\
+		\rowcolor{myBlue!75}
+		& \textcolor{white}{20\%} & \textcolor{white}{10\%} & \textcolor{white}{5\%} \\
+		& \multirow{4}{*}{100} & \multirow{2}{*}{100} & 100 \\
+		& & & 91 \\
+		\cline{3-4}
+		& & \multirow{2}{*}{82} & 82\\
+		& & & 75 \\
+		\cline{2-4}
+		& \multirow{4}{*}{68} & \multirow{2}{*}{68} & 68 \\
+		& & & 62 \\
+		\cline{3-4}
+		& & \multirow{2}{*}{56} & 56 \\
+		& & & 51 \\
+		\cline{2-4}
+		& \multirow{4}{*}{47} & \multirow{2}{*}{47} & 47 \\
+		& & & 43 \\
+		\cline{3-4}
+		& & \multirow{2}{*}{39} & 39 \\
+		& & & 36 \\
+		\cline{2-4}
+		& \multirow{4}{*}{33} & \multirow{2}{*}{33} & 33 \\
+		& & & 30 \\
+		\cline{3-4}
+		& & \multirow{2}{*}{27} & 27 \\
+		& & & 24 \\
+		\cline{2-4}
+		& \multirow{4}{*}{22} & \multirow{2}{*}{22} & 22 \\
+		& & & 20 \\
+		\cline{3-4}
+		& & \multirow{2}{*}{18} & 18 \\
+		& & & 16 \\
+		\cline{2-4}
+		& \multirow{4}{*}{15} & \multirow{2}{*}{15} & 15 \\
+		& & & 13 \\
+		\cline{3-4}
+		& & \multirow{2}{*}{12} & 12 \\
+		& & & 11 \\
+		\cline{2-4}
+		\multirow{-25}{*}{\rotatebox[origin=c]{90}{\textcolor{white}{Valores de Resistencia Estándar}}} & 10 & 10 & 10 \\
+		\hline
+	\end{tabular}
+\end{table}
+\end{document}

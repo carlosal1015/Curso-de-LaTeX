@@ -1,0 +1,135 @@
+% tarea6.tex
+%
+% Copyright © 2018 Oromion <caznaranl@uni.pe>
+%
+% This program is free software: you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
+%
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+% along with this program.  If not, see <http://www.gnu.org/licenses/>.
+%
+\documentclass[12pt]{beamer}
+\setbeamercolor{title}{bg = magenta!50!black, fg= white}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\spanishdatedel
+\uselanguage{Spanish} % Teoremas en idioma que elijas.
+\languagepath{Spanish}
+\input{code.tex}
+\input{comandos.tex}
+\usepackage{cprotect} % Allow \cprotect for display code with \verb|code|
+\usepackage{graphicx}
+\usepackage{verbatim}
+\usepackage{enumerate}
+\usetheme{Frankfurt}
+\usecolortheme{dolphin}
+\usefonttheme{professionalfonts}
+
+\begin{document}
+\author{Matemático Oromion}
+\title{\Large Renombrando comandos en \LaTeX{} con}
+\cprotect\subtitle{\verb|\renewcommand{cmd}[args]{def}|}
+\logo{\includegraphics[scale=.5]{peru.jpg}}
+\institute{\large Universidad del Perú}
+\date{\textcolor{magenta}{\today}}
+\subject{Fin del curso}
+\setbeamercovered{transparent}
+\setbeamertemplate{navigation symbols}{}
+
+\begin{frame}[plain]
+	\maketitle
+\end{frame}
+
+\begin{frame}{Contenidos}{Presentación final}
+\tableofcontents
+\end{frame}
+
+\section{Introducción}
+\cprotect\subsection{Entiendiendo el comando: \verb!\newcommand{\newbox}[args]{def}!}
+
+\begin{frame}[fragile]
+\frametitle{\thesection.\thesubsection. Entendiendo el comando \cmd{newcommand} \footnote{Por favor, vea la lista completa de comandos en \texttt{comandos.tex} }}
+\centering
+\verb|\newcommand{cmd}[args]{def}|
+
+\begin{columns}
+\column{0.5\textwidth}
+
+
+\begin{itemize}
+	\item El primer argumento obligatorio es para nombrar el \cmd{comando}.
+	\item El primer argumento opcional indica la cantidad de parámetros.
+	\item El segundo argumento obligatorio recibe la acción.
+\end{itemize}
+\column{0.5\textwidth}
+\begin{block}{Ejemplos}
+\begin{enumerate}[a)]
+\item Con un argumento.
+$\gammita\quad\Rsqr[1]$
+\item Con dos argumentos.
+\[\polyrational{ax^{2}+bx+c}{x^{p}-1}\]
+\end{enumerate}
+\end{block}
+
+\begin{alertblock}{¡Cuidado!}
+Se comete un error si el comando ya está definido.
+\end{alertblock}
+\end{columns}
+
+\end{frame}
+
+\cprotect\subsection{Aprendiendo el comando: \verb!\renewcommand{cmd}[args]{def}!}
+
+\begin{frame}[fragile]
+\frametitle{\thesection.\thesubsection. Aprendiendo el comando \cmd{renewcommand}}
+\vspace*{-2cm}
+\centering
+\verb|\renewcommand{cmd}[args]{def}|
+
+\begin{block}{Comando \cmd{renewcommand}}
+Redefine un comando predefinido y comete un error si aún no está definido.
+\end{block}
+\end{frame}
+
+\cprotect\subsection{Extra: \verb!\providecommand{cmd}[args]{def}!}
+
+\begin{frame}[fragile]
+\frametitle{\thesection.\thesubsection. Extra: \cmd{providecommand}}
+\vspace*{-2cm}
+\centering
+\verb|\providecommand{cmd}[args]{def}|
+\begin{alertblock}{¡Cuidado!}
+Define un nuevo comando si aún no está definido.
+\end{alertblock}
+\end{frame}
+
+\cprotect\subsection{Usando el comando robusto: \verb!\@!}
+
+\section{Ejemplos}
+
+\subsection{Definiendo el estilo del modo matemático de una }
+
+\begin{frame}
+\frametitle{\thesection. \thesubsection. Ecuación en derivadas parciales}
+Comando renombrado \cmd{gammita}
+\[\gammita\]
+\end{frame}
+
+\subsection{Creando un comando de una caja}
+
+\section{\thesection. Agradecimientos}
+\subsection{Ubuntu Colombia}
+
+\begin{frame}
+\frametitle{Agradecimientos}
+\Large
+Felicito y agradezco al profesor Fausto Suárez y a la coordinadora Lina Porras por su apoyo a la difusión de \LaTeX{} en Sudamérica.
+\end{frame}
+\end{document}

@@ -1,0 +1,73 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%% 
+%%  Beispiel 09-18-1 auf Seite 206.
+%% 
+%%  Copyright (C) 2012 Vo\ss 
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+
+% Show page(s) 1,2
+
+%% ==== 
+\PassOptionsToClass{12pt}{beamer}
+\documentclass{exaarticle}
+\AtBeginDocument{\setlength\parindent{0pt}}
+\usepackage[ngerman]{babel}
+\usepackage[a5paper,margin=2cm]{geometry}
+
+\StartShownPreambleCommands
+\usepackage{xcolor,mdframed,amsmath}
+\usepackage[math]{blindtext}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}  \allowdisplaybreaks
+\StopShownPreambleCommands
+
+\begin{document}
+\mdfdefinestyle{theoremstyle}{linecolor=red,linewidth=2pt,frametitlerule=true,%
+  frametitlebackgroundcolor=gray!20,innertopmargin=\topskip}
+\mdtheorem[style=theoremstyle]{definition}{Definition}
+\begin{definition}[Quadratische Gleichung]
+\addtolength\jot{5pt}
+\begin{align}
+f(x)        &= g(x)\\
+-x^{2}+6x-5 &= -\frac{1}{3}x^{2}+
+  \frac{4}{3}x+\frac{5}{3}\\
+          0 &= \frac{2}{3}x^{2}-\frac{14}{3}x+
+               \frac{20}{3}\label{eq:fg}\\
+          0 &= x^{2}-7x+10\label{eq:4}\\
+          0 &= (x-2)(x-5)\\
+\mathbb{L}  &= \{2;\ 5\}\\[10pt]
+F&=\int\limits_2^5\left(g(x)-f(x)\right)\diff x \\[10pt]
+F &= \int\limits_2^5\left(\frac{2}{3}x^{2}\frac{14}{3}x+\frac{20}{3}\right)\diff x\\
+  &= \left[\frac{2}{9}x^{3}-\frac{14}{6}x^{2}+\frac{20}{3}x\right]_{2}^{5}\\
+  &= \underbrace{{\vphantom{\left(\frac{2}{9}\right)}
+     \frac{2}{9}\cdot125-\frac{14}{6}\cdot25+\frac{20}{3}
+     \cdot5}}_{\textrm{obere Grenze}}\underbrace{\vphantom{%
+     \left(\frac{2}{9}\right)}-}_{-}\underbrace{\left(\frac{2}{9}
+     \cdot8-\frac{14}{6}\cdot4+\frac{20}{3}\cdot
+     2\right)}_{\textrm{untere Grenze}}\\[10pt]
+  &= \frac{500-1050+600}{18}-\frac{32-168+240}{18}\\
+  &= \frac{50}{18}-\frac{104}{18}\\
+  &= -\frac{54}{18} = -3\\[10pt]
+f(x) &= -x^{2}+6x-5=-\left(x^{2}-6x+5\right)\\
+     &= -\left(x-1\right)\left(x-5\right)\\[10pt]
+f(x) &= -x^{2}+6x-5=-\left(x^{2}-6x+5\right)\\
+     &= -\left(x^2-2\cdot3\cdot x+3^2-3^2+5\right)\\[-\normalbaselineskip]
+     & \phantom{\mathrel{{}=-{}}(}\underbrace{\phantom{x^{2}-2\cdot3\cdot
+        x+3^2}}_{\left(x-3\right)^2}\underbrace{\phantom{-3^2+5}}_{-4}\nonumber\\[10pt]
+g(x) &= -\frac{1}{3}x^{2}+\frac{4}{3}x+\frac{5}{3}\\
+     &= -\frac{1}{3}\left(x^{2}-4x-5\right)\\
+     &= -\frac{1}{3}\left(x+1\right)\left(x-5\right)\qquad\boxed{\mathbb{L}=\{-1;5\}}\\
+g(x) &= -\frac{1}{3}x^{2}+\frac{4}{3}x+\frac{5}{3}\\
+     &= -\frac{1}{3}\left(x^{2}-4x-5\right)\\
+     &= -\frac{1}{3}\left(x^{2}-2\cdot2\cdot x+2^{2}-2^{2}-5\right)\\
+     &= -\frac{1}{3}\left(\left(x-2\right)^{2}-9\right)\\
+     &= -\frac{1}{3}\left(x-2\right)^{2}+3\qquad\boxed{SP(2;3)}
+\end{align}
+\end{definition}
+\end{document}

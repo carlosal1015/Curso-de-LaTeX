@@ -1,0 +1,41 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 32-02-9 on page 657.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{201.70511pt}
+\setlength\parindent{0pt}
+
+\usepackage{uml}
+
+\begin{document}
+\umlDiagram[box=,sizeX=5cm,sizeY=5cm,ref=relation]{%
+ \umlClass[pos=\umlBottomLeft{relation},posDelta={1,1},refpoint=bl,reference=A]{Class A}{}{}
+ \umlClass[pos=\umlTopRight{relation},posDelta={-1,-1},refpoint=tr,reference=B]{Class B}{}{}
+ \umlRelation{A}{B}{\umlLabelA{AB}{*}\umlLabelB{AB}{1}}
+ \umlLabel[fraction=0.5,offset=0]{AB}{centre}
+ \umlSubclass[ref=ABsub,angleA=0,armA=5,armAngleA=0,angleB=300,nodesep=1ex]{A}{B}
+ \umlComposition[%
+    reference=ABComp, % mark
+    angleA=120,       % start at A
+    arm=3,            % middle line
+    armAngleA=80,     % angle of the arm A
+    angleB=180,       % start at B
+    armAngleB=190     % angle of the arm B
+    ]{A}{B} % upper line
+ \umlNavigabilityA{ABComp}}% arrow at A
+\end{document}

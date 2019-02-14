@@ -1,0 +1,35 @@
+%% 
+%%  Example 07-04-1 
+%%  Copyright (C) 2017 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{328.62788pt}
+\setlength\parindent{0pt}
+\usepackage[T1]{fontenc}
+%StartShownPreambleCommands
+\usepackage{amsmath}
+%StopShownPreambleCommands
+\begin{document}
+\begin{equation}
+\begin{array}{rcll}
+y & = & x^{2}+bx+c\\
+  & = & x^{2}+2\cdot{\displaystyle\frac{b}{2}x+c}\\
+  & = & \underbrace{x^{2}+2\cdot\frac{b}{2}x+\left(\frac{b}{2}\right)^{2}}-{\displaystyle
+ \left(\frac{b}{2}\right)^{2}+c}\\
+  &  & \qquad\left(x+{\displaystyle \frac{b}{2}}\right)^{2}\\
+  & = & \left(x+{\displaystyle \frac{b}{2}}\right)^{2}-\left({\displaystyle
+     \frac{b}{2}}\right)^{2}+c & \left|+\left({\displaystyle
+ \frac{b}{2}}\right)^{2}-c\right.\\
+y+\left({\displaystyle \frac{b}{2}}\right)^{2}-c & = & \left(x+{\displaystyle
+      \frac{b}{2}}\right)^{2} & \left|(\text{Scheitelpunktform})\right.\\
+y-y_{S} & = & (x-x_{S})^{2}\\
+S(x_{S};y_{S}) & \,\text{bzw.}\, & S\left(-{\displaystyle
+    \frac{b}{2};\,\left({\displaystyle \frac{b}{2}}\right)^{2}-c}\right)
+\end{array}
+\end{equation}
+\end{document}

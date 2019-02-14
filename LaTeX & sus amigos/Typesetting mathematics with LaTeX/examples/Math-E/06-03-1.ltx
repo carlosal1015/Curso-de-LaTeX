@@ -1,0 +1,36 @@
+%% 
+%%  An UIT Edition example
+%% 
+%%  Example 06-03-1 on page 88.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{201.70511pt}
+\AtBeginDocument{\setlength\parindent{0pt}}
+\setcounter{equation}{30}
+\usepackage[english]{babel}
+\renewcommand\theequation{6.\arabic{equation}}
+\StartShownPreambleCommands
+\usepackage{amsmath}
+\StopShownPreambleCommands
+\begin{document}
+A normal pointless line of text before
+the formula.
+\begin{gather}
+ i_{11}=0.25\\
+ i_{21}=\frac{1}{3}i_{11}\nonumber \\
+ i_{31}=0.33i_{22}       \nonumber
+\end{gather}
+\end{document}

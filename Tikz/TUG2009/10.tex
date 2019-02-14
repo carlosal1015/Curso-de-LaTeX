@@ -1,0 +1,11 @@
+\documentclass[tikz]{standalone}
+\usetikzlibrary{calc}
+\usepackage{mathrsfs}
+\begin{document}
+	\begin{tikzpicture}[scale=0.5]
+	\coordinate [label=left:$\mathsf{A}$] (A) at (1.2, 1.2);
+	\coordinate [label=right:$\mathsf{B}$] (B) at (5.2, 3.8);
+	\draw (A) -- (B);
+	\draw (A) let \p1 = ($ (B) - (A) $) in circle ({veclen(\x1,\y1)});
+	\end{tikzpicture}
+\end{document}

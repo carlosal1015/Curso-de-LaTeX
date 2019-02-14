@@ -1,0 +1,42 @@
+%% 
+%%  An UIT Edition example
+%% 
+%%  Example 04-01-6 on page 34.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{375.57637pt}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\setcounter{equation}{4}
+\renewcommand\theequation{4.\arabic{equation}}
+\AtBeginDocument{\setlength\parindent{0pt}}
+\StartShownPreambleCommands
+
+\StopShownPreambleCommands
+\begin{document}
+\begin{equation}
+x = \left\{
+  \begin{array}{ l p{0.7\textwidth} }
+    0 & if A=\ldots\tabularnewline
+    1 & if B=\ldots\tabularnewline
+    x & \parbox[t]{0.75\columnwidth}{This text can be as long as you want it
+    to be, and now it will even wrap onto several lines because of the
+    \texttt{\textbackslash parbox} used. Isn't that nice. After all it doesn't
+    look good if the text protrudes into the margin like it did before.}
+  \end{array}
+  \right.
+\end{equation}
+\end{document}

@@ -1,0 +1,37 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%%  Mathematiksatz mit LaTeX
+%%  2. Auflage
+%% 
+%%  Beispiel 11-02-2 auf Seite 243.
+%% 
+%%  Copyright (C) 2012 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\newcounter{mathctr}
+\newcommand\showMathAlphabets{\setcounter{mathctr}{0}
+  \loop\ifnum\themathctr<16 (\themathctr:~\fontname\textfont\arabic{mathctr})
+    \stepcounter{mathctr}
+  \repeat}
+\DeclareMathVersion{foo} \SetMathAlphabet{\mathbf}{foo}{OMS}{cmsy}{m}{n}
+\DeclareMathAlphabet{\mathxy}{OT1}{cmr}{bx}{n}
+\SetMathAlphabet{\mathxy}{foo}{OT1}{}{}{}
+\StopShownPreambleCommands
+\begin{document}
+Text:\par  \showMathAlphabets
+\end{document}

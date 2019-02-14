@@ -1,0 +1,49 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%% 
+%%  Copyright (C) 2011 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{375.57637pt}
+\setlength\parindent{0pt}
+
+\usepackage{pst-solides3d}
+
+\begin{document}
+\psset{viewpoint=50 50 20 rtp2xyz,lightsrc=25 37 17,Decran=30}
+\begin{pspicture}(-1.5,-1)(1.5,6)
+\psSolid[object=grille,base=-2 2 -2 2,ngrid=8]
+\psSolid[object=prisme,h=10,ngrid=20 2,hue=0 1 0.4 5,
+  base=.5 0 .5 .5 0 .5 -.5 .5 -.5 0 -.5 -.5 0 -.5 .5 -.5]
+\end{pspicture}
+%
+\begin{pspicture}(-1.5,-1)(1.5,6)
+\psSolid[object=grille,base=-2 2 -2 2,ngrid=8]
+\pstVerb{
+  /torsion {       % x y z are on the stack
+    2 dict begin   % keep everything local
+    /M defpoint3d  % save x y z coordinates
+    M              % put x y z back on the stack
+    /z exch def    % save z coordinate
+    pop pop        % delete x y
+    M 		   % put x y z on the stack
+    0 0 z 18 mul   % put 0 0 18*z on the stack
+    rotateOpoint3d % rotate point
+    end
+  } def }%
+\psSolid[object=prisme,h=10,ngrid=20 2,transform=torsion,hue=0 1 0.4 5,
+  base=.5 0 .5 .5 0 .5 -.5 .5 -.5 0 -.5 -.5 0 -.5 .5 -.5]
+\end{pspicture}
+\end{document}

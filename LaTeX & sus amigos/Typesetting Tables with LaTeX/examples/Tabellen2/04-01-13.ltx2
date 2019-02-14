@@ -1,0 +1,44 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Beispiel 04-01-13 auf Seite 137.
+%% 
+%%  Copyright (C) 2010 H. Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+
+%%Run also: >>  << 
+% Show page(s) 1,2
+
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{173.82971pt}
+\usepackage[utf8]{inputenc}% adapt maybe
+\usepackage[paper=70mm:85mm,pagesize]{typearea}
+\setlength\parindent{0pt}
+\usepackage{fancyhdr}
+\lhead{\small\texttt{\textbackslash caption}-Demo}
+\pagestyle{fancy}
+\setcounter{page}{1}
+\renewcommand\thepage{Seite \arabic{page}}
+
+\usepackage{longtable}
+
+\begin{document}
+Eine Demo\footnote{Textzeile} für Fußnoten.
+\begin{longtable}{@{}l c r p{1.5cm}@{}}
+L\footnote{Überschrift} & Z & R & Box\\\hline
+l & c\footnote{Erste Zeile, zweite Spalte} & r & 1. Zeile
+\\ l & c & r\footnote{Zweite Zeile, dritte Spalte} & 2. Zeile\\
+l & c & r & 3. Zeile\\ l & c & r & 4. Zeile\\ l & c & r & 5. Zeile
+\\ l & c & r & 6. Zeile\\ l & c & r & 7. Zeile\\
+l & c & r & 8. Zeile\footnote{Achte Zeile, letzte Spalte}\\ l & c & r & 9. Zeile\\
+l & c & r &10. Zeile\\ l\footnote{Elfte Zeile, erste Spalte} & c & r &11. Zeile\\\hline
+\end{longtable}
+Eine Demo\footnote{Textzeile} für Fußnoten.
+\end{document}

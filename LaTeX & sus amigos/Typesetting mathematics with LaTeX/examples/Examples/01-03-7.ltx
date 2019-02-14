@@ -1,0 +1,43 @@
+%% 
+%%  Example 01-03-7 
+%%  Copyright (C) 2017 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{328.62788pt}
+\setlength\parindent{0pt}
+%StartShownPreambleCommands
+\usepackage{amsmath}
+\makeatletter
+%Roman counter
+\newcounter{roem} \renewcommand\theroem{\roman{roem}}
+% save the original counter
+\newcommand\c@org@eq{}  \let\c@org@eq\c@equation
+\newcommand\org@theeq{} \let\org@theeq\theequation
+%\setroem sets roman counting
+\newcommand\setroem{\let\c@equation\c@roem \let\theequation\theroem}
+%\setarab the arabic counting
+\newcommand\setarab{\let\c@equation\c@org@eq \let\theequation\org@theeq}
+\makeatother
+%StopShownPreambleCommands
+\begin{document}
+\begin{align}
+f(x) &= \int\sin x\,\mathrm{d}x\label{eq:arab1}\\  g(x) &= \int\frac{1}{x}\,\mathrm{d}x
+\end{align}
+%
+\setroem
+\begin{align}
+F(x) &=-\cos x          \\   G(x) &=\ln x\label{eq:rom1}
+\end{align}
+%
+\setarab
+\begin{align}
+f^{\prime} (x) &= \sin x\\  g^{\prime} (x) &= \frac{1}{x}\label{eq:arab2}
+\end{align}
+There can be references to these equations in the usual way, like eq.\ref{eq:arab1},
+\ref{eq:arab2} and for the roman one eq.\ref{eq:rom1}.
+\end{document}

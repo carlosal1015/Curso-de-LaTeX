@@ -1,0 +1,47 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Beispiel 06-00-40 auf Seite 205.
+%% 
+%%  Copyright (C) 2010 H. Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+
+%%Run also: >>  << 
+% Show page(s) 1
+
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{355.65944pt}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+
+\usepackage{tabularx,numprint,spreadtab}
+
+\begin{document}
+\nprounddigits2
+\begin{spreadtab}{{tabularx}{0.8\linewidth}{|
+  >{\rule[-1.2ex]{0pt}{4ex}}X >{{\bfseries}}N42
+  >{\bfseries}c N42 >{\bfseries}c N42|}}\hline
+@Pos. & @\multicolumn{1}{c}{Preis/Einh.} & @\multicolumn{1}{c}{Anzahl} &
+@\multicolumn{1}{c}{Preis} & @\multicolumn{1}{c}{Rabatt} & @\textbf{Netto}\\\hline
+@1 & 5.99 & 20 & [-2,0]*[-1,0] & $-:={20}\%$ & [-2,0]*(1-[-1,0]/100)\\
+@2 & 12   & 7  & [-2,0]*[-1,0] & $-:={10}\%$ & [-2,0]*(1-[-1,0]/100)\\
+@3 & 4.50 & 40 & [-2,0]*[-1,0] & $-:={35}\%$ & [-2,0]*(1-[-1,0]/100)\\
+@4 & 650  & 2  & [-2,0]*[-1,0] & $-:={15}\%$ & [-2,0]*(1-[-1,0]/100)\\\hline
+@\multicolumn{6}{c}{\vspace{-1.5ex}}\\\cline{4-6}
+@\multicolumn{1}{c}{\rule[-1.2ex]{0pt}{4ex}} &
+@\multicolumn{2}{r|}{Summe} & sum(d2:[0,-2])
+  & \multicolumn{1}{c}{$:={round(([1,0]/[-1,0]-1)*100,0)}\%$}
+  & {\bfseries}:={sum(f2:[0,-2])}\\\cline{4-6}
+@\multicolumn{3}{r|}{} & @\multicolumn{1}{r}{\textbf{MWSt}} & @ 19\%
+  & {\bfseries}:={[0,-1]*0.19}\\\cline{4-6}
+@\multicolumn{3}{r|}{} &
+@\multicolumn{2}{r}{\textbf{Endsumme}} & {\bfseries}:={[0,-2]+[0,-1]}\\\cline{4-6}
+\end{spreadtab}
+\end{document}

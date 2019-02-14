@@ -1,0 +1,46 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%% 
+%%  Copyright (C) 2011 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{375.57637pt}
+\setlength\parindent{0pt}
+\usepackage[utf8]{inputenc}
+\def\Lcs#1{\texttt{\textbackslash#1}}
+
+\usepackage{pst-node}
+
+\begin{document}
+Especially when defining nodes such as \Lcs{cnode}\{3pt\}\{A\}, \cnode*{3pt}{A}
+the coordinates aren't known explicitly as the nodes appear in the middle of text or
+are the result of a temporary calculation, but sometimes you do want to know those
+coordinates. This isn't possible at \TeX{} level as explained before, so we have to
+fall back on the possibilities that PSTricks offers.
+
+\bigskip
+\begin{pspicture}[showgrid](1,1)
+  \Cnode*[radius=0.1](0.5,0.5){B}
+  \makeatletter
+  \psline[arrowscale=2,linestyle=dashed]{->}(B)(!%
+    tx@NodeDict begin
+      /N@B load GetCenter /yB ED /xB ED % centre of node B
+      /N@A load GetCenter /yA ED /xA ED % centre of node A
+      xA xB sub 0.7 mul xB add \pst@number\psxunit div
+      yA yB sub 0.7 mul yB add \pst@number\psyunit div
+    end)
+  \makeatother
+\end{pspicture}
+\end{document}

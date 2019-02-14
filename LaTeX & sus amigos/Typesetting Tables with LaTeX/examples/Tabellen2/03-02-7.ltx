@@ -1,0 +1,39 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Beispiel 03-02-7 auf Seite 121.
+%% 
+%%  Copyright (C) 2010 H. Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+
+%%Run also: >>  << 
+% Show page(s) 1
+
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{146.59192pt}
+\setlength\parindent{0pt}
+
+\usepackage[table]{xcolor}
+\usepackage{array}
+\newcommand*\Nr{\makebox[1cm]{%
+  \textcolor{CL!!+}{\number\rownum}}}
+
+\begin{document}
+\definecolorseries{CS}{rgb}{last}{yellow}{blue}
+\definecolorseries{CL}{rgb}{last}{blue}{yellow}
+\resetcolorseries[13]{CS}
+\resetcolorseries[13]{CL}
+\rowcolors[\hline]{1}{CS!!+}{CS!!+}
+\begin{tabular}{c}
+\Nr\\ \Nr\\ \Nr\\ \Nr\\ \Nr\\
+\Nr\\ \Nr\\ \Nr\\ \Nr\\ \Nr\\
+\Nr\\ \Nr\\ \Nr
+\end{tabular}
+\end{document}

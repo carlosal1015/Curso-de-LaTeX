@@ -1,0 +1,40 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%%  
+%%  7. Auflage
+%% 
+%%  Beispiel 35-00-59 auf Seite 842.
+%% 
+%%  Copyright (C) 2016 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+%StartShownPreambleCommands
+\usepackage{pst-plot,pst-node,multido}
+%StopShownPreambleCommands
+\begin{document}
+\psset{unit=0.8}
+\begin{pspicture}(-1,-1)(9,9)
+\psaxes[ticksize=0 -4pt]{->}(8,8)
+{\psset{plotpoints=150,algebraic,linewidth=1.5pt}
+\psparametricplot[linecolor=blue]{0}{10}{0.8*sqrt(t*t)|sin(t)+0.8*t}
+\psparametricplot[linecolor=red]{0}{10}{2*sqrt(t)|cos(t)+0.25*t}}
+% define nodes P0..P19 on first curve, nodes Q0..Q19 on second
+\curvepnodes[plotpoints=20]{0}{10}{0.8*sqrt(t*t)|sin(t)+0.8*t}{P}
+\curvepnodes[plotpoints=20]{0}{10}{2*sqrt(t)|cos(t)+0.25*t}{Q}
+\multido{\i=0+1}{20}{\psline{<->}(P\i)(Q\i)}
+\end{pspicture}
+\end{document}

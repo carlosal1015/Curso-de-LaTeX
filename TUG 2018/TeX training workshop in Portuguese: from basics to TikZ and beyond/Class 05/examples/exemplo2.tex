@@ -1,0 +1,21 @@
+\documentclass[tikz]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\begin{document}
+\begin{tikzpicture}[auto,node distance = 3cm,->,>=stealth',shorten >=1pt,
+		every node/.style = { circle, draw,
+			 	 font = \sffamily\Large\bfseries}]   
+
+		\node (1) {1};
+		\node (2) [below left of  =1] {2};
+		\node (3) [below right of =2] {3};
+		\node (4) [below right of =1] {4};
+
+	\path[every node/.style = {font = \sffamily\small}]
+		(1) edge node [left]	{0.6}	(4)
+		(2) edge node [right]	{0.4}	(1)
+				edge node					{0.3}	(4)
+		(3)	edge node [right]	{0.8} (2)
+		(4) edge node [left]	{0.2} (3);
+\end{tikzpicture}
+\end{document}

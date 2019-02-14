@@ -1,0 +1,108 @@
+\PassOptionsToPackage{table,dvipsnames,cmyk,svgnames,prologue}{xcolor}
+\documentclass[final,border=10pt]{standalone}
+%\documentclass[minion,final,a4paper,english,ngerman]{ttct}
+%\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+%\usepackage[lucidasmallscale]{lucidabr}
+\usepackage%[osf]
+{libertineotf}
+\usepackage{microtype,dtk-logos}
+\usepackage[english,ngerman]{babel}
+
+\def\XInfofont{}
+
+\usepackage{pstricks}
+\usepackage{pst-node}
+\def\PDF{PDF}\def\DVI{DVI}
+%\usepackage{LaTeXRef}
+
+\pagestyle{empty}
+\begin{document}
+
+\psset{shadow=true,shadowcolor=black!40}
+\begin{pspicture}[showgrid=false](-1,-1.7)(12,9.3)
+\rput(5,9){\rnode{A}{\psframebox[framearc=0.4,fillcolor=Goldenrod!80,fillstyle=solid]{\quad\textbf{\LaTeX\ Quelltext}\quad}}}
+\rput(5,7.5){\rnode{B}{\psframebox[doubleline=true,fillcolor=Yellow!30,fillstyle=solid]{%
+    \kern5mm\large\textbf{??\TeX-Compiler}\kern5mm}}}
+\ncline[shadow=false]{->}{A}{B}
+%
+\rput(9.5,8.5){\rnode{C}{%
+    \psframebox[framearc=0.4,fillcolor=Goldenrod!30,fillstyle=solid]{%
+	\tabular{l}Klassendatei\\Zusatzpakete\endtabular}}}
+\ncangle[shadow=false,angleA=-90,offsetB=-5pt,angleB=0]{->}{C}{B}
+%
+\rput(0.5,8.5){\rnode{D}{%
+    \psframebox[framearc=0.4,fillcolor=Goldenrod!30,fillstyle=solid]{%
+	\tabular{l}binäre Formatdatei\\Fonts (Metriken)\endtabular}}}
+\ncangle[shadow=false,angleA=-90,angleB=180]{->}{D}{B}
+%
+\rput(4.0,6){\rnode{E}{\psframebox[framearc=0.4,fillcolor=Yellow!30,fillstyle=solid]{%
+ 	\rule[-8pt]{0pt}{20pt}\kern2pt\texttt{DVI}-Datei\kern2pt}}}
+\ncangle[shadow=false,angleA=90,angleB=-90,offsetB=1cm]{<-}{E}{B}
+%
+\rput(7.25,6){\rnode{F}{\psframebox[framearc=0.4,fillcolor=Yellow!30,fillstyle=solid]{%
+ 	\rule[-8pt]{0pt}{20pt}\kern2pt Hilfsdateien\kern2pt}}}
+%\ncline[offsetA=12pt,nodesepA=14pt]{->}{B}{F}
+\psline[shadow=false]{->}(6.5,7.1)(6.5,6.47)
+\ncangle[shadow=false,angleA=90,offsetA=-20pt,offsetB=5pt,angleB=0]{->}{F}{B}
+%
+\rput(10,6){\rnode{G}{\psframebox[fillcolor=Goldenrod!60,fillstyle=solid]{%
+ 	\rule[-8pt]{0pt}{20pt}\small\tabular{@{}l@{}}externe Programme\\[-2pt]
+	Index, \\[-2pt] Bibliografie, \\[-2pt] Glossar)\endtabular}}}
+\ncline[shadow=false]{->}{F}{G}
+\ncangles[shadow=false,angleA=0,angleB=0]{->}{G}{B}
+%
+\rput(4.0,4.45){\rnode{H}{\psframebox[fillcolor=Goldenrod!80,fillstyle=solid]{%
+ 	\texttt{DVI}-Treiber\vphantom{j}}}}
+\ncline[shadow=false]{->}{E}{H}
+%
+\rput(0,4.25){%
+    \psframebox[framearc=0.4,fillcolor=Goldenrod!30,fillstyle=solid]{%
+	\tabular{l}\rnode{I}{Fonts (Type~1,}\\%Bitmap,TrueType\\
+	%\rnode{I1}{Type3, Bitmap}\\
+	                                       \rnode{I1}{OpenType, \ldots)}\endtabular}}
+\ncline[shadow=false,nodesepA=4mm]{->}{I}{H}
+\ncline[shadow=false,nodesepA=4mm,nodesepB=-7.02cm]{->}{I1}{I1}\psdot(6,4.05)
+%\ncline[shadow=false,offsetA=0.9mm]{->}{I}{H}
+%\psline[shadow=false]{->}(1.35,4)(5.5,4)%
+%
+\pnode(4,3.85){dvipdf}\psdot(dvipdf)
+%
+\rput(4.0,3){\rnode{J}{\psframebox[framearc=0.4,fillcolor=Yellow!30,fillstyle=solid]{%
+ 	\rule[-8pt]{0pt}{20pt}\kern2pt\texttt{PS}-Datei\kern2pt}}}
+\ncline[shadow=false]{->}{H}{J}
+%
+%\pnode(4.0,2.5){J}%\psdot(J)
+\rput(4.0,1.5){\rnode{J1}{\psframebox[fillcolor=Goldenrod!80,fillstyle=solid]{%
+ 	\texttt{ghostscript}}}}
+\ncline[shadow=false,angleA=180,angleB=90]{->}{J}{J1}
+%
+\rput(2.0,0){\rnode{xetex}{\psframebox[framearc=0.4,fillcolor=Yellow!30,fillstyle=solid]{%
+ 	\rule[-8pt]{0pt}{20pt}\kern2pt\texttt{PDF}-Datei\kern2pt}}}
+\ncangle[shadow=false,angleA=180,angleB=90]{->}{dvipdf}{xetex}
+%
+\rput(4.0,0){\rnode{J2}{\psframebox[framearc=0.4,fillcolor=Yellow!30,fillstyle=solid]{%
+ 	\rule[-8pt]{0pt}{20pt}\kern2pt\texttt{PDF}-Datei\kern2pt}}}
+\ncline[shadow=false]{->}{J1}{J2}
+%
+%
+\rput(6,0){\rnode{K}{\psframebox[framearc=0.4,fillcolor=Yellow!30,fillstyle=solid]{%
+ 	\rule[-8pt]{0pt}{20pt}\kern2pt\texttt{PDF}-Datei\kern2pt}}}
+\ncangle[shadow=false,angleA=90,angleB=-90,offsetB=-1cm]{<-}{K}{B}
+%
+\rput[lt](6.5,3){\parbox{5.5cm}{\raggedleft Der Aufbau eines \TeX-Systems mit pdf\TeX,
+        \XeTeX\ oder Lua\TeX\ als Compiler,
+	die eine Ausgabe im \PDF- oder im treiberunabhängigen \DVI-Format erlauben.}}
+%\psline[fillcolor=black!50,fillstyle=solid,
+%    linecolor=black!50,opacity=0.4,strokeopacity=0.4,shadow=false]%
+%    (2,-0.75)(2,6.8)(5,6.8)(5,-0.75)
+\rput[t](2,-0.7){\bfseries\tabular[t]{c}\XeLaTeX\endtabular}
+\rput[t](4,-0.7){\bfseries\tabular[t]{c}\LaTeX\\ Lua\LaTeX\endtabular}
+\rput[t](6,-0.7){\bfseries\tabular[t]{c}pdf\LaTeX\\ Lua\LaTeX\\\XeLaTeX\endtabular}
+\psframe*[opacity=0.3,linecolor=black,shadow=false](2.5,1)(5.5,6.8)
+\end{pspicture}
+
+
+
+\end{document}
+

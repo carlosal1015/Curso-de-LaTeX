@@ -1,0 +1,29 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 33-02-37 on page 679.
+%% 
+%%  Copyright (C) 2011 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{375.57637pt}
+\setlength\parindent{0pt}
+
+\usepackage{pst-poly,multido}
+
+\begin{document}
+\psset{PolyNbSides=4}
+\multido{\nA=0+60}{7}{\pspolygonbox[PolyRotation=\nA,framesep=2mm,doubleline=true,
+  linecolor=red,doublecolor=blue]{\magenta Text}}
+\end{document}

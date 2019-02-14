@@ -1,0 +1,656 @@
+@STRING{beiprogramm	= {{\TeX}-Beiprogramm} }
+@STRING{bretter		= {Bretter, die die Welt bedeuten} }
+@STRING{dtk		= {{D}ie {\TeX}nische {K}om{\"o}die} }
+@STRING{editorial	= {Editorial} }
+@STRING{fremdebuehne	= {Von fremden B{\"u}hnen} }
+@STRING{fundus		= {Aus dem Fundus} }
+@STRING{hinterbuehne	= {Hinter der B{\"u}hne} }
+@STRING{leserbrief	= {Leserbrief(e)} }
+@STRING{magazin		= {Magazin} }
+@STRING{rezension	= {Rezensionen} }
+@STRING{schonimmer	= {Was Sie schon immer {\"u}ber {\TeX} wissen wollten  \dots} }
+@STRING{theaterkasse	= {Von der Theaterkasse} }
+@STRING{theatertage	= {{\TeX}-Theatertage} }
+@STRING{spielplan	= {Spielplan} }
+@STRING{rezensionen	= {Rezensionen} }
+
+
+@Article{	  dtk01.3:jackson.voss:lyx,
+  author	= {Laura E. Jackson and Herbert Voß},
+  title		= {LyX -- Open Source Document Processor, Teil 1},
+  journal	= dtk,
+  year		= 2001,
+  volume	= {3/01},
+  altvolume	= 13,
+  altnumber	= 3,
+  month		= sep,
+  pages		= {24--45},
+  annote	= bretter,
+  keywords	= {},
+  abstract	= { \LyX{} als sogenanntes Frontend zu {\LaTeX}, welches
+		  wiederum ein Frontend zu {\TeX} ist, versucht etwas zu
+		  optimieren, was {\LaTeX} selbst gar nicht leisten will:
+		  eine hochwertiges Satzsystem wie {\TeX} einem an
+		  tiefsinnigen typographischen Fragen relativ
+		  uninteressierten Benutzer zug{\"a}nglich zu machen. \LyX{}
+		  versteht sich daher auch nicht als Textprozessor, sondern
+		  als Dokument-Prozessor, denn es verf{\"u}gt selbst {\"u}ber
+		  keinerlei eigene Formatierungsm{\"o}glichkeiten, die
+		  {\"u}ber die Bildschirmdarstellung hinausgehen.
+		  
+		  Alle beschriebenen Eigenschaften von \LyX{} beziehen sich
+		  auf die derzeit offizielle Version \LyX{} 1.1.6fix3. Eine
+		  erheblich erweiterte Version 1.2 ist f{\"u}r dieses Jahr zu erwarten. }
+}
+
+
+@Article{	  dtk01.4:jackson.voss:lyx,
+  author	= {Laura E. Jackson and Herbert Voß},
+  title		= {\LyX{} -- Open Source Document Processor, Teil 2},
+  journal	= dtk,
+  year		= 2001,
+  volume	= {4/01},
+  altvolume	= 13,
+  altnumber	= 4,
+  month		= nov,
+  pages		= {},
+  annote	= bretter,
+  keywords	= {},
+  abstract	= { Nachdem der erste Teil die prinzipiellen Eigenschaften
+		  von \LyX{} behandelt hat, werden in diesem Teil unter
+		  anderem die Ein-/Ausgabem{\"o}glichkeiten und einige
+		  Beispiele angegeben. Die Kenntnis des ersten Teils ist zwar
+		  nicht zwingende Voraussetzung f{\"u}r das Verst{\"a}ndnis
+		  der im Folgenden behandelten M{\"o}glichkeiten im Umgang
+		  mit \LyX, erleichtert jedoch wesentlich das Verst{\"a}ndnis. }
+}
+
+
+@Article{	  dtk02.1:voss:mathematischen,
+  author	= {Herbert Voß},
+  title		= {Die mathematischen Funktionen von Postscript},
+  journal	= dtk,
+  year		= 2002,
+  volume	= {1/02},
+  altvolume	= 14,
+  altnumber	= 1,
+  month		= mar,
+  pages		= {},
+  annote	= bretter,
+  keywords	= {},
+  abstract	= { \PS, faktisch genauso alt wie {\TeX}, ist im
+		  Verh{\"a}ltnis dazu allgemein noch weniger bekannt, wenn es
+		  darum geht zu beurteilen, was es denn nun im eigentlichen
+		  Sinne ist. Außerdem wird h{\"a}ufig vergessen, dass
+		  sich mit den \PS-Funktionen viele Dinge erledigen lassen,
+		  bei denen sonst auf externe Programme zur{\"u}ckgegriffen
+		  wird. Dies wird im Folgenden f{\"u}r die mathematischen
+		  Funktionen im Zusammenhang mit dem Paket \texttt{pst-plot}
+		  gezeigt. }
+}
+
+
+@Article{	  dtk02.2:jackson.voss:plot-funktionen,
+  author	= {Laura E. Jackson and Herbert Voß},
+  title		= {Die Plot-Funktionen von {\texttt{pst-plot}}},
+  journal	= dtk,
+  year		= 2002,
+  volume	= {2/02},
+  altvolume	= 14,
+  altnumber	= 2,
+  month		= jun,
+  pages		= {27--34},
+  annote	= bretter,
+  keywords	= {},
+  abstract	= { Im letzten Heft wurden die mathematischen Funktionen von
+		  \PS~im Zusammenhang mit dem {\LaTeX}-Paket
+		  \texttt{pst-plot} zum Zeichnen von Funktionen beschrieben
+		  und durch Beispiele erl{\"a}utert. In diesem Teil werden
+		  die bislang nur erw{\"a}hnten Plot-Funktionen f{\"u}r
+		  externe Daten behandelt. }
+}
+
+
+@Article{	  dtk02.3:voss:gauss-sty,
+  author	= {Herbert Voß},
+  title		= {{\texttt{gauss.sty}} -- Visualisierung des Gaußchen
+		  Eliminationsverfahrens},
+  journal	= dtk,
+  year		= 2002,
+  volume	= {3/02},
+  altvolume	= 14,
+  altnumber	= 3,
+  month		= oct,
+  pages		= {34--40},
+  annote	= bretter,
+  keywords	= {},
+  abstract	= {Die Zahl der vorhanden \LaTeX-Pakete ist sicherlich
+		  endlich, wenn man auch manchmal den gegenteiligen Eindruck
+		  hat. Neben den mehr oder weniger bekannten Paketen gibt es
+		  eine erhebliche Anzahl, die einem gro�n Anwenderkreis
+		  deswegen nicht bekannt sind, weil deren Anwendung h�fig
+		  sehr speziell ist. Dazu geh�t sicherlich das Paket
+		  \texttt{gauss}, welches nur sehr spezielle Wnsche erfllt,
+		  die im Folgenden an Beispielen beschrieben werden. }
+}
+
+@Article{	  dtk03.1:voss:optische,
+  author	= {Herbert Voß},
+  title		= {Optische Darstellungen mit \texttt{pst-optic}},
+  journal	= dtk,
+  year		= 2003,
+  volume	= {1/03},
+  altvolume	= 15,
+  altnumber	= 1,
+  month		= feb,
+  pages		= {40--59},
+  annote	= bretter,
+  keywords	= {},
+  abstract	= { Mit diesem Artikel soll die Beschreibung der Teilpakete,
+		  die alle unter dem Synonym \texttt{pstricks}
+		  zusammengefasst werden und mittlerweile mehr als nur latent
+		  undurchsichtig erscheinen, mit einem Paket zur Darstellung
+		  der optischen Verh{\"a}ltnisse an Linsen fortgesetzt
+		  werden. Derartige Abbildungen geh{\"o}ren zu den
+		  Standardthemen in Schule und Universit{\"a}t und k{\"o}nnen
+		  daher f{\"u}r einige Leser interessant sein. }
+}
+
+
+@Article{	  dtk03.3:voss:erstellen,
+  author	= {Herbert Voß},
+  title		= {Erstellen von Schaltbildern mit \texttt{pst-circ}},
+  journal	= dtk,
+  year		= 2003,
+  volume	= {3/03},
+  altvolume	= 15,
+  altnumber	= 3,
+  month		= sep,
+  pages		= {33--49},
+  annote	= bretter,
+  keywords	= {},
+  abstract	= { Mit diesem Artikel wird die Beschreibung der Teilpakete,
+		  die alle unter dem Synonym \texttt{pstricks} zusammengefasst
+		  werden, mit einem Paket zur Darstellung von Schaltbildern
+		  fortgesetzt. Derartige Abbildungen geh{\"o}ren zu den
+		  Standardthemen in Schule und Universit{\"a}t und k{\"o}nnen
+		  daher f{\"u}r einige interessant sein, insbesondere wenn es
+		  gilt, f{\"u}r Ver{\"o}ffentlichungen oder
+		  Arbeitsbl{\"a}tter auf einfache Art und Weise
+		  Ersatzschaltbilder zu erstellen ohne auf
+		  Vektorzeichenprogramme zugreifen zu m{\"u}ssen. }
+}
+
+
+@Article{	  dtk04.1:voss:vtex,
+  author	= {Herbert Voß},
+  title		= {V{\TeX}},
+  journal	= dtk,
+  year		= 2004,
+  volume	= {1/04},
+  altvolume	= 16,
+  altnumber	= 1,
+  month		= may,
+  pages		= {46--51},
+  annote	= bretter,
+  keywords	= {}
+}
+
+@Article{	  dtk04.2:voss:farbige-mathematik,
+  author	= {Herbert Voß},
+  title		= {Farbige Mathematik},
+  journal	= dtk,
+  year		= 2004,
+  volume	= {2/04},
+  altvolume	= 16,
+  altnumber	= 2,
+  month		= jun,
+  pages		= {81--87},
+  annote	= bretter,
+  keywords	= {Farbe, Formeln}
+}
+
+@Article{	  dtk04.2:voss:3d-ansichten,
+  author	= {Herbert Voß},
+  title		= {3D-Ansichten mit \texttt{pst-vue3d}},
+  journal	= dtk,
+  year		= 2004,
+  volume	= {2/04},
+  altvolume	= 16,
+  altnumber	= 2,
+  month		= jun,
+  pages		= {101--120},
+  annote	= bretter,
+  keywords	= {}
+}
+
+
+@Article{	  dtk04.3:siegfried.voss:mathematik,
+  author	= {Carole Siegfried and Herbert Voß},
+  title		= {Mathematik im Inline-Modus},
+  journal	= dtk,
+  year		= 2004,
+  volume	= {3/04},
+  altvolume	= 16,
+  altnumber	= 3,
+  month		= nov,
+  pages		= {25--32},
+  annote	= bretter,
+  keywords	= {}
+}
+
+
+@Article{	  dtk05.1:voss:editorial,
+  author	= {Herbert Voß},
+  title		= {Editorial},
+  journal	= dtk,
+  year		= 2005,
+  volume	= {1/05},
+  altvolume	= 17,
+  altnumber	= 1,
+  month		= mar,
+  pages		= {3},
+  annote	= editorial,
+  keywords	= {}
+}
+
+
+@Article{	  dtk05.1:fenn.siegfried.voss:ctan,
+  author	= {J{\"u}rgen Fenn and Carole Siegfried and Herbert Voß},
+  title		= {CTAN und der {\TeX} Catalogue},
+  journal	= dtk,
+  year		= 2005,
+  volume	= {1/05},
+  altvolume	= 17,
+  altnumber	= 1,
+  month		= mar,
+  pages		= {5--83},
+  annote	= bretter,
+  keywords	= {}
+}
+
+@Article{	  dtk05.1:voss:edition-dante,
+  author	= {Herbert Voß},
+  title		= {Edition DANTE},
+  journal	= dtk,
+  year		= 2005,
+  volume	= {1/05},
+  altvolume	= 17,
+  altnumber	= 1,
+  month		= mar,
+  pages		= {85--86},
+  annote	= beiprogramm,
+  keywords	= {}
+}
+
+@Article{	  dtk05.2:voss:editorial,
+  author	= {Herbert Voß},
+  title		= {Editorial},
+  journal	= dtk,
+  year		= 2005,
+  volume	= {2/05},
+  altvolume	= 17,
+  altnumber	= 2,
+  month		= may,
+  pages		= {3},
+  annote	= editorial,
+  keywords	= {}
+}
+
+
+
+@Article{	  dtk05.4:luque.voss:wavefarbmodell,
+  author	= {Manuel Luque and Herbert Voß},
+  title		= {Anwendung des \texttt{wave}-Farbmodell},
+  journal	= dtk,
+  year		= 2005,
+  volume	= {4/05},
+  altvolume	= 17,
+  altnumber	= 4,
+  month		= dec,
+  pages		= {26--29},
+  annote	= bretter,
+  keywords	= {}
+}
+
+
+@article {        dtk06.3:voss.siart:matthias,
+  author        = {Herbert Voß and Uwe Siart},
+  title         = {Matthias Kalle Dalheimer: \LaTeX\ kurt gefasst},
+  journal	= dtk,
+  year		= 2006,
+  altvolume	= 18,
+  altnumber	= {3},
+  volume	= {3/2006},
+  month		= jul,
+  pages		= {???},
+  annote	= rezensionen
+}
+
+
+@article {        dtk07.4:hennig.voss:das,
+  author        = {Stephan Hennig and Herbert Voß},
+  title         = {Das Schriftpaket \texttt{initials}},
+  journal	= dtk,
+  year		= 2007,
+  altvolume	= 19,
+  altnumber	= {4},
+  volume	= {4/2007},
+  month		= nov,
+  pages		= {27--40},
+  annote	= bretter
+}
+
+@article {        dtk07.4:voss:fussnoten,
+  author        = {Herbert Voß},
+  title         = {Fußnoten in Tabellen mit \texttt{blkarray}},
+  journal	= dtk,
+  year		= 2007,
+  altvolume	= 19,
+  altnumber	= {4},
+  volume	= {4/2007},
+  month		= nov,
+  pages		= {42--44},
+  annote	= {Tipps und Tricks}
+}
+@article {        dtk07.4:voss:paket,
+  author        = {Herbert Voß},
+  title         = {Paket \texttt{listings} und \texttt{UTF-8}-Kodierung},
+  journal	= dtk,
+  year		= 2007,
+  altvolume	= 19,
+  altnumber	= {4},
+  volume	= {4/2007},
+  month		= nov,
+  pages		= {45--46},
+  annote	= {Tipps und Tricks}
+}
+
+@article {        dtk09.2:voss:farbabbildungen,
+  author        = {Herbert Vo\ss},
+  title         = {Farbabbildungen in Graustufen wandeln},
+  journal	= dtk,
+  year		= 2009,
+  altvolume	= 21,
+  altnumber	= {2},
+  volume	= {2/2009},
+  month		= may,
+  pages		= {71--73},
+  annote	= {Tipps und Tricks}
+}
+
+@article {        dtk09.3:voss:latex,
+  author        = {Herbert Vo\ss},
+  title         = {"`\LaTeX: kurz \& gut"' von Matthias Kalle Dalheimer und \mbox{Karsten Günther}},
+  journal	= dtk,
+  year		= 2009,
+  altvolume	= 21,
+  altnumber	= {3},
+  volume	= {3/2009},
+  month		= aug,
+  pages		= {???},
+  annote	= {Tipps und Tricks}
+}
+
+@article {        dtk10.3:voss:tug,
+  author        = {Herbert Voß},
+  title         = {TUG 2010 in San Francisco vom 28. bis 30. Juni},
+  journal	= dtk,
+  year		= 2010,
+  altvolume	= 22,
+  altnumber	= {3},
+  volume	= {3/2010},
+  month		= aug,
+  pages		= {6--10},
+  annote	= {\TeX-Theatertage}
+}
+
+@article {        dtk10.4:voss:das,
+  author        = {Herbert Voß},
+  title         = {Das Paket \texttt{cutwin}},
+  journal	= dtk,
+  year		= 2010,
+  altvolume	= 22,
+  altnumber	= {4},
+  volume	= {4/2010},
+  month		= nov,
+  pages		= {51--55},
+  annote	= bretter
+}
+
+@article {        dtk11.1:oberdiek.voss.ea:makro,
+  author        = {Heiko Oberdiek and Herbert Voß and Rolf Niepraschk},
+  title         = {Makro oder Umgebung?},
+  journal	= dtk,
+  year		= 2011,
+  altvolume	= 23,
+  altnumber	= {1},
+  volume	= {1/2011},
+  month		= feb,
+  pages		= {59--60},
+  annote	= {Tipps und Tricks}
+}
+@article {        dtk11.1:oberdiek.voss.ea:enumerate,
+  author        = {Heiko Oberdiek and Herbert Voß and Rolf Niepraschk},
+  title         = {\texttt{enumerate} und Referenzen},
+  journal	= dtk,
+  year		= 2011,
+  altvolume	= 23,
+  altnumber	= {1},
+  volume	= {1/2011},
+  month		= feb,
+  pages		= {62},
+  annote	= {Tipps und Tricks}
+}
+@article {        dtk11.1:oberdiek.voss.ea:sortierung,
+  author        = {Heiko Oberdiek and Herbert Voß and Rolf Niepraschk},
+  title         = {Sortierung im Index},
+  journal	= dtk,
+  year		= 2011,
+  altvolume	= 23,
+  altnumber	= {1},
+  volume	= {1/2011},
+  month		= feb,
+  pages		= {62--64},
+  annote	= {Tipps und Tricks}
+}
+@article {        dtk11.1:voss:mathematik,
+  author        = {Herbert Voß},
+  title         = {Mathematik für >>\kern-2pt Tippfaule<<},
+  journal	= dtk,
+  year		= 2011,
+  altvolume	= 23,
+  altnumber	= {1},
+  volume	= {1/2011},
+  month		= feb,
+  pages		= {???},
+  annote	= {Tipps und Tricks}
+}
+@article {        dtk11.1:voss:detexify,
+  author        = {Herbert Voß},
+  title         = {\texttt{detexify} -- Wie findet man ein Symbol?},
+  journal	= dtk,
+  year		= 2011,
+  altvolume	= 23,
+  altnumber	= {1},
+  volume	= {1/2011},
+  month		= feb,
+  pages		= {67--70},
+  annote	= {Tipps und Tricks}
+}
+
+@article {        dtk11.3:voss:latin,
+  author        = {Herbert Voß},
+  title         = {Latin Modern Math},
+  journal	= dtk,
+  year		= 2011,
+  altvolume	= 23,
+  altnumber	= {3},
+  volume	= {3/2011},
+  month		= aug,
+  pages		= {52--60},
+  annote	= bretter
+}
+@article {        dtk11.3:voss:lualatex,
+  author        = {Herbert Voß},
+  title         = {{Ausgabe vorhandener OpenType- oder TrueType-Schriften einer Schriftfamilie mit Lua\LaTeX }},
+  journal	= dtk,
+  year		= 2011,
+  altvolume	= 23,
+  altnumber	= {3},
+  volume	= {3/2011},
+  month		= aug,
+  pages		= {???},
+  annote	= bretter
+}
+@article {        dtk11.3:voss:rechtschreibprafung,
+  author        = {Herbert Voß},
+  title         = {Rechtschreibprüfung mit \TeX works},
+  journal	= dtk,
+  year		= 2011,
+  altvolume	= 23,
+  altnumber	= {3},
+  volume	= {3/2011},
+  month		= aug,
+  pages		= {???},
+  annote	= {Tipps und Tricks}
+}
+@article {        dtk11.3:voss:zerlegen,
+  author        = {Herbert Voß},
+  title         = {Zerlegen einer Grafik in gleiche Teile},
+  journal	= dtk,
+  year		= 2011,
+  altvolume	= 23,
+  altnumber	= {3},
+  volume	= {3/2011},
+  month		= aug,
+  pages		= {70--71},
+  annote	= {Tipps und Tricks}
+}
+@article {        dtk11.3:voss:schnell,
+  author        = {Herbert Voß},
+  title         = {"`Schnell ans Ziel mit \LaTeX2e"' von Jörg Knappen},
+  journal	= dtk,
+  year		= 2011,
+  altvolume	= 23,
+  altnumber	= {3},
+  volume	= {3/2011},
+  month		= aug,
+  pages		= {???},
+  annote	= {Tipps und Tricks}
+}
+
+@article {        dtk12.1:voss:datumsfunktionen,
+  author        = {Herbert Voß},
+  title         = {Datumsfunktionen mit Lua\TeX},
+  journal	= dtk,
+  year		= 2012,
+  altvolume	= 24,
+  altnumber	= {1},
+  volume	= {1/2012},
+  month		= feb,
+  pages		= {???},
+  annote	= bretter
+}
+@article {        dtk12.1:voss:,
+  author        = {Herbert Voß},
+  title         = {Multilinguale Texte mit Lua\LaTeX{}},
+  journal	= dtk,
+  year		= 2012,
+  altvolume	= 24,
+  altnumber	= {1},
+  volume	= {1/2012},
+  month		= feb,
+  pages		= {???},
+  annote	= bretter
+}
+
+@article {        dtk12.1:voss.oberdiek:index,
+  author        = {Herbert Voß and Heiko Oberdiek},
+  title         = {Index mit Fortsetzungsanzeige},
+  journal	= dtk,
+  year		= 2012,
+  altvolume	= 24,
+  altnumber	= {1},
+  volume	= {1/2012},
+  month		= feb,
+  pages		= {36--38},
+  annote	= {Tipps und Tricks}
+}
+@article {        dtk12.1:voss:mehrfache,
+  author        = {Herbert Voß},
+  title         = {Mehrfache Klammern im Mathematikmodus},
+  journal	= dtk,
+  year		= 2012,
+  altvolume	= 24,
+  altnumber	= {1},
+  volume	= {1/2012},
+  month		= feb,
+  pages		= {39--42},
+  annote	= {Tipps und Tricks}
+}
+
+@article {        dtk12.2:voss:anwendung,
+  author        = {Herbert Voß},
+  title         = {Anwendung aktiver Zeichen},
+  journal	= dtk,
+  year		= 2012,
+  altvolume	= 24,
+  altnumber	= {2},
+  volume	= {2/2012},
+  month		= may,
+  pages		= {83--87},
+  annote	= {Tipps und Tricks}
+}
+
+@article {        dtk12.3:voss:tex,
+  author        = {Herbert Voß},
+  title         = {\TeX\ Gyre Pagella Math},
+  journal	= dtk,
+  year		= 2012,
+  altvolume	= 24,
+  altnumber	= {3},
+  volume	= {3/2012},
+  month		= aug,
+  pages		= {???},
+  annote	= bretter
+}
+
+@article {        dtk12.4:voss:spezielle,
+  author        = {Herbert Voß},
+  title         = {Spezielle Schriften},
+  journal	= dtk,
+  year		= 2012,
+  altvolume	= 24,
+  altnumber	= {4},
+  volume	= {4/2012},
+  month		= nov,
+  pages		= {83--90},
+  annote	= bretter
+}
+
+@article {        dtk13.1:voss:die,
+  author        = {Herbert Voß},
+  title         = {Die Schrift Venturis},
+  journal	= dtk,
+  year		= 2013,
+  altvolume	= 25,
+  altnumber	= {1},
+  volume	= {1/2013},
+  month		= feb,
+  pages		= {7--15},
+  annote	= bretter
+}
+
+@article {        dtkar.2:niepraschk.voss:test,
+  author        = {Rolf Niepraschk and Herbert Voß},
+  title         = {Test auf eine Zahl},
+  journal	= dtk,
+  year		= 2013,
+  altvolume	= 25,
+  altnumber	= {2},
+  volume	= {2/2013},
+  month		= may,
+  pages		= {37--39},
+  annote	= {Tipps und Tricks}
+}

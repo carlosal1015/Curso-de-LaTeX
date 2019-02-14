@@ -1,0 +1,605 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%%  
+%%  7. Auflage
+%% 
+%%  Beispiel 35-00-84 auf Seite 852.
+%% 
+%%  Copyright (C) 2016 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+%StartShownPreambleCommands
+\usepackage{graphics}
+\usepackage[rgb]{pstricks}
+\usepackage{pst-grad,pst-text}
+\usepackage{pst-slpe,pst-blur,pst-node}
+\usepackage{pst-plot,pst-eucl}
+\usepackage{pst-thick}
+\usepackage{pst-node}
+\usepackage{pstricks-add}
+%StopShownPreambleCommands
+\begin{document}
+%----------------------------------------------------------------------------------------------
+%------------------- Definition der verschiedenen Farben --------------------------------------
+%----------------------------------------------------------------------------------------------
+%\colorlet{Speisewasser}{cyan!60!blue!90}
+%\colorlet{DampfHD}{red!60!black!80}%   Hochdruck-Farbe
+\colorlet{Kuehlturmwasser}{blue!40!black!70}
+\colorlet{Speisewasser}{cyan!60!blue!90}
+\colorlet{DampfND}{red!70!brown!80}%   Niederdruck-Farbe
+\colorlet{DampfMD}{orange!70!brown!80}%   Mitteldruck-Farbe
+\colorlet{DampfHD}{red!60!black!80}%   Hochdruck-Farbe
+%----------------------------------------------------------------------------------------------
+%------------------- Definition der Wasserpumpe mit F\"{u}llfarbenoption --------------------------
+%----------------------------------------------------------------------------------------------
+\newcommand{\pumpeA}[1]{%
+\psset{linewidth=0.4pt}
+\pnode(0,0){O0}
+\pnode(-0.55,0.225){O1}\pnode(0,0.225){O3}
+\pnode(-0.55,0.125){O4}\pnode(0,0.125){O6}
+\pstInterLC[Radius=\pstDistVal{0.25},PointSymbol=none,PointName=none]{O1}{O3}{O0}{}{O2}{O10}
+\pstInterLC[Radius=\pstDistVal{0.25},PointSymbol=none,PointName=none]{O4}{O6}{O0}{}{O5}{O11}
+\pnode(0.55,-0.225){U1}\pnode(0,-0.225){U3}
+\pnode(0.55,-0.125){U4}\pnode(0,-0.125){U6}
+\pstInterLC[Radius=\pstDistVal{0.25},PointSymbol=none,PointName=none]{U1}{U3}{O0}{}{U2}{U10}
+\pstInterLC[Radius=\pstDistVal{0.25},PointSymbol=none,PointName=none]{U4}{U6}{O0}{}{U5}{U11}
+%----------------------------------------------------------------------------------------------
+\pscustom[fillstyle=solid,fillcolor=#1]{%
+\psline(O1)(O2)
+\pstArcnOAB{O0}{O2}{U5}
+\psline(U5)(U4)
+\psline(U1)(U2)
+\pstArcnOAB{O0}{U2}{O5}
+\psline(O5)(O4)
+\closepath%
+}
+\multido{\na=0+45}{8}{%
+\rput{\na}(0,0){\psarc[linewidth=1pt]{c-c}(-0.13,0.2){0.2}{-50}{-5}}
+}
+\pscircle[fillstyle=solid,fillcolor=black](O0){0.07}
+\pscircle[fillstyle=solid,fillcolor=gray!50](O0){0.0325}
+\psarc[linewidth=0.5pt,arrowlength=1.2,arrowinset=0.05]{->}(O0){0.325}{60}{120}
+\psline[doubleline=true,border=0.4pt,linewidth=0.75pt,doublecolor=#1,bordercolor=black,linecolor=#1,linearc=0.1](-0.5,0.175)(-1,0.175)
+\psline[doubleline=true,border=0.4pt,linewidth=0.75pt,doublecolor=#1,bordercolor=black,linecolor=#1,linearc=0.1](0.5,-0.175)(1,-0.175)
+}
+%----------------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------------
+%------------------- Definition der Wasserleitung mit Speisewasser ----------------------------
+%----------------------------------------------------------------------------------------------
+\newpsstyle{WasserleitungSP}{doubleline=true,border=0.4pt,linewidth=0.75pt, doublecolor=Speisewasser,bordercolor=black,linecolor=Speisewasser,linearc=0.2}
+%----------------------------------------------------------------------------------------------
+%------------- Definition der Wasserleitung mit Ableitung K\"{u}hlturm ----------------------------
+%----------------------------------------------------------------------------------------------
+\newpsstyle{WasserleitungKT}{doubleline=true,border=0.4pt,linewidth=0.75pt, doublecolor=Kuehlturmwasser,bordercolor=black,linecolor=Kuehlturmwasser,linearc=0.2}
+%----------------------------------------------------------------------------------------------
+%------------- Definition der Dampleitung Hochdruck ----------------------------
+%----------------------------------------------------------------------------------------------
+\newpsstyle{LeitungND}{doubleline=true,border=0.4pt,linewidth=0.75pt, doublecolor=DampfND,bordercolor=black,linecolor=DampfND,linearc=0.2}
+%----------------------------------------------------------------------------------------------
+%------------- Definition der Dampleitung Mitteldruck ----------------------------
+%----------------------------------------------------------------------------------------------
+\newpsstyle{LeitungMD}{doubleline=true,border=0.4pt,linewidth=0.75pt, doublecolor=DampfMD,bordercolor=black,linecolor=DampfMD,linearc=0.2}
+%----------------------------------------------------------------------------------------------
+%------------- Definition der Dampleitung Niederdruck ----------------------------
+%----------------------------------------------------------------------------------------------
+\newpsstyle{LeitungHD}{doubleline=true,border=0.4pt,linewidth=0.75pt, doublecolor=DampfHD,bordercolor=black,linecolor=DampfHD,linearc=0.2}
+%----------------------------------------------------------------------------------------------
+%-------------------------------- Definition des K\"{u}hlturm -------------------------------------
+%----------------------------------------------------------------------------------------------
+\def\Kuehlturm{%
+%----------------------------------------------------------------------------------------------
+%-------------------------------- Wolken mit Schatten aus pst-blur ----------------------------
+%----------------------------------------------------------------------------------------------
+\psellipse[linestyle=none,opacity=0.1,fillstyle=solid,fillcolor=gray!30,shadowcolor=gray!40,
+shadowangle=70,shadow=true,blur=true,shadowsize=30pt,blurradius=20pt,blursteps=150,blurbg=white](5.1,10.9)(1.5,0.6)
+\psellipse[linestyle=none,opacity=0.1,fillstyle=solid,fillcolor=gray!30,shadowcolor=gray!50,
+shadowangle=60,shadow=true,blur=true,shadowsize=30pt,blurradius=20pt,blursteps=150,blurbg=gray!10](4.5,10.3)(1.7,0.6)
+\psellipse[linestyle=none,opacity=0.1,fillstyle=solid,fillcolor=gray!30,shadowcolor=gray!50,
+shadowangle=90,shadow=true,blur=true,shadowsize=30pt,blurradius=20pt,blursteps=150,blurbg=gray!20](4.7,9.5)(1.9,0.6)
+\psellipse[linestyle=none,opacity=0.1,fillstyle=solid,fillcolor=gray!30,shadowcolor=gray!60,
+shadowangle=75,shadow=true,blur=true,shadowsize=30pt,blurradius=20pt,blursteps=150,blurbg=gray!30](4,9)(2.4,0.5)
+\rput(3.2,12.0){%
+\pscustom[fillstyle=solid,fillcolor=gray!30,opacity=0.45,linestyle=none,linearc=0.3]{%
+\pscurve(-1.3,0)(0,0.6)(1.3,0.2)
+\pscurve(2,0.4)(3.4,0.5)(3.9,0)
+\pscurve(4.5,0.2)(5.5,-1)(4,-2)
+\pscurve(4,-2)(0,-3)(-2,-2)(-1.3,0)
+\closepath%
+}}
+%----------------------------------------------------------------------------------------------
+%-------------------- Definition der K\"{u}hlturmrandlinien mit F\"{u}llung ----------------------------
+%----------------------------------------------------------------------------------------------
+\rput{-90}(4,0){%
+\pscustom[linecolor=gray!40,linewidth=2pt,fillcolor=gray!10,fillstyle=solid]{%
+      \psplot{-9.5}{-0.5}{x 7.5 add dup mul 0.03 mul 2.5 add}
+      \psline(!-0.5 -0.5 7.5 add dup mul 0.03 mul 2.5 add)(!0 -0.5 7.5 add dup mul 0.03 mul 2.5 add)
+      \psline(!0 -0.5 7.5 add dup mul 0.03 mul 2.5 add neg)(!-0.5 -0.5 7.5 add dup mul 0.03 mul 2.5 add neg)
+      \psplot{-0.5}{-9.5}{x 7.5 add dup mul 0.03 mul 2.5 add neg}
+\closepath%
+}
+}
+%----------------------------------------------------------------------------------------------
+%------------------------- Dicke Pfeile im K\"{u}hlturm nach oben ---------------------------------
+%----------------------------------------------------------------------------------------------
+{\psset{ArrowFill=true,arrowinset=0,arrowscale=0.7,arrowlength=0.5,arrowsize=1.5,framearc=0.05,dimen=outer}%
+\psline[linewidth=0.6cm,linecolor=gray!40]{->}(4,6)(4,7.25)%
+\psline[linewidth=0.6cm,linecolor=gray!40]{->}(2.5,6)(2.5,7.25)%
+\psline[linewidth=0.6cm,linecolor=gray!40]{->}(5.5,6)(5.5,7.25)%
+}
+%----------------------------------------------------------------------------------------------
+%---------------------------- Wasserbecken im K\"{u}hlturm unten ----------------------------------
+%----------------------------------------------------------------------------------------------
+\psframe[linecolor=black,linewidth=1pt,fillstyle=solid,fillcolor=Kuehlturmwasser](0.08,0.05)(7.92,0.4)
+\psline[linewidth=1pt,linecolor=Kuehlturmwasser](0.098,0.4)(7.902,0.4)
+%----------------------------------------------------------------------------------------------
+%----------------------- Wei{\ss}e Dreiecke f\"{u}r Luftzufuhr und Luftpfeile -------------------------
+%----------------------------------------------------------------------------------------------
+\multips(0.6,0.63)(1.13,0){7}{\pspolygon[linecolor=gray!60,linewidth=1.3pt,fillstyle=solid,fillcolor=white](-0.3,0)(0.3,0)(0,0.7)}
+\multips(1.17,0.63)(1.13,0){6}{\pspolygon[linecolor=gray!60,linewidth=1.3pt,fillstyle=solid,fillcolor=white](0,0)(0.3,0.7)(-0.3,0.7)}
+%--------------------------------------------------------------------------------------------------------------
+\rput{-20}(0,1){%
+\pscurve[linewidth=0.5pt,arrowscale=1,arrowinset=0.04,arrowsize=0.08,arrowlength=1.4]{->}(0,0)(0.3,-0.1)(0.6,0)
+}
+\rput{-20}(2.2,1){%
+\pscurve[linewidth=0.5pt,arrowscale=1,arrowinset=0.04,arrowsize=0.08,arrowlength=1.4]{->}(0,0)(0.3,-0.1)(0.6,0)
+}
+\rput{20}(7.4,0.8){%
+\pscurve[linewidth=0.5pt,arrowscale=1,arrowinset=0.04,arrowsize=0.08,arrowlength=1.4]{<-}(0,0)(0.3,-0.1)(0.6,0)
+}
+\rput{20}(5.2,0.8){%
+\pscurve[linewidth=0.5pt,arrowscale=1,arrowinset=0.04,arrowsize=0.08,arrowlength=1.4]{<-}(0,0)(0.3,-0.1)(0.6,0)
+}
+%----------------------------------------------------------------------------------------------
+%------------------------------------ Spr\"{u}hwasser im K\"{u}hlturm ---------------------------------
+%----------------------------------------------------------------------------------------------
+\psline[style=WasserleitungSP](-4.5,3.5)(6.5,3.5)
+\pcline[linewidth=0.5pt,arrowscale=1,arrowinset=0.04,arrowsize=0.08,arrowlength=1.4,linecolor=white]{->}(-0.5,3.5)(0,3.5)
+\multirput{0}(1.8,3.5)(1.1,0){5}{%
+\psline[linecolor=Speisewasser,linewidth=1.0pt]{c-c}(0,0)(0,-0.15)
+\psline[linecolor=Speisewasser,linewidth=1.0pt]{c-c}(0,-0.3)(0,-0.45)
+\psline[linecolor=Speisewasser,linewidth=1.0pt]{c-c}(0,-0.7)(0,-0.85)
+\psline[linecolor=Speisewasser,linewidth=1.0pt]{c-c}(0,-1.2)(0,-1.35)
+\psline[linecolor=Speisewasser,linewidth=1.0pt]{c-c}(0,-1.8)(0,-1.95)
+\psline[linecolor=Speisewasser,linewidth=1.0pt]{c-c}(0,-2.5)(0,-2.65)
+}
+\multirput{5}(1.8,3.5)(1.1,0){5}{%
+\psline[linecolor=Speisewasser,linewidth=1.0pt]{c-c}(0,0)(0,-0.15)
+\psline[linecolor=Speisewasser,linewidth=1.0pt]{c-c}(0,-0.3)(0,-0.45)
+\psline[linecolor=Speisewasser,linewidth=1.0pt]{c-c}(0,-0.7)(0,-0.85)
+\psline[linecolor=Speisewasser,linewidth=1.0pt]{c-c}(0,-1.2)(0,-1.35)
+\psline[linecolor=Speisewasser,linewidth=1.0pt]{c-c}(0,-1.8)(0,-1.95)
+\psline[linecolor=Speisewasser,linewidth=1.0pt]{c-c}(0,-2.5)(0,-2.65)
+}
+\multirput{10}(1.8,3.5)(1.1,0){5}{%
+\psline[linecolor=Speisewasser,linewidth=1.0pt]{c-c}(0,0)(0,-0.15)
+\psline[linecolor=Speisewasser,linewidth=1.0pt]{c-c}(0,-0.3)(0,-0.45)
+\psline[linecolor=Speisewasser,linewidth=1.0pt]{c-c}(0,-0.7)(0,-0.85)
+\psline[linecolor=Speisewasser,linewidth=1.0pt]{c-c}(0,-1.2)(0,-1.35)
+\psline[linecolor=Speisewasser,linewidth=1.0pt]{c-c}(0,-1.8)(0,-1.95)
+\psline[linecolor=Speisewasser,linewidth=1.0pt]{c-c}(0,-2.5)(0,-2.65)
+}
+\multirput{-5}(1.8,3.5)(1.1,0){5}{%
+\psline[linecolor=Speisewasser,linewidth=1.0pt]{c-c}(0,0)(0,-0.15)
+\psline[linecolor=Speisewasser,linewidth=1.0pt]{c-c}(0,-0.3)(0,-0.45)
+\psline[linecolor=Speisewasser,linewidth=1.0pt]{c-c}(0,-0.7)(0,-0.85)
+\psline[linecolor=Speisewasser,linewidth=1.0pt]{c-c}(0,-1.2)(0,-1.35)
+\psline[linecolor=Speisewasser,linewidth=1.0pt]{c-c}(0,-1.8)(0,-1.95)
+\psline[linecolor=Speisewasser,linewidth=1.0pt]{c-c}(0,-2.5)(0,-2.65)
+}
+\multirput{-10}(1.8,3.5)(1.1,0){5}{%
+\psline[linecolor=Speisewasser,linewidth=1.0pt]{c-c}(0,0)(0,-0.15)
+\psline[linecolor=Speisewasser,linewidth=1.0pt]{c-c}(0,-0.3)(0,-0.45)
+\psline[linecolor=Speisewasser,linewidth=1.0pt]{c-c}(0,-0.7)(0,-0.85)
+\psline[linecolor=Speisewasser,linewidth=1.0pt]{c-c}(0,-1.2)(0,-1.35)
+\psline[linecolor=Speisewasser,linewidth=1.0pt]{c-c}(0,-1.8)(0,-1.95)
+\psline[linecolor=Speisewasser,linewidth=1.0pt]{c-c}(0,-2.5)(0,-2.65)
+}
+%----------------------------------------------------------------------------------------------
+%--------------- Pumpe +  Wasserleitungen vom K\"{u}hlturm zum Fluss und Kondensator---------------
+%----------------------------------------------------------------------------------------------
+\psline[style=WasserleitungKT](0.098,0.25)(-1.5,0.25)(-1.5,-1)
+\rput(-3.5,2.075){\pumpeA{Kuehlturmwasser}}
+\psline[style=WasserleitungKT](-0.8,0.292)(-0.8,1.9)(-2.5,1.9)
+\pcline[linewidth=0.5pt,arrowscale=1,arrowinset=0.04,arrowsize=0.08,arrowlength=1.4,linecolor=white]{->}(-0.8,0.6)(-0.8,1.1)
+\psline[style=WasserleitungKT](-2.5,1.856)(-2.5,-1)
+\psline[style=WasserleitungSP](-2,3.456)(-2,-1)
+%----------------------------------------------------------------------------------------------
+%--------------------------- Fluss ------------------------------------------------------------
+%----------------------------------------------------------------------------------------------
+\pscustom[fillstyle=solid,fillcolor=blue!30,opacity=0.35,linestyle=none,linearc=0.3]{%
+\psline(-4,-0.7)(-3.75,-1.4)(-3.5,-1.8)(0,-1.8)(0.25,-1.4)(0.5,-0.7)
+\closepath%
+}
+%----------------------------------------------------------------------------------------------
+\rput(-3.75,-0.8){\psplot[plotpoints=1000,linewidth=1.2pt,linecolor=Kuehlturmwasser]{0}{4}{x 800 mul sin 0.05 mul}}%
+\rput(-3.75,-1.2){\psplot[plotpoints=1000,linewidth=1.2pt,linecolor=Kuehlturmwasser]{0}{4}{x 800 mul sin 0.05 mul}}%
+\rput(-3.8,-1.0){\psplot[plotpoints=1000,linewidth=1.2pt,linecolor=Kuehlturmwasser]{0}{1.5}{x 800 mul sin 0.05 mul}}%
+\rput(-1,-1.0){\psplot[plotpoints=1000,linewidth=1.2pt,linecolor=Kuehlturmwasser]{0}{1.2}{x 800 mul sin 0.05 mul}}%
+\rput(-2,-1.5){\scriptsize Fluss}
+}
+%----------------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------------
+\def\Maschinenhaus{%
+%----------------------------------------------------------------------------------------------
+%---------------------------- Maschinenhaus-Geb\"{a}ude ----------------------------------
+%----------------------------------------------------------------------------------------------
+\psframe[linecolor=gray!40,linewidth=2pt,fillstyle=solid,fillcolor=gray!10](-1.5,1)(-12.5,7.8)
+
+%-------------------------------------------------------------------------------------------
+%--------------- Kondensator ---------------------------------------------------------------
+%-------------------------------------------------------------------------------------------
+\pnode(-5,3){CML}% Mittelpunkt des linken Kreisbogens
+\pnode(-9,3){CMR}% Mittelpunkt des rechten Kreisbogens
+\rput(CML){\pnode(5;167){C0}}% Oberer linker Punkt des Kondensators
+\rput(CMR){\pnode(5;13){C1}}% Oberer rechter Punkt des Kondensators
+\pscustom[dimen=inner,linewidth=1.2pt,fillstyle=gradient,gradmidpoint=0,gradangle=0,gradbegin=Speisewasser,gradend=DampfND]{%
+\psarcn[liftpen=0](CML){5}{193}{167}%
+\psarcn[liftpen=0](CMR){5}{13}{-13}%
+\closepath%
+}
+\psline[style=LeitungND](-8.5,7)(-8.5,7.3)(-7.5,7.3)(-7.5,7)%  Dampfleitung vom Hochdruckteil der Turbine zum Niederdruckteil
+\pcline[linewidth=0.5pt,arrowscale=1,arrowinset=0.04,arrowsize=0.08,arrowlength=1.4,linecolor=white]{->}(-8.25,7.3)(-7.75,7.3)
+\psline[style=LeitungHD](-9.5,7)(-9.5,7.5)(-16.5,7.5)(-16.5,6.99)%  Dampfleitung vom Dampferzeuger zum Hochdruckteil der Turbine
+\pcline[linewidth=0.5pt,arrowscale=1,arrowinset=0.04,arrowsize=0.08,arrowlength=1.4,linecolor=white]{->}(-12.5,7.5)(-12,7.5)
+%----------------------Leitung durch Kondensator ----------------------------------------------------
+\psline[style=WasserleitungKT](-4.5,2.25)(-9,2.25)(-9,2.67)(-5,2.67)(-5,3.083)(-9,3.083)(-9,3.5)(-4.5,3.5)
+\psframe[linestyle=none,fillstyle=gradient,gradmidpoint=0,gradangle=90,gradbegin=Speisewasser,gradend=Kuehlturmwasser](-4,3.458)(-8.5,3.542)
+\pcline[linewidth=0.5pt,arrowscale=1,arrowinset=0.04,arrowsize=0.08,arrowlength=1.4,linecolor=white]{->}(-7.25,3.5)(-6.75,3.5)
+\pcline[linewidth=0.5pt,arrowscale=1,arrowinset=0.04,arrowsize=0.08,arrowlength=1.4,linecolor=white]{<-}(-7.25,2.25)(-6.75,2.25)
+%--------------------------------------------------------------------------------------
+%--------------------- Leitung Abgang Kondensator zu Pumpe und Dampferzeuger ----------
+%--------------------------------------------------------------------------------------
+\rput(-10,1.5){\pumpeA{Speisewasser}}
+\psline[style=WasserleitungSP](-7.5,1.9)(-7.5,1.325)(-9,1.325)%
+\pcline[linewidth=0.5pt,arrowscale=1,arrowinset=0.04,arrowsize=0.08,arrowlength=1.4,linecolor=white]{->}(-7.5,2.1)(-7.5,1.6)
+\psline[style=WasserleitungSP](-11,1.675)(-11.5,1.675)(-11.5,3)(-15.52,3)%
+\pcline[linewidth=0.5pt,arrowscale=1,arrowinset=0.04,arrowsize=0.08,arrowlength=1.4,linecolor=white]{->}(-11.5,2)(-11.5,2.5)
+\pcline[linewidth=0.5pt,arrowscale=1,arrowinset=0.04,arrowsize=0.08,arrowlength=1.4,linecolor=white]{->}(-12.75,3)(-13.25,3)
+%--------------------------------------------------------------------------------------
+%--------------------- Boden f\"{u}r Turbine und Generator ---------------------------
+%--------------------------------------------------------------------------------------
+\psframe[linestyle=none,framearc=.0,fillstyle=gradient,gradmidpoint=0.2,gradangle=0,gradend=gray!10,gradbegin=black!80](-11,5.7)(-3,6)%
+
+%--------------------------------- Turbine -------------------------------------------------------
+\psframe[linestyle=none,fillstyle=gradient,linecolor=black,gradmidpoint=0.3,%
+gradangle=0,gradbegin=black!90,gradend=cyan!40](-10.8,6.4)(-3.1,6.6)%  Achse
+\pspolygon[fillstyle=gradient,gradmidpoint=0.25,gradangle=0,gradend=cyan!15,gradbegin=black!60](-10.5,6)(-6.75,6)(-6.75,6.75)(-7,7)(-10.25,7)(-10.5,6.75)
+\psline(-7,6)(-7,7)\psline(-10.25,6)(-10.25,7)
+\psline[style=LeitungND](-7.5,5.69)(-7.5,4.1)%  Dampfleitung von Turbine zum Kondensator
+\pcline[linewidth=0.5pt,arrowscale=1,arrowinset=0.04,arrowsize=0.08,arrowlength=1.4,linecolor=white]{->}(-7.5,5)(-7.5,4.5)
+
+%--------------------------------- Generator ------------------------------------------------------
+\psframe[linestyle=solid,fillstyle=gradient,linecolor=black,gradmidpoint=0.25,%
+gradangle=0,gradbegin=black!60,gradend=cyan!15,framearc=0.2](-5.7,6.3)(-3.3,6.7)%
+\psframe[linestyle=solid,fillstyle=gradient,linecolor=black,gradmidpoint=0.25,%
+gradangle=0,gradbegin=black!60,gradend=cyan!15,framearc=0.2](-5.6,6.1)(-3.4,6.9)%
+\psframe[linestyle=solid,fillstyle=gradient,linecolor=black,gradmidpoint=0.25,%
+gradangle=0,gradbegin=black!60,gradend=cyan!15,framearc=0.2](-5.5,6.0)(-3.5,7.)%
+
+%--------------------------------- Transformator ------------------------------------------------------
+\psframe[linewidth=1.2pt,fillstyle=gradient,gradmidpoint=0,gradangle=0,gradend=orange!50,gradbegin=orange!40](-3.1,8.0)(-0.9,10.5)%
+\pspolygon[linewidth=1.0pt,fillstyle=gradient,gradmidpoint=0,gradangle=0,gradend=brown!60!black!60,
+gradbegin=brown!70!black!90](-3.2,10.5)(-3.1,10.9)(-0.9,10.9)(-0.8,10.5)%
+\psframe[linestyle=none,framearc=.0,fillstyle=gradient,gradmidpoint=0.2,gradangle=0,gradend=gray!10,gradbegin=black!80](-3,8.0)(-1,8.2)%
+\psframe[linestyle=none,framearc=.0,fillstyle=gradient,gradmidpoint=0,gradangle=0,gradend=black!70,gradbegin=black!40](-2.95,8.4)(-1.05,9.6)%
+\psframe[framearc=0,fillstyle=gradient,gradmidpoint=0,gradangle=0,gradend=brown!80!black!90,gradbegin=brown!60](-2.8,8.2)(-1.2,9.8)%
+\psline[linewidth=2.5pt,linearc=0.2]{c-}(-2.9,8.8)(-3.8,8.8)(-3.8,7)%  untere Stromleitung von Trafo zum Generator
+\psline[linewidth=2.5pt,linearc=0.2]{c-}(-2.9,9)(-4,9)(-4,7)%  mittlere Stromleitung von Trafo zum Generator
+\psline[linewidth=2.5pt,linearc=0.2]{c-}(-2.9,9.2)(-4.2,9.2)(-4.2,7)%  obere Stromleitung von Trafo zum Generator
+%------------------------- Anschl\"{u}sse Abgang Transformator -----------------------------------------
+\pnode(-2.4,11.13){ATL}
+\pnode(-2.0,11.13){ATM}
+\pnode(-1.6,11.13){ATR}
+
+\def\TrafoAn{%
+\psline[linewidth=1.8pt]{-c}(0,0.05)(0,0.23)
+\psframe[fillstyle=solid,fillcolor=white,linewidth=0.6pt,framearc=0.15](-0.08,0)(0.08,0.2)
+\psline[linewidth=1.8pt]{-c}(0,1.07)(0,1.33)
+\psline[linewidth=1.2pt](0,0.2)(0,1.1)
+\psframe[fillstyle=solid,fillcolor=white,linewidth=0.6pt,framearc=0.15](-0.08,1.1)(0.08,1.3)
+}
+\rput(-2.4,9.8){\TrafoAn}
+\rput(-2.0,9.8){\TrafoAn}
+\rput(-1.6,9.8){\TrafoAn}
+%
+}
+%
+%--------------------------------- Strom-Mast -------------------------------------------------------
+\def\Fuss{%
+\pspolygon[linewidth=1.2pt,shadow=true,shadowsize=1.5pt,shadowcolor=gray!70](-1,0)(-0.65,0.65)(0.65,0.65)(1,0)(0,0.65)
+%\pspolygon[linewidth=1.2pt](-1,0)(-0.65,0.65)(0.65,0.65)(1,9)(0,0.65)
+%\pspolygon[linewidth=1.2pt](-1,0)(-0.65,0.65)(0.65,0.65)(1,9)(0,0.65)
+\psline(-0.8075,0.3575)(-0.45,0.3575)(-0.65,0.65)
+\psline(0.8075,0.3575)(0.45,0.3575)(0.65,0.65)
+\psarc[fillstyle=solid,fillcolor=gray!80,linestyle=none](-1,-0.08){0.13}{0}{180}
+\psarc[fillstyle=solid,fillcolor=gray!80,linestyle=none](1,-0.08){0.13}{0}{180}
+\psline[linecolor=black!70,linewidth=2pt](-1.2,-0.1)(1.2,-0.1)
+}
+\newcommand{\Mittelsegment}{%
+\pnode(-0.65,0){St1}
+\pnode(-0.5,0.5){St2}
+\pnode(0.65,0){St3}
+\pnode(0.5,0.5){St4}
+\pscustom[linejoin=1,linewidth=1.2pt]{%
+\psline(St1)(St2)(St3)(St4)(St1)(St3)
+\openshadow[shadowsize=1.5pt,shadowcolor=gray!70]
+\closepath%
+}
+%\psline[linewidth=1.2pt](St1)(St2)(St3)
+%\psline[linewidth=1.2pt](St3)(St4)(St1)
+%\psline[linewidth=1.2pt](St1)(St3)
+}
+
+\def\Strommast{%
+\Fuss
+\rput(0,0.65){\Mittelsegment}
+\rput(0,1.18){\psset{xunit=0.76}\Mittelsegment}
+\rput(0,1.7){\psset{xunit=0.5776}\Mittelsegment}
+\rput(0,2.22){\psset{xunit=0.438976}\Mittelsegment}
+\rput(0,2.74){\psset{xunit=0.33362176}\Mittelsegment}
+\rput(0,3.26){\psset{xunit=0.2535525}\Mittelsegment}
+%
+\psline[linewidth=1.2pt,linejoin=1](-0.1273,3.76)(0,4.1)(0.1273,3.76)(-0.1273,3.76)
+%-------------- linker Arm -----------------------------------------------
+\psline[linewidth=1.2pt,linejoin=1](-0.16,3.26)(-2.2,2.9)(-0.18,2.9)
+\psline[linewidth=1.2pt,linejoin=1](-1.4,2.9)(-1.15,3.07)(-1,2.9)(-0.7,3.15)(-0.5,2.9)(-0.16,3.26)
+%-------------- rechter Arm -----------------------------------------------
+\psline[linewidth=1.2pt,linejoin=1](0.16,3.26)(2.2,2.9)(0.18,2.9)
+\psline[linewidth=1.2pt,linejoin=1](1.4,2.9)(1.15,3.07)(1,2.9)(0.7,3.15)(0.5,2.9)(0.16,3.26)
+\rput(1.0,2.77){%
+\psline[linewidth=1.8pt]{c-}(0,-0.13)(0,0.13)
+\psframe[fillstyle=solid,fillcolor=white,linewidth=0.6pt,framearc=0.18](-0.075,-0.1)(0.075,0.1)
+\pnode(0,-0.13){SMR1}
+}
+%
+\rput(1.9,2.77){%
+\psline[linewidth=1.8pt]{c-}(0,-0.13)(0,0.13)
+\psframe[fillstyle=solid,fillcolor=white,linewidth=0.6pt,framearc=0.18](-0.075,-0.1)(0.075,0.1)
+\pnode(0,-0.13){SMR2}
+}
+%
+\rput(-1.0,2.77){%
+\psline[linewidth=1.8pt]{c-}(0,-0.13)(0,0.13)
+\psframe[fillstyle=solid,fillcolor=white,linewidth=0.6pt,framearc=0.18](-0.075,-0.1)(0.075,0.1)
+\pnode(0,-0.13){SML1}
+}
+%
+\rput(-1.9,2.77){%
+\psline[linewidth=1.8pt]{c-}(0,-0.13)(0,0.13)
+\psframe[fillstyle=solid,fillcolor=white,linewidth=0.6pt,framearc=0.18](-0.075,-0.1)(0.075,0.1)
+\pnode(0,-0.13){SML2}
+}
+}
+
+%----------------------------------------------------------------------------------------------
+%----------------------------------------------------------------------------------------------
+\def\Reaktorgebaeude{%
+%----------------------------------------------------------------------------------------------
+%------------------------------- Abluftkamin -------------------------------------
+%----------------------------------------------------------------------------------------------
+\pspolygon[linecolor=gray!40,linewidth=2pt,fillstyle=solid,fillcolor=gray!10](-14,-2)(-14.4,14)(-15.6,14)(-16,-2)
+%----------------------------------------------------------------------------------------------
+%----------------------------- \"{A}u{\ss}eres Geb\"{a}ude -----------------------------------
+%----------------------------------------------------------------------------------------------
+\pscustom[linecolor=gray!40,linewidth=4pt,fillstyle=solid,fillcolor=gray!10]{%
+\psarcn[liftpen=0](-19,4){5.5}{180}{0}%
+\psline(-13.5,-2)(-24.5,-2)
+\closepath%
+}
+%----------------------------------------------------------------------------------------------
+%----------------------------- Inneres Geb\"{a}ude -----------------------------------
+%----------------------------------------------------------------------------------------------
+\pscircle[linecolor=gray!80,linewidth=2pt,fillstyle=solid,fillcolor=gray!30](-19,4){5}
+
+%----------------------------------------------------------------------------------------------
+%----------------------------- Dampferzeuger -----------------------------------
+%----------------------------------------------------------------------------------------------
+\rput(-16.5,0){%
+\pscustom[dimen=inner,linestyle=none,fillstyle=gradient,gradmidpoint=0,gradangle=0,gradbegin=Speisewasser,gradend=DampfHD]{%
+\psellipticarc(0,6.5)(1.25,0.5){0}{180}
+\psline(-1.25,5)(1.25,5)
+\closepath%
+}
+\pscustom[dimen=inner,linestyle=none,fillstyle=solid,fillcolor=Speisewasser]{%
+\psline(-1.25,5)(-1,4.5)(-1,2.5)(1,2.5)(1,4.5)(1.25,5)
+\closepath%
+}
+\pscustom[dimen=inner,linewidth=1.2pt,fillstyle=none]{%
+\psellipticarc(0,6.5)(1.25,0.5){0}{180}
+\psline(-1.25,5)(-1,4.5)(-1,2.5)(1,2.5)(1,4.5)(1.25,5)
+\closepath%
+}
+\pscustom[dimen=inner,linewidth=1.2pt,fillstyle=solid,fillcolor=DampfHD]{%
+\psline(-1,2.5)(-1,2)
+\psarc(0,2){1}{180}{270}
+\psline(0,1)(0,2.5)
+\closepath%
+}
+\pscustom[dimen=inner,linewidth=1.2pt,fillstyle=solid,fillcolor=DampfMD]{%
+\psline(0,2.5)(1,2.5)(1,2)
+\psarcn(0,2){1}{0}{-90}
+\closepath%
+}
+\psline[style=LeitungND,linearc=0.3](-0.3,2.5)(-0.3,4.3)(0.3,4.3)(0.3,2.5)
+\psline[style=LeitungND,linearc=0.6](-0.6,2.5)(-0.6,4.6)(0.6,4.6)(0.6,2.5)
+%------------------- Farbverlauf in den Rohren durch den Dampferzeuger -----------------------------
+\psframe[linestyle=none,fillstyle=gradient,gradmidpoint=0,gradangle=0,gradbegin=DampfHD,gradend=DampfND](-0.338,2.45)(-0.257,3.9)
+\psframe[linestyle=none,fillstyle=gradient,gradmidpoint=0,gradangle=0,gradbegin=DampfHD,gradend=DampfND](-.638,2.45)(-.557,3.9)
+\psframe[linestyle=none,fillstyle=gradient,gradmidpoint=0,gradangle=0,gradbegin=DampfMD,gradend=DampfND](0.262,2.45)(0.343,3.9)
+\psframe[linestyle=none,fillstyle=gradient,gradmidpoint=0,gradangle=0,gradbegin=DampfMD,gradend=DampfND](0.562,2.45)(0.643,3.9)
+%------------------- Aufsteigende Dampfblasen im Dampferzeuger ----------------------------------
+\psRandom[dotsize=3pt,dotstyle=o,randomPoints=30](-0.6,4)(0.6,6.2){%
+\psframe[linestyle=none](-0.8,3.9)(0.8,6.3)
+}
+%\psRandom[dotsize=3pt,dotstyle=o,randomPoints=20](-0.85,5)(0.85,6.3){%
+%\psframe[linestyle=none](-0.9,4.9)(0.9,6.6)}
+%\psRandom[dotsize=3pt,dotstyle=o,randomPoints=20](-0.5,3.9)(0.5,5.5){%
+%\psframe[linestyle=none](-0.7,3.6)(0.7,5.6)}
+}
+%------------------- rechter Rohr-Anschluss des Dampferzeugers ----------------------------------
+\psline[style=LeitungMD,linearc=0.3](-15.5,2)(-15.2,2)(-15.2,1.5)
+\psline[style=LeitungMD,linearc=0.65](-15.2,1.5)(-15.2,0.825)(-17,0.825)
+
+%----------------------------------------------------------------------------------------------
+%--------------------------------- Reaktordruckgef\"{a}{\ss} (Kern) -----------------------------------
+%----------------------------------------------------------------------------------------------
+\rput(-21,-1.25){%
+%-------- Randlinie der oberen Einm\"{u}ndung f\"{u}r die Steuerst\"{a}be - F\"{u}llung weiter unten ----------
+\psframe[linestyle=solid,linewidth=1.2pt,framearc=0.9](-0.5,6.0)(-0.3,8.75)
+\psframe[linestyle=solid,linewidth=1.2pt,framearc=0.9](-0.1,6.0)(0.1,8.75)
+\psframe[linestyle=solid,linewidth=1.2pt,framearc=0.9](0.3,6.0)(0.5,8.75)
+%----------------------------------------------------------------------------------------------
+%--------- F\"{u}llung rechteckiges Mittelteil mit Farb\"{u}bergang des Reaktordruckgef\"{a}{\ss}es -----------
+\psframe[dimen=inner,linestyle=none,fillstyle=gradient,gradmidpoint=0,gradangle=0,gradbegin=DampfMD,gradend=DampfHD](-1.25,4)(1.25,6)
+%----------------------------------------------------------------------------------------------
+%------------------ F\"{u}llung oberer ellipsenf\"{o}rmiger Teil des Druckgef\"{a}{\ss}es ---------------------
+\pscustom[dimen=inner,linestyle=none,fillstyle=solid,fillcolor=DampfHD]{%
+\psellipticarc(0,6.5)(1.25,0.5){0}{180}
+\psline(-1.25,6)(1.25,6)
+\closepath%
+}
+%----------------------------------------------------------------------------------------------
+%------------------ F\"{u}llung unterer Teil des Druckgef\"{a}{\ss}es -------------------------------------
+\pscustom[dimen=inner,linestyle=none,fillstyle=solid,fillcolor=DampfMD]{%
+\psarc(0,4){1.25}{180}{0}
+\psline(1.25,4)(-1.25,4)
+\closepath%
+}
+%----------------------------------------------------------------------------------------------
+%------------------ Zeichnen der Randlinie des Druckgef\"{a}{\ss}es -----------------------------------
+\pscustom[dimen=inner,linewidth=1.2pt]{%
+\psellipticarc(0,6.5)(1.25,0.5){0}{180}
+\psarc(0,4){1.25}{180}{0}
+\closepath%
+}
+%----------------------------------------------------------------------------------------------
+%------------- F\"{u}llung der oberen Einm\"{u}ndung f\"{u}r die Steuerst\"{a}be - Randlinie weiter oben ----------
+\psframe[dimen=outer,linestyle=none,framearc=0.9,fillstyle=solid,fillcolor=DampfHD](-0.5,6.0)(-0.3,8.75)
+\psframe[dimen=outer,linestyle=none,framearc=0.9,fillstyle=solid,fillcolor=DampfHD](-0.1,6.0)(0.1,8.75)
+\psframe[dimen=outer,linestyle=none,framearc=0.9,fillstyle=solid,fillcolor=DampfHD](0.3,6.0)(0.5,8.75)
+%----------------------------------------------------------------------------------------------
+%------------------------ Brennst\"{a}be ----------------------------------------------------------
+\psline[linewidth=6pt,linecolor=green!40!black!90]{-c}(0.2,3.5)(0.2,4.5)
+\psline[linewidth=6pt,linecolor=green!40!black!90]{-c}(0.6,3.5)(0.6,4.5)
+\psline[linewidth=6pt,linecolor=green!40!black!90]{-c}(-0.2,3.5)(-0.2,4.5)
+\psline[linewidth=6pt,linecolor=green!40!black!90]{-c}(-0.6,3.5)(-0.6,4.5)
+%----------------------------------------------------------------------------------------------
+%-------------------------- Steuerst\"{a}behalter -------------------------------------------------
+\psline[linewidth=2.5pt]{c-c}(-0.5,7.15)(-0.5,7.35)
+\psline[linewidth=2.5pt]{c-c}(-0.3,7.15)(-0.3,7.35)
+\psline[linewidth=2.5pt]{c-c}(-0.1,7.15)(-0.1,7.35)
+\psline[linewidth=2.5pt]{c-c}(0.1,7.15)(0.1,7.35)
+\psline[linewidth=2.5pt]{c-c}(0.3,7.15)(0.3,7.35)
+\psline[linewidth=2.5pt]{c-c}(0.5,7.15)(0.5,7.35)
+%----------------------------------------------------------------------------------------------
+%-------------------------- Steuerst\"{a}be -------------------------------------------------------
+\rput(-0.4,7.5){%
+\psline[linewidth=1.2pt]{c-c}(0,0.3)(0,-2.5)
+\psline[linewidth=2.5pt]{c-c}(0,-2.5)(0,-3.6)
+}
+\rput(0,7.7){%
+\psline[linewidth=1.2pt]{c-c}(0,0.3)(0,-2.5)
+\psline[linewidth=2.5pt]{c-c}(0,-2.5)(0,-3.6)
+}
+\rput(0.4,8.3){%
+\psline[linewidth=1.2pt]{c-c}(0,0.3)(0,-2.5)
+\psline[linewidth=2.5pt]{c-c}(0,-2.5)(0,-3.6)
+}
+%----------------------------------------------------------------------------------------------
+%------------------- Str\"{o}mungs-Umlenkung im Druckgef\"{a}{\ss} links + Pfeil --------------------------
+\psline[linewidth=1.2pt](-1.25,4.5)(-0.9,4.5)(-0.9,3.5)
+%----------------------------------------------------------------------------------------------
+\rput{-40}(-1.03,3.6){%
+\pscurve[linewidth=0.5pt,arrowscale=1,arrowinset=0.04,arrowsize=0.08,arrowlength=1.4]{->}(0,0)(0.3,-0.1)(0.6,0)
+}
+%----------------------------------------------------------------------------------------------
+}%   Ende des Setztens mit \rput des Reaktordruckgef\"{a}{\ss}es
+%----------------------------------------------------------------------------------------------
+%----------------------- Pumpe und Leitungen von Dampferzeuger zu Reaktorkern -----------------
+%----------------------------------------------------------------------------------------------
+\rput(-18,1){\pumpeA{DampfMD}}
+\psline[style=LeitungMD,linearc=0.2](-18.9,1.175)(-22.5,1.175)(-22.5,3)(-22.22,3)
+\psline[style=LeitungHD,linearc=0.2](-19.75,5)(-18,5)(-18,2)(-17.48,2)
+%----------------------------------------------------------------------------------------------
+\pcline[linewidth=0.5pt,arrowscale=1,arrowinset=0.04,arrowsize=0.08,arrowlength=1.4]{->}(-16.5,0.825)(-17.0,0.825)
+\pcline[linewidth=0.5pt,arrowscale=1,arrowinset=0.04,arrowsize=0.08,arrowlength=1.4]{->}(-19.5,1.175)(-20.0,1.175)
+\pcline[linewidth=0.5pt,arrowscale=1,arrowinset=0.04,arrowsize=0.08,arrowlength=1.4]{->}(-22.5,1.75)(-22.5,2.25)
+\pcline[linewidth=0.5pt,arrowscale=1,arrowinset=0.04,arrowsize=0.08,arrowlength=1.4,linecolor=white]{->}(-19.25,5)(-18.75,5)
+\pcline[linewidth=0.5pt,arrowscale=1,arrowinset=0.04,arrowsize=0.08,arrowlength=1.4,linecolor=white]{->}(-18,4)(-18,3.5)
+%----------------------------------------------------------------------------------------------
+\rput{40}(-17.4,2){%
+\pscurve[linewidth=0.5pt,arrowscale=1,arrowinset=0.04,arrowsize=0.08,arrowlength=1.4,linecolor=white]{->}(0,0)(0.3,-0.1)(0.6,0)
+}
+%----------------------------------------------------------------------------------------------
+\rput{-40}(-16.1,2.4){%
+\pscurve[linewidth=0.5pt,arrowscale=1,arrowinset=0.04,arrowsize=0.08,arrowlength=1.4,linecolor=black]{->}(0,0)(0.3,-0.1)(0.6,0)
+}
+%----------------------------------------------------------------------------------------------
+%-------------------------------- Druckhalter -------------------------------------------------
+%----------------------------------------------------------------------------------------------
+\psframe[dimen=outer,linestyle=none,framearc=0.9,fillstyle=solid,fillcolor=DampfHD](-19.3,5.5)(-18.7,7)
+\psframe[dimen=outer,linestyle=none,framearc=0.9,fillstyle=solid,fillcolor=white](-19.3,6.5)(-18.7,7)
+\psframe[dimen=outer,linestyle=none,framearc=0,fillstyle=solid,fillcolor=white](-19.3,6.4)(-18.7,6.7)
+\psframe[linewidth=1.2pt,framearc=0.9](-19.3,5.5)(-18.7,7)
+\psline[style=LeitungHD](-19,5.52)(-19,5.0443)
+}
+%----------------------------------------------------------------------------------------------
+
+\psscalebox{0.5}{%
+\rput(13,-4){%
+\begin{pspicture}[showgrid=false](-25,-2)(8,15)
+\rput(-8.5,15.5){\Huge Kernkraftwerk mit Druckwasserreaktor}
+%----------------------------------------------------------------------------
+\Reaktorgebaeude
+\Maschinenhaus
+\Kuehlturm
+%----------------------------------------------------------------------------
+%-------- Strommast und Verbindung der Leitung zum Trafo --------------------
+\rput(-6,10){\Strommast}
+\psbezier(ATL)(-4.8,10.5)(-7,11)(SML2)
+\psbezier(ATM)(-3.5,11.2)(-4.5,11.5)(SMR1)
+\psbezier(ATR)(-2.5,11.2)(-3.5,11.5)(SMR2)
+%----------------------------------------------------------------------------
+%
+%----------------------- Beschriftungen -------------------------------------
+%
+\rput(-7,8.1){Maschinenhaus}
+\rput(-19,10){Reaktorgeb\"{a}ude}
+\rput[t](-23.0,5.5){\shortstack[l]{\scriptsize Reaktor-\strut\\[-3pt]
+\scriptsize druck-\strut\\[-3pt]\scriptsize gef\"{a}{\ss}\strut}}
+\rput[tl](-19.45,2.65){\shortstack[l]{\scriptsize Brenn-\strut\\[-3pt]
+\scriptsize elemente\strut}}
+\psline(-20.4,2.5)(-19.65,2.5)
+\rput(-21.0,7.8){\scriptsize Steuerst\"{a}be}
+\rput(-19,7.2){\scriptsize Druckhalter}
+\rput(-17.0,7.7){\scriptsize Dampferzeuger}
+\rput(-17.0,0.5){\scriptsize Hauptk\"{u}hlkreis}
+\rput(-13.3,7.8){\scriptsize Wasserdampf}
+\rput(-13,3.3){\scriptsize Speisewasser}
+\rput(-8.75,6.5){\scriptsize Turbine}
+\rput(-4.5,6.5){\scriptsize Generator}
+\rput(-2,9){\scriptsize Trafo}
+\rput(-5,13.5){\scriptsize Strommast}
+\rput(-5.75,4.3){\scriptsize Kondensator}
+\rput(4,-0.5){\scriptsize K\"{u}hlturm}
+\rput[r](1.3,2.5){\scriptsize Spr\"{u}hwasser}
+\uput{2pt}[110](0,1){\scriptsize Luft}
+\rput(4,5.5){\scriptsize feuchte, warme Luft}
+\uput{4pt}[90](-0.25,3.5){\scriptsize K\"{u}hlwasser}
+\end{pspicture}
+}}
+\end{document}

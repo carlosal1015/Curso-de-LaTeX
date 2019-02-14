@@ -1,0 +1,55 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 14-04-1 on page 161.
+%% 
+%%  Copyright (C) 2011 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{201.70511pt}
+\setlength\parindent{0pt}
+
+\usepackage{pstricks,pst-node}  \SpecialCoor
+\makeatletter
+\define@boolkey[psset]{}[Pst@]{showFP}[true]{}% mark focal point?
+\psset{showFP}                           % true as default
+\def\focalPoint{\@ifnextchar[{\focalPoint@i}{\focalPoint@i[]}}
+\def\focalPoint@i[#1](#2)(#3)(#4)#5{{    % everything stays local
+  \psset{#1}                             % set parameters
+  \pst@getcoor{#2}\pst@tempA% point A    % get coordinates as x y
+  \pst@getcoor{#3}\pst@tempB% point B    %
+  \pst@getcoor{#4}\pst@tempC% point C    %
+  \pnode(!                               % set node
+     \pst@tempA /YA exch \pst@number\psyunit div def
+     /XA exch \pst@number\psxunit div def % x y in user coordinates
+     \pst@tempB /YB exch \pst@number\psyunit div def
+     /XB exch \pst@number\psxunit div def
+     \pst@tempC /YC exch \pst@number\psyunit div def
+     /XC exch \pst@number\psxunit div def
+     XA XB XC add add 3.0 div            % xSP
+     YA YB YC add add 3.0 div            % ySP
+  ){#5}                                  % #5 = node name
+  \ifPst@showFP\qdisk(#5){2pt}\fi}\ignorespaces}
+\makeatother
+
+\begin{document}
+\begin{pspicture}[showgrid](4,4)  \psset{linewidth=2pt}
+  \pspolygon[linecolor=red](0,0)(2,4)(4,0)%
+  \focalPoint[showFP=true,linecolor=red](0,0)(2,4)(4,0){SP1}%
+  \pnode(0,0){A}\pnode(0,4){B}\pnode(4,2){C}%
+  \pspolygon[linecolor=blue](A)(B)(C)\focalPoint(A)(B)(C){SP2}%
+  {\psset{linecolor=blue}\qdisk(SP2){2pt}}
+  \ncline[linewidth=0.2pt]{<->}{SP1}{SP2}%
+\end{pspicture}
+\end{document}

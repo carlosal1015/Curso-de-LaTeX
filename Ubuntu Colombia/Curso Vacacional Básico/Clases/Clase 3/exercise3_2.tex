@@ -1,0 +1,38 @@
+\documentclass{article}
+\usepackage[utf8x]{inputenc}
+\usepackage[spanish]{babel}
+\spanishdatedel
+\usepackage{lipsum}
+\input{colores.tex} % Apunta al archivo.
+\input{dict_ecuaciones.tex}
+\input{quimica.tex}
+\input{intervalos.tex}
+\title{Tomando el control de \LaTeX{}}
+\author{Oromion}
+\date{\today}
+\begin{document}
+\maketitle
+
+\textcolor{myGreen}{Un texto en color verde.}
+
+La ecuación de Fourier en línea \Fourier[inLine]{myGreen} tiene que aparecer en línea con este texto o sino del modo display \Fourier[disp]
+
+Modo ecuación numerada \Fourier[eq]
+
+\cuadratica{}
+
+\Fourier[eq]
+
+Ahoras las ecuaciones de Maxwell
+
+\textcolor{myBlue}{\Maxwell{}}
+
+\adrenalina{}
+
+Ahora vamos a dibujar intervalos
+
+\begin{tikzpicture}
+\reaLine{-1}{2}
+\interval{-1}{2}{0.3}{<-}{fill}{inf}{myBlue}%fill = none
+\end{tikzpicture}
+\end{document}

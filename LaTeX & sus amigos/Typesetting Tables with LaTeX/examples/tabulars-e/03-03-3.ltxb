@@ -1,0 +1,33 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 03-03-3 on page 123.
+%% 
+%%  Copyright (C) 2010 Vo\ss 
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+
+% Show page(s) 1
+
+%% ==== 
+\documentclass[xcolor=table]{beamer}
+\usetheme{Malmoe} \useoutertheme{sidebar} \usecolortheme{dove}
+\newcommand\Chline[1]{\arrayrulecolor{#1}\hline\arrayrulecolor{black}}
+
+
+\begin{document}
+\begin{frame}{Example}{Coloured lines}
+\begin{center}\Large
+\begin{tabular}{l >{\columncolor{red!30}}r r}\\\Chline{blue}
+\rowcolor{magenta!40} \emph{Name} & \emph{Type} & \emph{Value}\\\Chline{blue}
+marching band & AN & 9.80\\\Chline{red}  presentation & AN & 8.66\\\Chline{green}
+commity       & AN &13.31\\\Chline{blue} food         & AN &11.01\\\hline
+\end{tabular}
+\end{center}
+\end{frame}
+\end{document}

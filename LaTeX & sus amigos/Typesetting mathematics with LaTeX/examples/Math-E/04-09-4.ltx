@@ -1,0 +1,39 @@
+%% 
+%%  An UIT Edition example
+%% 
+%%  Example 04-09-4 on page 57.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{281.68227pt}
+\usepackage[utf8]{inputenc}
+\AtBeginDocument{\setlength\parindent{0pt}}
+\setcounter{equation}{33}
+\renewcommand\theequation{4.\arabic{equation}}
+\StartShownPreambleCommands
+
+\StopShownPreambleCommands
+\begin{document}
+If you want to set a formula in very small font, do not use \verb=\tiny= in this way.
+The interline spacing of the lines in this paragraph will be incorrect. See the next
+example for correct spacing.
+\tiny
+\begin{equation}
+\int_1^2\,\frac{1}{x^2}\,\mathrm{d}x=0.5
+\end{equation}
+\normalsize
+If you want to set a formula in very small font, do not use \verb=\tiny= in this way.
+The spacing of the lines in the above paragraph is incorrect. See the next example.
+\end{document}

@@ -1,0 +1,28 @@
+%% 
+%%  Example 07-07-3 
+%%  Copyright (C) 2017 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{328.62788pt}
+\setlength\parindent{0pt}
+\usepackage[T1]{fontenc}
+%StartShownPreambleCommands
+\usepackage{amsmath}
+\newsavebox\lW
+\sbox\lW{$P_{3}+P_{2}-P_{1}$}
+%StopShownPreambleCommands
+\begin{document}
+\begin{itemize}
+\item first function \\
+  $\displaystyle\makebox[\wd\lW][r]{$P_1$}=\sum_a \in A$
+\item but another one \\
+  $\makebox[\wd\lW][r]{$\sin\left(P_1\right)$}=blabla$
+\item or perhaps \\
+  $P_{3}+P_{2}-P_{1}=blablub$
+\end{itemize}
+\end{document}

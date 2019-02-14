@@ -1,0 +1,24 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{listings}
+\begin{document}
+\title{02: How to compile}
+\author{Boris Veytsman}
+\date{TUG18 knitr workshop; July 2018\thanks{This work is licensed
+    under a Creative Commons Attribution 4.0 International License
+    (CC-BY)}}
+\maketitle
+
+\section{Using Rstudio}
+
+
+\includegraphics[width=\textwidth]{rstudio-compilation}
+
+\clearpage
+
+\section{Using Makefiles}
+
+
+\lstinputlisting[language=make]{Makefile}
+
+\end{document}

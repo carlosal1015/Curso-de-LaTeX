@@ -1,0 +1,38 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%%  Mathematiksatz mit LaTeX
+%%  2. Auflage
+%% 
+%%  Beispiel 10-04-5 auf Seite 219.
+%% 
+%%  Copyright (C) 2012 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\AtBeginDocument{\setlength\parindent{0pt}}
+\setcounter{equation}{3}
+\renewcommand\theequation{10.\arabic{equation}}
+\StartShownPreambleCommands
+\usepackage{amsmath}
+\StopShownPreambleCommands
+\begin{document}
+\begin{equation}
+  \binom{x_R}{y_R} = \underbrace{r}_{\text{Scaling}}\cdot%
+    \underbrace{\begin{pmatrix}
+                  \sin\gamma & -\cos\gamma \\ \cos\gamma & \sin\gamma \\
+                \end{pmatrix}}_{\text{Rotation}}
+  \binom{x_K}{y_K} + \underbrace{\binom{t_x}{t_y}}_{\text{Translation}}
+\end{equation}
+\end{document}

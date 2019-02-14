@@ -1,0 +1,37 @@
+%% 
+%%  An UIT Edition example
+%% 
+%%  Example 10-09-13 on page 222.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{375.57637pt}
+\AtBeginDocument{\setlength\parindent{0pt}}
+\StartShownPreambleCommands
+\usepackage{amsmath} \newcommand*\CMD[1]{\texttt{\textbackslash#1}}
+\newcommand*\aboxed[2]{\rlap{\boxed{#1#2}}\phantom{\hskip\fboxrule\hskip\fboxsep#1}}
+\StopShownPreambleCommands
+\begin{document}
+\begin{align*}
+  F &= \vec\nabla\Phi \\
+    &= \frac{\partial\Phi}{\partial x}\hat\imath + [\ldots] \\
+    &= (3x^3+y)\hat\imath + [\ldots] \\
+  \aboxed{F}{= 20\hat\imath + [\ldots]}    \tag*{\CMD{aboxed}}\\
+  \boxed{F=20\hat\imath + [\ldots]}        \tag*{\CMD{boxed}}\\
+  \rlap{\boxed{F=20\hat\imath + [\ldots]}} \tag*{\CMD{rlap}\{\CMD{boxed}\}}\\
+  \aboxed{F}{= 20\hat\imath + [\ldots]}    \tag*{\CMD{aboxed}}\\
+  \ldots &= \ldots
+\end{align*}
+\end{document}

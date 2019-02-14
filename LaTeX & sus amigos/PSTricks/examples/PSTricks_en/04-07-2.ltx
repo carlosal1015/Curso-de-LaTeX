@@ -1,0 +1,64 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 04-07-2 on page 56.
+%% 
+%%  Copyright (C) 2011 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{201.70511pt}
+\setlength\parindent{0pt}
+
+\usepackage[dvipsnames]{pstricks}% Uwe Ziegenhagen
+\usepackage{pst-node}
+
+\begin{document}
+\psscalebox{0.5}{%
+\begin{pspicture}(1,2)(18,14)
+\psline[linewidth=2pt,linecolor=black!30](6,0.5)(6,14)
+\psline[linewidth=2pt,linecolor=black!30](1,8.5)(6,7)
+\psline[linewidth=2pt,linecolor=black!30](1.5,5.5)(11,8.5)
+\rput(17,3){\huge $x$}
+\rput(5.5,13){\huge $y$}
+\rput(10.5,8.75){\huge $z$}
+\rput(11,7.1){\huge $\vec{r}$}
+%
+\psline[linewidth=3pt]{<->}(6,7)(6,11.25)
+\rput(5.35,9.4){\huge $R$}
+\psline[linewidth=6pt,linecolor=Green]{->}(6.5,12)(4.75,12)
+\rput(7.5,12.8){\huge $I d\vec{l}$}
+%
+\psellipse[doubleline=true,doublecolor=yellow,doublesep=5pt,linecolor=blue](6,7)(3,4.5)
+\psline[linewidth=2pt](6,7)(17.5,3.5)
+\psline[linewidth=5pt]{->}(6,11.38)(11.95,5.225)
+%
+\psarc[linewidth=6pt,linecolor=gray](6,8){3.4}{85}{95}
+%
+\psline[linewidth=5pt,linecolor=gray]{->}(12,5.15)(12,8.15)
+\psline[linewidth=5pt]{->}(12,5.15)(15,7.25)
+\psline[linewidth=5pt,linecolor=gray]{->}(12,5.15)(15,4.25)
+%
+\psline[linewidth=2pt](12,8.15)(15,7.25)(15,4.25)
+%
+\Cnode*[radius=0.2cm](12,5.15){a}
+\rput(11.5,4.5){\huge $P$}
+%
+\rput(12.5,8.9){\huge $dB_y$}
+\rput(14.5,3.4){\huge $dB_x$}
+\rput(15.5,8){\huge $d \boldmath{\vec{B}}$}
+%
+\psarc[linewidth=1pt]{<->}(12,5){5.5}{133}{161}
+\rput(7.2,8.5){\huge $\theta$}
+\end{pspicture}}
+\end{document}

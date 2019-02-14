@@ -1,0 +1,22 @@
+%% 
+%%  Example 04-01-10 
+%%  Copyright (C) 2016 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{328.62788pt}
+\setlength\parindent{0pt}
+%StartShownPreambleCommands
+\usepackage{amsmath,cancel,xcolor}
+\newcommand\hcancel[2][black]{\setbox0=\hbox{#2}%
+  \rlap{\raisebox{.45\ht0}{\textcolor{#1}{\rule{\wd0}{1pt}}}}#2}
+%StopShownPreambleCommands
+\begin{document}
+$f(x)=\dfrac{\left(x^2+1\right)\cancel{(x-1)}}{\cancel{(x-1)}(x+1)}$\\[0.5cm]
+$\bcancel{3}\qquad\bcancel{1234567}$ \qquad   $\xcancel{3}\qquad\xcancel{1234567}$
+$\hcancel{3}\qquad\hcancel[red]{1234567}$
+\end{document}

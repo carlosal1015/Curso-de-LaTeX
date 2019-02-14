@@ -1,0 +1,33 @@
+%% 
+%%  An UIT Edition example
+%% 
+%%  Example 09-17-3 on page 187.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{177.70511pt}
+\AtBeginDocument{\setlength\parindent{0pt}}
+\usepackage[ngerman]{babel}
+\StartShownPreambleCommands
+\usepackage{mathtools}
+\StopShownPreambleCommands
+\begin{document}
+\begin{equation}
+E = m\cdot c^2 \label{foo}
+       \tag*{\textbf{Einstein}}
+\end{equation}
+\emph{Either~\ref{foo} or~\eqref{foo} or
+the special~\refeq{foo}.}
+\end{document}

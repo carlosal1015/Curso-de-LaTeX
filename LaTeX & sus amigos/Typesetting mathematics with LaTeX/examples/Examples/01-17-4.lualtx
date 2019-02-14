@@ -1,0 +1,21 @@
+%% 
+%%  Example 01-17-4 
+%%  Copyright (C) 2017 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{110.31393pt}
+
+%StartShownPreambleCommands
+\usepackage{unicode-math}
+\setmathfont{XITS Math}
+%StopShownPreambleCommands
+\begin{document}
+$ \theta \Theta \mbftheta \mbfTheta
+  \mittheta \mitTheta \mbfsanstheta
+  \mbfsansTheta $
+\end{document}

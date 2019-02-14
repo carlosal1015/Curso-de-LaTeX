@@ -1,0 +1,14 @@
+\documentclass[tikz]{standalone}
+\usetikzlibrary{positioning}
+\begin{document}
+\begin{tikzpicture}[auto,node distance = 3cm,
+    every node/.style = { circle, draw,
+				 font = \sffamily\Large\bfseries}]   
+
+    \node (1) {1};
+    \node (2) [below left of  =1] {2};
+    \node (3) [below right of =2] {3};
+    \node (4) [below right of =1] {4};
+       
+\end{tikzpicture}
+\end{document}

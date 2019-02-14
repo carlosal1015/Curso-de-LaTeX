@@ -1,0 +1,57 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 05-02-1 on page 170.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{105.70511pt}
+\AtBeginDocument{\setlength\parindent{0pt}}
+\makeatletter
+\newcommand*{\rtab}{%
+  \@stopfield
+  \ifnum \@curtab<\@hightab
+    \global\advance\@curtab \@ne
+  \else
+    \@badtab
+  \fi
+  \@tempdima\dimen\@curtab
+  \advance\@tempdima -\dimen\@curtabmar
+  \advance\@tempdima -\wd\@curline
+  \global\setbox\@curline\hbox{%
+    \unhbox\@curline
+    \hbox to \@tempdima{\unhbox\@curfield\hfil}%
+  }%
+  \@startfield
+  \ignorespaces
+}
+\makeatother
+
+% see preamble in example for \rtab
+
+\begin{document}
+\begin{tabbing}
+blablabla \= \kill \\
+blabla \dotfill \> blabla\\% no effect!
+bla\hrulefill \> blabla    % no effect!
+\end{tabbing}
+\begin{tabbing}
+blablabla \=\kill\\blabla\dotfill\rtab blabla\\bla\hrulefill\rtab blabla
+\end{tabbing}
+\makeatletter\let\@rtab\rtab\makeatother
+\begin{tabbing}
+blablabla \=\kill\\blabla\dotfill\> blabla\\bla\hrulefill\>blabla
+\end{tabbing}
+\end{document}

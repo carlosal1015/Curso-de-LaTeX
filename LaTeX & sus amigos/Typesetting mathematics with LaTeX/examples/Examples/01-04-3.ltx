@@ -1,0 +1,30 @@
+%% 
+%%  Example 01-04-3 
+%%  Copyright (C) 2017 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{304.62788pt}
+\setlength\parindent{0pt}
+%StartShownPreambleCommands
+\usepackage{array}
+%StopShownPreambleCommands
+\begin{document}
+\begin{equation}
+x = \left\{%
+   \begin{array}{l>{\raggedright}p{.5\textwidth}}%
+      0 & if $A=\ldots$\tabularnewline
+      1 & if $B=\ldots$\tabularnewline
+      x & \parbox{0.5\columnwidth}{this runs with as much text as you like,
+          because an automatic linebreak is given with
+          a ragged right text. Without this
+          \raggedright command, you'll get a formatted
+          text like the following one \ldots\ but with a parbox \ldots\ it works}
+    \end{array}%
+  \right. %
+\end{equation}
+\end{document}

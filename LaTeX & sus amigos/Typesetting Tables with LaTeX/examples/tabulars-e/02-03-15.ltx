@@ -1,0 +1,41 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{201.70511pt}
+\setlength\parindent{0pt}
+
+\usepackage{multirow,bigstrut}
+\usepackage[table]{xcolor}
+\renewcommand\multirowsetup{\centering}
+
+\begin{document}
+\begin{tabular}{|l|>{\columncolor{black!30}}r|>{\columncolor{black!20}}r|}\hline
+  col1 row1 & col2 row1 & \multirow{3}[6]{1.5cm}{col3} \bigstrut\\\cline{1-1}
+  col1 row2 & col2 row2 & \bigstrut                           \\\cline{1-2}
+  col1 row3 & \multirow{2}[4]{2cm}[0.8\abovedisplayskip]{\[f(x,y)=x\cdot y\]} &
+	                                       \bigstrut\\\cline{1-1}\cline{3-3}
+  col1 row4 &        & col3 row4\bigstrut\\\hline
+\end{tabular} \quad
+\begin{tabular}{|l|>{\columncolor{black!30}}r|>{\columncolor{black!20}}r|}\hline
+  col1 row1 & col2 row1 & \bigstrut                        \\\cline{1-1}
+  col1 row2 & col2 row2 & \bigstrut                        \\\cline{1-2}
+  col1 row3 &  & \multirow{-3}[6]{1.5cm}{col3} \bigstrut  \\\cline{1-1}\cline{3-3}
+  col1 row4 &  \multirow{-2}[4]{2cm}[0.8\abovedisplayskip]{\[f(x,y)=x\cdot y\]}
+      & col3 row4                              \bigstrut\\\hline
+\end{tabular}
+\end{document}

@@ -1,0 +1,27 @@
+%% 
+%%  Example 07-03-2 
+%%  Copyright (C) 2017 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{158.31393pt}
+\setlength\parindent{0pt}
+\usepackage[T1]{fontenc}
+%StartShownPreambleCommands
+\usepackage{amsmath,bigdelim}
+%StopShownPreambleCommands
+\begin{document}
+\begin{tabular}{rc}
+\ldelim\{{2}{2.75cm}[some text here] &
+ \parbox{\dimexpr\linewidth-3cm-4\tabcolsep}{%
+   \vspace*{1ex}
+   \begin{flalign}
+     x & = 2\quad\text{if }y >2 &\\
+     x & = 3\quad\text{if }y \le 2&
+   \end{flalign}}
+\end{tabular}
+\end{document}

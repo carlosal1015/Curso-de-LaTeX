@@ -1,0 +1,36 @@
+%% 
+%%  Die DANTE-Edition
+%%  Ein Beispiel der LaTeX Referenz
+%%  3. Auflage
+%% 
+%% 
+%%  Copyright (C) 2013 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1,2
+%% 
+%% 
+\documentclass[]{screxabook}
+\pagestyle{empty}
+\setlength\textwidth{193.16928pt}
+\setlength\parindent{0pt}
+\usepackage[T1]{fontenc}
+\usepackage{libertine}
+\usepackage[ngerman]{babel}
+%StartShownPreambleCommands
+\documentclass[paper=a4,10pt,parskip=half]{scrbook}
+\usepackage[paperheight=240mm,paperwidth=170mm,tmargin=5mm,textwidth=125mm,
+ textheight=195mm,rmargin=22mm,heightrounded,includeheadfoot,headheight=5mm,
+ headsep=8mm,foot=18mm,marginparsep=2mm,marginparwidth=19mm]{geometry}
+\usepackage{layout}  \def\notshown{}
+%StopShownPreambleCommands
+\begin{document}
+\layout* \clearpage \layout*
+\end{document}

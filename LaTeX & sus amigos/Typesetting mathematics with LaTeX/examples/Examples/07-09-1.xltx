@@ -1,0 +1,49 @@
+%% 
+%%  Example 07-09-1 
+%%  Copyright (C) 2017 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{328.62788pt}
+\setlength\parindent{0pt}
+\usepackage[T1]{fontenc}
+\usepackage{kpfonts}
+%StartShownPreambleCommands
+\usepackage{amsmath,array}
+\newcounter{subequation} \newlength\mtabskip \mtabskip=-1.25cm
+\newcommand\eqnCnt[1][]{\refstepcounter{subequation}\begin{align}#1\end{align}%
+  \addtocounter{equation}{-1}}
+\def\mtabLong{long}
+\makeatletter
+\newenvironment{mtabular}[2][\empty]
+ {\parindent=0pt
+  \def\@xarraycr{\global\stepcounter{equation}\setcounter{subequation}{0}%
+    \@ifnextchar[\@argarraycr{\@argarraycr[\mtabskip]}}
+  \let\theoldequation\theequation%
+  \renewcommand\theequation{\theoldequation.\alph{subequation}}
+  \def\mtabOption{#1}%
+  \setcounter{subequation}{0}%
+  \tabcolsep=0pt
+  \ifx\mtabOption\mtabLong\longtable{#2}\else\tabular{#2}\fi}
+ {\ifx\mtabOption\mtabLong\endlongtable\else\endtabular\fi
+  \let\theequation\theoldequation\stepcounter{equation}}
+%StopShownPreambleCommands
+\begin{document}
+\begin{mtabular}{*{2}{m{0.35\linewidth}m{0.15\linewidth}}}
+\begin{align*} \oint E ds=0 \end{align*} & \eqnCnt %
+	& \begin{align*} \nabla\cdot B=0 \end{align*} & \eqnCnt[\label{blah}]\\
+\begin{align*} a =\frac{c}{d} \end{align*} & \eqnCnt %
+	& \begin{align*} b = 1 \end{align*} & \eqnCnt\\
+\begin{align*} c =1 \end{align*} & \eqnCnt[\label{blub}]
+	& \begin{align*} \int 2x \,\mathrm{d}x = x^2+C \end{align*} & \eqnCnt
+\end{mtabular}
+And again a default display equation:
+\begin{align}
+F(x) &= \int_0^\infty\dfrac{1}{x}\,\mathrm{d}x
+\end{align}
+A Reference to Eq.~\ref{blah} and \ref{blub} \ldots
+\end{document}

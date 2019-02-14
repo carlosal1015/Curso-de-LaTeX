@@ -1,0 +1,32 @@
+%% 
+%%  Example 02-09-4 
+%%  Copyright (C) 2016 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{328.62788pt}
+\setlength\parindent{0pt}
+%StartShownPreambleCommands
+\usepackage{amsmath}
+\newcounter{mySubCounter}
+\newcommand\twocoleqn[2]{%
+  \setcounter{mySubCounter}{0}%
+  \let\OldTheEquation\theequation
+  \renewcommand{\theequation}{\OldTheEquation\alph{mySubCounter}}%
+  \noindent%
+  \begin{minipage}{.49\textwidth}
+     \begin{equation}\refstepcounter{mySubCounter} #1 \end{equation}
+  \end{minipage}\hfill
+  \addtocounter{equation}{-1}%
+  \begin{minipage}{.49\textwidth}
+    \begin{equation}\refstepcounter{mySubCounter}  #2 \end{equation}
+  \end{minipage}%
+  \let\theequation\OldTheEquation}
+%StopShownPreambleCommands
+\begin{document}
+\twocoleqn{y=f(x)}{y=f(z)}
+\end{document}

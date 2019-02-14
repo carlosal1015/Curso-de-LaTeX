@@ -1,0 +1,36 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Beispiel 02-26-5 auf Seite 105.
+%% 
+%%  Copyright (C) 2010 H. Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+
+%%Run also: >>  << 
+% Show page(s) 1
+
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{194.59192pt}
+\usepackage[utf8]{inputenc}
+
+\usepackage[expproduct=\cdot]{siunitx}
+\sisetup{tabparseonly}
+\usepackage{booktabs}
+
+\begin{document}
+\begin{tabular}{ S S[tabnumalign=left]
+  S[tabnumalign=right]}\toprule
+\emph{Zentriert} & \emph{Linksbündig}
+  & \emph{Rechtsbündig} \\\midrule
+14.2    & 14.2    & 14.2 \\
+1.23456 & 1.23456 & 1.23456\\
+1.2e3   & 1.2e3   & 1.2e3\\\bottomrule
+\end{tabular}
+\end{document}

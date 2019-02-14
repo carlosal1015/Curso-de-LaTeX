@@ -1,0 +1,41 @@
+%% 
+%%  Example 01-14-3 
+%%  Copyright (C) 2017 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{328.62788pt}
+\usepackage[T1]{fontenc}
+\usepackage{kpfonts}
+%StartShownPreambleCommands
+\makeatletter
+\def\@bracketheight{2pt}
+\def\bracketend#1#2{\vrule height #2 width #1\relax}
+\def\overbracket{\@ifnextchar[{\@overbracket}{\@overbracket[\@bracketheight]}}
+\def\@overbracket[#1]{\@ifnextchar[{\@over@bracket[#1]}{\@over@bracket[#1][0.3em]}}
+\def\@over@bracket[#1][#2]#3{%\message {Overbracket: #1,#2,#3}
+   \mathop {\vbox {\m@th \ialign {##\crcr \noalign {\kern 3\p@
+   \nointerlineskip }\downbracketfill {#1}{#2}
+        \crcr \noalign {\kern 3\p@ }
+        \crcr  $\hfil \displaystyle {#3}\hfil $%
+        \crcr} }}\limits}
+\def\downbracketfill#1#2{$\m@th \setbox \z@ \hbox {$\braceld$}
+    \edef\@bracketheight{\the\ht\z@}\downbracketend{#1}{#2}
+    \leaders \vrule \@height #1 \@depth \z@ \hfill
+    \leaders \vrule \@height #1 \@depth \z@ \hfill
+\downbracketend{#1}{#2}$}
+\def\downbracketend#1#2{\vrule depth #2 width #1\relax}
+\makeatother
+%StopShownPreambleCommands
+\begin{document}
+$\begin{array}{rcl}
+  \textrm{Hate Science  }& \overbracket[0.5pt]{1\rightarrow2\rightarrow3\rightarrow4}
+    \overbracket[0.75pt][0.75em]{\rightarrow5\rightarrow6\rightarrow7}
+    \overbracket[1pt][1em]{\rightarrow8\rightarrow9\rightarrow10} & \textrm{Love Science}\\
+ & \textrm{low}\hspace{1.5cm}\textrm{medium}\hspace{1.5cm}\textrm{high}\nonumber
+ \end{array}$
+\end{document}

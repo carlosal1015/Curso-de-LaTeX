@@ -1,0 +1,11 @@
+\documentclass[tikz]{standalone}
+
+\begin{document}
+	\begin{tikzpicture}
+	\foreach \i in {0,...,6}
+	{
+		\draw (0,0) -- (360.0 / 7.0 * \i : 1)
+								-- ({360.0 / 7.0 * (\i + 1)} : 1);
+	}
+	\end{tikzpicture}
+\end{document}

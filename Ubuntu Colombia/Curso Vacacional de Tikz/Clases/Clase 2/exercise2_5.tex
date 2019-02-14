@@ -1,0 +1,16 @@
+%Quinto ejercicio.
+\documentclass{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{PTSansNarrow}
+\usepackage[usenames,dvipsnames,x11names,table,svgnames]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{calc,babel,through,intersections,backgrounds}
+\begin{document}
+\begin{tikzpicture}[scale=3]
+\coordinate [label = left:{\textcolor{DarkBlue}{$A$}}] (A) at (0+0.1*rand,0+0.1*rand);
+\coordinate [label = right:{\textcolor{DarkBlue}{$B$}}] (B) at (1.25+0.1*rand,0.25+0.1*rand);
+\draw[blue] (A) -- (B);
+\end{tikzpicture}
+\end{document}

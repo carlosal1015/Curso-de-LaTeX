@@ -1,0 +1,49 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Beispiel 06-00-36 auf Seite 200.
+%% 
+%%  Copyright (C) 2010 H. Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+
+%%Run also: >>  << 
+% Show page(s) 1
+
+\documentclass[twoside,12pt]{article}
+\pagestyle{empty}
+\setlength\textwidth{194.59192pt}
+\setlength\parindent{0pt}
+\usepackage[utf8]{inputenc}
+\usepackage[paper=a5,pagesize,DIV14]{typearea}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage[ngerman]{babel}
+
+\usepackage{array,booktabs,rotating,units}
+\newcolumntype{N}{>{\scriptsize}l}
+
+\begin{document}
+\begin{sidewaystable}
+\caption{Die folgende Tabelle wurde mit \texttt{sidewaystable} automatisch gedreht}
+\begin{center}
+\begin{tabular}{@{}NN*{5}{l}@{}}\toprule
+Hubraum  & $\unit{cm^3}$ & 1288 & 1488 & 1688 & 1985 & 2274 \\\midrule
+Leistung & \unit{kW} & 37 & 44 & 55  & 66 & 80 \\\midrule
+Beschleunigung \unitfrac[0]{km}{h} bis \unitfrac[100]{km}{h} & \unit{s} & 22,7
+  & 18,8 & 13,7 & 11,7 & 9,8 \\\midrule
+\textbf{Höchstgeschwindigkeit}
+  & \textbf{\unitfrac{km}{h}}
+  & \textbf{133} & \textbf{140} & \textbf{155}
+  & \textbf{165} & \textbf{178} \\\midrule
+Kraftstoffverbrauch auf \unit[100]{km} & \unit{l} & 8,6 & 8,7 & 9,4 (Super)
+  & 9,9 (Super) & 10,1 (Super) \\\bottomrule
+\end{tabular}
+\end{center}
+\end{sidewaystable}
+\end{document}

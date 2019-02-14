@@ -1,0 +1,33 @@
+%% 
+%%  Example 01-03-9 
+%%  Copyright (C) 2017 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{304.62788pt}
+\setlength\parindent{0pt}
+%StartShownPreambleCommands
+\usepackage{xcolor}
+\makeatletter
+\def\myMathBox{\@ifnextchar[{\my@MBoxi}{\my@MBoxi[black]}}
+\def\my@MBoxi[#1]{\@ifnextchar[{\my@MBoxii[#1]}{\my@MBoxii[#1][white]}}
+\def\my@MBoxii[#1][#2]#3#4{\par\noindent
+  \fcolorbox{#1}{#2}{%
+\parbox{\dimexpr\linewidth-\labelwidth-2\fboxrule-2\fboxsep}{#3}%
+  }%
+  \parbox{\labelwidth}{\begin{eqnarray}\label{#4}\end{eqnarray}}\par
+}
+\makeatother
+%StopShownPreambleCommands
+\begin{document}
+\begin{equation}\label{eq:frame2}    f(x)=x^2 +x  \end{equation}
+\myMathBox[red]{\[f(x)=x^2 +x\]}{eq:frame3}
+\myMathBox[red][yellow]{\[f(x)=x^2 +x\]}{eq:frame4}
+\myMathBox{\[f(x)=x^2 +x\]}{eq:frame5}
+A reference to eq.~\ref{eq:frame2}, eq.~\ref{eq:frame3}, eq.~\ref{eq:frame4},
+and eq.~\ref{eq:frame5}.
+\end{document}

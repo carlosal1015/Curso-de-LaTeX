@@ -1,0 +1,38 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 16-04-11 on page 246.
+%% 
+%%  Copyright (C) 2011 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{177.70511pt}
+\setlength\parindent{0pt}
+
+\usepackage{pstricks-add}
+
+\begin{document}
+\begin{pspicture}(4,6)
+ \cnode*(0,0){2pt}{A}  \cnode*(0.25,0){2pt}{C}
+ \cnode*(0.5,0){2pt}{E}\cnode*(0.75,0){2pt}{G}
+ \cnode*(2,4){2pt}{B}  \cnode*(2.5,4.5){2pt}{D}
+ \cnode*(3,5){2pt}{F}  \cnode*(3.5,5.5){2pt}{H}
+ {\psset{arrowscale=2,linearc=0.2,
+     linecolor=red,armA=0.5, angleA=90}
+ \pcdiagg[lineAngle=20]{->}(A)(B)
+ \pcdiagg[lineAngle=20]{->}(C)(D)
+ \pcdiagg[lineAngle=20]{->}(E)(F)
+ \pcdiagg[lineAngle=20]{->}(G)(H)}
+\end{pspicture}
+\end{document}

@@ -1,0 +1,44 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Beispiel 02-20-2 auf Seite 91.
+%% 
+%%  Copyright (C) 2010 H. Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+
+%%Run also: >>  << 
+% Show page(s) 1
+
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{194.59192pt}
+\setlength\parindent{0pt}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+
+\usepackage[para]{threeparttable}
+
+\begin{document}
+\begin{threeparttable}
+\caption{Gegenüberstellung der
+  verschiedenen Analysen in Gas.}
+\begin{tabular}[t]{r|c|c|c}\hline
+\rule[-0.5ex]{0pt}{3ex}
+    & P1  & P2\tnote{A} & P3\\\hline
+Druckabfall & 0,149 & 0,494 & 0,199\\
+Windung     & 0,146 & 0,480 & 0,240\\
+Heißextraktion & 0,164\tnote{a}
+            & 0,508 & 0,209 \\\hline
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\item[A] Unsichere Messung
+\item[a] Störung während der Messung
+\end{tablenotes}
+\end{threeparttable}
+\end{document}

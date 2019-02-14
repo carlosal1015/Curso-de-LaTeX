@@ -1,0 +1,45 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 06-00-31 on page 195.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{177.70511pt}
+\setlength\parindent{0pt}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+
+\usepackage{array,booktabs,ragged2e} \def\xstrut{\rule{0pt}{3ex}}
+\newcolumntype{P}[1]{>{\RaggedRight}p{#1}}
+
+\begin{document}
+\begin{tabular}{@{}ccc@{\qquad}rrrr@{}}\toprule
+\multicolumn{1}{@{}P{1.25cm}}{Tipo de avi\'on}
+ & \multicolumn{1}{P{1.75cm}}{Capacidad (pasajeros)}
+ & \multicolumn{1}{P{1.75cm}}{N\'umero de aviones}
+ & \multicolumn{4}{@{}p{4cm}@{}}{%
+     \xstrut N\'umero de viajes diarios en la ruta}\\\cmidrule{4-7}
+\xstrut &     &    & 1  & 2 & 3 & 4 \\\midrule
+   1    & 50  & 5  & 3  & 2 & 2 & 1 \\
+   2    & 30  & 8  & 4  & 3 & 3 & 2 \\
+   3    & 20  & 10 & 5  & 5 & 4 & 2 \\ \midrule
+   4    & 10  & 18 & 3  & 1 & -- & 1 \\
+   5    & 5   & 8  & 2  & 1 & -- & 6 \\
+   6    & 1   & 80 & 6  & 5 & 12 & 4 \\\midrule
+\multicolumn{3}{@{}l}{%
+  N\'umero de clientes diarios} & 1000 & 2000 & 900 & 1200 \\\bottomrule
+\end{tabular}
+\end{document}

@@ -1,0 +1,51 @@
+% !TeX document-id = {990c2d1b-6e40-4b79-bec0-1a7dea81f968}
+% !TeX TXS-program:compile = txs:///lualatex
+\documentclass{standalone}
+\usepackage{luacode}
+\usepackage{pgfplots}
+\pgfplotsset{width=7cm, compat=1.10}
+\usetikzlibrary{calc, intersections}	       % allows coordinate calculations.
+\usepackage{verbatim}
+\begin{luacode}
+  function mandelbrot(cx,cy, max_iter, max)
+    local x,y,xtemp,ytemp,squaresum,iter
+    squaresum = 0
+    x = 0
+    y = 0
+    iter = 0
+    while (squaresum <= max) and (iter < max_iter)  do
+      xtemp = x * x - y * y + cx
+      ytemp = 2 * x * y + cy
+      x = xtemp
+      y = ytemp
+      iter = iter + 1
+      squaresum = x * x + y * y
+    end
+    local result = 0
+    if (iter < max_iter) then
+        result = iter
+    end
+    -- result = squaresum
+    -- io.write("" .. cx .. ", " .. cy .. " = " .. result .. " (iter " .. iter .. " squaresum " .. squaresum .. ") \string\n")
+    tex.print(result);
+  end
+\end{luacode}
+\begin{document}
+\begin{comment}
+Por favor compile com lualatex. Demora alguns minutos, seja paciente
+Exemplo do site
+http://pgfplots.net/tikz/examples/mandelbrot/
+\end{comment}
+\begin{tikzpicture}
+  \begin{axis}[
+    colorbar,
+    point meta max=30,
+    tick label style={font=\tiny},
+    view={0}{90}]
+    \addplot3 [surf,domain=-1.5:0.5,shader=interp,domain y=-1:1,samples=300] {
+        \directlua{mandelbrot(\pgfmathfloatvalueof\x,
+        \pgfmathfloatvalueof\y,10000,4)}
+    };
+  \end{axis}
+\end{tikzpicture}
+\end{document}

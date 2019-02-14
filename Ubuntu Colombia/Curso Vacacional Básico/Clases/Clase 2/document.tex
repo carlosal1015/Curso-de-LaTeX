@@ -1,0 +1,59 @@
+\documentclass{article}
+\usepackage[utf8x]{inputenc}
+\usepackage[spanish]{babel}
+\spanishdatedel
+\usepackage{amsmath}
+\usepackage{lipsum}
+\usepackage{multicol}
+\usepackage{paracol}%Paquete compatible con multicol.
+\usepackage{xcolor}
+\title{Título del documento}
+\author{Oromion}
+\date{\today}
+
+\begin{document}
+	\maketitle
+
+	\begin{abstract}
+		\lipsum[2]
+	\end{abstract}
+	%\twocolumn[a] Aquí no se puede insertar columnas.
+	%\lipsum[1]
+	%\renewcommand{\columnseprule}{.5pt}
+	%\setlength\columnsep{10mm}
+	%\begin{multicols}{3}
+	%\lipsum[2-4]
+	%\end{multicols}
+	\begin{paracol}{2}[\section{Sección de título largo}]
+		\lipsum[2]
+		\switchcolumn
+		Esta es la traducción del texto anterior.
+		\switchcolumn*
+		\lipsum[3]
+		\switchcolumn
+		\lipsum[2]
+	\end{paracol}
+	\subsection{Columnas dispares}
+	\columnratio{.6,0.3}
+	\begin{paracol}{3}
+		\lipsum[5]%60\%
+		\switchcolumn
+		\lipsum[6]%40\%
+		\switchcolumn
+		\lipsum[7]
+	\end{paracol}
+%\section*{Verdadera sección 1}
+%\lipsum[5]
+%\subsection{Subtitulo a .....}
+%\lipsum[3]
+
+%\subsubsection{Una sección más}
+
+%\section{Una sección más}
+%\lipsum[1]
+
+%\section{Título de la sección 1}
+%\lipsum[1-3]
+%\paragraph{Otro título}
+%\lipsum[2]
+\end{document}

@@ -1,0 +1,34 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Beispiel 02-28-2 auf Seite 108.
+%% 
+%%  Copyright (C) 2010 H. Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+
+%%Run also: >>  << 
+% Show page(s) 1
+
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{194.59192pt}
+\setlength\parindent{0pt}
+\usepackage[utf8]{inputenc}
+
+\usepackage{tabto}
+
+\begin{document}
+Ein\tabto*{3cm}Sprung auf 3\,cm.\\
+\makebox[3cm][r]{$\Rightarrow$}\\
+Ein langer Text am Anfang
+\tabto*{3cm}Sprung auf 3\,cm.%
+\tabto*{1cm}1\,cm\\
+\makebox[1cm][r]{$\Rightarrow$}%
+\makebox[2cm][r]{$\Rightarrow$}
+\end{document}

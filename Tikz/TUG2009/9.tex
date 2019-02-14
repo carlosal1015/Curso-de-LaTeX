@@ -1,0 +1,8 @@
+\documentclass[tikz]{standalone}
+\usetikzlibrary{calc}
+\begin{document}
+	\begin{tikzpicture}
+	\draw (0,0) grid (4,4);
+	\draw let \p1=(0,0), \p2=(2,4), \p3=(4,0) in (\p1) -- (\p2) -- (\p3);
+	\end{tikzpicture}
+\end{document}

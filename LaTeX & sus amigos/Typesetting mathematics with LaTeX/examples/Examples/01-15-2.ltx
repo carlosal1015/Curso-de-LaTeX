@@ -1,0 +1,26 @@
+%% 
+%%  Example 01-15-2 
+%%  Copyright (C) 2017 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{110.31393pt}
+\usepackage[T1]{fontenc}
+\usepackage{kpfonts}
+%StartShownPreambleCommands
+
+%StopShownPreambleCommands
+\begin{document}
+$A_{abc_{xyz}123def}^{abc123def}aa$
+
+\makeatletter
+\catcode`\_\active
+\def_#1{\sb{\operator@font#1}}
+\makeatother
+
+$A_{abc_{xyz}123def}^{abc123def}aa$
+\end{document}

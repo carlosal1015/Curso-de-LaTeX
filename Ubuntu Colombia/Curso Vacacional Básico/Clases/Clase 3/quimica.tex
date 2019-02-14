@@ -1,0 +1,16 @@
+\usepackage{chemfig}
+
+\newcommand{\cafeina}{
+	\chemfig{*6((=0)-N(-CH_3)-*5(-N=-N(-CH_3)-=)--(=O)-N(-H_3C)-)}
+}
+
+\newcommand{\benceno}{
+	\chemfig{*6(=-=-=-)}
+}
+
+\newcommand{\adrenalina}{
+\definesubmol{&}{-[,,,,draw=none]}
+\definesubmol{&&}{-[,,,2,draw=none]}
+\chemfig{*6((-HO)-=*6(!&!{&&}HN(-CH_3)-[,,2]-(<OH)-)-=-(-HO)=)}
+}
+%http://ctan.uniminuto.edu/macros/generic/chemfig/chemfig-en.pdf

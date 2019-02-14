@@ -1,0 +1,41 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Beispiel 06-00-9 auf Seite 182.
+%% 
+%%  Copyright (C) 2010 H. Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+
+%%Run also: >>  << 
+% Show page(s) 1
+
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{194.59192pt}
+\setlength\parindent{0pt}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+
+\usepackage{dcolumn,booktabs,ragged2e}
+\newcolumntype{d}[1]{D{.}{,}{#1}}
+\newcolumntype{P}[1]{>{\scriptsize\Centering\hspace{0pt}}p{#1}}
+
+\begin{document}
+\begin{tabular}{@{} l *{3}{d{7.0}} @{}}\toprule
+\scriptsize Ort
+ & \multicolumn{1}{P{6em}@{}}{Gesamtzahl der Orts"~~und Ferngespräche}
+ & \multicolumn{1}{P{6em}@{}}{Ortsgespräche in öffentlichen Fernsprechstellen}
+ & \multicolumn{1}{P{6em}@{}}{Ferngespräche im Selbstwählfernverkehr} \\
+       \cmidrule(r){1-1}\cmidrule(lr){2-2}\cmidrule(lr){3-3}\cmidrule(l){4-4}
+München &  723849 & 436322 & 287527 \\ Ludwigshafen & 957365 & 593146 & 364219 \\
+Hamburg & 1242212 &1115321 &1326861 \\ Wiesbaden    &1641050 & 942316 & 698734 \\
+Berlin  & 1351204 & 651223 & 442747 \\ Düsseldorf   &1274714 & 394613 & 915853 \\
+\bottomrule
+\end{tabular}
+\end{document}

@@ -1,0 +1,92 @@
+% https://tex.stackexchange.com/questions/292436/has-anyone-ever-drawn-a-football-field-in-latex/440501#440501
+\documentclass[tikz,border=2mm]{standalone} 
+\usetikzlibrary{positioning, ducks}
+\usepackage{tikzducks}
+
+\newcommand{\croacia}[3]{
+\begin{scope}[shift={#3}, xscale=-.4, yscale=.4]
+\duck
+\path[preaction={fill=red}, pattern=checkerboard, pattern color=white] \duckpathjacket;
+\node[font=\sffamily\bfseries] at ([xshift=5mm]wing) {#1};
+\node[font=\sffamily\bfseries] at (1.1,-.22) {#2};
+\end{scope}
+}
+
+\newcommand{\france}[3]{
+\begin{scope}[shift={#3}, scale=.4]
+\duck[jacket=blue]
+\node[font=\sffamily\bfseries] at ([xshift=5mm]wing) {#1};
+\node[font=\sffamily\bfseries] at (1.1,-.22) {#2};
+\end{scope}
+}
+
+\definecolor{field}{RGB}{0,156,0}
+
+\newcommand\area[2]{%
+\begin{scope}[shift={(#1)}, transform shape, rotate=#2]
+\node[minimum width=.55cm,minimum height=1.832cm, anchor=west] (small#2) at (0,0) {};
+\node[minimum width=1.65cm,minimum height=4.032cm, anchor=west] (big#2) at (0,0) {};
+\node[minimum width=.244cm, minimum height=.732cm, anchor=east] (goal#2) at (0,0) {};
+\node[inner sep=.3mm, circle, fill=white] (penalty#2) at (1.1,0) {};
+    \begin{scope}
+    \tikzset{every path/.style={}}
+    \clip (big#2.south east) rectangle ++ (1,5); 
+    \draw[white, very thick] (penalty#2) circle (0.915cm);
+    \end{scope}
+\end{scope}
+}
+
+
+\begin{document}
+\begin{tikzpicture}
+\begin{scope}[%    
+    every node/.style={draw=white, very thick, inner sep=0, outer sep=0},
+   every path/.style={draw=white, very thick},
+]
+\fill[field] (-1,-1) rectangle (13,10);
+\node[minimum width=12cm, minimum height=9cm] (contour) at (6,4.5) {};
+
+%\draw (contour.south west) grid (contour.north east);
+
+% Center
+\draw (contour.north) -- (contour.south);
+\draw (contour.center) circle (0.915cm);
+\fill[white] (contour.center) circle (.5mm);
+
+% Areas
+\area{contour.west}{0}
+\area{contour.east}{180}
+
+% Corners
+\foreach \corner [count=\xi starting from 0] in {south west, south east, north east, north west}{
+    \begin{scope}[rotate around={90*\xi:(contour.\corner)}]
+        \draw ([xshift=1mm]contour.\corner) arc (0:90:1mm);
+    \end{scope}
+}
+\end{scope}
+
+\croacia{23}{Subasic}{(1.25,4.25)}
+\croacia{3}{Strinic}{(2.6,7.2)}
+\croacia{21}{Vida}{(2.3,5.3)}
+\croacia{6}{Lovren}{(2.3,2.9)}
+\croacia{2}{Virsalijko}{(2.6,1)}
+\croacia{11}{Brozovic}{(3.5,4.25)}
+\croacia{4}{Perisic}{(4.5,7.2)}
+\croacia{7}{Rakitic}{(4.5,5.25)}
+\croacia{10}{Modric}{(4.5,3)}
+\croacia{18}{Rebic}{(4.5,1)}
+\croacia{17}{Mandzukic}{(5.6,4.25)}
+
+\france{1}{Lloris}{(10.75,4.25)}
+\france{2}{Pavard}{(9.5,7.2)}
+\france{4}{Varane}{(9.5,5.3)}
+\france{5}{Umtiti}{(9.5,2.9)}
+\france{21}{Lucas}{(9.5,1)}
+\france{13}{Kante}{(8.5,6)}
+\france{6}{Pogba}{(8.5,2.3)}
+\france{10}{Mbappe}{(7,7)}
+\france{7}{Griezman}{(7.8,4.25)}
+\france{14}{Matuidi}{(7,1.5)}
+\france{9}{Giroud}{(6.4,4.25)}
+\end{tikzpicture}
+\end{document}

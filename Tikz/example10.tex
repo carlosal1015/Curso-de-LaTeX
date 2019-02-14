@@ -1,0 +1,20 @@
+% !TeX document-id = {9d223eca-9818-4f05-a953-42e014392f08}
+% !TeX TXS-program:compile = txs:///pdflatex/[--shell-escape]
+\documentclass[tikz]{standalone}
+\usepackage{tkz-euclide}
+\usetkzobj{all}
+
+\begin{document}
+	\begin{tikzpicture}
+	\tkzDefPoints{0/0/O, 1/.5/A, -1/0.5/B}
+	
+	\tkzDrawCircle[dashed, draw=blue!50](0,A)
+	
+	\tkzDrawArc[ultra thick, draw=black, patter=north west](0,A)(B)
+	
+	\tkzDrawSegment[ultra tick](A,B)
+	
+	\tkzDrawPoints[size=2](0,A,B)
+	
+	\end{tikzpicture}
+\end{document}

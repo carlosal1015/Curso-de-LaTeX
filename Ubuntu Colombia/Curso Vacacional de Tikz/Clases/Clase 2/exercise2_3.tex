@@ -1,0 +1,29 @@
+%Tercer ejercicio.
+\documentclass{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{PTSansNarrow}
+\usepackage[usenames,dvipsnames,x11names,table,svgnames]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{calc,babel,through,intersections,backgrounds}
+\begin{document}
+\tikzset{help lines/.style=very thin}
+\begin{tikzpicture}[scale=2]
+\clip (-0.1,-0.2) rectangle (1.1,0.75);
+\draw[help lines] (0,0) grid (5,5);
+\draw (-1.5,0) -- (1.5,0);
+\draw (0,-1.5) -- (0,1.5);
+\draw (-1,0) .. controls (-1,0.555) and (-0.555,1) .. (0,1) .. controls (0.555,1) and (1,0.555) .. (1,0);
+\draw[rotate=30] (0,0) ellipse [x radius=6pt, y radius=3pt];
+\draw (2.5,2.5) circle [radius=2.5cm];
+\draw[x=1pt,y=1pt] (0,0) parabola bend (4,16) (6,12);
+\draw[x=1.57ex,y=1ex] (0,0) sin (1,1) cos (2,0) sin (3,-1) cos (4,0)
+					(0,1) cos (1,0) sin (2,-1) cos (3,0) sin (4,1);
+%\fill[green!20!white] (0,0) -- (3mm,0mm)
+%arc [start angle=0, end angle=30, radius=3mm] -- (0,0);
+\fill[green!20!white] (0,0) -- (3mm,0mm)
+arc [start angle=0, end angle=30, radius=3mm] -- cycle;
+%cycle cierra la curva de Jordan.
+\end{tikzpicture}
+\end{document}

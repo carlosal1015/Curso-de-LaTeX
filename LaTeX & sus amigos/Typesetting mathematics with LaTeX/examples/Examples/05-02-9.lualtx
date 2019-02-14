@@ -1,0 +1,23 @@
+%% 
+%%  Example 05-02-9 
+%%  Copyright (C) 2017 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle2}
+\pagestyle{empty}
+\setlength\textwidth{328.62788pt}
+\setlength\parindent{0pt}
+%StartShownPreambleCommands
+\usepackage{unicode-math}
+\setmainfont{Libertinus Serif}
+\setsansfont[Scale=MatchUppercase]{Libertinus Sans}
+\setmathfont{Libertinus Math}
+%StopShownPreambleCommands
+\begin{document}
+\hrule\strut\par
+\input{fontDemo.txt}
+\par\strut\hrule
+\end{document}

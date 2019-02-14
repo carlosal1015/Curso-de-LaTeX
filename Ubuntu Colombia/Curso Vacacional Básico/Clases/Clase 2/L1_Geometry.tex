@@ -1,0 +1,92 @@
+%Recomendación de uso de Overleaf.
+%Landscape, portrait
+%Punto de referencia.
+%hoffset voffset o negativo hacia arriba.
+\documentclass{article}
+\usepackage[utf8x]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{lipsum}
+%\usepackage[paperwidth= {12cm}, paperheight={19cm}, landscape]{geometry}%[letterpapaper]legalpaper
+\usepackage{geometry}
+%No compila.
+%\usepackage{layout}
+%Otra manera es:
+\geometry{
+	letterpaper,
+	includeall,
+	left = 2cm,
+	right = 1.5cm,
+	top = 3cm,
+	bottom = 1.5cm,
+	includeheadfoot,
+	head = 1.5cm,
+	headsep =5mm,
+	foot = 5mm,
+	marginparwidth = 3cm,%Se modifica el espacio horizontal
+	marginparsep = 5mm
+}%Esto es para encabezados de márgenes.
+%\geometry{
+%	paperwidth = 7cm,
+%	paperheight = 12 cm,
+%	width = 6cm,%Cuerpo del documento
+%	height = 11cm, %Cuerpo del documento, con estas medidas no ingresaré encabezado o pie de página.
+%	textwidth = 5cm,
+	%hscale = .5\paperwidth,
+%	includemp, %se incluye el espacio de margen, en este caso se desborda.
+%	includehead,%encabezado
+%	includefoot,%pie de página
+%	portrait%landscape
+%}%Orden es importante, en este caso textwidth es más relevante, no interesa width.
+\author{Undg. Carlos Alonso Aznarán Laos}
+
+\pdfpageheight = 5in
+
+\pdfpagewidth = 7 in
+\begin{document}
+
+%\layout
+%Hola.
+\lipsum[1-6]
+\newgeometry{
+	left = 5cm,
+	right = 5cm,
+	top = 5cm,
+	bottom = 5cm
+	%paperwidth = 5in,
+	%paperheight = 7in
+}
+\savegeometry{D1}
+\lipsum[1-4]
+
+
+\restoregeometry
+\lipsum[1-5]
+
+\loadgeometry{D1}
+\lipsum[1-4]
+\end{document}
+Desde allí se miden los márgenes. Desde la intersección superior izquierda.
+A footer se le conoce como pie de página.
+DVI usar \pdforigin  y \pdfvorigin
+
+Evins visor de PDF.
+
+Executivepaper y legalpaper es de USA.
+
+Screen es para beamer.
+
+Buscar una conversión entre pulgadas y centímetros.
+
+landscape no sirve con tabla grande.
+
+No se puede configurar el pie de página, pues este es variable y se va a agregando más.
+
+https://tex.stackexchange.com/questions/31973/latex-how-do-i-force-pdf-page-height-width
+
+https://tex.stackexchange.com/questions/23673/how-to-avoid-getting-cropped-marginpar
+
+https://tex.stackexchange.com/questions/23673/how-to-avoid-getting-cropped-marginpar

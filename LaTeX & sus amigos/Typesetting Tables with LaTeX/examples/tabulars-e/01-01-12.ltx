@@ -1,0 +1,39 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 01-01-12 on page 9.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{177.70511pt}
+\setlength\parindent{0pt}
+
+
+
+\begin{document}
+\begin{tabular}{|cc|cc|}\hline
+\multicolumn{2}{|c}{\textbf{people}} &
+\multicolumn{2}{c|}{\textbf{profession}} \\\hline
+\multicolumn{4}{c}{}\\% empty line without |
+number& sex& employed& freelance\\\hline
+222   &    m   &    160 & 62  \\
+  2   &    n   &\textbf{1}&2  \\[5pt]
+97    &    w   &    70  & 27  \\\hline
+\multicolumn{4}{c}{sums}    \\\cline{1-1}
+\multicolumn{1}{|c|}{319} & & 230 & 89
+    \\\cline{1-1}\cline{3-4}
+ & & \multicolumn{2}{c|}{319}\\\cline{3-4}
+\end{tabular}
+\end{document}

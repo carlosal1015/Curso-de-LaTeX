@@ -1,0 +1,25 @@
+%% 
+%%  Example 02-14-1 
+%%  Copyright (C) 2016 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{328.62788pt}
+\setlength\parindent{0pt}
+%StartShownPreambleCommands
+\usepackage{amsmath}
+\makeatletter
+\newcommand\xLongLeftRightArrow[2][]{\ext@arrow 0055{\LongLeftRightArrowfill@}{#1}{#2}}
+\def\LongLeftRightArrowfill@{\arrowfill@\Leftarrow\Relbar\Rightarrow}
+\newcommand\xlongleftrightarrow[2][]{\ext@arrow 0055{\longleftrightarrowfill@}{#1}{#2}}
+\def\longleftrightarrowfill@{\arrowfill@\leftarrow\relbar\rightarrow}
+\makeatother
+%StopShownPreambleCommands
+\begin{document}
+$\xlongleftrightarrow[\text{below}]{\text{above the arrow}}$
+$\xLongLeftRightArrow[\text{below}]{\text{above the arrow}}$
+\end{document}

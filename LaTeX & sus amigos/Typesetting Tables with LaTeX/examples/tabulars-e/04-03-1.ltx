@@ -1,0 +1,33 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 04-03-1 on page 142.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{225.70511pt}
+\setlength\parindent{0pt}
+
+\begin{filecontents}{demoFile.tex}
+bar
+\end{filecontents}
+\usepackage{verbatim}
+% End Preamble
+
+\begin{document}
+foo \input{demoFile.tex} baz
+
+\small\verbatiminput{demoFile.tex}
+\end{document}

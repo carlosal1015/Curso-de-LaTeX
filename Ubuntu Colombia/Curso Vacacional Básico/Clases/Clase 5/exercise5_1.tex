@@ -1,0 +1,75 @@
+\documentclass{article}
+\usepackage[utf8x]{inputenc}
+\usepackage[spanish]{babel}
+\spanishdatedel
+\usepackage{graphicx}
+\usepackage[leqno]{amsmath} % Numeración de ecuaciones a la izquierda, sino estará en la derecha.
+\usepackage{lipsum}
+\usepackage{hyperref}
+\usepackage{vmargin}
+\setpapersize{A4}
+\setmargins{2.5cm}{1.5cm}{16.5cm}{23.42cm}{10pt}{1cm}{0pt}{1cm}
+
+\input{colores.tex}
+\title{Nuestro título}
+\author{Oromion}
+\date{\today}
+
+\renewcommand{\thesection}{\alph{section}}
+\newcounter{obs}
+\newcommand{\obs}{\stepcounter{obs}{\bf Observación \theobs:}}
+
+\hypersetup{
+colorlinks = true,
+filecolor = emeraldGreen
+}
+
+\begin{document}
+
+\maketitle
+\renewcommand{\contentsname}{Tabla de contenido}
+\tableofcontents
+
+\section{Grafo ponderado} \label{ponderado}
+
+\lipsum[1-2]
+
+\obs{} Esta es una primera observación
+
+\section{Grafo nulo} \label{nulo}
+
+\lipsum[1-3]
+Aquí nos vamos a referir a la sección \ref{ponderado} actual con número \pageref{ponderado}.
+
+\begin{equation} \label{media}
+	\bar{x}=\frac{1}{n}\sum_{i=1}^{n}a_i
+\end{equation}
+
+\noindent
+La sección \thesection aparece en la página \thepage .
+
+\obs{} Esta es una observación importante \LaTeX{} este es el comando
+
+\subsection{Generación de contadores}
+
+\lipsum[1]
+
+\subsubsection{Referencias cruzadas}
+
+\lipsum[3]
+
+La ecuación de la media tiene enumeración \eqref{media} aparece en la página \pageref{media}.
+
+Un enlace dinámico al vídeo de Ideas Audaces en el cual participa de nuestro profesor de la Escuela de Ciencia de la Computación utilizando \texttt{href}. \href{https://www.youtube.com/watch?v=5dWaszzLNoE}{Juan Espejo -- Ideas Audaces}.
+
+Enlace a un documento externo \href{run:./exercise5_1.pdf}{archivo generado}.
+
+\begin{align*}
+x = a \tag{A1} \label{A1}\\
+y = b \tag{A2} \label{A2}
+\end{align*}
+
+\lipsum[1-3]
+
+Referencia a \ref{A2}.
+\end{document}

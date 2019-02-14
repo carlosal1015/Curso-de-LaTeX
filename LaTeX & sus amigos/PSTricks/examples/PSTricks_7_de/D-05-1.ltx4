@@ -1,0 +1,51 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%%  
+%%  7. Auflage
+%% 
+%%  Beispiel D-05-1 auf Seite 902.
+%% 
+%%  Copyright (C) 2016 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\usepackage[utf8]{inputenc}
+%StartShownPreambleCommands
+\usepackage{dtk-extern}
+\pdfminorversion=7 % ConTeXt erstellt pdf 1.7
+%StopShownPreambleCommands
+\begin{document}
+Dies ist eine \LaTeX-Datei, welche eine mit Con\TeX{}t »on-the-fly«
+erzeugte Abbildung einbinden wird:
+
+\begin{center}
+\begin{ErstelleGrafik}[compiler=context,crop,force,
+  progpath=/usr/local/texlive/current/bin/x86_64-linux/]{ctxexa}
+\usemodule[pstricks]            % Hauptmodul laden
+\usePSTRICKSmodule[pst-plot]    % PSTricks Modul
+\setuppagenumbering[location={}]% keine Seitenzahl im Kopf
+\starttext                      % Beginn Textkörper
+\startPSTRICKS                  % Starte PSTricks Code
+\pspicture(-0.5,-4.5)(12.5,5)
+\psaxes{->}(0,0)(0,-4.5)(12,4.5)[$x$,-90][$y$,0]
+\psplot[linewidth=1.5pt,linecolor=red,
+  plotpoints=3000,algebraic]{0}{11}{x^2/25*sin(4*x)}
+\endpspicture
+\stopPSTRICKS                   % Ende PSTricks Code
+\stoptext                       % Ende Textkörper
+\end{ErstelleGrafik}            % Ende Umgebung
+\end{center}
+\end{document}

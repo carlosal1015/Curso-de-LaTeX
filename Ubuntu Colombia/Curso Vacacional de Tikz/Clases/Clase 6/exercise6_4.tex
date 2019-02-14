@@ -1,0 +1,28 @@
+\documentclass{article}
+\usepackage[utf8x]{inputenc}
+\usepackage[spanish]{babel}
+\spanishdatedel
+\usepackage{graphicx,float}
+\usepackage{tikz}
+\usetikzlibrary{graphdrawing,graphs,babel,arrows,calc}
+\usegdlibrary{layered, circular, force,trees}
+\begin{document}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[rotate = 90]
+	\graph[tree layout, sibling sep = 1.5cm, level distance = 2cm]{
+	A -- {B, C};
+	B -- {D, E};
+	C -- {F, G};
+	D -- {H, I};
+	E -- {J, K};
+	G -- {L, M};
+	I -- {N, 0};
+	L -- {P, Q};
+	M -- {R}
+	};
+\end{tikzpicture}
+\caption{Grafo árbol}
+\end{figure}
+\end{document}
+Separación entre nodos.

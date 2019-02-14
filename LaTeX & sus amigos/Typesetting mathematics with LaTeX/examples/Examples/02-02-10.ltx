@@ -1,0 +1,27 @@
+%% 
+%%  Example 02-02-10 
+%%  Copyright (C) 2016 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{328.62788pt}
+\setlength\parindent{0pt}
+%StartShownPreambleCommands
+\usepackage{amsmath}
+%StopShownPreambleCommands
+\begin{document}
+\begin{multline}
+\frac{\mathrm{d}G_\infty}{\mathrm{d}n} =
+      \frac{1}{\left( {1-e^{-pn}} \right)^2 }\cdot
+      \left\{\vphantom{\frac{Q}{p}}% >>>> to get the correct height <<<<<
+      \left[ 1-e^{-pn} \right] \left[ Q \left( n \right) - pR
+      \left( n \right) + R'\left( n \right) \right]e^{-pn}\right.\\
+    - \left.\left[-\frac{Q \left( n \right) e^{-pn}}{p} +
+    \frac{Q \left( 0 \right)}{p} + R \left( n \right) e^{-pn}
+    - A\right] pe^{-pn}\right\} = 0
+\end{multline}
+\end{document}

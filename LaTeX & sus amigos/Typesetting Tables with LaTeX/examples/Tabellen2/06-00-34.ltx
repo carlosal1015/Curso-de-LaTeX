@@ -1,0 +1,67 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Beispiel 06-00-34 auf Seite 198.
+%% 
+%%  Copyright (C) 2010 H. Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+
+%%Run also: >>  << 
+% Show page(s) 1
+
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{401.18385pt}
+\setlength\parindent{0pt}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+
+\usepackage{array,booktabs,arydshln,eurosym,graphicx}
+\usepackage[table]{xcolor}
+
+\begin{document}
+\resizebox{0.9\textwidth}{!}{\renewcommand\arraystretch{1.25}%
+\begin{tabular}{@{}l c rr | rr@{}}\toprule
+\textit{TEST 1} & & \multicolumn{2}{c}{1. Jahr} & \multicolumn{2}{c}{ab 2. Jahr}\\
+\textit{TEST 2} & & Monat & Jahr & Monat & Jahr \\\midrule
+\textit{Werkzeugkosten je Automat} && \textit{8.000} & \textit{96.000}
+  & \textit{8.000} & \textit{96.000} \\
+Anzahl Bestellungen für Werkzeuge      &    & 8   & 96     & 8     & 96 \\
+Prozesskosten pro Beschaffungsprozess  & 40 &  &  &  &  \\
+Kosten für Stammdatenpflege            &    & 10  & 120 & 10 & 120 \\
+\rowcolor[gray]{0.92}[\tabcolsep]
+  Bestellkosten                          &    & 330 & 3.960 & 330 & 3.960 \\
+ % \midrule
+Durchschnittlicher Lagerwert (2 Monate)& & & 16.000 & & 16.000 \\\cline{3-6}
+Gebundenes Kapital pro Jahr            & 6\% & 80 & 960 & 80 & 960 \\
+Lagerabwertung vom Lagerwert pro Jahr  & 5\% & 67 & 800 & 67 & 800 \\
+\rowcolor[gray]{0.92}[\tabcolsep]
+  Lagerkosten                            &     & 147 & 1.760 & 147 & 1.760 \\
+Personalkosten Werkzeugausgabe \euro/h & 30 &  &  &  &  \\
+Einsparung Werkzeugausgabe pro Tag in h & 2 & 1.200 & 14.400 & 1.200 & 14.400 \\
+Werkzeugschwund                         & 1\% & 80 & 960 & 80 & 960 \\
+\textit{Stillstand aufgrund fehlendem Werkzeug} & \textit{0,03h/Tag} & \textit{53}
+    & \textit{636} & \textit{53} & \textit{636} \\
+Anzahl Maschinen                      & 5    & 265 & 3.180 & 265 & 3.180 \\
+Weniger Verbrauch durch Kontrolle     & 5\%  & 400 & 4.800 & 400 & 4.800 \\
+Weniger Schwarzbestände im 1. Jahr     & 10\% & 800 & 9.600 &  &  \\
+\rowcolor[gray]{0.92}[\tabcolsep]
+  Verbrauch- und Personalkosten         &      & 2.745 & 32.940 & 1.945 & 23.340 \\
+\rowcolor[gray]{0.88}[\tabcolsep]
+  Einsparungen                          &      & 3.222 & 38.660 & 2.422 & 29.060 \\
+\rowcolor[gray]{0.99}\multicolumn{4}{c|}{Abzüglich zusätzliche Kosten:}    \\
+Miete                   & & 200 & 2.400 & 200 & 2.400 \\
+Installation und Wartung& & 142 & 1.700 & 42  & 500   \\
+Sonstige Kosten         & & 83  & 1.000 & 83  & 1.000 \\
+\rowcolor[gray]{0.88}[\tabcolsep]Tatsächliche Einsparungen&&2.797&33.560&2.097&25.160\\
+ & & \multicolumn{2}{c|}{$\stackrel{\wedge}{=}35\%$}
+  & \multicolumn{2}{c@{}}{$\stackrel{\wedge}{=} 26\%$}\\
+    \cmidrule{3-6}\morecmidrules\cmidrule{3-6}
+\end{tabular}}
+\end{document}

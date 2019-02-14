@@ -1,0 +1,36 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 02-26-4 on page 105.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{177.70511pt}
+\usepackage[utf8]{inputenc}
+
+\usepackage[exponent-product=\cdot]{siunitx}
+\sisetup{table-parse-only}
+\usepackage{booktabs}
+
+\begin{document}
+\begin{tabular}{ S S[table-number-alignment=left]
+  S[table-number-alignment=right]}\toprule
+\emph{centred} & \emph{left-aligned}
+  & \emph{right-aligned} \\\midrule
+14.2    & 14.2    & 14.2 \\
+1.23456 & 1.23456 & 1.23456\\
+1.2e3   & 1.2e3   & 1.2e3\\\bottomrule
+\end{tabular}
+\end{document}

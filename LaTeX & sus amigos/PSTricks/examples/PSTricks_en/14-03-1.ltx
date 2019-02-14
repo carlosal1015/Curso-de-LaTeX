@@ -1,0 +1,61 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 14-03-1 on page 159.
+%% 
+%%  Copyright (C) 2011 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{375.57637pt}
+\setlength\parindent{0pt}
+
+\usepackage{pstricks,pst-xkey}\makeatletter
+\define@boolkey[psset]{}[Pst@]{HRInner}[true]{}   % a boolean key
+\psset{HRInner=false,unit=0.7}% unit only reduced for display in this book
+\def\psHexagon{\pst@object{psHexagon}}%    defined it as an object
+\def\psHexagon@i{\@ifnextchar({\psHexagon@ii}{\psHexagon@ii(0,0)}}% set default centre
+\def\psHexagon@ii(#1)#2{%
+  \begin@ClosedObj%                        closed object, i.e. can be filled
+    \pst@@getcoor{#1}%                     get centre
+    \pssetlength\pst@dimc{#2}%             set radius to pt
+    \addto@pscode{%                        PostScript
+      \pst@coor T %                        xM yM new origin
+      \psk@dimen CLW mul %                 set line width
+      /Radius \pst@number\pst@dimc\space % save radius
+        \ifPst@HRInner\space 3 sqrt 2 div div \fi def % adjust radius if inner
+      /angle \ifPst@HRInner 30 \else 0 \fi def % starting angle
+      Radius angle PtoC moveto %           go to the first point
+      6 {/angle angle 60 add def %         set alpha to alpha+60
+         Radius angle PtoC L %             draw line to the next point
+      } repeat %                           repeat
+      closepath }%                         object closed / end pscode
+    \def\pst@linetype{3}%                  set line type
+    \showpointsfalse%                      do not show support points
+  \end@ClosedObj\ignorespaces}%            eat spaces
+\makeatother
+
+\begin{document}
+\begin{pspicture}(-3,-3)(3,3)
+ \psHexagon[linewidth=3pt,linecolor=red]{2.5}
+ \pscircle[linestyle=dashed,linecolor=red]{2.5}
+ \psHexagon[linewidth=3pt,linecolor=blue,HRInner=true]{2.5}
+ \pscircle[linestyle=dashed,linecolor=blue]{2.17}
+\end{pspicture}\hspace{1cm}
+\begin{pspicture}[showgrid](-3,-3)(3,3)
+ \psHexagon[doubleline=true](2,2){1}\psHexagon*[linecolor=gray!15,
+   HRInner=true](2,-2){1}
+ \psHexagon[doubleline=true,doublesep=0.5,linecolor=magenta]{2}
+ \psHexagon*(-2.5,2.5){0.5}\psHexagon[border=3pt,HRInner=true](-1,-1){2}
+\end{pspicture}
+\end{document}

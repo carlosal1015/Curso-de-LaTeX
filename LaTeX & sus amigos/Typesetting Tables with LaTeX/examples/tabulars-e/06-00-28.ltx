@@ -1,0 +1,186 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 06-00-28 on page 193.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{225.70511pt}
+\setlength\parindent{0pt}
+\setlength\parskip{10pt}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\usepackage{booktabs}
+\usepackage{amssymb}
+\usepackage{units}
+\usepackage{textcomp}
+\usepackage{multirow}
+\usepackage{bigdelim}
+\usepackage{rotating}
+
+\begin{document}
+\rotatebox{90}{%
+\sffamily\small
+\begin{tabular}{@{}lccccclll@{}}\toprule
+%
+% caption 1
+%
+Autor & Fläche & Airgap & Empfindl. &
+%Bandbreite &
+Frequenz & Rauschen & Materialien & Quellen & Aufbauart \tabularnewline
+%
+% caption 2
+%
+& & & & & & Membran, Elektrode & & \tabularnewline
+\cmidrule(lr){2-2}\cmidrule(lr){3-3}\cmidrule(lr){4-4}\cmidrule(lr){5-5}\cmidrule(lr){6-6}
+%
+% units
+%
+  & \unit{mm\textsuperscript{2}} & \unit{\textmu m} & \unit{mV/Pa} &
+    \unit{Hz-kHz} &  \unit{dBA SPL} & & & \tabularnewline
+\cmidrule(r){1-1}\cmidrule(lr){2-2}\cmidrule(lr){3-3}\cmidrule(lr){4-4}\cmidrule(lr){5-5}
+\cmidrule(lr){6-6}\cmidrule(lr){7-7}\cmidrule(lr){8-8}\cmidrule(l){9-9}
+\addlinespace
+% end table header
+%
+% Schellin
+%
+Schellin & 1 & & 0,3 & -- & & Poly-Si, Poly-Si &
+[6,7,9] &%\cite{Schellin:1997:01,Schellin:1994:01,Schellin-1993-01} &
+\tabularnewline
+%
+% van der Donk
+%
+van der Donk & & & & & & &
+[12] &%  \cite{Donk:1992:01} &
+\tabularnewline
+%
+% Bernstein
+%
+Bernstein & 0,57 & 2,2 & 10,77 & -20 &--& Nitrid, Gold &
+[13] &%\cite{Kabir:1999:01} &
+\tabularnewline
+%
+% Chen
+%
+Chen &-- &2 &40 &50--15 &-- &Poly-Si, Mono-Si &
+[17,18]&%\cite{Chen:2002:01,Chen:2003:01} &
+\tabularnewline
+%
+% Dehé
+%
+Dehé & $\varnothing$1.2&1 &3,2 &100--10 &30 &Poly-Si, Epi-Poly &
+[19,10] &%\cite{Dehe:1999:01,Brauer:2001:01} &
+\tabularnewline
+%
+% Hsu
+%
+Hsu &2 &4 &--&200--10 &&Poly-Si, Mono-Si &
+[7]&%\cite{Hsu:1998:01} &
+\tabularnewline
+%
+% Kronast
+%
+Kronast &2 &1,3 &11 &300--20&--&Nitrid+Alu, Mono-Si &
+[20,21,22]&%\cite{Kronast:1996:01,Kronast:2001:01,Stoffel:1999:01} &
+\tabularnewline
+%
+% Li
+%
+Li &1 &--&9,6 &100--19&--&Poly-Si, Poly-Si &
+[1,24]&%\cite{Li:2001:01,Wang:2004:01} &
+\tabularnewline
+%
+% Pedersen
+%
+Pedersen & 4,84 &3,6 &--&100--15 &60 &Gold, Polymid &
+[2,6]&%\cite{Pedersen:1997:01,Pedersen:1998:01} &
+\tabularnewline
+%
+% Rombach
+%
+Rombach &1 &0,9 &14 &20--10&22,5 &Poly-Si, Poly-Si &
+[17,18]&%\cite{Rombach:2000:01,Rombach:2002:01} &
+\tabularnewline
+%
+% Kovaces
+%
+Kovács &0,25 &1,5 &-- &-- &-- &Poly-Si, Poly-Si &
+[25,26]&%\cite{Kovacs:1995:01} &
+\tabularnewline
+%
+% Torkkeli
+%
+Torkkeli &1 &1,3 &2 &10--12 &35 &Poly-Si, Poly-Si &
+[26]&%\cite{Torkkeli:2000:01} &
+\rdelim\}{-12}{1mm}[1 Chip] \tabularnewline
+\addlinespace
+\cmidrule(r){1-1}\cmidrule(lr){2-2}\cmidrule(lr){3-3}\cmidrule(lr){4-4}\cmidrule(lr){5-5}
+\cmidrule(lr){6-6}\cmidrule(lr){7-7}\cmidrule(lr){8-8}\cmidrule(l){9-9}
+\addlinespace
+%
+% Bay
+%
+Bay &4 &0,4 &27 &&&&
+[26,27,28,30]&%\cite{Bay:1999:01,Bay:1996:01,Bay:1997:01,Bouwstra:1998:01} &
+\tabularnewline
+%
+% Füldner
+%
+Füldner&&&&&&&&\tabularnewline
+%
+% Tajima
+%
+Tajima &4 &15 &7 &75--24 &-- &Oxid, Mono-Si &
+[29]&%\cite{Tajima:2003:01} &
+\rdelim\}{-3}{1mm}[2 Chip] \tabularnewline
+\addlinespace
+\cmidrule(r){1-1}\cmidrule(lr){2-2}\cmidrule(lr){3-3}\cmidrule(lr){4-4}\cmidrule(lr){5-5}
+\cmidrule(lr){6-6}\cmidrule(lr){7-7}\cmidrule(lr){8-8}\cmidrule(l){9-9}
+\addlinespace
+%
+% Kressmann
+%
+Kressmann &1 &1 &2,9 &100--10&39 &Oxid+Nitrid, Poly-Si&
+[11,12]&%\cite{Kressmann:2001:01,Kressmann:2002:01} &
+\tabularnewline
+%
+% Thielemann
+%
+Thielemann & & & & & & &
+[8] & \tabularnewline% \cite{Thielemann:1997:01} & \tabularnewline
+%
+% Hsieh
+%
+Hsieh & 64 & 4,5 & 40 & 100--10 & 60 & Nitrid, Nitrid &
+[1,2,4] & \tabularnewline %\cite{Hsieh:1997:01,Hsieh:1999:01,Hsieh:2001:01} & \tabularnewline %,Hsu:1996:01
+%
+% Murphy
+%
+Murphy & -- & -- & 8 & 100--15 & -- &
+Al + Nitrid, Mono-Si&
+[3] & \tabularnewline % \cite{Murphy:1989:01} & \tabularnewline
+%
+% Zou
+%
+Zou & 1 & 2,6 & 14,2 & 9--16 & -- & Poly-Si , Mono-Si &
+[7] & %\cite{Zou:1997:01,Zou:1998:01} &
+\rdelim\}{-5}{1mm}[Elektret] \tabularnewline
+\addlinespace
+\bottomrule
+\end{tabular}
+}% end of rotatebox
+\end{document}

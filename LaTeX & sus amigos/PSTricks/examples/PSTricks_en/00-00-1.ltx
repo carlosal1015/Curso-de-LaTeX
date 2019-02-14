@@ -1,0 +1,98 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 00-00-1 on page xii.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{375.57637pt}
+
+
+\usepackage[svgnames,dvipsnames]{pstricks}
+\usepackage{pst-3dplot}
+\def\radius{4 }\def\PhiI{20 }\def\PhiII{50 }
+\def\RadIs{\radius \PhiI sin mul}
+\def\RadIc{\radius \PhiI cos mul}
+\def\RadIIs{\radius \PhiII sin mul}
+\def\RadIIc{\radius \PhiII cos mul}
+
+\begin{document}
+
+\begin{pspicture}(-4,-4)(4,5)
+  \psset{Alpha=45,Beta=30,linestyle=dashed}
+  \pstThreeDCoor[linestyle=solid,xMin=-5,xMax=5,yMax=5,zMax=5,IIIDticks,IIIDlabels]
+  \pstThreeDEllipse[linecolor=red](0,0,0)(0,\radius,0)(0,0,\radius)
+  \pstThreeDEllipse(\RadIs,0,0)(0,\RadIc,0)(0,0,\RadIc)
+  \pstThreeDEllipse(\RadIIs,0,0)(0,\RadIIc,0)(0,0,\RadIIc)
+%
+  \pstThreeDEllipse[linestyle=dotted,SphericalCoor](0,0,0)(\radius,90,\PhiI)(\radius,0,0)
+  \pstThreeDEllipse[SphericalCoor,
+	beginAngle=-90,endAngle=90](0,0,0)(\radius,90,\PhiI)(\radius,0,0)
+  \pstThreeDEllipse[linestyle=dotted,SphericalCoor](0,0,0)(\radius,90,\PhiII)(\radius,0,0)
+  \pstThreeDEllipse[SphericalCoor,
+	beginAngle=-90,endAngle=90](0,0,0)(\radius,90,\PhiII)(\radius,0,0)
+%
+  \pscustom[fillstyle=solid,fillcolor=blue]{
+    \pstThreeDEllipse[SphericalCoor,beginAngle=\PhiI,endAngle=\PhiII]%
+	(0,0,0)(\radius,90,\PhiII)(\radius,0,0)
+    \pstThreeDEllipse[beginAngle=\PhiII,endAngle=\PhiI](\RadIIs,0,0)(0,\RadIIc,0)(0,0,\RadIIc)
+    \pstThreeDEllipse[SphericalCoor,beginAngle=\PhiII,endAngle=\PhiI]%
+	(0,0,0)(\radius,90,\PhiI)(\radius,0,0)
+    \pstThreeDEllipse[beginAngle=\PhiI,endAngle=\PhiII](\RadIs,0,0)(0,\RadIc,0)(0,0,\RadIc)
+  }
+\end{pspicture}
+
+\psset{unit=0.45cm,plotpoints=2000,linejoin=1,coorType=2}
+\begin{pspicture}(-7.5,-6.5)(14,14)
+%
+\pstThreeDCoor[xMax=11,yMax=13,zMax=11,
+  nameX=$x_1$,nameY=$x_2$,nameZ=$x_3$,
+  IIIDticks,IIIDlabels,IIIDticksize=0.2,linewidth=.75pt,linecolor=Black,
+  IIIDxticksep=-.8,IIIDyticksep=-.5,IIIDzticksep=-.9,
+  drawing,Alpha=90,IIIDxTicksPlane=yz]
+%
+\pstThreeDNode(0,0,0){A}
+\pstThreeDNode(8,0,0){B}
+\pstThreeDNode(8,8,0){C}
+\pstThreeDNode(0,8,0){D}
+\pstThreeDNode(4,4,12){S}
+\pstThreeDNode(4,4,0){F}
+%
+\pstThreeDNode(10,0, 14 5 div){X}
+\pstThreeDNode(10,7,0){XY}
+\pstThreeDNode(0,12,0){Y}
+\pstThreeDNode(0,0,24 5 div){Z}
+%
+\pspolygon[linecolor=Blue,fillstyle=solid,fillcolor=gray,
+    opacity=0.5](A)(B)(C)(D)
+\pspolygon[linecolor=DarkGreen, linewidth=1pt,
+    fillstyle=solid,fillcolor=Orange,opacity=0.5](X)(XY)(Y)(Z)
+\psline[linewidth=1pt](A)(S)
+\psline[linewidth=1pt](B)(S)
+\psline[linewidth=1pt](C)(S)
+\psline[linewidth=1pt](D)(S)
+%
+\parametricplotThreeD[linecolor=DarkGreen,linestyle=dashed](.4,.5833333333){-24 t mul 24 add 0 24 5 div t mul}
+\parametricplotThreeD[linecolor=DarkGreen,linestyle=dashed](.45,.5833333333){-24 t mul 24 add 12 t mul 0}
+
+\psset{linewidth=1.75pt}
+\pstThreeDNode(4 3 div , 4 3 div, 4){SA}
+\pstThreeDNode(7,1,3){SB}
+\pstThreeDNode(8,8,0){SC}
+\pstThreeDNode(4 7 div , 52 7 div , 12 7 div){SD}
+\pspolygon(SA)(SB)(SC)(SD)
+
+\end{pspicture}
+\end{document}

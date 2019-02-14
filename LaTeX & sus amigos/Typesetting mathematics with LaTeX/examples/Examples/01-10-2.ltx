@@ -1,0 +1,32 @@
+%% 
+%%  Example 01-10-2 
+%%  Copyright (C) 2017 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{328.62788pt}
+\usepackage[T1]{fontenc}
+%StartShownPreambleCommands
+\usepackage{tabularx,ragged2e}
+\usepackage{amsfonts,dsfont}% for \mathds
+\def\cs#1{{\ttfamily\textbackslash#1}}
+%StopShownPreambleCommands
+\begin{document}
+\begin{tabularx}{\linewidth}{@{} l >{\RaggedRight}X @{}}
+default       & $ABCDEFGHIJKLMNOPQRSTUVWXYZ$ $abcdefghijklmnopqrstuvwxyz$\\
+\cs{mathfrak} & $\mathfrak{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$ $\mathfrak{{abcdefghijklmnopqrstuvwxyz}}$\\
+\cs{mathcal}  & $\mathcal{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$\\
+\cs{mathsf}   & $\mathsf{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$  $\mathsf{abcdefghijklmnopqrstuvwxyz}$\\
+\cs{mathbb}   & $\mathbb{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$\\
+\cs{mathtt}   & $\mathtt{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$\newline
+                $\mathtt{abcdefghijklmnopqrstuvwxyz}$\\
+\cs{mathit}   & $\mathit{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$  $\mathit{abcdefghijklmnopqrstuvwxyz}$\\
+\cs{mathrm}   & $\mathrm{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$  $\mathrm{abcdefghijklmnopqrstuvwxyz}$\\
+\cs{mathbf}   & $\mathbf{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$  $\mathbf{abcdefghijklmnopqrstuvwxyz}$\\
+\cs{mathds}   & $\mathds{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$
+\end{tabularx}
+\end{document}

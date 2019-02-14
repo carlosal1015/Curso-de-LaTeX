@@ -1,0 +1,46 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%%  
+%%  7. Auflage
+%% 
+%%  Beispiel 32-05-35 auf Seite 800.
+%% 
+%%  Copyright (C) 2016 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\usepackage[utf8]{inputenc}
+%StartShownPreambleCommands
+\usepackage{pst-thick,pst-grad}
+%StopShownPreambleCommands
+\begin{document}
+\psset{unit=0.5cm}
+\begin{pspicture}(-1,-2)(20,3)
+\psthick[stylethick=serpent,E=1.5]{0}{20}{\fonctionSinus{10}{2}}
+\multido{\i=0+1}{21}{%
+  \pnode(!/t \i\space def
+    /dt 10 360 div def   /E 1.5 def
+    \fonctionSinus{10}{2}
+    /ds dx dup mul dy dup mul add sqrt def
+    /dx dx ds div def  /dy dy ds div def
+    /nx E 2 div dy mul neg def % normale x
+    /ny E 2 div dx mul def % normale y
+    /x1 x0 nx add def  /y1 y0 ny add def x1 y1 ){A}
+  \psdot(A) \pnode(! /x2 x0 nx sub def /y2 y0 ny sub def x2 y2){B}
+  \psdot(B) \psline(A)(B)}
+\parametricplot[linestyle=dashed]{0}{20}{ t O t mul sin 2 mul }
+\end{pspicture}
+\end{document}

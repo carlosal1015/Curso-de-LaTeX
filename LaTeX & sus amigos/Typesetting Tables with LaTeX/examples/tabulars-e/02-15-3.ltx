@@ -1,0 +1,38 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 02-15-3 on page 84.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{201.70511pt}
+\setlength\parindent{0pt}
+
+\usepackage{tabls}
+\newcommand{\T}{\textsf{T}}\newcommand{\Z}{\mathcal{Z}}\newcommand{\C}{\textsf{c}}
+
+\begin{document}
+\begin{tabular}{@{}c|c|ccccc@{}}\hline
+ BV \rule[-0.3cm]{0cm}{0.8cm}& R & $d$ & $u_\Z$
+   & $u_{\Z^\C}$ & $v_\Z$ & $v_{\Z^\C}$\\\hline
+ $u_\Z$ \rule[-0.3cm]{0cm}{0.8cm}& $y_\Z$&$A_\Z$ & $I$ & $0$ & $-I$ & $0$ \\
+ $u_{\Z^\C}$ \rule[-0.3cm]{0cm}{0.8cm}& $y_{\Z^\C}$
+   & $A_{\Z^\C}$&$0$ & $I$ & $0$ & $-I$\\\hline
+ ZF/GK & $e_m^\T
+   \left(\begin{array}{c} y_\Z \\ y_{\Z^\C}\end{array}\right)$
+   & $e_m^\T\left(\begin{array}{c}A_\Z \\A_{\Z^\C}\end{array}\right) $
+   & $0$ & $0$ & $-2e_n^\T$ & $-2e_{m-n}^\T$  \\\hline
+\end{tabular}
+\end{document}

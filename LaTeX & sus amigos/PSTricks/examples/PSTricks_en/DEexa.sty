@@ -1,0 +1,47 @@
+%
+% Style for the DANTE edition exa classes
+%
+% $Id: DEexa.sty 582 2011-09-30 07:10:32Z herbert $
+%
+\ProvidesPackage{DEexa}[2009/12/06 v0.01 (hv)]
+\RequirePackage{ifxetex,ifluatex,ifpdf}
+\ifxetex
+  \usepackage{mathspec}
+  \setmathfont{Latin Modern Math}
+  \setmainfont[Mapping=tex-text]{Linux Libertine O}
+\fi
+\ifluatex
+  \usepackage{fontspec}
+  \setmathrm{Latin Modern Math}
+  \setmathtt{Latin Modern Math}
+  \setmathsf{Latin Modern Math}
+  \setmainfont[Ligatures=TeX]{Linux Libertine O}
+\fi
+\ifpdf
+  \RequirePackage[T1]{fontenc}
+  \RequirePackage{mathpazo}
+  \RequirePackage{libertine}
+\fi
+
+%\RequirePackage[expert,de]{lucidabr}
+%\RequirePackage[de,expert,uprightgreek]{lucbmath}
+\let\relax
+\let\relax
+% ignore second documentclass command for display in book:
+\renewcommand\documentclass[2][]{}
+\let\ps@origplain\ps@plain
+\let\ps@plain\ps@empty % this class doesn't produces page numbers
+                       % since this would make examples too big
+                       % but if necessary there is origplain
+
+\endinput
+
+\AtBeginDocument{
+\ifx\color\@undefined
+\else
+  \definecolor{blue}{cmyk}{1,0.56,0,0}
+  \definecolor{red}{cmyk}{0,0,0,.3}
+  \definecolor{green}{cmyk}{0,0,0,.2}
+  \definecolor{yellow}{cmyk}{0,0,0,.1}
+\fi
+}

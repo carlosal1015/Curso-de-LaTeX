@@ -1,0 +1,23 @@
+\documentclass{standalone}
+\usepackage[utf8x]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{tikz}
+\usetikzlibrary{datavisualization.formats.functions}
+\begin{document}
+\begin{tikzpicture}
+\datavisualization[school book axes, x axis = {length = 6cm}, y axis = {length = 8cm}, all axes = {grid}, visualize as scatter]%school book o scientific axes, smooth line
+%data{x, y
+%	-3,9
+%	-2,4
+%	-1,1
+%	0,0
+%	1, 1
+%	2, 4
+%	3,9};
+data[format = function]{
+var x : interval [-3:3] samples 30;
+func y = \value x * \value x -1;
+};
+\end{tikzpicture}
+\end{document}
+Es como un ajuste de mínimos cuadrados.

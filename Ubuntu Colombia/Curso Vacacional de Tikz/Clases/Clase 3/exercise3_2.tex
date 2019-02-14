@@ -1,0 +1,29 @@
+\documentclass{standalone}
+\usepackage[utf8x]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{tikz}
+\usetikzlibrary{positioning,calc,arrows,fit,babel}
+\begin{document}
+
+\begin{tikzpicture}
+\tikzset{
+	nodo/.style = {
+	fill = cyan!75!black,
+	text width = 2.5cm,
+	align = center,
+	draw,
+	rectangle,
+	rounded corners = 3pt,
+	minimum size = 1.5cm
+	},
+}
+\node[nodo] (jefe) at (0, 0) {Gerente};
+\node[nodo] (secretaria) [below right = of jefe] at (2.5, -1.5) {Secretaria de gerencia};
+\node[nodo] (subgerente) [below = 2.5cm of jefe] {Subgerente};
+\node[nodo] (asistente) [below = of subgerente] {Asistente de gerencia};
+\node[nodo] (coordinador1) at ($ (asistente) + (2, -2.5)$) {Coordinador de comunicaciones de gerencia};
+\node[nodo] (coordinador2) at ($(asistente) + (-2, -2.5)$) {Coordinador de comunicaciones de gerencia};
+\node[nodo] (coordinador3) [left = of coordinador2] {Coordinador \\ comité \\ ambiental};
+\node[nodo] (coordinador4) [right = of coordinador1] {Coordinador comité de seguridad y salud en el trabajo};
+\end{tikzpicture}
+\end{document}

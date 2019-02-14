@@ -1,0 +1,67 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 32-01-21 on page 650.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{375.57637pt}
+\setlength\parindent{0pt}
+\usepackage[utf8]{inputenc}
+
+\usepackage{pst-uml,graphicx}
+\newcommand{\drawClassi}{%
+  \umlClass{class1}{umlClassWidth = 0\\(default) \\\hline
+     attribute2 <a wide line> \\\hline attribute3\\\hline method1}}
+\newcommand{\drawClassii}{%
+  \umlClass[umlClassWidth=4cm,umlParameter={\ T\ }]{class2}{%
+     width = 4cm \\\hline attribute2\\\hline method1\\ method2}}
+\newcommand{\drawClassiii}{%
+  \umlClass[umlClassWidth=2.7]{class3}{attribute1\\ attribute1\\\hline
+     method1\\ method2}}
+\newcommand{\drawClassiv}{
+  \umlClass{class4}{attribute1 \\ attribute2\\\hline method1}}
+\newcommand{\drawClassv}{\umlClass[umlClassWidth=0]{class5}{}}
+
+\begin{document}
+\resizebox{\linewidth}{!}{\begin{pspicture}(18,15)%\psgrid
+ \rput(3,13){\rnode{class1}{\drawClassi}} \pnode(17.5,13){pnode1}
+ \rput(9,10){\rnode{class2}{\drawClassii}}\rput(2,5){\rnode{class3}{\drawClassiii}}
+ \rput(12,5){\rnode{class4}{\drawClassiv}}\rput(5.5,5.5){\rnode{class5}{\drawClassv}}
+ \rput(16,11){\rnode{actor1}{\umlActor{actor 1}}}
+\end{pspicture}
+\ncline{Class1}{pnode1}\ncputicon[npos=0.7,nrot=:U]{umlV}
+\naput{ncline}\naput[npos=1,ref=r]{node "P1"}
+\ncSXE[armA=11.5]{pnode1}{Class3}\nbput{SXE (armA=11.5)}\ncputicon{umlV}
+\ncputicon[npos=1.9999,nrot=:U]{umlV}\ncputicon[npos=2,nrot=:U]{umlV}
+\ncputicon[npos=5,nrot=:U]{umlV}\ncSE{class1}{class2}
+\naput[npos=1.5]{\{ncSE npos=1.5\}}\ncSE[offset=-1]{class1}{class2}
+\ncputicon{umlAgreg}\ncputicon[npos=2,nrot=:U]{umlCompos}
+\nbput[npos=0.3]{0..*}\naput[npos=1.8]{0..2}\naput[npos=1.4]{ncSE,offset=-1}
+\ncSHS[armA=1.5]{class2}{class4}\naput{ncSHS}
+\ncSHS[armA=1.5]{class2}{class3}\nbput{ncSHS}
+\ncputicon{umlHerit}\ncputicon[npos=3,nrot=:U]{umlV}
+\ncSHN[arm=.7]{class3}{Class4}
+\naput{ncSHN (3 vers 4)}\ncputicon[npos=1.8,nrot=:U]{umlV}
+\ncE{class5}{class4}\naput[npos=0.4]{ncE,npos=0.4}\ncputicon{umlCompos}
+\newpsstyle{umlDependance}{linestyle=dashed,arrows=->,arrowscale=3,arrowinset=0.6}
+\ncline[style=umlDependance,offset=-0.5]{class3}{class4}
+\naput{ncline} \ncputicon{umlV}\nbput[npos=0.15]{1..*}
+\ncline[linestyle=dashed]{class2}{actor1}\naput{ncline}\ncputicon{umlAgreg}
+\ncputicon[npos=0.7,nrot=:U]{umlAgreg}\ncputicon[npos=1,nrot=:U]{umlCompos}
+\nccurve[linestyle=dashed, angleA=75,offsetA=-1,angleB=-45]{Class4}{actor1}
+\ncputicon{umlHerit}\ncputicon[npos=0.7,nrot=:U]{umlHerit}
+\ncputicon[npos=1,nrot=:U]{umlHerit}}
+\end{document}

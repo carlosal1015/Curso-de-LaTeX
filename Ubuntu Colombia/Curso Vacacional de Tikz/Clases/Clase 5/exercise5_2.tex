@@ -1,0 +1,26 @@
+\documentclass{standalone}
+\usepackage[utf8x]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{tikz}
+\usetikzlibrary{datavisualization.formats.functions}
+\begin{document}
+\begin{tikzpicture}
+\datavisualization[
+school book axes, all axes = {grid},
+visualize as smooth line/.list = {sin, cos},
+style sheet = strong colors,
+style sheet = vary dashing,%cadacurva se grafica en una línea de color diferente
+data/format = function,
+sin = {label in legend = {text = $\sin (x)$}},
+cos = {label in legend = {text = $\cos (x)$}}
+]%spreedsheet de google
+data[set = sin]{
+var x : interval [0:2*pi] samples 200;
+func y =sin(\value x r);% r es un modificador, 
+}% por la ; restringe hasta aquí
+data[set = cos]{
+	var x : interval [0:2*pi] samples 200;
+	func y =cos(\value x r);
+};
+\end{tikzpicture}
+\end{document}

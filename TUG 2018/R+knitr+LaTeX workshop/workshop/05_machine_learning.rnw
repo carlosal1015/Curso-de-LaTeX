@@ -1,0 +1,142 @@
+\documentclass{article}
+\newcommand{\chunklabel}[1]{{\noindent\bfseries\flushleft Chunk: #1\par}}
+\usepackage{booktabs}
+\begin{document}
+\title{05:  A toy machine learning example}
+\author{Boris Veytsman}
+\date{TUG18 knitr workshop; July 2018\thanks{This work is licensed
+    under a Creative Commons Attribution 4.0 International License
+    (CC-BY)}}
+\maketitle
+
+In this tutorial we use a very simple machine learning model:
+Recursive Partitioning and Regression Trees~\cite{Rpart}.
+
+<<setup, echo=FALSE>>=
+opts_chunk$set(fig.path="05_figures/")
+knit_hooks$set(
+    chunklabel=
+        function(before, options, envir) {
+            if(before && options$chunklabel) 
+                sprintf(
+                    "\\chunklabel{%s}", options$label)
+        })
+opts_chunk$set(chunklabel=TRUE)
+@ 
+
+
+
+<<setup, eval=FALSE>>=
+@ 
+
+
+<<libraries, message=FALSE>>=
+library(tidyverse)       # The Swiss Army knife of data processing
+library(ggthemes)        # A better look for plots
+theme_set(theme_tufte())
+library(rpart)           # Recursive partitioning and
+                         # regression trees
+library(rpart.plot)      # Plotting of rpart trees
+set.seed(201807)         # Setting the seed
+library(Hmisc)           # for the latex tables
+@ 
+
+We divide the iris dataset into training and testing parts:  
+
+<<dataTransormation>>=
+iris <- as.tibble(iris)
+@ 
+
+There are \Sexpr{nrow(iris)}~data points.  We take 2/3 of them as
+training, and 1/3 as test:
+<<testVsTraining>>=
+train_index <- sample.int(nrow(iris),
+                       2*nrow(iris)/3)
+iris_train <- iris[train_index, ]
+iris_test  <- iris[-train_index, ]
+nrow(iris_train)
+nrow(iris_test)
+@ 
+
+Now we train a model
+<<model>>=
+model <- rpart(Species~ .,
+               data=iris_train)
+@ 
+
+\clearpage
+Here is the result:
+<<decisionTree>>=
+prp(model)
+@   
+
+Note that model uses only petal data: sepal data are redundant!
+
+\clearpage
+
+Let us test the model.  We calculate predicted species for the test
+model and the flag whether the prediction was correct:
+<<testing>>=
+iris_test <- iris_test %>% 
+    mutate(Species.Predicted=
+               as.character(predict(model, iris_test,
+                                    type='class')),
+           Incorrect=Species != Species.Predicted)
+iris_test %>% select(Species, Species.Predicted, Incorrect)
+@ 
+The model was right \Sexpr{sum(!iris_test[['Incorrect']])} times out of
+\Sexpr{nrow(iris_test)}, or
+\Sexpr{round(100*sum(!iris_test[['Incorrect']])/nrow(iris_test))}\%.
+
+Confusion table:
+<<table>>=
+confusionTable <- 
+    table(iris_test %>% select(Species, Species.Predicted))
+confusionTable
+@ 
+
+\clearpage
+Let us typeset confusion table using Hmisc~\cite{Hmisc}. 
+<<typesetTable, results='asis'>>=
+latex(confusionTable, file="", booktabs=TRUE, 
+     caption="Confusion table")
+@ 
+
+The option \verb|results='asis'| is very important.  Without it we get
+escaped code:
+<<typesetTable-no-asis>>=
+latex(confusionTable, file="", booktabs=TRUE, 
+     caption="Confusion table")
+@ 
+
+\clearpage
+
+\begin{figure}
+  \centering
+<<modelTestPetal, warning=FALSE>>=
+ggplot(iris_test) + 
+    geom_point(aes(Petal.Length, Petal.Width,
+                   color=Species, size=Incorrect))
+                              
+@   
+  \caption{Testing the model, Petal space}
+  \label{fig:modelTestPetal}
+\end{figure}
+
+\begin{figure}
+  \centering
+<<modelTestSepal, warning=FALSE>>=
+ggplot(iris_test) + 
+    geom_point(aes(Sepal.Length, Sepal.Width,
+                   color=Species, size=Incorrect))
+                              
+@   
+  \caption{Testing the model, Sepal space}
+  \label{fig:modelTestSepal}
+\end{figure}
+
+\bibliography{workshop}
+\bibliographystyle{plain}
+
+
+\end{document}

@@ -1,0 +1,23 @@
+% !TeX document-id = {9d223eca-9818-4f05-a953-42e014392f08}
+% !TeX TXS-program:compile = txs:///pdflatex/[--shell-escape]
+\documentclass[tikz]{standalone}
+\usepackage{tkz-base,tkz-fct}
+\begin{document}
+	\begin{tikzpicture}
+	\tkzInit[	xmin=-2, xmax=40, xstep=10,
+				ymin=-2, ymax=30, ystep=10]
+	\tkzDrawX[noticks]
+	\tkzDrawY[noticks]
+	
+	\tkzFct[domain=0:45]{105/\x}
+	
+	\tkzDefPoint(5,21){P}
+	\tkzDefPoint(35,3){Q}
+	\tkzDefPoint(0,0){O}
+	
+	\tkzDrawPoints[fill=black](P,Q)
+	\tkzLabelPoints[right](P)
+	\tkzLabelPoints[above](Q)
+	\tkzLabelPoints[below left](O)
+	\end{tikzpicture}
+\end{document}

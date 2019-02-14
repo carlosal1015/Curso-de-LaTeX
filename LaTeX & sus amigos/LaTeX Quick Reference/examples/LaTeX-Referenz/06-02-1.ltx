@@ -1,0 +1,48 @@
+%% 
+%%  Die DANTE-Edition
+%%  Ein Beispiel der LaTeX Referenz
+%%  3. Auflage
+%% 
+%% 
+%%  Copyright (C) 2013 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\usepackage[ngerman]{babel}
+%StartShownPreambleCommands
+\usepackage{expl3,xparse}                    % expl3 lädt auch l3keys
+\ExplSyntaxOn                        % Da nicht automatisch aktiviert
+\cs_new:Npn \l_keydemo_Datum{}
+\keys_define:nn {keydemo}{                            % Makrooptionen
+  Datum .code:n = \cs_set:Npn \l_keydemo_Datum{#1}, % lokal definiert
+  Datum .default:n  = \today                  % für Datum ohne Angabe
+}
+\keys_set:nn { keydemo } { Datum=1.1.11 }
+\NewDocumentCommand\PrintDatum{}{ \l_keydemo_Datum }
+\NewDocumentCommand\Test{ om }               % Keys per Anwendermakro
+  { \group_begin:                                % alles lokal halten
+    \keys_set:nn {keydemo} {#1}%
+    #2 \l_keydemo_Datum
+    \group_end:
+  }
+\NewDocumentCommand\keySetup { m }               % Keys per Key-Makro
+  { \keys_set:nn { keydemo } { #1 } \tex_ignorespaces:D }
+\ExplSyntaxOff
+%StopShownPreambleCommands
+\begin{document}
+Das momentane Datum ist \PrintDatum. \par \Test[Datum]{Neues Datum: } \par
+\keySetup{Datum=tt.mm.YYYY} \PrintDatum
+\end{document}

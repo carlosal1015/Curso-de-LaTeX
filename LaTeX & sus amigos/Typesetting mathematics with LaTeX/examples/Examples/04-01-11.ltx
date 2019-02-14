@@ -1,0 +1,33 @@
+%% 
+%%  Example 04-01-11 
+%%  Copyright (C) 2016 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{328.62788pt}
+\setlength\parindent{0pt}
+%StartShownPreambleCommands
+\usepackage{amsmath,cool}
+%StopShownPreambleCommands
+\begin{document}
+$\Sin{x}  \Cos{x} \Tan{x} \Csc{x} \Sec{x} \Cot{x}$ \par
+\Style{ArcTrig=inverse}  % the default
+$\ArcSin{x} \ArcCos{x} \ArcTan{x}$\par
+\Style{ArcTrig=arc}
+$\ArcSin{x} \ArcCos{x} \ArcTan{x} \ArcCsc{x} \ArcSec{x}  \ArcCot{x}$\par
+$\displaystyle\Factorial{n} \DblFactorial{n} \Binomial{n}{k} \Multinomial{i_1,\ldots,i_n}$\par
+$\GammaFunc{x} \IncGamma{a}{x} \GenIncGamma{a}{x}{y} \RegIncGamma{a}{x} \RegIncGammaInv{a}{x}
+ \GenRegIncGamma{a}{x}{y} \GenRegIncGammaInv{a}{x}{y} \Pochhammer{a}{n} \LogGamma{x}$ \par
+$\Hypergeometric{0}{0}{}{}{x} \Hypergeometric{0}{1}{}{b}{x}$\par
+$\RegHypergeometric{0}{0}{}{}{x} \RegHypergeometric{0}{1}{}{b}{x}$\par
+$\displaystyle\MeijerG[a,b]{n}{p}{m}{q}{x} \MeijerG{1,2,3,4}{5,6}{3,6,9}{12,15,18,21,24}{x}$ \par
+$\RiemannZeta{s} \Zeta{s} \HurwitzZeta{s}{a} \Zeta{s,a} \RiemannSiegelTheta{x} \RiemannSiegelZ{x}
+\StieltjesGamma{n} $\par   $\MathieuC{a}{q}{z} \MathieuS{a}{q}{z}$\par
+$\MathieuCharacteristicA{r}{q} \MathieuCharisticA{r}{q}$\par
+$\MathieuCharacteristicB{r}{q} \MathieuCharisticB{r}{q}$\par
+$\MathieuCharacteristicExponent{a}{q} \MathieuCharisticExp{a}{q}$
+\end{document}

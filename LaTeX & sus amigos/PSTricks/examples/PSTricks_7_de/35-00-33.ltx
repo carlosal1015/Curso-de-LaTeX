@@ -1,0 +1,63 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%%  
+%%  7. Auflage
+%% 
+%%  Beispiel 35-00-33 auf Seite 832.
+%% 
+%%  Copyright (C) 2016 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+%StartShownPreambleCommands
+\usepackage{pstricks-add}
+%StopShownPreambleCommands
+\begin{document}
+\psset{unit=4cm}
+\def\psArc(#1)#2(#3)(#4)#5[#6]#7{%
+  \psarc[origin={#1}](#1){#2}{(#3)}{(#4)}%
+  \uput{#5}[#6](#1){$#7$}}
+\def\Uput[#1](#2){\uput[#1](#2){$#2$}}
+\begin{pspicture}[showgrid=false](-0.1,-0.1)(2,2.1)
+\pstVerb{/side 1 def}
+\pnode(!0 side){A}\Uput[180](A) \pnode{B}\Uput[225](B)
+\pnode(!80 sin 2 exp side mul 40 sin div 70 sin div 0){C}\Uput[-45](C)
+\pnode(3;20){D'} \rput(C){\pnode(1.5;70){D''}}
+\psIntersectionPoint(B)(D')(C)(D''){D}\Uput[0](D)
+\rput(C){\pnode(2;140){C'}}
+\psIntersectionPoint(B)(D)(C)(C'){Q}   \Uput[80](Q)
+\rput(D){\pnode(2;120){E'}} \rput(Q){\pnode(2;90){E''}}
+\psIntersectionPoint(D)(E')(Q)(E''){E}\Uput[90](E)
+\psIntersectionPoint(A)(D)(B)(E){P}\Uput[110](P)
+\pspolygon(A)(B)(C)(D)(E)
+\psset{linecolor=red}
+\psline(A)(D)\psline(B)(E)
+\psset{linecolor=blue}
+\psline(P)(C)\psline(B)(D)
+\psset{linecolor=magenta,linewidth=0.8pt,arcsep=1.6pt,arrows=<->}
+\psArc(A){30pt}(D)(E){15pt}[15]{\theta}
+\psArc(B){45pt}(E)(A){25pt}[75]{30^\circ}
+\psArc(B){45pt}(C)(D){25pt}[10]{20^\circ}
+\psArc(B){45pt}(D)(E){25pt}[40]{\alpha}
+\psArc(D){40pt}(A)(B){15pt}[187.5]{30^\circ}
+\psArc(D){40pt}(B)(C){15pt}[235]{50^\circ}
+\psArc(D){40pt}(E)(A){15pt}[140]{50^\circ}
+\psArc(C){35pt}(D)(P){15pt}[100]{70^\circ}
+\psArc(C){35pt}(P)(B){13pt}[160]{40^\circ}
+\psArc(P){45pt}(C)(D){20pt}[-25]{30^\circ}
+\psline[linestyle=dashed](E)(Q)
+\end{pspicture}
+\end{document}

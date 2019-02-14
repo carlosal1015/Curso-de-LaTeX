@@ -1,0 +1,22 @@
+%% 
+%%  Example 03-03-12 
+%%  Copyright (C) 2016 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{134.31393pt}
+
+%StartShownPreambleCommands
+
+%StopShownPreambleCommands
+\begin{document}
+$\underline{x}+\underline{y}=\underline{z}$\\
+\let\ul\underline
+\def\yPh{\vphantom{y}}
+$ \ul{x\yPh} + \ul{y} = \ul{z\yPh} $\\
+$ \ul{x_1} + \ul{y_2} = \ul{z_3} $
+\end{document}

@@ -1,0 +1,40 @@
+%% 
+%%  An UIT Edition example
+%% 
+%%  Example 06-11-1 on page 104.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{375.57637pt}
+\AtBeginDocument{\setlength\parindent{0pt}
+\setcounter{section}{11}
+\setcounter{equation}{50}
+\renewcommand\theequation{eq. \roman{section}-\Roman{equation}}}
+\usepackage{blkarray}
+\newcommand\bigstrutht{\vrule width0pt height 12pt depth0pt\relax}
+\newcommand\bigstrutdp{\vrule width0pt height 0pt depth5pt\relax}
+\StartShownPreambleCommands
+\usepackage{amsmath,blkarray}
+\renewcommand\theequation{eq. \roman{section}-\Roman{equation}}
+\StopShownPreambleCommands
+\begin{document}
+\begin{align}\begin{blockarray}{*{4}{c}}
+  \begin{block}{[ccc]c}
+    \bigstrutht 1-\lambda x & 0 & 0 & \ell_1 \\  0 & 1-\lambda x & 0 & \ell_2 \\
+    \bigstrutdp 0 & 0 & 1-\lambda x & \ell_3 \\
+  \end{block}
+  c_1 & c_2 & c_3
+\end{blockarray}\end{align}
+\end{document}

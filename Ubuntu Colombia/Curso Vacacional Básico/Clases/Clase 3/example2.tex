@@ -1,0 +1,73 @@
+\documentclass{article}
+\usepackage[utf8x]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{lipsum}
+
+\input{colores.sty}%Apunta al archivo.
+
+%\newcommand{\cuadratica}{
+%\begin{equation}
+%	x_{1,2} = \frac{1}{2a}\Bigl(-b\pm \sqrt{b^{2}-4ac}\Bigr)
+%\end{equation}
+%}
+\input{dict_ecuaciones.tex}
+
+\input{cajas.tex}
+
+%\input{quimica.tex}
+
+\newtheorem{definicion}{Definición}
+\newtheorem{obs}{Observación}[section]
+\title{Tomando el control de \LaTeX{}}
+\author{Oromion}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\textcolor{myGreen}{un texto en color verde}
+
+\lipsum[1]
+
+%\cudratica{}
+\cuadratica{}
+
+\lipsum[1]
+
+\cuadratica{}
+
+\Fourier[eq]
+
+
+\section{Sección 1}
+
+\lipsum[1]
+\begin{definicion}
+\lipsum[1]
+\end{definicion}
+
+\begin{obs}
+Esta es una primera
+\end{obs}
+
+\begin{definicion}
+	\lipsum[1]
+\end{definicion}
+
+
+\begin{obs}
+Segunda observación
+
+\end{obs}
+
+\section{Sección 2}
+
+\begin{obs}
+Observación 2.1
+\end{obs}
+\end{document}
+Veremos ahora los comandos y su redefinición.

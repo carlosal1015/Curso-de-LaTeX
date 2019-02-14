@@ -1,0 +1,50 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Beispiel 04-01-6 auf Seite 130.
+%% 
+%%  Copyright (C) 2010 H. Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+
+%%Run also: >>  << 
+% Show page(s) 1
+
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{218.59192pt}
+
+\usepackage[utf8]{inputenc}% eventuell anpassen
+\setlength\parindent{0pt}
+\setlength\textwidth{5cm}
+
+\usepackage{longtable,calc}
+\newsavebox\TBox
+
+\begin{document}
+\sbox\TBox{\begin{tabular}{|l|c|r|p{1.5cm}|}
+Links & Zentriert & Rechts & Box
+\end{tabular}}
+Links \hfill Zentriert \hfill Rechts
+\begin{longtable}{|l|c|r|p{1.5cm}|}\hline
+Links & Zentriert & Rechts & Box\\\hline
+l & c & r & p\{1.5cm\}\\\hline
+\end{longtable}
+\setlength\LTleft{\textwidth-\wd\TBox}
+\raggedleft Rechtsbündig
+\begin{longtable}{|l|c|r|p{1.5cm}|}\hline
+Links & Zentriert & Rechts & Box\\\hline
+l & c & r & p\{1.5cm\}\\\hline
+\end{longtable}
+\setlength\LTleft{0.5\textwidth-0.5\wd\TBox}
+\centering Zentriert
+\begin{longtable}{|l|c|r|p{1.5cm}|}\hline
+Links & Zentriert & Rechts & Box\\\hline
+l & c & r & p\{1.5cm\}\\\hline
+\end{longtable}
+\end{document}

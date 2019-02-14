@@ -1,0 +1,24 @@
+%% 
+%%  Example 03-03-2 
+%%  Copyright (C) 2016 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{134.31393pt}
+
+%StartShownPreambleCommands
+
+%StopShownPreambleCommands
+\begin{document}
+\def\fdelimA{\abovewithdelims\{)1.0pt}
+\def\fdelimB{\abovewithdelims[]2.0pt}
+\def\fdelimC{\abovewithdelims\{.0pt}
+$a\abovewithdelims()0pt b$\\[8pt]
+${a\fdelimA b}$           \\[8pt]
+${a\fdelimB b}$           \\[8pt]
+$\displaystyle{a\fdelimC b}$
+\end{document}

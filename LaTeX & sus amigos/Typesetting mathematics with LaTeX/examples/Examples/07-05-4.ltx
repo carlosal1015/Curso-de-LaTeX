@@ -1,0 +1,27 @@
+%% 
+%%  Example 07-05-4 
+%%  Copyright (C) 2017 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{328.62788pt}
+\setlength\parindent{0pt}
+\usepackage[T1]{fontenc}
+%StartShownPreambleCommands
+\usepackage{amsmath}
+%StopShownPreambleCommands
+\begin{document}
+\begin{equation}
+\binom{x_R}{y_R} = \underbrace{r\vphantom{\binom{A}{B}}}_{\text{Scaling}}\cdot%
+  \underbrace{%
+    \begin{pmatrix}
+      \sin \gamma & -\cos \gamma \\ \cos \gamma & \sin \gamma \\
+      \end{pmatrix}
+  }_{\text{Rotation}}
+\binom{x_K}{y_K} + \underbrace{\binom{t_x}{t_y}}_{\text{Translation}}
+\end{equation}
+\end{document}

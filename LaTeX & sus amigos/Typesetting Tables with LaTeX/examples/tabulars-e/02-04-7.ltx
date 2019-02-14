@@ -1,0 +1,56 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 02-04-7 on page 42.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{201.70511pt}
+\setlength\parindent{0pt}
+\hyphenation{ge-nau Klam-mern}
+\AtBeginDocument{\setbox0\hbox{$ $}}
+
+\usepackage{blkarray,ragged2e}
+
+\begin{document}
+\begin{blockarray}{\BAenum!{.\quad}cc\Right{\}}{\texttt{block 1}}}
+   ccc & cc        \\
+   c   & ccccccccc \\
+  \BAnoalign*{\texttt{\textbackslash BAnoalign*} typesets the text exactly in the
+                                                 width of the table.}
+  \begin{block}{\BAenum!{.\quad}(rr\Right{\}}
+               {\parbox{3cm}{block 2, with a nested \texttt{block*}}}}
+    \phantom{XX}rrr & rr \\
+                rrr & r  \\  % next row empty "field" for BAenum
+    \begin{block*}{!{\quad}ll}
+      & ll & ll\phantom{XX}\\
+      & l  & l\\
+    \end{block*}
+    r & r \\ \end{block}
+  ccc \\
+  \begin{block}{\BAenum!{.\quad}>{\bfseries}l \{c\Right{\}}{\texttt{block 3}}}
+    \gdef\theBAenumi{\Roman{BAenumi}}
+    LLL & \BAmultirow{50pt}{\Centering All columns in one block.} \\
+    LL  & \\
+    L   & \\
+  \end{block}
+  \begin{block}{\BAenum \{l\}l\Right{\}}{\texttt{block 4}}}
+    ll & l\\ \BAnoalign{In contrast to \texttt{\textbackslash BAnoalign*},
+      \texttt{\textbackslash BAnoalign} interrupts all delimiters in the current block.}
+    l  & lll \\
+  \end{block}
+  c & c
+\end{blockarray}
+\end{document}

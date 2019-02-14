@@ -1,0 +1,26 @@
+%% 
+%%  Example 03-03-7 
+%%  Copyright (C) 2016 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{110.31393pt}
+
+%StartShownPreambleCommands
+\usepackage{xcolor}
+\everymath{\color{red}\displaystyle}
+%StopShownPreambleCommands
+\begin{document}
+\[
+ f(x)=\int\frac{\sin x}{x}\,\mathrm{d}x
+\]
+Instead of $\frac{\sin x}{x}$
+  now with $\frac{\cos x}{x}$:
+\[
+ g(x)=\int\frac{\cos x}{x}\,\mathrm{d}x
+\]
+\end{document}

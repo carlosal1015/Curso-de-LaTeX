@@ -1,0 +1,117 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%%  
+%%  7. Auflage
+%% 
+%%  Beispiel 35-00-54 auf Seite 840.
+%% 
+%%  Copyright (C) 2016 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{398.33856pt}
+\setlength\parindent{0pt}
+%StartShownPreambleCommands
+\usepackage{pstricks-add,filecontents}
+%StopShownPreambleCommands
+\begin{document}
+% hier einige Beispieldaten
+\begin{filecontents*}{testZ.dat}
+1	0.732477261
+2	0.180662983
+3	0.384524422
+4	0.991825613
+5	1.976495726
+6	3.627745665
+7	5.34620506
+8	9.771455224
+9	16.39950678
+10	23.99350649
+11	40.27102514
+12	69.14523044
+13	91.02794574
+14	135.472973
+15	190.098534
+16	247.3251029
+17	317.4562682
+18	345.913884
+19	427.8586279
+20	651.3545347
+21	981.6451394
+22	1304.102977
+23	1585.585586
+24	1967.549805
+25	2712.312312
+26	3675.567423
+27	3858.622242
+28	3622.610141
+29	3455.882353
+30	3771.382572
+31	4480.254199
+32	4075.804777
+33	4162.325199
+34	4422.501496
+35	5128.383067
+36	5933.209647
+37	5582.247557
+38	6395.759717
+39	7214.590242
+40	5395.683453
+41	4688.841202
+42	4084.62867
+43	3844.37299
+44	3029.288703
+45	2379.50938
+46	1764.367816
+47	2032.838155
+48	2451.166811
+49	2254.658385
+50	2377.756472
+51	2668.020305
+52	3660.522932
+53	5248.669905
+54	7592.225307
+55	8359.212618
+56	7860.996111
+57	9954.825462
+58	12832.61183
+59	13201.05048
+60	19705.80903
+61	97354.49735
+62	170492.215
+63	213329.1219
+64	223668.1223
+65	219428.0385
+66	209986.0821
+67	159235.4642
+68	185487.0004
+69	166118.3059
+70	151514.1087
+71	169915.9021
+72	158330.4104
+73	122485.0385
+74	100809.3776
+75	117113.5884
+\end{filecontents*}
+\readdata{\data}{testZ.dat}
+\psset{xunit=6cm, yunit=0.9cm}
+\begin{pspicture}(0,-2)(2,7)
+\psaxes[axesstyle=frame, xylogBase=10,logLines=all,
+  tickwidth=1pt,subtickwidth=0.6pt,
+  subticks=10,Oy=-2](0,-2)(2 ,6)
+\psset{linewidth=2pt}
+\pstScalePoints(1,1){log}{log}
+\listplot[linecolor=red]{\data}
+\end{pspicture}
+\end{document}

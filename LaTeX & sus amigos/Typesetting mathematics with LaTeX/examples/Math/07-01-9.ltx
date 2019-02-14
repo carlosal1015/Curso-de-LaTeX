@@ -1,0 +1,46 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%%  Mathematiksatz mit LaTeX
+%%  2. Auflage
+%% 
+%%  Beispiel 07-01-9 auf Seite 138.
+%% 
+%%  Copyright (C) 2012 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{examinimal-mathsymbols}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\AtBeginDocument{\setlength\parindent{0pt}}
+\StartShownPreambleCommands
+\usepackage{array}
+\StopShownPreambleCommands
+\begin{document}
+\renewcommand\arraystretch{1.6}
+\begin{tabular}{@{}*{3}{r@{\kern3pt}l}r@{\kern3pt}ll @{}}
+% Im Gegensatz zu den vorangehenden und nachfolgenden Tabellen nicht alphabetisch nach Befehlsnamen sortiert!?
+\mathsymbol{int}  $\displaystyle\int$  & \texttt{\textbackslash displaystyle}\texttt{\textbackslash int} &
+\mathsymbol{oint} $\displaystyle\oint$ & \texttt{\textbackslash displaystyle}\texttt{\textbackslash oint}\\
+\mathSymbol{cap}\mathSymbol{cup}\\
+\mathSymbol{odot}\mathSymbol{oplus}\\
+\mathSymbol{otimes}\mathSymbol{sqcup}\\
+\mathSymbol{uplus}\mathSymbol{vee}\\
+\mathSymbol{wedge}\mathsymbol{coprod}
+ $\displaystyle\coprod$  & \texttt{\textbackslash displaystyle}\texttt{\textbackslash coprod}\\
+\mathsymbol{prod}
+$\displaystyle\prod$ & \texttt{\textbackslash displaystyle}\texttt{\textbackslash prod} &
+\mathsymbol{sum}
+ $\displaystyle\sum$  & \texttt{\textbackslash displaystyle}\texttt{\textbackslash sum}\\
+\mathsymbol{smallint}
+\end{tabular}
+\end{document}

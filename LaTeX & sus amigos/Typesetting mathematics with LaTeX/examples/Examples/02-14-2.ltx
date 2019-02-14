@@ -1,0 +1,31 @@
+%% 
+%%  Example 02-14-2 
+%%  Copyright (C) 2016 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{328.62788pt}
+\setlength\parindent{0pt}
+\fboxsep=0pt
+%StartShownPreambleCommands
+\usepackage{amsmath}
+\makeatletter
+\def\mapstofill@{%
+  \arrowfill@{\mapstochar\relbar}\relbar\rightarrow}
+\newcommand*\xmapsto[6][]{%
+  \ext@arrow #3#4#5#6\mapstofill@{#1}{#2}}
+\makeatother
+%StopShownPreambleCommands
+\begin{document}
+\verb+$\ext@arrow 0000$+\quad{\huge $\xmapsto[\fbox{under}]{\fbox{over}}0000$}\par
+\verb+$\ext@arrow 9000$+\quad{\huge $\xmapsto[\fbox{under}]{\fbox{over}}9000$}\par
+\verb+$\ext@arrow 0900$+\quad{\huge $\xmapsto[\fbox{under}]{\fbox{over}}0900$}\par
+\verb+$\ext@arrow 0009$+\quad{\huge $\xmapsto[\fbox{under}]{\fbox{over}}0009$}\par
+\verb+$\ext@arrow 0090$+\quad{\huge $\xmapsto[\fbox{under}]{\fbox{over}}0090$}\par
+\verb+$\ext@arrow 0099$+\quad{\huge $\xmapsto[\fbox{under}]{\fbox{over}}0099$}\par
+\verb+$\ext@arrow 9999$+\quad{\huge $\xmapsto[\fbox{under}]{\fbox{over}}9999$}
+\end{document}

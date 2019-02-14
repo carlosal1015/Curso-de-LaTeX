@@ -1,0 +1,24 @@
+%% 
+%%  Example 07-01-4 
+%%  Copyright (C) 2016 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{158.31393pt}
+\setlength\parindent{0pt}
+%StartShownPreambleCommands
+\usepackage{amsmath}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\dst{\,\frac{\diff s}{\diff t}}
+%StopShownPreambleCommands
+\begin{document}
+\begin{align*}
+F(x) &= \int\!f(x)\diff x\\
+v(t) &= \dst\\
+a(t) &= \frac{\diff{}^2s}{\diff t^2}
+\end{align*}
+\end{document}

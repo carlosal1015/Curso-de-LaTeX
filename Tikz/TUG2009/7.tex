@@ -1,0 +1,14 @@
+\documentclass[tikz]{standalone}
+\usetikzlibrary{calc}
+\usepackage{mathrsfs}
+
+\begin{document}	
+	\begin{tikzpicture}
+	\draw (0,0) grid (4,4);
+	\coordinate[label=below right:$\mathsf{A}$] (A) at (2,1);
+	\fill (A) circle (2pt);
+	\fill[red]		($2*(A)$) circle (2pt);
+	\fill[green]	($(A) + (-1,1)$) circle (2pt);
+	\fill[blue]		($(A) - (-1,1)$) circle (2pt);
+	\end{tikzpicture}
+\end{document}

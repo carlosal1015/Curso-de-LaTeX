@@ -1,0 +1,30 @@
+%% 
+%%  Example 02-18-2 
+%%  Copyright (C) 2016 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{328.62788pt}
+\setlength\parindent{0pt}
+%StartShownPreambleCommands
+\usepackage{amsmath}
+%StopShownPreambleCommands
+\begin{document}
+\fbox{%
+\begin{minipage}{10cm}
+\begin{align*}
+  a&=b \\ c&=d
+\end{align*}
+\end{minipage}}
+
+\noindent\fbox{%
+\begin{minipage}{10cm}
+\noindent\begin{align*}
+  a&=b \\ c&=d
+\end{align*}
+\end{minipage}}
+\end{document}

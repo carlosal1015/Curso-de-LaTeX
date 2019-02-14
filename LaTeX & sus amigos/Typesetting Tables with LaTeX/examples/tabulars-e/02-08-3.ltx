@@ -1,0 +1,45 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 02-08-3 on page 60.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{177.70511pt}
+\setlength\parindent{0pt}
+\usepackage[utf8]{inputenc}
+\begin{filecontents*}{data0.csv}
+givenName,surname,passportNo,age
+Hannes,"Wader, sen.",102689,68
+Jane,Austen,102647,75
+James,Brown,103569,42
+Jana,Voss,105488,26
+Roger,Daltry,106872,58
+Claire,Waldoff,104356,45
+Felix,Voss,513110,29
+\end{filecontents*}
+
+\usepackage{datatool}\DTLloaddb{list}{data0.csv}
+
+\begin{document}
+\begin{tabular}{cllc}
+\emph{no} & \emph{given name} &
+  \emph{surname} & \emph{age}
+\DTLforeach[\DTLisopenbetween{\surname}{W}{X}]%
+    {list}{\givenName=givenName,
+  \surname=surname,\age=age}{\\
+  \theDTLrowi.&\givenName&\surname&\age}
+\end{tabular}
+\end{document}

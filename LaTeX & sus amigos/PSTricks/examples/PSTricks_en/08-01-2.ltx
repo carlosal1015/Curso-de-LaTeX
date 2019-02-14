@@ -1,0 +1,74 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 08-01-2 on page 93.
+%% 
+%%  Copyright (C) 2011 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{375.57637pt}
+
+\usepackage{pstricks,multido,tabularx,textcomp,booktabs,ragged2e}
+\usepackage[utf8]{inputenc}
+\def\Lkeyword#1{\texttt{\small#1}}
+\def\Lkeyval#1{\texttt{\small#1}}
+\def\myline#1{\psline[linecolor=black!75]{#1}(0,1ex)(1.3,1ex)}%
+\def\mylineII#1{\psline[linecolor=black!75,linewidth=2pt]{#1}(0,1ex)(1.3,1ex)}%
+\def\cmd#1{\small\texttt{\textbackslash psline\{#1\}(1.3,0)}}
+
+\begin{document}
+  \psset{arrowscale=2}
+  \tabcolsep=4pt
+  \def\arraystretch{1.35}
+  \begin{tabularx}{\linewidth}{@{}cp{1.8cm}@{\kern-8pt}l>{\RaggedRight}X@{}}\toprule
+    \emph{type} & \emph{example} & \emph{code} & \emph{description} \\[2pt]\midrule
+    \Lkeyval{-}      & \myline{-}      & \cmd{-} & no arrow\\
+    \Lkeyval{<->}    & \myline{<->}    & \cmd{<->} & standard arrows\\
+    \Lkeyval{>-<}    & \myline{>-<}    & \cmd{>-<} & inverted arrows\\
+    \Lkeyval{<\/<->\/>}  & \myline{<<->>}  & \cmd{<\/<->\/>} & double arrows\\
+    \Lkeyval{>\/>-<\/<}  & \myline{>>-<<}  & \cmd{>\/>-<\/<} & inverted double arrows\\
+    \Lkeyval{<D-D>}    & \myline{<D-D>}    & \cmd{<D-D>} & B\'ezier arrows\\
+    \Lkeyval{D>-<D}    & \myline{D>-<D}    & \cmd{D>-<D} & inverted B\'ezier arrows\\
+    \Lkeyval{<D<D-D>D>}  & \myline{<D<D-D>D>}  & \cmd{<D<D-D>D>} & double B\'ezier arrows\\
+%    \Lkeyval{D>D>-<D<D}  & \myline{D>D>-<D<D}  & \cmd{D>D>-<D<D} & inverted double arrows\\
+    \Lkeyval{|-|}    & \myline{|-|}    & \cmd{|-|} & bars, aligned with ends\\
+    \Lkeyval{|*-|*}  & \myline{|*-|*}  & \cmd{|*-|*} & bars, centric with ends\\
+    \Lkeyval{[-]}    & \myline{[-]}    & \cmd{[-]} & square brackets\\
+    \Lkeyval{]-[}    & \myline{]-[}    & \cmd{]-[} & inverted square brackets\\
+    \Lkeyval{(-)}    & \myline{(-)}    & \cmd{(-)} & rounded corners\\
+    \Lkeyval{)-(}    & \myline{)-(}    & \cmd{)-(} & inverted rounded corners\\
+    \Lkeyval{o-o}    & \myline{o-o}    & \cmd{o-o} & circles, centric with ends\\
+    \Lkeyval{*-*}    & \myline{*-*}    & \cmd{*-*} & discs, centric with ends\\
+    \Lkeyval{oo-oo}  & \myline{oo-oo}  & \cmd{oo-oo} & circles, aligned with ends\\
+    \Lkeyval{**-**}  & \myline{**-**}  & \cmd{**-**} & discs, aligned with ends\\
+    \Lkeyval{|<->|}  & \myline{|<->|}  & \cmd{|<->|} & bars and arrows\\
+    \Lkeyval{|>-<|}  & \myline{|>-<|}  & \cmd{|>-<|} & bars and inverse arrows\\%\hline
+    \Lkeyval{c-c}    & \mylineII{c-c}    & \cmd{c-c} & rounded ends, centric with ends\\
+    \Lkeyval{cc-cc}    & \mylineII{cc-cc}    & \cmd{cc-cc} & rounded ends, aligned with ends\\
+    \Lkeyval{C-C}    & \mylineII{C-C}    & \cmd{C-C} & square ends
+\end{tabularx}
+
+\smallskip
+\begin{tabular}{@{} c p{1.25cm} c c p{1.25cm} l @{}}
+\multicolumn{6}{c}{Examples for mixed combinations}\\
+    \Lkeyval{->}    & \myline{->}    & \cmd{->} &
+    \Lkeyval{>-}    & \myline{>-}    & \cmd{>-}\\
+    \Lkeyval{<\/<-|}  & \myline{<<-|}  & \cmd{<<-|} &
+    \Lkeyval{[-<\/<}  & \myline{[-<<}  & \cmd{[-<<}\\
+    \Lkeyval{]-|}    & \myline{]-|}    & \cmd{]-|} &
+    \Lkeyval{[->}    & \myline{[->}    & \cmd{[->}\\
+    \Lkeyval{]-o}    & \myline{]-o}    & \cmd{]-o} &
+    \Lkeyval{*-D>D>}    & \myline{*-D>D>}    & \cmd{*-D>D>}\\\bottomrule
+  \end{tabular}
+\end{document}

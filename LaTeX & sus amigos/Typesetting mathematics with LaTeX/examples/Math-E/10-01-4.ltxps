@@ -1,0 +1,48 @@
+%% 
+%%  An UIT Edition example
+%% 
+%%  Example 10-01-4 on page 199.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{375.57637pt}
+\usepackage[utf8]{inputenc}
+\AtBeginDocument{\setlength\parindent{0pt}}
+\StartShownPreambleCommands
+\usepackage{amsmath,amssymb,amsopn,pst-node}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Mod}{Mod}
+\DeclareMathOperator{\obj}{obj}
+\StopShownPreambleCommands
+\begin{document}
+Let $\mathcal{C}:=\mathcal{D}:=\Mod_A$, $M\in
+     \obj(\Mod_A)$ be fixed,
+\begin{align*}
+     F:=\square\otimes_A M : \Mod_A &\rightarrow \Mod_A, \\
+     G:=\Hom_A(M,\square)  : \Mod_A &\rightarrow \Mod_A.
+\end{align*}
+These two functors are adjoint, by
+$h(X,Y)(\phi)(x)(m)\rightarrow\phi(x\otimes m)$:\\[10pt]
+$\begin{psmatrix}[colsep=-0.3cm, rowsep=0pt]
+  \quad\phi{\;} & & {\;} h(X,Y)(\phi)\quad\\
+  \Hom_A(M \otimes_A X, Y) & & \Hom_A(X, \Hom_A(M, Y)) \\[1.5cm]
+      & L_A^2(M, X; Y)
+\end{psmatrix}$
+\ncline{|->}{1,1}{1,3}
+\ncline[doubleline=true]{2,1}{2,3}\nbput{h(X,Y)}
+\naput[nrot=:U,labelsep=0pt]{$\sim$}
+\ncline[doubleline=true]{2,1}{3,2}\naput[nrot=:U,labelsep=0pt]{$\sim$}
+\ncline[doubleline=true]{3,2}{2,3}\naput[nrot=:U,labelsep=0pt]{$\sim$}
+\end{document}

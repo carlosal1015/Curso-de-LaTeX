@@ -1,0 +1,24 @@
+%% 
+%%  Example 01-11-2 
+%%  Copyright (C) 2017 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{158.31393pt}
+\usepackage[T1]{fontenc}
+\usepackage{kpfonts}
+%StartShownPreambleCommands
+\usepackage{amsmath}% for align
+%StopShownPreambleCommands
+\begin{document}
+\begin{align}
+1,234,567.89 & \text{ default}\\
+1.234.567,89 & \text{ vice versa, wrong spacing}\\
+1\mathpunct{.}234\mathpunct{.}567{,}89
+             & \text{ correct spacing}
+\end{align}
+\end{document}

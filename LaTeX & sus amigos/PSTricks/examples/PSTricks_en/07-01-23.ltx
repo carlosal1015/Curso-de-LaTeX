@@ -1,0 +1,34 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 07-01-23 on page 88.
+%% 
+%%  Copyright (C) 2011 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{177.70511pt}
+\setlength\parindent{0pt}
+
+\usepackage{pstricks,multido}
+
+\begin{document}
+\begin{pspicture}(5,5)
+ \psset{fillstyle=solid}
+ \psframe[fillcolor=red](0,1)(3,4)
+ \psframe[fillcolor=blue,opacity=0.3](2,2)(5,5)
+ \psframe[fillcolor=green,opacity=0.3](1,0)(4,3)
+ \pscircle[fillcolor=cyan,
+    opacity=0.5](1.5,3.5){1.25}
+\end{pspicture}
+\end{document}

@@ -1,0 +1,53 @@
+\documentclass{standalone}
+\usepackage[utf8x]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{tikz}
+\usetikzlibrary{positioning,calc,arrows,fit,babel}
+%La librería positiioning nos va a permitir ubicar.
+\begin{document}
+\begin{tikzpicture}
+\tikzset{
+	nodo/.style = {fill = cyan!75!black, text width = 2.5cm, align = center, draw, rectangle, rounded corners = 3pt, minimum size = 1.5cm},
+	
+	general/.style = {align = center, draw, rectangle, rounded corners = 3pt, minimum size = 1.5cm},
+	
+	nivel1/.style = {general, font = \bf, fill = red!50, thick},
+	
+	nivelSec/.style = {general, fill = red!35},
+	
+	connection/.style = { >=stealth, ->, thin},
+	nivel4/.style = {general, minimum size = 2.5 cm, fill = cyan
+	},
+}
+%minimum weight, width, height también son váliidos.
+\node[nivel1] (jefe) at (0,0) {Gerente};
+\node[nivel1a] (secretaria) [below right = of jefe] {Secretaria de Gerencia};%at (2.5, -1.5)
+\node[general] (subgerente) [below = 2.5cm of jefe] {Subgerente};
+\node[general] (asistente) [below = of subgerente] {Asistente de gerencia};
+\node[general] (coordinador1) at ($ (asistente) + (2, -2.5)$) {Coordinador de comunicaciones de gerencia};
+\node[general](coordinador2) at ($(asistente) + (-2, -2.5)$) {Coordinador de comunicaciones de gerencia};
+\node[general](coordinador3) [left = of coordinador2] {Coordinador \\ comité \\ ambiental};
+\node[general](coordinador4) [right = of coordinador1] {Coordinador comité de seguridad y salud en el trabajo};
+
+\node[inner sep = 0pt] (P) at ($(asistente) + (0, -1.75)$) {};
+\draw[connection] (jefe) |- (secretaria);
+\draw[connection] (jefe) --(subgerente);
+\draw[connection] (subgerente) -- (asistente);
+
+\draw[connection] (jefe) .. controls +(left:5cm) and +(left:5cm) and +(left:5cm) .. (asistente);
+\foreach \position in {coordinador1, coordinador2, coordinador3, coordinador4}{
+\draw[connection] (P.south) -- (\position.north);
+}
+\end{tikzpicture}
+\end{document}
+%(nombre del nodo) {etiqueta del nodo}
+% no deberia contener espacio
+%solucionar ifenación o identacion
+\parindent=3em
+Líneas de Bezier
+Si entra por horizontal debe entrar en vertical o viceversa.
+Y asignando los puntos de Control con las líneas de Bezier.
+
+Tarea: Diseñar organigrama o mapa conceptual.
+Deben tener conectores y palabras de conexión
+%Comunidad LaTeX

@@ -1,0 +1,31 @@
+%% 
+%%  Example 01-11-3 
+%%  Copyright (C) 2017 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{328.62788pt}
+\usepackage[T1]{fontenc}
+\usepackage{kpfonts}
+%StartShownPreambleCommands
+\usepackage{amsmath}% for align
+%StopShownPreambleCommands
+\begin{document}
+\noindent\fbox{\begin{minipage}{\dimexpr\linewidth-2\fboxsep-2\fboxrule}
+\abovedisplayshortskip=0pt \belowdisplayshortskip=0pt
+\abovedisplayskip=20pt     \belowdisplayskip=20pt
+\noindent The line ends before.
+\begin{equation}
+f(x) =  \int\frac{\sin x}{x}\,\mathrm{d}x
+\end{equation}
+\noindent The line doesn't end before the formula.
+\begin{equation}
+f(x) =  \int\frac{\sin x}{x}\,\mathrm{d}x
+\end{equation}
+\noindent And the next line starts as usual with some text ...
+\end{minipage}}
+\end{document}

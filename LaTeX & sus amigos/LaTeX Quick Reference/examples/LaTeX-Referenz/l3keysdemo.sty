@@ -1,0 +1,23 @@
+\NeedsTeXFormat{LaTeX2e}
+\RequirePackage{ l3keys2e, xparse }
+\ExplSyntaxOn%  wegen \tl_ ..., sonst automatisch mit \ProvidesExplPackage
+\tl_new:N  \l_keydemo_version \tl_set:Nn \l_keydemo_version{0.01}
+\ProvidesExplPackage {l3keysdemo} {2013/08/20}
+                     {\l_keydemo_version} {2013/08/20 Key/Value Demo}
+\msg_set:nnn { keydemo } { version } { Version \l_keydemo_version }
+\bool_new:N \g_keydemo_tf_bool
+\bool_set_true:N \g_keydemo_tf_bool           %  Vorgabe ist true
+\bool_new:N \l_keydemo_printversion_bool
+\bool_set_false:N \l_keydemo_printversion_bool%  Vorgabe ist false
+
+\keys_define:nn {keydemo}{%                      Paketoptionen
+  tf .bool_set:N = \g_keydemo_tf_bool,%          global definiert
+  tf .default:n  = false,%                       für tf ohne ANgabe
+  version .code:n  = % TerminalAusgabe und im Dokument
+    { \msg_warning:nn {keydemo} {version}
+      \bool_set_true:N \l_keydemo_printversion_bool
+    }}
+\ProcessKeysOptions{keydemo}
+\NewDocumentCommand\Test{}{ \bool_if:NTF \g_keydemo_tf_bool{wahr}{falsch} }
+\AtBeginDocument { Das~Paket~hat~die~Version~
+    \bool_if:NT \l_keydemo_printversion_bool { \l_keydemo_version } \par}

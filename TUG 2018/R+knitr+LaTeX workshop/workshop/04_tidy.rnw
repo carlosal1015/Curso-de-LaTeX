@@ -1,0 +1,72 @@
+\documentclass{article}
+\newcommand{\chunklabel}[1]{{\noindent\bfseries\flushleft Chunk: #1\par}}
+\begin{document}
+\title{04:  Adding tidyverse}
+\author{Boris Veytsman}
+\date{TUG18 knitr workshop; July 2018\thanks{This work is licensed
+    under a Creative Commons Attribution 4.0 International License
+    (CC-BY)}}
+\maketitle
+
+<<setup, echo=FALSE>>=
+opts_chunk$set(fig.path="04_figures/")
+knit_hooks$set(
+    chunklabel=
+        function(before, options, envir) {
+            if(before && options$chunklabel) 
+                sprintf(
+                    "\\chunklabel{%s}", options$label)
+        })
+opts_chunk$set(chunklabel=TRUE)
+@ 
+
+
+
+<<setup, eval=FALSE>>=
+@ 
+
+Here we add `tidy' packages~\cite{WickhamGGplot,WickhamTidyverse}.
+
+Let us add some libraries.  We need \texttt{message=FALSE} since
+\texttt{tidyverse} has a habit of polluting messages with too cute
+symbols\ldots 
+<<libraries, message=FALSE>>=
+library(tidyverse)       # The Swiss Army knife of data processing
+library(ggthemes)        # A better look for plots
+theme_set(theme_tufte())
+@ 
+
+\clearpage
+Now we can plot iris data set a little better:
+<<dataTransormation>>=
+iris <- as.tibble(iris)
+iris
+@ 
+
+On the second figure we set |echo=FALSE|: compare the results!
+%\clearpage
+\begin{figure}
+  \centering
+<<Sepal>>=
+ggplot(iris) + geom_point(aes(Sepal.Length, Sepal.Width,
+                              color=Species))
+@   
+  \caption{Sepal dimensions of iris}
+  \label{fig:sepal}
+\end{figure}
+
+\begin{figure}
+  \centering
+<<Petal, echo=FALSE, chunklabel=FALSE>>=
+ggplot(iris) + geom_point(aes(Petal.Length, Petal.Width,
+                              color=Species))
+@   
+  \caption{Petal dimensions of iris}
+  \label{fig:petal}
+\end{figure}
+
+\bibliography{workshop}
+\bibliographystyle{plain}
+
+
+\end{document}

@@ -1,0 +1,27 @@
+%% 
+%%  Example 02-01-10 
+%%  Copyright (C) 2016 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{158.31393pt}
+\setlength\parindent{0pt}
+%StartShownPreambleCommands
+\usepackage{amsmath}
+%StopShownPreambleCommands
+\begin{document}
+\begin{align}
+  f(x) &= \int\frac{1}{x^2}\,\mathrm{d}x
+\end{align}
+%
+\begin{flalign}\label{eq:leftaligned}
+ f(x) &= \int\frac{1}{x^2}\,\mathrm{d}x &
+\end{flalign}
+Equation~\ref{eq:leftaligned} is left
+aligned in fact of the second tabbing
+character \&.
+\end{document}

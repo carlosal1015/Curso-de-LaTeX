@@ -1,0 +1,52 @@
+\documentclass{oromion}
+\usepackage{lipsum}
+\usepackage{natbib} % Formato numérico y autor-año.
+\usepackage[pagebackref = true]{hyperref}
+\title{Cuasi terminación del curso}
+\subtitle[Terminando las tareas para obtener veinte de nota]
+\institution{Universidad del Perú}
+\department{Facultad de Ciencias}
+\author{Oromion}
+\filiationauthor{Universidad del Perú}
+\tutor{Daniel Camarena}
+\filiationtutor{Departamento de Matemáticas}
+
+\begin{document}
+\maketitle
+
+\section{Científicos peruanos}
+
+\subsection{Roger Metzger}
+
+En esta parte del documento se insertará una referencia \citep*[ver][pág. 250]{Metzger2000} 
+\lipsum[1-4]
+
+Citando con alias \defcitealias{Metzger2000}{Peru}
+
+\citepalias{Metzger2000}
+\subsection{Hernán Neciosup}
+
+Versión $\ast$ de los comandos de citación. Y aquí otra referencia 
+\citet{Beltran2017}
+
+\lipsum[1-8]
+\section{Científicos extranjeros}
+
+\subsection{Clements}
+Citando \citep{RAAB20121290,Raab2013}
+
+\lipsum[1-5]
+
+\citetext{Ver \textbf{foliaciones} en \citealp{Beltran2017} o también álgebra diferencial en \citealp{Risch1969a}}
+
+\subsection{Risch}
+\cite{Risch1969a}
+
+\lipsum[1-10]
+\bibliographystyle{agsm}
+\bibliography{mybib}
+\end{document}
+
+¿Qué es AGSMY?
+
+\citealp quita los paréntesis

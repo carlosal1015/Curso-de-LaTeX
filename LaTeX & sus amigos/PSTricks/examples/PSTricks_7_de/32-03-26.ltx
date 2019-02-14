@@ -1,0 +1,38 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%%  
+%%  7. Auflage
+%% 
+%%  Beispiel 32-03-26 auf Seite 739.
+%% 
+%%  Copyright (C) 2016 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{145.16928pt}
+\setlength\parindent{0pt}
+%StartShownPreambleCommands
+\usepackage{pst-optexp}
+%StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}[showgrid](0,-0.3)(3,3.3)
+  \pnode(0,2.5){A}\pnode(2,2.5){B}\pnode(2,1.5){C}
+  \mirror[labelangle=-45](A)(B)(C){M}
+  \optbox[position=start, labeloffset=0,
+    labelref=relative](C)(B){box}
+  \drawbeam(A){1}{2}
+  \psdot(A)\uput[90](A){A}\psdot(B)
+  \uput[-135](B){B}\psdot(C)\uput[45](C){C}
+\end{pspicture}
+\end{document}

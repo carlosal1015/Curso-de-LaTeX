@@ -1,0 +1,45 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Beispiel 04-01-12 auf Seite 136.
+%% 
+%%  Copyright (C) 2010 H. Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+
+%%Run also: >>  << 
+% Show page(s) 1,2
+
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{173.82971pt}
+\usepackage[utf8]{inputenc}% adapt maybe
+\usepackage[paper=70mm:85mm,pagesize]{typearea}
+\setlength\parindent{0pt}
+\usepackage[ngerman]{babel}
+\AtBeginDocument{\selectlanguage{ngerman}}
+\usepackage{fancyhdr}
+\lhead{\small\texttt{\textbackslash caption}-Demo}
+\pagestyle{fancy}
+\setcounter{page}{1}
+\renewcommand\thepage{Seite \arabic{page}}
+
+\usepackage{longtable}
+\usepackage[labelfont=bf]{caption}
+
+\begin{document}
+\setlength\LTcapwidth{2.75cm}% <--- Länge ändern
+\begin{longtable}{@{}l c r p{1.5cm}@{}}
+\caption{Eine Tabellenüberschrift mit 2,75\,cm Breite\label{tab:l4}}\\[5pt]
+L & Z & R & Box\\\hline
+l & c & r & 1. Zeile\\ l & c & r & 2. Zeile\\ l & c & r & 3. Zeile\\
+l & c & r & 4. Zeile\\ l & c & r & 5. Zeile\\ l & c & r & 6. Zeile\\
+l & c & r & 7. Zeile\\ l & c & r & 8. Zeile\\ l & c & r & 9. Zeile\\
+l & c & r &10. Zeile\\ l & c & r &11. Zeile\\ l & c & r &12. Zeile\\\hline
+\end{longtable}
+\end{document}

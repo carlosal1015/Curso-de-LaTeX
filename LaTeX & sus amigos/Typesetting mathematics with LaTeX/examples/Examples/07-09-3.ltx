@@ -1,0 +1,27 @@
+%% 
+%%  Example 07-09-3 
+%%  Copyright (C) 2017 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{158.31393pt}
+\setlength\parindent{0pt}
+\usepackage[T1]{fontenc}
+\usepackage{kpfonts}
+%StartShownPreambleCommands
+\usepackage{amsmath}
+\def\itemMath#1{%
+ \raisebox{-\abovedisplayshortskip}{%
+  \parbox{0.75\linewidth}{%
+   \begin{equation}#1\end{equation}}}}
+%StopShownPreambleCommands
+\begin{document}
+\begin{itemize}
+\item \itemMath{ f = l }
+\item \itemMath{ g(x) = \int f(x)\,\mathrm{d}x }
+\end{itemize}
+\end{document}

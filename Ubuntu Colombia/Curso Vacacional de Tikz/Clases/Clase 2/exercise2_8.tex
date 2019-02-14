@@ -1,0 +1,50 @@
+\documentclass{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+
+\usepackage{tikz}
+\usetikzlibrary{calc,babel,through,intersections,backgrounds}
+\begin{document}
+	
+	\begin{tikzpicture}[
+	remark/.style = {line width = 1.125pt, opacity = .5}
+	]
+	%Las opciones son multilínea.
+		\coordinate[label = left: $A$] (A) at (0, 0);
+		\coordinate[label = right:$B$] (B) at (1.25, .15);
+		\coordinate[label = above:$C$] (C) at (2, 2.15);
+		\coordinate[label = above:$D$] (D) at ($(A)!.5!(B)!{2*sin(60)}!90:(B)$);
+		%Cálculo usando $$
+		%Cálculo irá sin [].
+		%Va a ubicar el punto medio usando .5
+		%Estamos usando coordenadas polares.
+		\draw (A) -- (B) -- (C);
+		
+		\node[name path = H, label = 135:$H$, draw, circle through = (C)] at (B) {};
+		
+		\draw[name path = ] (D) -- ($(D)!4!(B)$) coordinate[label = below:$F$] (F);
+		
+		\draw (D) -- ($(D)!3.5!(A)$) coordinate[label = below:$E$] (E);
+		
+		%Para hallar el punto de intersección de la circunferencia H con el segmento de recta DF debemos hacerlos caminos.
+		
+		\draw (D) -- ($(D)!3.5!(A)$) coordinate[label = below:$E$];
+		
+		\path[name intersections = {of = H and D-F, by {[label = left:$G$]G}}];
+		
+		\node[name path = K ,label = left:$K$, draw, circle through = (G)] at (D) {};
+		
+		\path[name intersections = {of = K and D-E, by = {[label = below:$L$]L}}];
+		
+		\draw[remark, cyan] (B) -- (C);
+		
+		\draw[remark, magenta] (A) -- (L);
+		
+		\foreach \point in {A, B, C, D, L, G}{
+			\fill[black, opacity =.5] (\point) circle[radius = 1.15pt];
+		}
+		%Estoy usando el estilo que definí en \begin{tikzpicture}[]
+	\end{tikzpicture}
+
+\end{document}
+Tarea: La tercera proposición de Euclides.

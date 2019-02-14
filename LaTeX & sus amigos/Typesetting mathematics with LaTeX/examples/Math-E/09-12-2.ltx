@@ -1,0 +1,37 @@
+%% 
+%%  An UIT Edition example
+%% 
+%%  Example 09-12-2 on page 177.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{177.70511pt}
+\AtBeginDocument{\setlength\parindent{0pt}}
+\setcounter{equation}{6}
+\renewcommand\theequation{9.\arabic{equation}}
+\StartShownPreambleCommands
+\usepackage{empheq}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\StopShownPreambleCommands
+\begin{document}
+\begin{empheq}[box=\fbox]{align}
+  f(x)=\int\limits_1^{\infty}
+         \frac{1}{x^2}\diff t=1
+\end{empheq}
+\begin{empheq}[box={\fboxsep=10pt\fbox}]{align}
+  f(x)=\int\limits_1^{\infty}
+         \frac{1}{x^2}\diff t=1
+\end{empheq}
+\end{document}

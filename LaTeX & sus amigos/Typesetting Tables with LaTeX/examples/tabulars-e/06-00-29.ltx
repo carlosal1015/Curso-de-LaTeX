@@ -1,0 +1,38 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 06-00-29 on page 194.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{225.70511pt}
+\setlength\parindent{0pt}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\setlength\textwidth{200pt}
+
+\usepackage{tabularx}
+\makeatletter\newcolumntype{M}{>{\@minipagetrue}X}\makeatother
+
+\begin{document}
+\begin{tabularx}{\linewidth}{|X|M|}\hline
+left & right\\\hline
+The right list now starts at the same height as this column.
+ & \begin{itemize} \item a \item b \item c \end{itemize}\\\hline
+\begin{itemize} \item a \item b \item c \end{itemize}
+ & The left column is not an M-column now and therefore has vertical space at the
+   beginning.\\\hline
+\end{tabularx}
+\end{document}

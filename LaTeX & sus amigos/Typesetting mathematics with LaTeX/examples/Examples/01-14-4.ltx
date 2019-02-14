@@ -1,0 +1,41 @@
+%% 
+%%  Example 01-14-4 
+%%  Copyright (C) 2017 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{158.31393pt}
+\usepackage[T1]{fontenc}
+\usepackage{kpfonts}
+\makeatletter
+\def\@bracketheight{2pt}
+\def\bracketend#1#2{\vrule height #2 width #1\relax}
+\def\overbracket{\@ifnextchar[{\@overbracket}{\@overbracket[\@bracketheight]}}
+\def\@overbracket[#1]{\@ifnextchar[{\@over@bracket[#1]}{\@over@bracket[#1][0.3em]}}
+\def\@over@bracket[#1][#2]#3{%\message {Overbracket: #1,#2,#3}
+   \mathop {\vbox {\m@th \ialign {##\crcr \noalign {\kern 3\p@
+   \nointerlineskip }\downbracketfill {#1}{#2}
+        \crcr \noalign {\kern 3\p@ }
+        \crcr  $\hfil \displaystyle {#3}\hfil $%
+        \crcr} }}\limits}
+\def\downbracketfill#1#2{$\m@th \setbox \z@ \hbox {$\braceld$}
+    \edef\@bracketheight{\the\ht\z@}\downbracketend{#1}{#2}
+    \leaders \vrule \@height #1 \@depth \z@ \hfill
+    \leaders \vrule \@height #1 \@depth \z@ \hfill
+\downbracketend{#1}{#2}$}
+\def\downbracketend#1#2{\vrule depth #2 width #1\relax}
+\makeatother
+%StartShownPreambleCommands
+% has the underbracket stuff in hidden part
+%StopShownPreambleCommands
+\begin{document}
+\begin{tabular}{cl}
+1.& $\overbracket {foo\ bar}$ \\
+2.& $\overbracket[2pt]{foo\ bar}$\\
+3.& $\overbracket[2pt][1em]{foo\ bar}$
+\end{tabular}
+\end{document}

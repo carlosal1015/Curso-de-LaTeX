@@ -1,0 +1,42 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Beispiel 02-09-3 auf Seite 62.
+%% 
+%%  Copyright (C) 2010 H. Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+
+%%Run also: >>  << 
+% Show page(s) 1
+
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{170.59192pt}
+\setlength\parindent{0pt}
+
+\usepackage[thicklines]{easytable}
+
+\begin{document}
+\begin{TAB}(e){;lrc;}{;ctb;}
+l  & r  & c \\
+AA & \begin{TAB}(e){.r.}{.t.}BB\end{TAB} & tt\\
+l  & r  & b
+\end{TAB}\\[\medskipamount]
+\begin{TAB}(@)[10pt]{0lr0}{0tt0}
+  \begin{TAB}(@){:lr:}{:ct:}
+    l  & r  \\ AA & BB
+  \end{TAB} &
+  \begin{TAB}(@){1c1}{2bb2}
+    c\\tt
+  \end{TAB}\\
+  \begin{TAB}(@){lr}{c}
+    l  & r
+  \end{TAB} & \begin{TAB}(@){.c.}{.c.} b \end{TAB}
+\end{TAB}
+\end{document}

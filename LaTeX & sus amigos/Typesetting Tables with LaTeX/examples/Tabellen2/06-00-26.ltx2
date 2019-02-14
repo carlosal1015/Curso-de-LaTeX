@@ -1,0 +1,92 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Beispiel 06-00-26 auf Seite 192.
+%% 
+%%  Copyright (C) 2010 H. Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+
+%%Run also: >>  << 
+% Show page(s) 1,2
+
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{196.59192pt}
+\setlength\parindent{0pt}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[paper=a5,pagesize,DIV14]{typearea}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage[margin=10pt, font=footnotesize, labelfont=bf, singlelinecheck=false]{caption}
+
+\usepackage{booktabs,subfig}
+
+\begin{document}
+\section[Doppelseite]{Abschnittsüberschrift, die etwas länger ist und sich über
+zwei Zeilen erstreckt}
+\begin{table}[!htb]
+\subfloat[][]{\begin{tabular}{lrrrrrrrrr} \toprule
+ & \textbf{1972} & \textbf{1973} & \textbf{1974} & \textbf{1975} & \textbf{1976}
+ & \textbf{1977} & \textbf{1978} & \textbf{1979} & \textbf{1980} \\\midrule
+\addlinespace[3pt]
+Zeile 1 & 1 & 3 & 1 & 1 & 1 & 0 & 1 & 1 & 0 \\\addlinespace[3pt]
+Zeile 2 & 1 & 1 & 3 & 1 & 0 & 0 & 0 & 0 & 0 \\\addlinespace[3pt]
+Zeile 3 & 2 & 1 & 2 & 1 & 0 & 0 & 0 & 0 & 0 \\\addlinespace[3pt]
+Zeile 4 & 1 & 0 & 5 & 1 & 2 & 0 & 0 & 0 & 0 \\\addlinespace[3pt]
+Zeile 6 & 2 & 1 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\\addlinespace[3pt]
+Zeile 5 & 0 & 0 & 4 & 2 & 1 & 2 & 2 & 1 & 0 \\\addlinespace[3pt]
+Zeile 8 & 0 & 1 & 1 & 0 & 0 & 0 & 1 & 1 & 0 \\\addlinespace[3pt]
+Zeile 9 & 0 & 0 & 0 & 0 & 0 & 1 & 2 & 1 & 0 \\\addlinespace[3pt]
+Zeile10 & 0 & 1 & 3 & 0 & 1 & 0 & 1 & 0 & 0 \\\addlinespace[3pt]
+Zeile11 & 0 & 2 & 2 & 1 & 1 & 0 & 1 & 0 & 0 \\\addlinespace[3pt]
+Zeile12 & 2 & 0 & 2 & 4 & 1 & 0 & 4 & 0 & 0 \\\addlinespace[3pt]
+Lärm    & 2 & 3 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\addlinespace[3pt]
+Zeile13 & 0 & 1 & 0 & 0 & 1 & 0 & 3 & 0 & 0 \\\addlinespace[3pt]
+Zeile14 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\addlinespace[3pt]
+Zeile15 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\\addlinespace[3pt]
+Zeile16 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 \\\addlinespace[3pt]\midrule
+Artikel gesamt & 2 & 6 & 13 & 8 & 4 & 3 & 5 & 4 & 0 \\\bottomrule
+\end{tabular}}% end subfloat
+\caption{Tabellenunterschrift 1. Teil.}
+\label{Tabelle-Entwicklung-Themen-BZ}
+\end{table}
+
+\clearpage
+
+\section*{\phantom{\parbox[t]{0.8\linewidth}{Abschnittsüberschrift, die etwas
+länger ist und sich über zwei Zeilen erstreckt}}}
+\begin{table}[!htb]
+\ContinuedFloat
+\subfloat[][]{\hspace*{-\marginparwidth}\begin{tabular}{rrrrrrrrrr}\toprule
+ & \textbf{1981} & \textbf{1982} & \textbf{1983} & \textbf{1984} & \textbf{1985}
+ & \textbf{1986} & \textbf{1987} & \textbf{1988} & \\\midrule
+Z 1 & 0 & 0 & 0 &20 & 0 & 2 & 2 & 2 & \\\addlinespace[3pt]
+Z 2 & 0 & 2 & 1 & 3 & 4 & 4 & 6 & 4 & \\\addlinespace[3pt]
+Z 3 & 0 & 0 & 1 & 5 & 3 & 1 & 7 & 7 & \\\addlinespace[3pt]
+Z 4 & 2 & 1 & 0 & 1 & 0 & 3 & 7 & 2 & \\\addlinespace[3pt]
+Z 6 & 1 & 2 & 0 & 5 & 2 & 2 & 5 & 4 & \\\addlinespace[3pt]
+Z 5 & 0 & 0 & 1 & 1 & 0 & 2 & 5 & 4 & \\\addlinespace[3pt]
+Z 8 & 3 & 2 & 1 & 2 & 1 & 3 & 5 & 3 & \\\addlinespace[3pt]
+Z 9 & 0 & 0 & 0 & 4 & 2 & 1 & 4 & 5 & \\\addlinespace[3pt]
+Z10 & 1 & 1 & 0 & 1 & 1 & 1 & 4 & 4 & \\\addlinespace[3pt]
+Z11 & 0 & 0 & 2 & 6 & 1 & 0 & 2 & 1 & \\\addlinespace[3pt]
+Z12 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & \\\addlinespace[3pt]
+Lärm& 0 & 1 & 0 & 2 & 0 & 0 & 2 & 2 & \\\addlinespace[3pt]
+Z13 & 0 & 0 & 0 & 2 & 0 & 1 & 3 & 0 & \\\addlinespace[3pt]
+Z14 & 0 & 0 & 0 & 3 & 3 & 2 & 1 & 1 & \\\addlinespace[3pt]
+Z15 & 1 & 0 & 0 & 4 & 0 & 0 & 3 & 1 & \\\addlinespace[3pt]
+Z16 & 0 & 0 & 0 & 0 & 0 & 3 & 5 & 0 & \\\addlinespace[3pt]\midrule
+Artikel gesamt & 6 & 3 & 5 &23 &10 & 8 & 15 & 13 & \\\bottomrule
+\end{tabular}}% end subfloat
+\caption{Tabellenunterschrift 2. Teil.}
+\end{table}
+
+\clearpage
+\end{document}

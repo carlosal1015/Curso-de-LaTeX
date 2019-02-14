@@ -1,0 +1,49 @@
+%% 
+%%  Die DANTE-Edition
+%%  Ein Beispiel der LaTeX Referenz
+%%  3. Auflage
+%% 
+%% 
+%%  Copyright (C) 2013 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==command biber ++FILE++== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{217.16928pt}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[scaled=0.83]{beramono}
+\usepackage[ngerman]{babel}
+\usepackage[babel]{csquotes}
+\usepackage[paper=a6,pagesize,DIV15]{typearea}
+\usepackage{filecontents}
+\begin{filecontents*}{demo11.bib}
+@Online{biblatex,
+ sorttitle  = {biblatex package},
+ author     = {Lehman, Philipp},
+ title      = {\texttt{The biblatex package}},
+ subtitle   = {{Programmable} bibliographies and citations},
+ version    = {0.8e},
+ date       = {2009-07-04},
+ url        = {http://mirror.ctan.org/macros/latex/exptl/biblatex/doc/biblatex.pdf},
+ urldate    = {2009-11-12},
+ annotation = {The official \texttt{biblatex} documentation.}}
+\end{filecontents*}
+%StartShownPreambleCommands
+\usepackage{biblatex}
+\bibliography{demo11}
+%StopShownPreambleCommands
+\begin{document}
+\texttt{biblatex}.~\cite{biblatex}
+\printbibliography
+\end{document}

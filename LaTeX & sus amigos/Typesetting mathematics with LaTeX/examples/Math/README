@@ -1,0 +1,18 @@
+The files in this directoty are all the examples 
+from the book "Mathematiksatz mit LaTeX", 
+which is available at Lehmanns online bookstore 
+http://www.lob.de (ISBN 978-3-86541-485-4).
+Members of DANTE, the german TeX Users Group,
+write to office@dante.de and ask for the special 
+offer.
+
+All examples are full working documents, which 
+needs one of the special test class files, also 
+part of this directory. You can also use another
+documentclass, but then you have to delete the 
+following two lines:
+\StartShownPreambleCommands
+\StopShownPreambleCommands
+
+
+Herbert Voß (herbert@dante.de) 2014-02-15

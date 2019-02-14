@@ -1,0 +1,45 @@
+%% 
+%%  An UIT Edition example
+%% 
+%%  Example 09-19-2 on page 195.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{177.70511pt}
+\AtBeginDocument{\setlength\parindent{0pt}}
+\StartShownPreambleCommands
+\usepackage[all,line]{xy} \usepackage{graphicx}
+\StopShownPreambleCommands
+\begin{document}
+\CompileMatrices
+\xymatrix{
+ & 0 \ar[rr] & & A^p \ar@{^{(}->}[rr]^{f^p} \ar[ld]_{d_A^p}
+   \ar'[d][dd]^{\alpha^p} & & B^p \ar@{>>}[rr]^{g^p} \ar[ld]_{d_B^p}
+   \ar@/^/@{.>}[ld] \ar'[d][dd]^{\beta^p} & & C^p \ar[rr] \ar[ld]_{d_C^p}
+   \ar@/^/@{.>}[ll] \ar'[d][dd]^{\gamma^p} \ar@/_/@{.>}[dd] & & 0 \\
+0 \ar[rr] & & A^{p+1} \ar@{^{(}->}[rr]^(.7){f^{p+1}}
+  \ar[dd]^(.3){\alpha^{p+1}} \ar@/_/@{.>}[dd] & & B^{p+1}
+  \ar@{>>}[rr]^(.7){g^{p+1}} \ar@/^/@{.>}[ll]
+  \ar[dd]^(.3){\beta^{p+1}} & & C^{p+1} \ar[rr]
+  \ar[dd]^(.3){\gamma^{p+1}} & & 0 & \\
+ & 0 \ar'[r][rr] & & A_1^p \ar[ld]_{d_{A_{1}}^p}
+  \ar@{^{(}->}'[r]^{f_1^{p}}[rr] & & B_1^p
+  \ar[ld]_{d_{B_1}^p} \ar@{>>}'[r]^{g_1^{p}}[rr]
+  \ar@/^/@{.>}[ld] & & C_1^p \ar[rr]
+  \ar[ld]_{d_{C_1}^p} \ar@/^/@{.>}[ll] & & 0 \\
+0 \ar[rr] & & A_1^{p+1} \ar@{^{(}->}[rr]^{f_1^{p+1}} & & B_1^{p+1}
+  \ar@{>>}[rr]^{g_1^{p+1}} \ar@/^/@{.>}[ll] & & C_1^{p+1} \ar[rr] & &
+ 0 & }
+\end{document}

@@ -1,0 +1,43 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%%  Mathematiksatz mit LaTeX
+%%  2. Auflage
+%% 
+%%  Beispiel 03-03-5 auf Seite 26.
+%% 
+%%  Copyright (C) 2012 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[leqno]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\setlength\parindent{0pt}
+\setcounter{equation}{16}
+\renewcommand\theequation{3.\arabic{equation}}\setlength\parskip{1ex plus 0.2ex}
+%\setlength\textwidth{220pt}
+\StartShownPreambleCommands
+\documentclass[leqno]{article}
+\StopShownPreambleCommands
+\begin{document}
+Normaler Text in der Zeile, der
+irgendwann auch umbrochen werden wird.
+%
+\begin{equation}f(x)=x^2 +x-1
+\end{equation}
+\begin{equation}g(x)=\frac{x^2}{x+1}
+\end{equation}
+\begin{equation}h(x)=\mathrm{cosh}(x-1)
+\end{equation}
+%
+Wieder normaler Text in der Zeile.
+\end{document}

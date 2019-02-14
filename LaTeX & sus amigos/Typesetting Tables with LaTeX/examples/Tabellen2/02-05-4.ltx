@@ -1,0 +1,36 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Beispiel 02-05-4 auf Seite 45.
+%% 
+%%  Copyright (C) 2010 H. Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+
+%%Run also: >>  << 
+% Show page(s) 1
+
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{170.59192pt}
+\setlength\parindent{0pt}
+\usepackage[utf8]{inputenc}
+
+\usepackage{eurosym,array,multirow,booktabs}
+
+\begin{document}
+\begin{tabular}{@{}ll>{$}r<{$}@{}} \toprule
+\multicolumn{2}{c}{Fleisch}\\\cmidrule(r){1-2}
+Tier  &Einheit& \textrm{Preis in \euro}\\\midrule
+Gnome & Pfund & 13.65      \\
+      & Stück &  0.01      \\
+Gnu   & \multirow{2}*{gefüllt} & 92.50\\
+Emu   &       & 33.33      \\
+Schnabeltier & gefroren & 8.99\\\bottomrule
+\end{tabular}
+\end{document}

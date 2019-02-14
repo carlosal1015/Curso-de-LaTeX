@@ -1,0 +1,39 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%%  Mathematiksatz mit LaTeX
+%%  2. Auflage
+%% 
+%%  Beispiel 04-18-11 auf Seite 73.
+%% 
+%%  Copyright (C) 2012 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\AtBeginDocument{\setlength\parindent{0pt}}
+\StartShownPreambleCommands
+\let\itemOld\item\makeatletter
+\renewcommand\item[1][]{\def\@tempa{#1}%
+  \ifx\@tempa\@empty\itemOld\else\boldmath\itemOld[#1]\unboldmath\fi}
+\newcommand\Section[2][]{\def\@tempa{#1}
+  \protect\boldmath\ifx\@tempa\@empty\section[#2]{#2}\else
+    \section[#1]{#2}\fi\protect\unboldmath} \makeatother
+\StopShownPreambleCommands
+\begin{document}
+\Section{Funktion $f(x)=x^2$}
+\begin{description}
+  \item[Dies ist $y=f(x)$] nur eine Demonstration.
+  \item[Und $z=f(x,y)$] noch eine Demonstration.
+\end{description}
+\end{document}

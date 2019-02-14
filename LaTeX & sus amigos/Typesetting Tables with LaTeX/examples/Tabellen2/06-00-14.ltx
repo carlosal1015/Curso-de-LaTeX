@@ -1,0 +1,39 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Beispiel 06-00-14 auf Seite 185.
+%% 
+%%  Copyright (C) 2010 H. Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+
+%%Run also: >>  << 
+% Show page(s) 1
+
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{194.59192pt}
+\setlength\parindent{0pt}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+
+\usepackage{array,booktabs,ragged2e,rotating,eurosym}
+\newcolumntype{N}{>{\small}l}   \newcommand\mc[1]{\multicolumn{1}{R{4.5em}}{#1}}
+\newcolumntype{R}[1]{>{\begin{turn}{90}\begin{minipage}{#1}
+  \footnotesize\RaggedRight\hspace{0pt}} l <{\end{minipage}\end{turn}}}
+
+\begin{document}
+\begin{tabular}{@{} *{8}{l} @{}}\toprule
+\small Typ&\multicolumn{6}{N}{Anlagen mit Freileitungen}&\small Preis\\\cmidrule(lr){2-7}
+ & \mc{Betriebsspannung~kV} & \mc{Löschspannung~kV} & \mc{Wechselspannung~kV}
+ & \mc{Ansprechspannung~kV} & \mc{Restspannung kV} & \mc{Nettogewicht~ kg}
+ & \multicolumn{1}{c}{\small\euro}\\\cmidrule(r){1-1}\cmidrule(lr){2-2}\cmidrule(lr){3-3}
+\cmidrule(lr){4-4}\cmidrule(lr){5-5}\cmidrule(lr){6-6}\cmidrule(lr){7-7}\cmidrule(l){8-8}
+\ldots \\\bottomrule
+\end{tabular}
+\end{document}

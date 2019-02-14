@@ -1,0 +1,33 @@
+\documentclass{book}
+\usepackage{lipsum}
+
+
+%\newcommand{\bfcolor}[2]{\textcolor{#1}{\textbf{#2}}}
+\newcommand{\bfcolor}[2][red]{\textcolor{#1}{\textbf{#2}}}
+
+%2 es el numero de paramtros, el # es 1er parametro y el otro # el 2do parametro
+%hace referencia a los parametros de entrada
+\begin{document}%1er para matro color 2do parametro texto
+\bfcolor[blue]{Hola mundo \LaTeX{}}
+\end{document}
+tex es de bajo nivel
+No se debe colocar document class en un archivo de entrado
+Paquete vs clases
+Paquete .sty como inputenc
+contiene un bloque de comandos y ambientes
+desarrolar una clase es desarrolalar la estrcutura de un docuemtno latex
+sty es para instrucciones de un paquete
+
+lipsum y xcolor genera incompatibilidad
+
+standalone ajusta al tamaño del contenido
+
+Una clase debe iniciar
+
+comando robusto significa que ya se definió.
+
+¿Cómo se redefine newcomand o ?
+
+\relax (hereda)
+
+Tarea: CLase con mi propia carátural de titulo

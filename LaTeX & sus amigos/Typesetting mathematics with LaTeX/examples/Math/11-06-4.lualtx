@@ -1,0 +1,30 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%%  Mathematiksatz mit LaTeX
+%%  2. Auflage
+%% 
+%%  Beispiel 11-06-4 auf Seite 323.
+%% 
+%%  Copyright (C) 2012 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle2}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\StartShownPreambleCommands
+\usepackage[bold-style=literal]{unicode-math}%
+\setmathfont[Scale=0.92]{Lucida Math}
+\StopShownPreambleCommands
+\begin{document}
+$(\mathbfit a, \mathbfit z, \mathbfit B, \mathbfit X)$
+\end{document}

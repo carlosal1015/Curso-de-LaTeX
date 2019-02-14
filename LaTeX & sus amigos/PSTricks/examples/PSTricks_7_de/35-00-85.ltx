@@ -1,0 +1,73 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%%  
+%%  7. Auflage
+%% 
+%%  Beispiel 35-00-85 auf Seite 852.
+%% 
+%%  Copyright (C) 2016 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+%StartShownPreambleCommands
+\usepackage{pst-plot}
+\makeatletter
+\let\beginplot@ErrorLine\beginplot@line
+\def\endplot@ErrorLine{\psErrorLine@ii}
+\let\beginqp@ErrorLine\beginqp@line
+\let\doqp@ErrorLine\doqp@line
+\let\endqp@ErrorLine\endqp@line
+\let\testqp@ErrorLine\testqp@line
+%
+\def\psErrorLine@ii{%
+  \addto@pscode{\pst@cp \psline@iii \tx@ErrorLine}%
+  \end@OpenObj%
+}
+\def\tx@ErrorLine{ErrorLine }
+\def\@errorVal{0.3}%   +- 30% error range (only demo)
+% Adapted from Line
+\pst@def{ErrorLine}<{%
+/min 1 \@errorVal\space sub def
+/max 1 \@errorVal\space add def
+NArray
+n 0 eq not
+  { ArrowA
+    /n n 2 sub def
+    CP 2 copy min mul moveto max mul Lineto
+    n { 2 copy min mul moveto max mul Lineto } repeat
+    CP
+    4 2 roll
+    ArrowB
+    2 copy moveto pop 0
+    L
+    pop pop } if}>
+\makeatother
+%StopShownPreambleCommands
+\begin{document}
+\psset{xunit=0.0333cm,yunit=2.5cm}
+\begin{pspicture}(0,-1)(400,1)
+  \psline{->}(0,0)(400,0)
+  \psline{->}(0,-1)(0,1)
+  \psplot[%
+	plotstyle=ErrorLine,%%%%%%%%%
+	linecolor=red,
+	linewidth=2pt,
+	plotpoints=50,
+       showpoints=true,
+	dotstyle=o,
+	dotsize=0.1]{0}{360}{x sin}
+\end{pspicture}
+\end{document}

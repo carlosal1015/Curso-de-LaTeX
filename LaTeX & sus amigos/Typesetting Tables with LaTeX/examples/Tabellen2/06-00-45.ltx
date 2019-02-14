@@ -1,0 +1,99 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Beispiel 06-00-45 auf Seite 210.
+%% 
+%%  Copyright (C) 2010 H. Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+
+%%Run also: >>  << 
+% Show page(s) 1
+
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{355.65944pt}
+\setlength\parindent{0pt}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\makeatletter
+\newcounter{tempI}
+\newcommand*\Ceiling[3]{%
+  \@tempdima#1\relax\@tempdimb#2\relax
+  \@tempdimc\z@\@tempcnta\z@
+  \loop
+  \ifdim \@tempdimc<\@tempdima
+    \advance\@tempdimc\@tempdimb
+    \advance\@tempcnta\@ne
+  \repeat
+  #3=\@tempcnta \ignorespaces
+}
+\newcommand*\show@Value[2]{%
+  \@tempcnta=#2\relax
+  \advance\@tempcnta-#1\relax
+  \makebox[0pt][c]{\the\@tempcnta}%
+}
+\newcommand*\Lineal[1][\linewidth]{%
+  \noindent
+  \begingroup
+    \thinlines \unitlength=1mm \normalfont\scriptsize\sffamily
+    \settoheight\@tempdima{0}\advance\@tempdima2.7\unitlength
+    \picture(#1\@gobble,\@tempdima\@gobble)%
+      \put(0,0){\line(1,0){#1\@gobble}}
+      \Ceiling{#1}{\unitlength}{\value{tempI}}
+      \multiput(0,0)(1,0){\value{tempI}}{\line(0,1){1}}
+      \Ceiling{#1}{5\unitlength}{\value{tempI}}
+      \multiput(0,0)(5,0){\value{tempI}}{\line(0,1){2}}
+      \Ceiling{#1}{10\unitlength}{\value{tempI}}
+      \multiput(0,0)(10,0){\value{tempI}}{%
+        \put(0,0){\line(0,1){2.7}}
+        \put(0,3){\show@Value{\@multicnt}{\value{tempI}}}}
+    \endpicture
+  \endgroup \ignorespaces}
+\newenvironment{testArea}%
+  {\list{}{%
+   \rightmargin=1.5mm\relax
+   \leftmargin-\rightmargin
+   \advance\linewidth2\rightmargin
+   \topsep\z@
+   \itemsep\parskip
+   \parsep\parskip
+   \partopsep\parskip
+   \let\makelabel\@gobble}%
+   \item[]%
+   \minipage{\linewidth}\normalfont\itshape
+   \Lineal\par}%
+  {\endminipage\endlist}
+\newcommand*\Pfeil{%
+  \picture(0,0)%
+    \put(0,0){\vector(0,1){1.5\ht\strutbox\@gobble}}
+  \endpicture}
+\makeatother
+
+\usepackage{tabto}
+
+\begin{document}
+\begin{testArea}% siehe Präambel des Beispiels -> CTAN
+  \NumTabs{4}
+  Ente \tab Gans \tab Pute \tab Blesshuhn \par
+       \tab      \tab      \tab Auerhahn
+\end{testArea}
+
+\bigskip
+\begin{testArea}
+  \TabPositions{1.5cm,5cm,8cm}
+  Ente \tab Gans \tab Pute \tab Blesshuhn \par
+       \tab      \tab      \tab Auerhahn
+\end{testArea}
+
+\bigskip
+\begin{testArea}
+  Ente           \tabto{1.5cm} Gans     \tabto{5cm}  Pute \tabto{8cm}
+  Blesshuhn \par \tabto{8cm}   Auerhahn \tabto*{4cm} Pelikan
+\end{testArea}
+\end{document}

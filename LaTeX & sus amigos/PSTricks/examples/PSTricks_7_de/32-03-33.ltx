@@ -1,0 +1,48 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%%  
+%%  7. Auflage
+%% 
+%%  Beispiel 32-03-33 auf Seite 742.
+%% 
+%%  Copyright (C) 2016 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+%StartShownPreambleCommands
+\usepackage{pst-optexp, nicefrac}
+%StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(10.4,1.7)
+\pnodes(1.2,1){Start}(9.2,1){CCD}
+\begin{optexp}
+\optbox[position=start, label=0, optboxwidth=1.2](Start)(CCD){Laser}
+\polarization[poltype=perp,abspos=0.5](Start)(CCD)
+\optretplate[abspos=1](Start)(CCD){$\nicefrac{\lambda}{2}$}
+\lens[lens=0.4 0.4 0.5,abspos=2](Start)(CCD){$L_1$}
+\pinhole[phwidth=0.05, abspos=2.35, labelangle=180](Start)(CCD){iris}
+\lens[abspos=4](Start)(CCD){$L_2$}
+\optplate[abspos=6,platelinewidth=3\pslinewidth](Start)(CCD){SLM}
+\optplate[abspos=6.5,labelangle=180](Start)(CCD){PF}
+\lens[abspos=7](Start)(CCD){$L_3$}
+\optbox[position=end, label=0, optboxwidth=1.2](Start)(CCD){CCD}
+\polarization[abspos=6.7, polsize=0.8](Start)(CCD)
+\addtopsstyle{Beam}{fillstyle=solid, fillcolor=green!40!white, loadbeampoints}
+\drawwidebeam[beamwidth=0.1, stopinside]{1}{4} \drawwidebeam[beamdiv=-20]{4}{6}
+\drawwidebeam[stopinside]{6-9}   \drawwidebeam[beamdiv=-30]{9-10}
+\end{optexp}
+\end{pspicture}
+\end{document}

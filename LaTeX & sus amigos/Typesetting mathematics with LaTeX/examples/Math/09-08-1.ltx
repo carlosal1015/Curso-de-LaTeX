@@ -1,0 +1,40 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%%  Mathematiksatz mit LaTeX
+%%  2. Auflage
+%% 
+%%  Beispiel 09-08-1 auf Seite 183.
+%% 
+%%  Copyright (C) 2012 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{142.324pt}
+\AtBeginDocument{\setlength\parindent{0pt}}
+\StartShownPreambleCommands
+\usepackage{amsmath,color,cancel}
+\newcommand\hcancel[2][black]{%
+  \setbox0=\hbox{#2}%
+    \rlap{\raisebox{.45\ht0}{%
+      \textcolor{#1}{\rule{\wd0}{1pt}}}}#2}
+\StopShownPreambleCommands
+\begin{document}
+$\cancel{3}\qquad
+    f(x)=\dfrac{\left(x^2+1\right)
+    \cancel{(x-1)}}{\cancel{(x-1)}(x+1)}$\\[0.5cm]
+$\bcancel{3}\qquad\bcancel{1234567}$\\[0.5cm]
+\renewcommand*{\CancelColor}{\color{cyan}}
+$\xcancel{3}\qquad\xcancel{1234567}$\\[0.5cm]
+$\hcancel{3}\qquad\hcancel[red]{1234567}$
+\end{document}

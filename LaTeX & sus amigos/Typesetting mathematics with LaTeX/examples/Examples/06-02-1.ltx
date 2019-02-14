@@ -1,0 +1,39 @@
+%% 
+%%  Example 06-02-1 
+%%  Copyright (C) 2016 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{328.62788pt}
+\setlength\parindent{0pt}
+\usepackage[T1]{fontenc}
+%StartShownPreambleCommands
+\usepackage{amsmath}
+\makeatletter
+\def\rightharpoondownfill@{\arrowfill@\relbar\relbar\rightharpoondown}
+\def\rightharpoonupfill@{\arrowfill@\relbar\relbar\rightharpoonup}
+\def\leftharpoondownfill@{\arrowfill@\leftharpoondown\relbar\relbar}
+\def\leftharpoonupfill@{\arrowfill@\leftharpoonup\relbar\relbar}
+\newcommand\xrightharpoondown[2][]{\ext@arrow 0359\rightharpoondownfill@{#1}{#2}}
+\newcommand\xrightharpoonup[2][]{\ext@arrow 0359\rightharpoonupfill@{#1}{#2}}
+\newcommand\xleftharpoondown[2][]{\ext@arrow 3095\leftharpoondownfill@{#1}{#2}}
+\newcommand\xleftharpoonup[2][]{\ext@arrow 3095\leftharpoonupfill@{#1}{#2}}
+\newcommand\xleftrightharpoons[2][]{\mathrel{%
+  \raise.22ex\hbox{$\ext@arrow 3095\leftharpoonupfill@{\phantom{#1}}{#2}$}%
+    \setbox0=\hbox{$\ext@arrow 0359\rightharpoondownfill@{#1}{\phantom{#2}}$}%
+     \kern-\wd0 \lower.22ex\box0}}
+\newcommand\xrightleftharpoons[2][]{\mathrel{%
+  \raise.22ex\hbox{$\ext@arrow 3095\rightharpoonupfill@{\phantom{#1}}{#2}$}%
+    \setbox0=\hbox{$\ext@arrow 0359\leftharpoondownfill@{#1}{\phantom{#2}}$}%
+      \kern-\wd0 \lower.22ex\box0}}
+\makeatother
+%StopShownPreambleCommands
+\begin{document}
+$\xrightharpoondown[under]{over} $\quad$\xrightharpoonup[under]{over}$\quad
+$\xleftharpoondown[under]{over}  $\quad$\xleftharpoonup[under]{over} $\quad
+$\xleftrightharpoons[under]{over}$\quad$\xrightleftharpoons[under]{over}$
+\end{document}

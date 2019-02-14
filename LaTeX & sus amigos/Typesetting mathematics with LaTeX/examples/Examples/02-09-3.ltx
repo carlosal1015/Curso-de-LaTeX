@@ -1,0 +1,27 @@
+%% 
+%%  Example 02-09-3 
+%%  Copyright (C) 2016 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{328.62788pt}
+\setlength\parindent{0pt}
+%StartShownPreambleCommands
+\usepackage{amsmath}
+%StopShownPreambleCommands
+\begin{document}
+\begin{subequations}
+\renewcommand\theequation{\theparentequation -\arabic{equation}}%
+\begin{align}
+y &= d                  \\
+y &= cx+d               \\
+y &= bx^{2}+cx+d        \\\label{eq:subequation-neu}
+y &= ax^{3}+bx^{2}+cx+d
+\end{align}
+\end{subequations}
+A reference to eq.~\ref{eq:subequation-neu}
+\end{document}

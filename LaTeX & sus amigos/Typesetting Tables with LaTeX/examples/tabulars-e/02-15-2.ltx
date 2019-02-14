@@ -1,0 +1,32 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 02-15-2 on page 84.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{201.70511pt}
+\setlength\parindent{0pt}
+
+\usepackage{tabls,slashbox,pict2e}
+
+\begin{document}
+\begin{tabular}{|@{}r|*{5}{c}|l@{}|}\hline
+\backslashbox[0pt][l]{holiday}{year} & 2007 & 2008 & 2009 & 2010 & 2011
+    & \slashbox[0pt][r]{year}{holiday}\\\hline[3pt]
+Easter    & 08.04. & 23.03. & 12.04. & 04.04. & 24.04. & Easter\\
+Pentecost & 27.05. & 11.05. & 31.05. & 23.05. & 12.06. & Pentecost\\\hline
+\end{tabular}
+\end{document}

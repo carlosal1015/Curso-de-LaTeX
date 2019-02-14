@@ -1,0 +1,78 @@
+\documentclass{standalone}
+\usepackage[utf8x]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{PTSansNarrow}
+\usepackage[usenames,dvipsnames,x11names,table,svgnames]{xcolor}
+\usepackage{amsthm,mathtools,amsfonts}
+\usepackage{tikz}
+\usetikzlibrary{calc,babel,through,intersections,backgrounds}
+\newtheorem{prop}{Proposición}
+\setcounter{prop}{2}
+
+\begin{document}
+
+\begin{tikzpicture}[remark/.style = {line width = 1.125pt, opacity = .5}, scale=2]
+
+%Paso 1: Dibujar los puntos A, B, C y D. Además, los segmentos AB y CD.
+\coordinate[label = above left:\textcolor{DarkBlue}{\huge$\mathbf{A}$}, line width =1pt] (A) at (-3.2, 8.4);
+\coordinate[label = above right:\textcolor{DarkBlue}{\huge$\mathbf{B}$}, line width =1pt,] (B) at (2.8, 9.0);
+\coordinate[label = below:\textcolor{DarkRed}{\huge$\mathbf{C}$}] (C) at (-4.3, 4.9);
+\coordinate[label = below:{\textcolor{DarkRed}{\huge$\mathbf{D}$}}] (D) at (5.4,4.8);
+\draw[remark, line width =2pt, DarkCyan] (A) -- (B); 
+\draw[name path = C-D] (C) -- (D);%Del paso 10.
+
+%Paso 2: Dibujar las circunferencias C1(centro en A, radio AC) y C2(centro en C,radio AC). (PPI - Euclides)
+\node[name path = C1, label = 135:\textcolor{DarkMagenta}{\huge$\mathcal{C}_1$}, draw, line width = 1pt, DarkMagenta, opacity= 0.2, circle through = (C)] at (A) {};
+\node[name path = C2, label = 45:\textcolor{DarkCyan}{\huge$\mathcal{C}_2$}, draw, line width = 1pt, DarkCyan, opacity= 0.2, circle through = (A)] at (C) {};
+
+%Paso 3: Dibujar el triángulo equilátero.
+\path[name intersections = {of = C2 and C1, by = {[label = above right:\textcolor{DarkGreen}{\huge$\mathbf{I}$}]I}}];
+\draw[line width = 0.1mm, thin, loosely dashed] (A) -- (I) -- (C) -- cycle;
+
+%Paso 4: Dibujar la circunferencia C3(centro en A, radio AB).
+\node[name path = C3, label = 60:\textcolor{DarkCyan}{\huge$\mathcal{C}_3$}, draw, line width = 1pt, loosely dashed, DarkRed, opacity= 0.6, circle through = (B)] at (A) {};
+
+%Paso 5: Prolongar un segmento de recta (con extremo en I) lo suficientemente largo para que intersecte a C3.
+\draw[name path = I-P] (I) -- ($(I)!3!(A)$) coordinate[label = above right:\huge{\textcolor{DarkGreen}{$\mathbf{P}$}}] (P);
+
+%Paso 6: Encontrar el punto de intersección Q.
+\path[name intersections = {of = C3 and I-P, by = {[label = below left:\textcolor{DarkGreen}{\huge$\mathbf{Q}$}]Q}}];
+
+%Paso 7: Dibujar la circunferencia C4(centro en I, radio IQ).
+\node[name path = C4, label = 120:\textcolor{DarkCyan}{\huge$\mathcal{C}_4$}, draw, line width = 1pt, loosely dashed, DarkBlue, opacity= 0.6, circle through = (Q)] at (I) {};
+
+%Paso 8: Prolongar un segmento de recta (con extremo en I) lo suficientemente largo para que intersecte a C4.
+\draw[name path = I-R] (I) -- ($(I)!3!(C)$) coordinate[label = below:\huge{\textcolor{DarkGreen}{\huge$\mathbf{R}$}}] (R);
+
+%Paso 9: Encontrar el punto de intersección S.
+\path[name intersections = {of = C4 and I-R, by = {[label = below left:\textcolor{DarkGreen}{\huge$\mathbf{S}$}]S}}];
+
+%Paso 10: Dibujar la circunferencia C5(centro en C, radio CS).
+\node[name path = C5, label = 30:\textcolor{DarkCyan}{\huge$\mathcal{C}_5$}, draw, line width = 1pt, Black, opacity= 1, circle through = (S)] at (C) {};
+
+%Paso 11: Encontrar el punto de intersección F. 
+\path[name intersections = {of = C5 and C-D, by = {[label = below left:\textcolor{DarkGreen}{\huge$\mathbf{F}$}]F}}];
+
+%Paso 12: Resaltar el segmento congruentes a AB, CF.
+\draw[remark, line width =2pt, DarkMagenta] (C) -- (F);
+
+%Paso 13: Marcar los puntos A, B, C, D y F.
+\foreach \point in {A, B, C, D, F}{
+\fill[black, opacity =.5] (\point) circle[radius = 1.15pt];
+}
+%Paso 14: Enunciar el teorema. 
+\node[below, text width = 30cm, align = justify] at (-1.5,-4){
+\Huge
+\begin{prop}[Euclides 300 A.C.]
+Para cortar de la mayor de dos líneas rectas desiguales, una línea recta igual a la menos
+\end{prop}
+
+\begin{proof}[Prueba]
+Sean dos segmentos de recta desiguales \textcolor{DarkBlue}{$\overline{AB}$} y \textcolor{DarkBlue}{$\overline{CD}$} un segmento de recta, donde $AB>CD$.
+De la proposición I.
+\end{proof}
+};
+\end{tikzpicture}
+
+\end{document}

@@ -1,0 +1,32 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 16-02-2 on page 228.
+%% 
+%%  Copyright (C) 2011 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{129.70511pt}
+\setlength\parindent{0pt}
+
+\usepackage{pstricks,pst-node}
+
+\begin{document}
+\Cnode(0.5,0){A}\rput(0.5,0){\Large a}
+\Cnode(2.5,0){B}\rput(2.5,0){\Large B}
+\ncline{A}{B}\par\vspace{1cm}
+\Cnode[radius=0.5cm](0.5,0){A}\rput(0.5,0){\Large a}%
+\Cnode[radius=0.5cm](2.5,0){B}\rput(2.5,0){\Large B}
+\ncline{A}{B}
+\end{document}

@@ -1,0 +1,38 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 02-26-5 on page 106.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{201.70511pt}
+\usepackage[utf8]{inputenc}
+
+\usepackage{siunitx}
+\usepackage{booktabs}
+
+\begin{document}
+\begin{tabular}{
+  S[group-separator={},
+  output-decimal-marker={\,\pm\,},
+  input-digits={0123456789.},
+  input-decimal-markers={+}]}\toprule
+\emph{numbers}\\\midrule
+ 2.3456 + 0.02  \\
+34.2345 + 0.001 \\
+56.7835 + 0.067 \\
+90.473  + 0.021 \\\bottomrule
+\end{tabular}
+\end{document}

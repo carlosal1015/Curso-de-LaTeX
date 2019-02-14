@@ -1,0 +1,37 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%%  Mathematiksatz mit LaTeX
+%%  2. Auflage
+%% 
+%%  Beispiel 06-02-13 auf Seite 93.
+%% 
+%%  Copyright (C) 2012 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\AtBeginDocument{\setlength\parindent{0pt}}
+\setcounter{equation}{15}
+\renewcommand\theequation{6.\arabic{equation}}
+\StartShownPreambleCommands
+\usepackage{amsmath}
+\StopShownPreambleCommands
+\begin{document}
+\begin{alignat}{2}
+y      &= d              & z &= 1                    \\ % <=== 3 mal &
+y      &= cx+d           & z &= x+1         \nonumber\\
+y_{12} &= bx^2+cx+d      & z &= x^2+x+1     \nonumber\\
+y(x)   &= ax^3+bx^2+cx+d & z &= x^3+x^2+x+1
+\end{alignat}
+\end{document}

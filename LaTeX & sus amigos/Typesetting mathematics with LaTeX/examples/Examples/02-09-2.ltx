@@ -1,0 +1,25 @@
+%% 
+%%  Example 02-09-2 
+%%  Copyright (C) 2016 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{328.62788pt}
+\setlength\parindent{0pt}
+%StartShownPreambleCommands
+\usepackage{amsmath}
+\makeatletter
+\def\tagform@#1{\maketag@@@{\ignorespaces#1\unskip\@@italiccorr}}
+\makeatother
+%StopShownPreambleCommands
+\begin{document}
+\begin{subequations}
+\begin{align}
+y &= d\\   y &= cx+d\\  y &= bx^2+cx+d\\  y &= ax^3+bx^{2}+cx+d
+\end{align}
+\end{subequations}
+\end{document}

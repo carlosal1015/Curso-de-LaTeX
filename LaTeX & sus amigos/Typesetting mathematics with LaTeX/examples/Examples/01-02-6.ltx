@@ -1,0 +1,24 @@
+%% 
+%%  Example 01-02-6 
+%%  Copyright (C) 2017 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{328.62788pt}
+\setlength\parindent{0pt}
+%StartShownPreambleCommands
+
+%StopShownPreambleCommands
+\begin{document}
+foo \fbox{$ f(x)=\int_1^{\infty}\frac{1}{x^2}\,\mathrm{d}x=1 $} bar      \\
+%
+foo \rule{20pt}{\ht\strutbox}\fbox{$ f(x)=\int_1^{\infty}\frac{1}{x^2}\,
+          \mathrm{d}x=1 $}\rule{20pt}{\ht\strutbox} bar                  \\
+%
+\setlength{\mathsurround}{20pt}%
+foo \fbox{$ f(x)=\int_1^{\infty}\frac{1}{x^2}\,\mathrm{d}x=1 $} bar
+\end{document}

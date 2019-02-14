@@ -1,0 +1,25 @@
+%% 
+%%  Example 01-06-3 
+%%  Copyright (C) 2017 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{158.31393pt}
+
+%StartShownPreambleCommands
+\usepackage{mathtools}% for \boxed 
+%StopShownPreambleCommands
+\begin{document}
+\begin{equation}
+\fboxsep=0pt\fboxrule=0.1pt
+\boxed{\sum_{%
+  {{1\le j\le p\atop {%
+    {1\le j\le q\atop 1\le k\le r}}}%
+  }}%
+}\boxed{a_{ij}b_{jk}c_{ki}}
+\end{equation}
+\end{document}

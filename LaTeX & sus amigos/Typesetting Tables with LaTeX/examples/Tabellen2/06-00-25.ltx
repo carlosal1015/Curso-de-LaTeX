@@ -1,0 +1,49 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Beispiel 06-00-25 auf Seite 191.
+%% 
+%%  Copyright (C) 2010 H. Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+
+%%Run also: >>  << 
+% Show page(s) 1
+
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{170.59192pt}
+\setlength\parindent{0pt}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+
+\usepackage{tabularx,longtable,amsmath}
+\usepackage[table]{xcolor}
+\newcommand*\RMarker{.}
+\newcommand*\SeminarOn[1][Wochenende]{%
+  \def\RMarker{\rbrace\text{#1}}}
+\newcommand*\SeminarOff{\def\RMarker{.}}
+\newcommand*\SA{\rowcolor{black!20}}
+\newcommand*\SO{\rowcolor{black!30}}
+
+\begin{document}
+\begin{longtable}{>{$\left.}l<{\right\RMarker$}}
+\SeminarOn[Seminar]
+\begin{tabularx}{.55\linewidth}{rlX}
+  2 & Di & \\ 3 & Mi & \\
+  4 & Do & \\ 5 & Fr & \\
+\end{tabularx} \\\SeminarOn
+\begin{tabularx}{.55\linewidth}{rlX}
+\SA 6 & Sa & Stammtisch \\
+\SO 7 & So & \\
+\end{tabularx} \\\SeminarOff
+\begin{tabularx}{.55\linewidth}{rlX}
+    8 & Mo &\\  9 & Di &
+\end{tabularx}
+\end{longtable}
+\end{document}

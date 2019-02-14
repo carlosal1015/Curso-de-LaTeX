@@ -1,0 +1,41 @@
+%% 
+%%  Die DANTE-Edition
+%%  Ein Beispiel der LaTeX Referenz
+%%  3. Auflage
+%% 
+%% 
+%%  Copyright (C) 2013 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{169.16928pt}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{libertine}
+\usepackage[ngerman]{babel}
+\usepackage{xcolor}\let\Rule\rule
+\renewcommand\rule[2]{\textcolor{lightgray}{\Rule{#1}{#2}}}
+%StartShownPreambleCommands
+\usepackage{floatrow}\floatsetup{style=BOXED}
+%StopShownPreambleCommands
+\begin{document}
+\begin{figure}
+\begin{floatrow}
+\ffigbox[3cm]{\caption{Eine Beschriftung für eine Abbildung.}}
+  {\rule{2cm}{5mm}}
+\ttabbox[3cm]{\caption{Eine Tabellenunterschrift.}}
+  {\rule{2cm}{10mm}}
+\end{floatrow}
+\end{figure}
+\end{document}

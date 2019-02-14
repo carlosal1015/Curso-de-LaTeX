@@ -1,0 +1,43 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 04-01-7 on page 131.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{201.70511pt}
+
+\usepackage[utf8]{inputenc}% adapt maybe
+\setlength\parindent{0pt}
+\setlength\parskip{6pt plus 2pt minus 1pt}
+
+\usepackage{longtable}
+
+\begin{document}
+A line of text before the table.
+\begin{longtable}{|l|c|r|p{1.5cm}|}\hline
+left & centred & right & box\\\hline
+l & c & r & p\{1.5cm\}\\\hline
+\end{longtable}
+A line of text after the table.\par
+A line of text before the table.
+\setlength\LTpre{0pt}%
+\setlength\LTpost{0pt}%
+\begin{longtable}{|l|c|r|p{1.5cm}|}\hline
+left & centred & right & box\\\hline
+l & c & r & p\{1.5cm\}\\\hline
+\end{longtable}
+A line of text after the table.
+\end{document}

@@ -1,0 +1,33 @@
+%% 
+%%  Example 07-06-1 
+%%  Copyright (C) 2017 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle2}
+\pagestyle{empty}
+\setlength\textwidth{328.62788pt}
+\setlength\parindent{0pt}
+\usepackage[T1]{fontenc}
+%StartShownPreambleCommands
+\usepackage{amsmath}
+\usepackage[partialup]{kpfonts}
+\usepackage{esint}
+\def\Q#1#2{\frac{\partialup #1}{\partialup #2}}
+%StopShownPreambleCommands
+\begin{document}
+The \emph{first theorem of Green} is:
+\[
+\underset{\mathcal{G}\quad}\iiint\!%
+	\left[u\nabla^{2}v+\left(\nabla u,\nabla v\right)\right]\mathrm{d}^{3}V
+	=\underset{\mathcal{S}\quad}\oiint u\,\Q{v}{n}\,\,\mathrm{d}^{2}A
+\]
+The \emph{second theorem of Green} is:
+\[
+\underset{{\mathcal{G}\quad}}\iiint\!%
+	\left[u\nabla^{2}v-v\nabla^{2}u\right]\mathrm{d}^{3}V
+	=\underset{\mathcal{S}\quad}\oiint\left(u\,\Q{v}{n}-v\,\Q{u}{n}\right)\mathrm{d}^{2}A
+\]
+\end{document}

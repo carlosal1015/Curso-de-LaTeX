@@ -1,0 +1,135 @@
+\documentclass[tikz, preview=true, border=2mm]{standalone}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage[utf8x]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{mindmap,trees,shadows}
+\begin{document}
+\makeatletter
+\def\tikz@compute@circle@radii@b{%
+  \pgf@process{\pgfpointtransformed{\pgfpointanchor{\tikztostart}{center}}}%
+  \pgf@xa=\pgf@x%
+  \pgf@process{\pgfpointtransformed{\pgfpointanchor{\tikztostart}{west}}}%
+  \advance\pgf@xa by-\pgf@x%
+  \pgf@xa=1.6\pgf@xa\relax%
+  \pgfkeys{/pgf/decoration/start radius/.expanded=\the\pgf@xa}%
+  \pgf@process{\pgfpointtransformed{\pgfpointanchor{\tikztotarget}{center}}}%
+  \pgf@xa=\pgf@x%
+  \pgf@process{\pgfpointtransformed{\pgfpointanchor{\tikztotarget}{west}}}%
+  \advance\pgf@xa by-\pgf@x%
+  \pgf@xa=1.6\pgf@xa\relax%
+  \pgfkeys{/pgf/decoration/end radius/.expanded=\the\pgf@xa}%
+}
+
+\def\tikz@compute@segmentamplitude@b{%
+  \pgf@x=\pgfkeysvalueof{/pgf/decoration/start radius}\relax%
+  \ifdim\pgf@x>\pgfkeysvalueof{/pgf/decoration/end radius}\relax%
+    \pgf@x=\pgfkeysvalueof{/pgf/decoration/end radius}\relax%
+  \fi%
+  \pgf@x=.35\pgf@x\relax%
+  \edef\pgfdecorationsegmentamplitude{\the\pgf@x}%
+}
+\tikzoption{thick bar concept color}{%
+  \let\tikz@old@concept@color=\tikz@concept@color%
+  \let\tikz@old@compute@circle@radii=\tikz@compute@circle@radii%
+  \let\tikz@compute@circle@radii=\tikz@compute@circle@radii@b%
+  \let\tikz@old@compute@segmentamplitude=\tikz@compute@segmentamplitude%
+  \let\tikz@compute@segmentamplitude=\tikz@compute@segmentamplitude@b%
+  \def\tikz@edge@to@parent@path{
+    (\tikzparentnode)
+    to[circle connection bar switch color=from (\tikz@old@concept@color) to (#1)]
+    (\tikzchildnode)}
+  \def\tikz@concept@color{#1}%
+}
+ \tikzoption{standard bar concept color}{%
+   \let\tikz@old@concept@color=\tikz@concept@color%
+   \let\tikz@compute@circle@radii=\tikz@old@compute@circle@radii%
+   \let\tikz@compute@segmentamplitude=\tikz@old@compute@segmentamplitude%
+   \def\tikz@edge@to@parent@path{
+     (\tikzparentnode)
+     to[circle connection bar switch color=from (\tikz@old@concept@color) to (#1)]
+     (\tikzchildnode)}
+   \def\tikz@concept@color{#1}%
+}
+\makeatother
+
+\begin{tikzpicture}
+
+% Define experience colors
+\colorlet{acolor}{blue!50}
+\colorlet{bcolor}{red!75}
+\colorlet{ccolor}{orange!80}
+\colorlet{dcolor}{teal!70!green}
+\colorlet{ecolor}{violet!75}
+\colorlet{fcolor}{green!75!black}
+
+\begin{scope}[mindmap,
+every node/.style={concept, circular drop shadow, minimum size=0pt,execute at begin node=\hskip0pt, font=\bfseries},
+primary/.append style={
+    concept color=black, fill=white, line width=1.8ex, text=black, font=\huge\scshape\bfseries,},
+level 1 concept/.append style={font=\bfseries},
+text=white,
+types/.style={thick bar concept color=blue!80!black},
+father/.style={standard bar concept color=acolor},
+mother/.style={standard bar concept color=bcolor},
+brothers/.style={standard bar concept color=ccolor},
+university/.style={standard bar concept color=acolor},
+group1/.style={standard bar concept color=bcolor},
+group2/.style={standard bar concept color=ccolor},
+group3/.style={standard bar concept color=dcolor},
+group4/.style={standard bar concept color=ecolor},
+group5/.style={standard bar concept color=fcolor},
+grow cyclic,
+level 1/.append style={level distance=6.2cm,sibling angle=360/4},
+level 2/.append style={level distance=3cm,sibling angle=80},
+level 3/.append style={level distance=3cm,sibling angle=55},
+]
+\node [primary] (mathematician) {Heisuke\\Hironaka}[rotate=90] % root
+    child [types] { node {Familia}
+        child [father] { node {\small Papá} }
+        child [mother] { node {\small Mamá} }
+        child [brothers] { node {\small Hermanos} }
+    }
+    child [types] { node {\\Matematicas}
+        child [group2] { node {\\ Educación }
+        	child [group5] { node {\small \\Universidad de\\Kyoto} }
+        	child [group5] { node {\small \\Universidad de\\Hiroshima} }
+        	child [group5] { node {\small \\Universidad de\\Harvard} }
+    	 }
+        child [group2] { node {\small Matemáticos\\influyentes} 
+        	child [group5] {node {\small Oscar\\Zariski} }
+        	child [group5] {node {\small Yasuo\\ Akizuki} }
+        	child [group5] {node {\small Alexander\\Grothendieck} }
+    	}
+    }
+	child [types] { node {Música}
+		child [group3] { node {\small Piano} }
+	}
+    child [types] { node {Distinciones}
+	child [group4] { node {\small Medalla Fields\\(1970)} 
+		child [group5] { node {\small \\Resolución de \\singularidades\\(1964)} }
+	}
+	child [group4] { node {\small Decano de la \\Universidad\\de\\Yamaguchi\\(1996)} }
+	child [group4] { node {\small Ph.D en\\matemáticas\\Harvard\\(1960)} }
+	child [group4] { node {\small Profesor del\\Instituto Clay\\(1983)} }
+}
+;
+\end{scope}
+
+\begin{scope}[xshift=-4.5cm, yshift=-10.5cm,every node/.style={text=black}]
+\matrix[row sep=0pt,column sep=1mm, nodes={anchor=west}] {
+    \fill [acolor] (0,.25ex) circle (1ex); & \node{Dirigente de una fabrica textil, presenció la bomba de Hiroshima.};\\
+    \fill [bcolor] (0,.25ex) circle (1ex); & \node{Tercera esposa del papá de Heisuke.};\\
+    \fill [ccolor] (0,.25ex) circle (1ex); & \node{Tuvo hasta diez hermanos.};\\
+    \fill [fcolor] (0,.25ex) circle (1ex); & \node{Fue influenciado por el matemático húngaro Oscar Zariski};\\
+   	\fill [dcolor] (0,.25ex) circle (1ex); & \node{Por muy poco iba a dedicar su vida al piano, pero decidió ser matemático.};\\
+   	\fill [fcolor] (0,.25ex) circle (1ex); & \node{Probó que las singularidades algebracias admiten resolución en cuerpos de característica cero.};\\
+    };
+\end{scope}
+\end{tikzpicture}
+
+\end{document}
+\colorlet{acolor}{blue!50}
+\colorlet{bcolor}{red!75}
+\colorlet{ccolor}{orange!80}
+\colorlet{dcolor}{teal!70!green}
+\colorlet{ecolor}{violet!75}

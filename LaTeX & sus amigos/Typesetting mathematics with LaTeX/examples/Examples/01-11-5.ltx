@@ -1,0 +1,38 @@
+%% 
+%%  Example 01-11-5 
+%%  Copyright (C) 2017 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{328.62788pt}
+
+%StartShownPreambleCommands
+\usepackage{amsmath}
+%StopShownPreambleCommands
+\begin{document}
+\begin{minipage}[t]{0.45\linewidth}
+\[ \begin{pmatrix}
+  0 & 1 & 1 & 0 & 0 & 1 \\
+  1 & 0 & 0 & 1 & 1 & 0 \\
+  \relax\rlap{\rule{10cm}{0.2pt}}% only for demonstration
+  0 & 1 & 1 & 0 & \dfrac{1}{\sqrt{2}} & 1\\
+  1 & 0 & 1 & 0 & 1 & 0 \\
+  0 & 1 & 0 & 1 & 0 & 1
+\end{pmatrix} \]
+\end{minipage}
+\begin{minipage}[t]{0.45\linewidth}
+\[ \begin{pmatrix}
+  0 & 1 & 1 & 0 & 0 & 1 \\
+  1 & 0 & 0 & 1 & 1 & 0 \\
+                 \noalign{\vskip3pt}
+  0 & 1 & 1 & 0 & \dfrac{1}{\sqrt{2}} & 1\\
+                 \noalign{\vskip3pt}
+  1 & 0 & 1 & 0 & 1 & 0 \\
+  0 & 1 & 0 & 1 & 0 & 1
+\end{pmatrix} \]
+\end{minipage}
+\end{document}

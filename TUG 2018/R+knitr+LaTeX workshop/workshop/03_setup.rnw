@@ -1,0 +1,55 @@
+\documentclass{article}
+
+\begin{document}
+\title{03:  Some setup}
+\author{Boris Veytsman}
+\date{TUG18 knitr workshop; July 2018\thanks{This work is licensed
+    under a Creative Commons Attribution 4.0 International License
+    (CC-BY)}}
+\maketitle
+
+By default all figures go into \texttt{figure} subdirectory.  This
+might cause clashes!  Let us redefine this:
+
+<<figures-setup>>=
+opts_chunk$set(fig.path="03_figures/")
+@ 
+
+By default chunks do not have names.  This is not convenient!
+
+Let us define a macro \texttt{chunklabel}
+\newcommand{\chunklabel}[1]{{\noindent\bfseries\flushleft Chunk: #1\par}}
+\begin{verbatim}
+\newcommand{\chunklabel}[1]{{\noindent\bfseries\flushleft Chunk: #1\par}}
+\end{verbatim}
+
+<<chunklabel-setup>>=
+knit_hooks$set(
+    chunklabel=
+        function(before, options, envir) {
+            if(before && options$chunklabel) 
+                sprintf(
+                    "\\chunklabel{%s}", options$label)
+        })
+opts_chunk$set(chunklabel=TRUE)
+@ 
+
+
+\clearpage
+<<plot>>=
+plot(iris)
+@ 
+
+\clearpage
+
+A problem:  the setup chunks do not have labels!
+
+Solution: repeat them with \texttt{eval=FALSE}
+<<figures-setup, eval=FALSE>>=
+@ 
+
+<<chunklabel-setup, eval=FALSE>>=
+@ 
+
+
+\end{document}

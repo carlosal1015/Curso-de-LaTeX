@@ -1,0 +1,38 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Beispiel 02-01-13 auf Seite 23.
+%% 
+%%  Copyright (C) 2010 H. Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+
+%%Run also: >>  << 
+% Show page(s) 1
+
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{194.59192pt}
+\setlength\parindent{0pt}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+
+\usepackage{array}
+\newcolumntype{P}[1]{>{\hspace{0pt}}p{#1}}
+
+\begin{document}
+\begin{tabular}{|l|r|cp{1.75cm}|}
+Links & Rechts & Zentriert & Box\\\hline
+l & r & c & Definitionsgemäß
+\end{tabular}\\[8mm]
+\begin{tabular}{|l|r|cP{1.75cm}|}
+Links & Rechts & Zentriert & Box\\\hline
+l & r & c & Definitionsgemäß
+\end{tabular}
+\end{document}

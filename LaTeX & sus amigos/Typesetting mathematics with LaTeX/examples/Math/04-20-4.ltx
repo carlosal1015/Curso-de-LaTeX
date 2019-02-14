@@ -1,0 +1,37 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%%  Mathematiksatz mit LaTeX
+%%  2. Auflage
+%% 
+%%  Beispiel 04-20-4 auf Seite 75.
+%% 
+%%  Copyright (C) 2012 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\fboxsep{0pt}
+\AtBeginDocument{\setlength\parindent{0pt}}
+\StartShownPreambleCommands
+\newcommand*\Frac[2]{\displaystyle\frac{#1}{#2}}
+\StopShownPreambleCommands
+\begin{document}
+links\rule{1cm}{.5pt}\fbox{$\Frac{A}{B}$}
+\fbox{\raisebox{0pt}[0pt][0pt]{$\Frac{C}{D}$}}
+\fbox{\raisebox{0pt}[0pt][1cm]{$\Frac{E}{F}$}}
+\fbox{\raisebox{0pt}[1cm][0pt]{$\Frac{G}{H}$}}
+\fbox{\raisebox{0pt}[1cm][1cm]{$\Frac{I}{J}$}}
+\fbox{\raisebox{1cm}[0pt][0pt]{$\Frac{K}{L}$}}
+\fbox{\raisebox{-1cm}{$\Frac{M}{N}$}}\rule{1cm}{.5pt}rechts
+\end{document}

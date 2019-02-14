@@ -1,0 +1,50 @@
+\documentclass[tikz,border=0.125cm]{standalone}
+\usetikzlibrary{shapes.geometric}
+\begin{document}
+\tikzset{%
+  set color/.style={
+    fill=#1,
+    draw=#1!50!black
+  },
+  every number/.style={
+    text=white,
+    rounded corners=0.125cm,
+    font=\fontfamily{pzc}\selectfont,
+    text width=3ex,
+    align=center,
+    scale=2
+  },
+  every prime number/.style={
+    shape=diamond,
+    set color=blue!70!black,
+    inner sep=0.25ex,
+  },
+  every even number/.style={
+    shape=circle,
+    set color=red!70!black,
+    inner sep=0.5ex
+  },
+  every odd number/.style={
+    shape=regular polygon,
+    regular polygon sides=3,
+    set color=green!70!black,
+    inner sep=-0.375ex
+  },
+  number 1/.style={
+    shape=star,
+    set color=green!50!blue,
+    inner sep=-.25ex
+  }
+}%
+\begin{tikzpicture}[x=2cm, y=2cm]
+\foreach \n [evaluate={%
+    \x=mod(\n-1,10); 
+    \y=floor((\n-1)/10);
+    \p=isprime(\n);
+    \e=mod(\n,2)==0;
+    \style=(\p || \n==2) ? "prime" : (\e ? "even" : "odd");}] in {1,...,100}
+  \node [every number/.try, every \style\space number/.try, number \n/.try]
+     at (\x,\y) {\n};
+\end{tikzpicture}
+
+\end{document}

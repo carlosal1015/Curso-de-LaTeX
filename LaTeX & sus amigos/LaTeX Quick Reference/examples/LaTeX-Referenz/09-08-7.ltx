@@ -1,0 +1,38 @@
+%% 
+%%  Die DANTE-Edition
+%%  Ein Beispiel der LaTeX Referenz
+%%  3. Auflage
+%% 
+%% 
+%%  Copyright (C) 2013 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\setlength{\fboxsep}{2mm}
+%StartShownPreambleCommands
+\usepackage{xcolor,multido}
+\definecolorseries{H}{hsb}{last}[hsb]{0,1,1}[hsb]{1,1,1}\resetcolorseries[10]{H}
+\definecolorseries{S}{hsb}{last}[hsb]{.1,0,1}[hsb]{.1,1,1}\resetcolorseries[10]{S}
+\definecolorseries{B}{hsb}{last}[hsb]{1,1,0}[hsb]{1,1,1}\resetcolorseries[10]{B}
+%StopShownPreambleCommands
+\begin{document}
+\makebox[30mm][l]{Hue (H):}%
+\multido{\nColr=0+1}{10}{\colorbox{H!![\nColr]}{0.\nColr}}\\
+\makebox[30mm][l]{Saturation (S):}%
+\multido{\nColr=0+1}{10}{\colorbox{S!![\nColr]}{0.\nColr}}\\
+\makebox[30mm][l]{Brightness (B):}%
+\multido{\nColr=0+1}{10}{\colorbox{B!![\nColr]}{\color{white}0.\nColr}}\\
+\end{document}

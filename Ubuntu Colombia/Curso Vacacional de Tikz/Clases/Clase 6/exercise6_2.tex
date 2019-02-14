@@ -1,0 +1,27 @@
+\documentclass{article}
+\usepackage[utf8x]{inputenc}
+\usepackage[spanish]{babel}
+\spanishdatedel
+\usepackage{graphicx,float}
+\usepackage{tikz}
+\usetikzlibrary{graphdrawing,graphs,babel}
+\usegdlibrary{layered, circular}
+
+\begin{document}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\graph[simple necklace layout, nodes = {circle, draw}, node distance = 2.5cm]{
+	1 -> {2, 4}, % de vértices
+	2 -> {4,5},
+	3 -> {1,6},
+	4 -> {3,5,6,7},
+	5 -> 7,
+	7 -> 6
+};
+\end{tikzpicture}
+\caption{Grafo con la librería circular}
+\end{figure}
+\end{document}
+También se puede hacer level distance.

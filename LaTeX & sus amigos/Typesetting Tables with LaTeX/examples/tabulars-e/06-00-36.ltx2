@@ -1,0 +1,49 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 06-00-36 on page 200.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[twoside,12pt]{article}
+\pagestyle{empty}
+\setlength\textwidth{201.70511pt}
+\setlength\parindent{0pt}
+\usepackage[utf8]{inputenc}
+\usepackage[paper=a5,pagesize,DIV14]{typearea}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage[english]{babel}
+
+\usepackage{array,booktabs,rotating,units}
+\newcolumntype{N}{>{\scriptsize}l}
+
+\begin{document}
+\begin{sidewaystable}
+\caption{The following table has been rotated automatically with \texttt{sidewaystable}.}
+\begin{center}
+\begin{tabular}{@{}NN*{5}{l}@{}}\toprule
+capacity  & $\unit{cm^3}$ & 1288 & 1488 & 1688 & 1985 & 2274 \\\midrule
+power & \unit{kW} & 37 & 44 & 55  & 66 & 80 \\\midrule
+acceleration \unitfrac[0]{km}{h} to \unitfrac[100]{km}{h} & \unit{s} & 22,7
+  & 18,8 & 13,7 & 11,7 & 9,8 \\\midrule
+\textbf{maximum speed}
+  & \textbf{\unitfrac{km}{h}}
+  & \textbf{133} & \textbf{140} & \textbf{155}
+  & \textbf{165} & \textbf{178} \\\midrule
+fuel consumption per \unit[100]{km} & \unit{l} & 8,6 & 8,7 & 9,4 (super)
+  & 9,9 (super) & 10,1 (super) \\\bottomrule
+\end{tabular}
+\end{center}
+\end{sidewaystable}
+\end{document}

@@ -1,0 +1,42 @@
+\documentclass[tikz,border=1mm]{standalone}
+\usepackage{tkz-euclide}
+\usepackage{siunitx}
+\usetkzobj{all}
+\begin{document}
+	\begin{tikzpicture}[scale=.6]
+	\tkzDefPoints{	0/0/M,
+					8/0/C}
+
+	\tkzDefLine[perpendicular=through C](M,C)
+	\tkzGetPoint{c}
+	
+	\tkzDefPoint(60:1){m}
+	
+	\tkzInterLL(C,c)(M,m)
+	\tkzGetPoint{T}
+	
+	\tkzInterLC(M,C)(C,T)
+	\tkzGetSecondPoint{R}
+	
+	\tkzDrawPolySeg(R,M,T,C)
+	\tkzDrawSegment[dashed](T,R)
+		
+	\tkzMarkAngle[size=2](C,M,T)
+	\tkzLabelAngle[pos=3](C,M,T){\(\ang{60}\)}
+	\tkzMarkAngle[size=2](T,R,C)
+	\tkzLabelAngle[pos=3](T,R,C){\(\ang{45}\)}
+
+	\tkzMarkRightAngle[size=1](T,C,M)
+% TODO Fix and calculate projections.
+	\tkzLabelSegment[below](M,C){\SI{25.6}{\metre}}
+	\tkzDrawLine({1,-1},{6.5,-1})
+	\tkzLabelLine[pos=-1, below]({1,-1},{6.5,-1}){Solo}
+
+	\tkzDrawPoints(M,C,T,R)
+	
+	\tkzLabelPoints[left](M)
+	\tkzLabelPoints[below](C)
+	\tkzLabelPoints[above](T)
+	\tkzLabelPoints[right](R)
+	\end{tikzpicture}
+\end{document}

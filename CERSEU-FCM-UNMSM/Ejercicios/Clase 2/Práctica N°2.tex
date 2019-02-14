@@ -1,0 +1,81 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{amsthm}
+\author{Carlos Alonso Aznarán Laos}
+\title{Curso de \LaTeX \\ Práctica  N$ ^{\circ}$2}
+\newtheorem{ejer}{Ejercicio}%Va en el preámbulo del documento (se llama declaración)
+
+\begin{document}
+\maketitle %todos los entornos empiezan con un begin y acaban en un end, generar documento maestro
+\begin{ejer}
+Raíces, fracciones y exponentes\\
+$\sqrt[n]{\frac{a}{b}} = (\frac{{a}}{{b}})^\frac{1}{n} = \frac{a^{\frac{1}{n}}}{b^{\frac{1}{n}}} = \frac{\sqrt[n]{a}}{\sqrt[n]{b}}$
+\end{ejer}
+
+\begin{ejer}
+Uso del entorno gather
+\begin{equation*}
+x^{y}=a
+\end{equation*}
+
+\end{ejer}
+
+\begin{ejer}
+Letras griegas, sombreros y sumatoria
+\begin{displaymath}
+n^{-1}\sum^{n}_{i=1}{y_{i}- \hat{\beta}_{0} - \hat{\beta}_{1}
+x_{i}}=0
+\end{displaymath}
+\begin{displaymath}
+\bar{y}=\hat{\beta}_{0}+\hat{\beta}_{1}\bar{x},\end{displaymath}
+\end{ejer}%
+donde $\bar{y}=n^{-1}\sum^{n}_{i=1}y_{1}$ es la muestra promedio de $y_{i}$ e igualmante por $\bar{x}$.
+\begin{ejer}
+Ecuaciones: uso de entorno equation y entorno cases
+\begin{equation*}
+|x| =
+\begin{cases}
+a & \text{if $a\ge 0$}\\
+-a & \text{if $a< 0$}
+\end{cases}
+\end{equation*}
+
+\end{ejer}
+
+\begin{ejer}
+Uso del entorno equation y entorno split
+\begin{equation*}
+a = b\; + c\; + d
+\begin{split}
+e-f
+\end{split}
+\end{equation*}
+\end{ejer}
+\begin{ejer}
+Uso del entorno gather
+\begin{equation*}
+a
+\end{equation*}
+\end{ejer}
+\begin{ejer}
+Uso del entorno align
+\end{ejer}
+\begin{ejer}
+Matrices
+\begin{equation*}
+Dado\;que
+\end{equation*}
+\end{ejer}
+\begin{ejer}
+
+\end{ejer}
+\begin{thebibliography}{9}
+\end{thebibliography}
+\end{document}
+

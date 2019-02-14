@@ -1,0 +1,40 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%%  Mathematiksatz mit LaTeX
+%%  2. Auflage
+%% 
+%%  Beispiel 10-06-2 auf Seite 223.
+%% 
+%%  Copyright (C) 2012 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\AtBeginDocument{\setlength\parindent{0pt}}
+\StartShownPreambleCommands
+\usepackage{amsmath}\usepackage[sans]{dsfont}
+\StopShownPreambleCommands
+\begin{document}
+\begin{align*}
+  \sum_{i=n}^m a_i &= \sum_{j=n}^m a_j \tag{Indexumbenennung}\\
+  \sum_{i=n}^m a_i &= \sum_{i=n-l}^{m-l} a_{i+l} &\forall\, l\in\mathds{Z}{}
+	 \tag{Indexverschiebung},\\
+  \sum_{i=n}^m a_i+\sum_{i=m+1}^k a_i &= \sum_{i=n}^k a_i,
+                            &\text{sofern } n\le m<k,\\
+  \sum_{i=n}^m a_i+\sum_{i=n}^m b_i &= \sum_{i=n}^m (a_i+b_i),\\
+  \sum_{i=n}^m c\cdot a_i &= c\cdot\sum_{i=n}^m a_i & \forall\, c\in\mathds{R}{,}\\
+  \sum_{i=n}^m a_i \cdot\sum_{j=l}^k b_j &=
+                            \sum_{i=n}^m\sum_{j=l}^k a_i b_j
+\end{align*}
+\end{document}

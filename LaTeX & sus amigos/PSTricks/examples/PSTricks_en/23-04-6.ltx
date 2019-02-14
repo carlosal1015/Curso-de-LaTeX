@@ -1,0 +1,37 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 23-04-6 on page 357.
+%% 
+%%  Copyright (C) 2011 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{375.57637pt}
+\setlength\parindent{0pt}
+
+\usepackage{pstricks,pst-tree,pst-fr3d}
+\newcommand{\MyNode}[2]{%
+ \TR{\PstFrameBoxThreeD[FrameBoxThreeDOn=#2,FrameBoxThreeDColorHSB=0.2 0.8 0.5,
+    FrameBoxThreeDBrightnessDistance=0.2]{\textcolor{white}{#1}}}}
+\renewcommand{\psedge}[2]{\ncangle{#2}{#1}}
+
+\begin{document}
+\psset{angleB=-90,angleA=90,levelsep=2,treesep=3}
+\pstree{\MyNode{Jana}{true}}{%
+  \pstree{\MyNode{Felix}{true}}{%
+    \pstree{\MyNode{Beate}{false}}{%
+      \MyNode{Otto}{false}}
+    \MyNode{Waltraudt}{false}}
+  \MyNode{Herbert}{false}}
+\end{document}

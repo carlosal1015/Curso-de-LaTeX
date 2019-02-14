@@ -1,0 +1,34 @@
+%% 
+%%  An UIT Edition example
+%% 
+%%  Example 09-07-3 on page 172.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{375.57637pt}
+\AtBeginDocument{\setlength\parindent{0pt}}
+\def\arraystretch{0.5}
+\StartShownPreambleCommands
+\usepackage{braket,tabularx}
+\StopShownPreambleCommands
+\begin{document}
+\begin{tabularx}{\linewidth}{@{}XXX@{}}
+\[ \Bra{x\in\mathbf{R} | 0<|x|<\frac{5}{3}} \]
+  & \[ \Ket{x\in\mathbf{R} | 0<|x|<\frac{5}{3}} \]
+  & \[ \Braket{x\in\mathbf{R} | 0<|x|<\frac{5}{3}} \] \\[-4ex]
+\[ \Braket{x\in\mathbf{R} | 0<\vert x\vert <\frac{5}{3}} \]
+  & \[ \Set{x\in\mathbf{R} | 0<|x|<\frac{5}{3}} \]
+\end{tabularx}
+\end{document}

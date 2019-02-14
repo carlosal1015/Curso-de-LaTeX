@@ -1,0 +1,35 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 02-03-5 on page 33.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{153.70511pt}
+\setlength\parindent{0pt}
+
+\usepackage{multirow,bigstrut}
+
+\begin{document}
+\begin{tabular}{|l|r|c|}\hline
+  c1 r0 & c2 r0 & c3 r0\\
+  c1 r1 & c2 r1 &
+   \multirow{3}[6]{1.25cm}{c 3}\bigstrut\\\cline{1-1}
+  c1 r2 & c2 r2 & \bigstrut\\\cline{1-2}
+  c1 r3 & \multirow{2}[4]{1.25cm}{c 2} & \bigstrut\\
+    \cline{1-1}\cline{3-3}
+  c1 r4 &        & c3 r4\bigstrut\\\hline
+\end{tabular}
+\end{document}

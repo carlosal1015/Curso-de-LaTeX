@@ -1,0 +1,41 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 02-11-1 on page 65.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{177.70511pt}
+\setlength\parindent{0pt}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\usepackage{makecell}
+
+\begin{document}
+\begin{tabular}{|c|c|}\hline
+1st & \makecell{without parameter} \\\hline
+2nd & \makecell{without parameter\\
+                but on two lines}\\\hline
+3rd & \makecell[l]{horizontal left}   \\\hline
+4th & \makecell[l]{horizontal\\ left} \\\hline
+5th & \makecell[r]{horizontal right}  \\\hline
+6th & \makecell[r]{horizontal\\ right}\\\hline
+\end{tabular}\\[5pt]
+\begin{tabular}{|c|c|}\hline
+7th & \makecell[{}{p{3cm}}]{fixed width} \\\hline
+8th & \makecell[{}{p{3cm}}]{fixed\\width}\\\hline
+\end{tabular}
+\end{document}

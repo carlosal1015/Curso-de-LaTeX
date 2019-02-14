@@ -1,0 +1,60 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%%  
+%%  7. Auflage
+%% 
+%%  Beispiel 35-00-98 auf Seite 859.
+%% 
+%%  Copyright (C) 2016 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+%StartShownPreambleCommands
+\usepackage{pstricks}
+%StopShownPreambleCommands
+\begin{document}
+\newpsstyle{aStyle}{linecolor=red,fillstyle=solid,fillcolor=red!30}
+\newpsstyle{bStyle}{linecolor=green,fillstyle=solid,fillcolor=green!30}
+\newpsstyle{cStyle}{linecolor=blue,fillstyle=solid,fillcolor=blue!30}
+\makeatletter
+\def\psRTriangle{\pst@object{psRTriangle}}
+\def\psRTriangle@i(#1,#2){%
+  \addbefore@par{dimen=middle}%
+  \begin@SpecialObj
+  \pspolygon(0,0)(#1,0)(#1,#2)
+  \end@SpecialObj
+  \psframe[style=aStyle](!#1 dup neg)
+  \psframe[style=bStyle,origin={#1,0}](#2,#2)
+  \rput{!#2 #1 atan}(0,0){%
+    \psframe[style=cStyle](!#1 #2 Pyth dup)
+    \psarc(!#1 #2 Pyth dup){0.5}{180}{270}\psdot(!#1 #2 Pyth 0.2 sub dup)
+    \uput[90](!#1 #2 Pyth 2 div 0){c}\uput[180](!#1 #2 Pyth dup 2 div){c}}
+  \psarc(#1,0){0.5}{90}{180}\psdot(!#1 0.2 sub 0.2)
+  \psarcn(#1,0){0.5}{90}{0}\psdot(!#1 0.2 add 0.2)
+  \psarc(!#1 #2 add #2){0.5}{180}{270}\psdot(!#1 #2 add 0.2 sub #2 0.2 sub)
+  \psarc(0,0){0.5}{!#2 #1 atan}{!#2 #1 atan 90 add}\psdot(!#2 #1 atan rotate 0.2 0.2)
+  \psarcn(0,0){0.5}{0}{-90}\psdot(0.2,-0.2)
+  \psarc(!#1 dup neg){0.5}{90}{180}\psdot(!#1 0.2 sub dup neg)
+  \uput[200](0,0){A}\uput[45](#1,#2){B}\uput[-45](#1,0){C}
+  \uput[0](!#1 #2 2 div){a} \uput[-90](!#1 #2 2 div add 0){a}
+  \uput[-90](!#1 2 div 0){b}\uput[0](!0 #1 2 div neg){b}}
+\makeatother
+\begin{pspicture}(-2,-5)(14,7)
+\psRTriangle(3,2)
+\newpsstyle{cStyle}{fillstyle=solid,fillcolor=magenta!20!black!20}
+\rput(7,0){\psRTriangle[fillstyle=solid,fillcolor=yellow](5,1.5)}
+\end{pspicture}
+\end{document}

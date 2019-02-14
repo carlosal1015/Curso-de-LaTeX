@@ -1,0 +1,47 @@
+%% 
+%%  Example 01-14-1 
+%%  Copyright (C) 2017 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{328.62788pt}
+\usepackage[T1]{fontenc}
+\usepackage{kpfonts}
+%StartShownPreambleCommands
+\makeatletter
+\def\underbracket{%
+  \@ifnextchar[{\@underbracket}{\@underbracket [\@bracketheight]}}
+\def\@underbracket[#1]{%
+  \@ifnextchar[{\@under@bracket[#1]}{\@under@bracket[#1][0.4em]}}
+\def\@under@bracket[#1][#2]#3{%\message {Underbracket: #1,#2,#3}
+  \mathop{\vtop{\m@th \ialign {##\crcr $\hfil \displaystyle {#3}\hfil $%
+  \crcr \noalign {\kern 3\p@ \nointerlineskip }\upbracketfill {#1}{#2}
+     \crcr \noalign {\kern 3\p@ }}}}\limits}
+\def\upbracketfill#1#2{$\m@th \setbox \z@ \hbox {$\braceld$}
+  \edef\@bracketheight{\the\ht\z@}\bracketend{#1}{#2}
+    \leaders \vrule \@height #1 \@depth \z@ \hfill
+    \leaders \vrule \@height #1 \@depth \z@ \hfill \bracketend{#1}{#2}$}
+\def\bracketend#1#2{\vrule height #2 width #1\relax}
+\makeatother
+%StopShownPreambleCommands
+\begin{document}
+\begin{enumerate}
+\item \verb/\underbrace{...}/ is an often used command:
+\[ \begin{array}{rcl}
+    \underbrace{{x^{2}+2x+1}} & = & f(x)\\
+    \left(x+1\right)^{2}\,\,\,\nonumber
+   \end{array} \]
+\item Sometimes an under\emph{bracket} is needed, which can be used in
+  more ways than \verb/\underbrace{...}/.  An example for \verb/\underbracket{...}/:
+\[ \begin{array}{rcl}
+  \textrm{Hate Science  }& \underbracket[0.5pt]{1\rightarrow2\rightarrow3\rightarrow4}
+    \underbracket[0.75pt][0.75em]{\rightarrow5\rightarrow6\rightarrow7}
+    \underbracket[1pt][1em]{\rightarrow8\rightarrow9\rightarrow10} & \textrm{Love Science}\\
+ & \textrm{low}\hspace{1.5cm}\textrm{medium}\hspace{1.5cm}\textrm{high}
+ \end{array} \]
+\end{enumerate}
+\end{document}

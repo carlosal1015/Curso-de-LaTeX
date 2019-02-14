@@ -1,0 +1,25 @@
+\RequirePackage{ifxetex,ifluatex,ifpdf,dtklogos}
+%\ifxetex
+%  \usepackage{unicode-math}
+%  \usepackage{libertine}
+%  \setmathfont{TeX Gyre Pagella Math}
+%\else
+\ifluatex
+  \usepackage{fontspec}
+  \usepackage{unicode-math}
+  \usepackage{libertine}
+  \setmathrm{TeX Gyre Pagella Math}
+  \setmathtt{TeX Gyre Pagella Math}
+  \setmathsf{TeX Gyre Pagella Math}
+\else
+%\PassOptionsToPackage{scaled=0.82}{beramono}
+%\ifpdf   %% we have a latex or pdf run
+  \RequirePackage[T1]{fontenc}
+  \usepackage{libertine}
+%  \usepackage{beramono}
+%  \RequirePackage[de,expert,uprightgreek]{lucidabr}% für mathe
+%  \IfFileExists{lucbmath.sty}{\usepackage[de,expert,uprightgreek]{lucbmath}}{}% für mathe
+\fi%\fi
+
+\endinput
+

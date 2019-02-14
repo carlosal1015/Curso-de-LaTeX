@@ -1,0 +1,66 @@
+\documentclass{standalone}
+\usepackage[utf8x]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{PTSansNarrow}
+\usepackage[usenames,dvipsnames,x11names,table,svgnames]{xcolor}
+\usepackage{amsthm,mathtools,amsfonts}
+\usepackage{tikz}
+\usetikzlibrary{calc,babel,through,intersections,backgrounds}
+\newtheorem{prop}{Proposición}
+\setcounter{prop}{1}
+
+\begin{document}
+
+\begin{tikzpicture}[remark/.style = {line width = 1.125pt, opacity = .5}, scale=2]
+%Paso 1: Dibujar los puntos A, B, C y D.
+\coordinate[label = left:\textcolor{DarkBlue}{$\mathbf{A}$}] (A) at (0, 0);
+\coordinate[label = right:$\mathbf{B}$] (B) at (1.25, .15);
+\coordinate[label = above:$\mathbf{C}$] (C) at (2, 2.15);
+\coordinate[label = above:{$\mathbf{D}$}] (D) at ($(A)!.5!(B)!{2*sin(60)}!90:(B)$);
+\draw (A) -- (B) -- (C);
+
+%Paso 2: Dibujar la circunferencia H.
+\node[name path = H, label =135:$\mathcal{C}\colon\mathbf{H}$, draw, fill = yellow, opacity= 0.3, line width =1pt, circle through = (C)] at (B) {};
+
+%Paso 3: Trazar los segmentos DF y DE. 
+\draw[name path = D-F] (D) -- ($(D)!4!(B)$) coordinate[label = below:$\mathbf{F}$] (F);
+\draw[name path = D-E] (D) -- ($(D)!3.5!(A)$) coordinate[label = below:$\mathbf{E}$] (E);
+
+%Paso 4: Encontrar el punto de intersección G.
+\path[name intersections = {of = H and D-F, by = {[label = left:$\mathbf{G}$]G}}];
+
+%Paso 5: Dibujar la circunferencia K.
+\node[name path = K, label = left:$\mathcal{C}\colon\mathbf{K}$, draw, line width =1pt, circle through = (G)] at (D) {};
+
+%Paso 6: Encontrar el punto de intersección L.
+\path[name intersections = {of = K and D-E, by = {[label = below:\textcolor{DarkBlue}{$\mathbf{L}$}]L}}];
+
+%Paso 7: Resaltar los segmentos congruentes BC y AL.
+\draw[remark, line width =1pt, DarkCyan] (B) -- (C);
+\draw[remark, line width =1pt, DarkMagenta] (A) -- (L);
+
+%Paso 8: Marcar los puntos A, B, C, D, L y G.
+\foreach \point in {A, B, C, D, L, G}{
+\fill[black, opacity =.5] (\point) circle[radius = 1.15pt];
+}
+%Paso 9: Enunciar el teorema. 
+\node[below, text width = 16cm, align = justify] at (0.5,-3.5){
+
+\begin{prop}[Euclides 300 A.C.]
+Para colocar una línea recta igual a una línea recta dada con un extremo en un punto dado.
+\end{prop}
+
+\begin{proof}[Ideas claves]
+Sea \textcolor{DarkBlue}{$\overline{BC}$} un segmento de recta y $\textcolor{DarkBlue}{\mathbf{A}}$ un punto exterior a ella. Llámese $\mathcal{C}\colon\mathbf{H}$ a la circunferencia de centro \textcolor{DarkBlue}{$\mathbf{B}$} y radio \textcolor{DarkBlue}{$BC$}, trácese el segmento $\overline{AB}$.\\[0.1cm]
+De la proposición I, halle el punto $\mathbf{D}$ (ayuda: construya dos circunferencias de radio \textcolor{DarkBlue}{$AB$} con centro en \textcolor{DarkBlue}{$\mathbf{A}$} y \textcolor{DarkBlue}{$\mathbf{B}$} respectivamente, la intersección será el punto en cuestión).
+\\[0.1cm]
+A continuación desde $\mathbf{D}$ trácese dos rectas que pasen por \textcolor{DarkBlue}{$\mathbf{B}$} y \textcolor{DarkBlue}{$\mathbf{A}$} respectivamente. El punto de intersección con la circunferencia $\mathcal{C}\colon\mathbf{H}$ será llamado $\mathbf{G}$.
+\\[0.1cm]
+Con centro en $\mathbf{D}$ trácese la circunferencia $\mathcal{C}\colon\mathbf{K}$ de radio $DG$. Luego, el punto $\mathbf{L}$ es la intersección de $\mathcal{C}\colon\mathbf{K}$ y el segmento $\overline{DE}$. Así obtenemos los segmentos $\overline{BC}\cong\overline{AL}$.
+\end{proof}
+
+};
+\end{tikzpicture}
+
+\end{document}

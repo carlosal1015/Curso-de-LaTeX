@@ -1,0 +1,41 @@
+%% 
+%%  Der Mathematiksatz mit LaTeX, 1. Auflage 2009
+%% 
+%%  fontDemo.tex
+%% 
+%%  Copyright (C) 2009 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+\newlength\Breite\setlength\Breite{\linewidth}
+\addtolength\Breite{-2\fboxsep}
+\addtolength\Breite{-2\fboxrule}
+\fbox{%
+\begin{minipage}{\Breite}
+\textbf{Theorem 1 (Residuum).}
+F\"ur eine in einer \textsf{punktierten Kreisscheibe} $D\backslash\{a\}$  analytische Funktion $f$ definiert man
+das \emph{Residuum} im Punkt $a$ als
+\[
+\mathop{\mathrm{Res}}\limits_{z=a}f(z) = \mathop{\mathrm{Res}}\limits_a f 
+  = \frac{1}{2\pi\mathrm{i}} \int\limits_C f(z)\,\mathrm{d}z,
+\]
+wobei $C\subset D\backslash\{a\}$ ein geschlossener Weg mit
+$ n(C,a)=1$ ist (z.\,B. ein entgegen dem Uhrzeigersinn durchlaufener Kreis).
+
+\medskip
+$\mathrm{A} \Lambda \Delta \nabla \mathrm{B C D} \Sigma \mathrm{E F} \Gamma \mathrm{G H I J} K L M N O
+    \Theta \Omega \mathrm{P} \Phi \Pi \Xi \mathtt{Q R S T} U V W X Y \Upsilon \Psi \mathrm{Z}$ 
+$\mathsf{ABCDabcd1234}$
+
+$a\alpha b \beta c \partial d \delta e \epsilon \varepsilon f \zeta \xi g \gamma h \hbar \iota i \imath j
+k \kappa l \ell \lambda m n \eta \theta \vartheta o \sigma \varsigma \phi \varphi \wp p
+\rho \varrho q r s t \tau \pi u \mu \nu v \upsilon w \omega \varpi $ 
+
+\boldmath$xyz \infty \propto \emptyset y=f(x)$ \unboldmath
+\hfill$\sum\int\prod\displaystyle~\prod\int\sum~
+ \textstyle\sum_a^b\int_a^b\prod_a^b~ \displaystyle\sum_a^b\int\limits_a^b\prod_a^b$
+\end{minipage}}

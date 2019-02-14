@@ -1,0 +1,54 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Beispiel 06-00-46 auf Seite 212.
+%% 
+%%  Copyright (C) 2010 H. Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+
+%%Run also: >>  << 
+% Show page(s) 1
+
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{355.65944pt}
+\setlength\parindent{0pt}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+
+\usepackage{datatool}
+\usepackage{eurosym,booktabs}
+\DTLsetseparator{;}
+\DTLsetnumberchars{}{,}
+\DTLsetdefaultcurrency{\texteuro~}
+\DTLloaddb{list}{data/data2d.csv}
+\DTLsort{nachname,vorname}{list}
+\DTLsumforkeys{list}{zuzahlen}{\soll}
+\DTLsumforkeys{list}{bezahlt}{\haben}
+
+\begin{document}
+\small\addtolength\tabcolsep{-1pt}
+\begin{tabular}{@{} r llll rr @{}}\toprule
+ID & Vorname & Nachname & Straße & Ort & zu zahlen & bezahlt \\\midrule
+\DTLforeach{list}{% definiere Listenelemente
+ \first=vorname,\last=nachname,\address=strasse,
+ \town=ort,\fee=zuzahlen,\paid=bezahlt}{%
+    \\ \theDTLrowi & \first & \last & \address & \town & \euro\, %
+       \DTLifcurrency {\fee} % wenn \fee eine Währungsangabe ist
+         {\DTLconverttodecimal{\fee}{\fee} % dann konvertiere nach decimal
+                                           % und speicher den Wert wieder in \fee
+           {\fee}} % gebe den Wert von \fee aus
+         {\fee}    % wenn keine Währung, dann nur ausgeben
+  & \euro\, \DTLifcurrency{\paid}% wenn \paid eine Währungsangabe ist
+    {\DTLconverttodecimal{\paid}{\paid}{\paid}} % dann konvertiere
+    {\paid}} \\\midrule                         % sonst Ausgabe von \paid
+& & & & & \DTLdecimaltocurrency{\soll}{\soll}\euro\,\soll& %
+\DTLdecimaltocurrency{\haben}{\haben}\euro\,\haben \\\bottomrule
+\end{tabular}
+\end{document}

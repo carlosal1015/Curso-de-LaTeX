@@ -1,0 +1,32 @@
+%% 
+%%  Example 07-05-3 
+%%  Copyright (C) 2017 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{328.62788pt}
+\setlength\parindent{0pt}
+\usepackage[T1]{fontenc}
+%StartShownPreambleCommands
+\usepackage{amsmath,xcolor}
+%StopShownPreambleCommands
+\begin{document}
+\begin{align}
+y &= 2x^2 -3x +5\nonumber\\
+  & \hphantom{= \ 2\left(x^2-\frac{3}{2}\,x\right. }%
+         \textcolor{blue}{%
+              \overbrace{\hphantom{+\left(\frac{3}{4}\right)^2- %
+                  \left(\frac{3}{4}\right)^2}}^{=0}}\nonumber\\[-11pt]
+  &= 2\left(\textcolor{red}{%
+        \underbrace{x^2-\frac{3}{2}\,x + \left(\frac{3}{4}\right)^2}}
+     \underbrace{-\left(\frac{3}{4}\right)^2 + \frac{5}{2}}\right)\\
+  &= 2\left(\qquad\textcolor{red}{\left(x-\frac{3}{4}\right)^2}
+     \qquad + \ \frac{31}{16}\qquad\right)\nonumber\\
+y\textcolor{blue}{-\frac{31}{8}}
+  &= 2\left(x\textcolor{cyan}{-\frac{3}{4}}\right)^2\nonumber
+\end{align}
+\end{document}

@@ -1,0 +1,60 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%%  Mathematiksatz mit LaTeX
+%%  2. Auflage
+%% 
+%%  Beispiel 04-11-1 auf Seite 63.
+%% 
+%%  Copyright (C) 2012 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle2}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\StartShownPreambleCommands
+\usepackage[T1]{fontenc}\usepackage{libertine}\usepackage[scaled=0.82]{beramono}
+\usepackage{graphicx,ifluatex,amsmath,booktabs}
+\StopShownPreambleCommands
+\begin{document}
+\newcommand\Lcs[2][]{\texttt{\textbackslash#2}}
+\def\starFN{\textsuperscript{*}}
+\begin{tabular}{@{} rc|rc @{}}\\\toprule
+\emph{Name} & \emph{Beisp.} & \emph{Name} & \emph{Beisp.} \\\midrule
+\Lcs{acute} &$\acute{a}$&
+\Lcs{bar}   &\includegraphics[scale=0.94]{images/bar}\\% $\bar{a}$ \tabularnewline
+\Lcs{breve} &$\breve{a}$ &
+\Lcs{check} &$\check{a}$ \tabularnewline
+\Lcs[amsmath]{dddot}\starFN &$\dddot{a}$&
+\Lcs{ddot}  &$\ddot{a}$\tabularnewline
+\Lcs{dot}   &$\dot{a}$&
+\Lcs{grave} &$\grave{a}$\tabularnewline
+\Lcs{hat}   &$\hat{a}$ &
+\Lcs{mathring}  &$\mathring{a}$\tabularnewline
+\Lcs{overbrace} &$\overbrace{a}$&
+\Lcs{overleftarrow} &$\overleftarrow{a}$\tabularnewline
+\Lcs{overleftrightarrow}\starFN & $\overleftrightarrow{a}$ &
+\Lcs{overline}  &$\overline{a}$\tabularnewline
+\Lcs{overrightarrow} &$\overrightarrow{a}$&
+\Lcs{tilde}     &$\tilde{a}$ \tabularnewline
+\Lcs{underbar}  &\ifluatex$\underbar{a}$\else$\underbar{$a$}$\fi&
+\Lcs{underbrace}&$\underbrace{a}$\tabularnewline
+\Lcs[amsmath]{underleftarrow}\starFN     & $\underleftarrow{a}$&
+\Lcs[amsmath]{underleftrightarrow}\starFN & $\underleftrightarrow{a}$\tabularnewline
+\Lcs{underline} &$\underline{a}$ &
+\Lcs[amsmath]{underrightarrow}\starFN & $\underrightarrow{a}$ \tabularnewline
+\Lcs{vec} &$\vec{a}$&
+\Lcs{widehat}  &$\widehat{a}$\tabularnewline
+\Lcs{widetilde}&$\widetilde{a}$ \\\bottomrule
+%\footnotetext{Nur mit dem Paket \nxLPack{amsmath}}
+\end{tabular}
+\end{document}

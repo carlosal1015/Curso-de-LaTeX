@@ -1,0 +1,31 @@
+%% 
+%%  Example 01-04-4 
+%%  Copyright (C) 2017 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{304.62788pt}
+\setlength\parindent{0pt}
+%StartShownPreambleCommands
+\usepackage{array,mathtools}
+%StopShownPreambleCommands
+\begin{document}
+\fboxsep=0pt
+\def\xstrut{\vphantom{\int\frac{x}{x}}}
+\[
+\begin{array}{rcl}
+\boxed{f(x)\xstrut} & \boxed{\xstrut=} & \boxed{\int\frac{\sin x}{x}\,\mathrm{d}x}
+\end{array}
+\]
+%
+\[
+\arraycolsep=1.4pt
+\begin{array}{rcl}
+\boxed{f(x)\xstrut} & \boxed{\xstrut=} & \boxed{\int\frac{\sin x}{x}\,\mathrm{d}x}
+\end{array}
+\]
+\end{document}

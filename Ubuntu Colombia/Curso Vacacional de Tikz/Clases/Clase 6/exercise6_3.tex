@@ -1,0 +1,33 @@
+\documentclass{article}
+\usepackage[utf8x]{inputenc}
+\usepackage[spanish]{babel}
+\spanishdatedel
+\usepackage{graphicx,float}
+\usepackage{tikz}
+\usetikzlibrary{graphdrawing,graphs,babel,arrows,calc,trees}
+\usegdlibrary{layered, circular, force}
+
+\begin{document}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[>=stealth, thick, rotate =90, green!75!black]
+\graph[spring layout, nodes = {circle, draw}, node distance = 2.5cm]{
+	1 ->[line width = 2pt, red] {2, 4}, % de vértices
+	2 -> {4,5},
+	3 -> {1,6},
+	4 -> {3,5,6,7},
+	5 -> 7,
+	7 -> 6
+};
+\begin{scope}{gray!75}
+\node[below] at ($(1)!.5!(2)$) {2};
+\node[left] at ($(2)!.5!(5)$) {10};
+\end{scope}
+\end{tikzpicture}
+\caption{Grafo con la librería force}
+\end{figure}
+\end{document}
+Grafo ponderado, tiene peso cada arista. Por ejemplo puede ser la probabilidad entre conexión de un grafo y otro.
+
+Los números son nodos etiquetados.

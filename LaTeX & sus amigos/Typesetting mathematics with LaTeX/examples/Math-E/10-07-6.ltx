@@ -1,0 +1,59 @@
+%% 
+%%  An UIT Edition example
+%% 
+%%  Example 10-07-6 on page 213.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{375.57637pt}
+\usepackage[utf8]{inputenc}
+\AtBeginDocument{\setlength\parindent{0pt}}
+\setcounter{equation}{14}
+\renewcommand\theequation{10.\arabic{equation}}
+\StartShownPreambleCommands
+\usepackage{amsmath}
+\makeatletter
+\@fleqntrue\let\old@mathmargin=\@mathmargin\@mathmargin=-1sp
+\let\oldmathindent=\mathindent\let\mathindent=\@mathmargin
+\newsavebox{\myendhook}     % for the tables
+\def\tagform@#1{{(\maketag@@@{\ignorespaces#1\unskip\@@italiccorr)}
+  \makebox[0pt][r]{%        % aligned after the line number
+    \makebox[0.5\textwidth][l]{\usebox{\myendhook}}}%
+  \global\sbox{\myendhook}{}% empty box
+}}
+\makeatother
+\StopShownPreambleCommands
+\begin{document}
+\sbox{\myendhook}{\footnotesize% save table
+\begin{tabular}{@{}ll}
+  $a_0$  & Bohr radius ($\mathrm{= 0{,}53\,\mbox{\AA}}$)\\
+  $e$    & elementary charge\\
+$N_{si}$ & number of silicium atoms\\
+         & per unit volume\\
+     $m$ & atom mass\\
+     $Z$ & atomic number
+\end{tabular}}
+%
+\begin{equation}
+\varepsilon = \frac{E\times 4\times\pi\times \varepsilon_{0}
+    \times a_0 \times \left( Z_i^{\frac{2}{3}} + Z_{Si}^{\frac{2}{3}}
+    \right)^{-\frac{1}{2}}} {Z_i\times Z_{Si}\times e^2\times\left(1+
+    \frac{m_i}{m_{Si}}\right)}\,;
+\end{equation}
+%
+\sbox{\myendhook}{abc}
+\begin{equation} a^2+b^2 = c^2 \end{equation}
+\begin{equation} z = 9 \end{equation}
+\end{document}

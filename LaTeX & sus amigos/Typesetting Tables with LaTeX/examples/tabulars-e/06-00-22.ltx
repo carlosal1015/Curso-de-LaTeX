@@ -1,0 +1,46 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 06-00-22 on page 190.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{201.70511pt}
+\setlength\parindent{0pt}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\usepackage{dcolumn,booktabs,ragged2e,rotating,nicefrac}
+\newcolumntype{C}{>{\footnotesize}c}
+\newcolumntype{N}{>{\footnotesize}l}
+\makeatletter\newcolumntype{B}[1]{>{\boldmath\DC@{.}{,}{#1}} c <{\DC@end}}\makeatother
+\newcolumntype{P}[1]{>{\footnotesize\RaggedRight\hspace{0pt}}p{#1}}
+\newcolumntype{d}[1]{D{.}{,}{#1}}
+\newcommand\mc[2]{\multicolumn{1}{#1}{#2}}
+
+\begin{document}
+\begin{tabular}{@{} d{4.0} d{2.0} d{2.1} B{2} d{2.1} @{\,\,} l@{}}\toprule
+\mc{@{}N}{Capacity} & \mc{N}{Power}
+  & \mc{P{4.5em}}{Acceleration 0\,\nicefrac{km}{h} to 100\,\nicefrac{km}{h}}
+  & \mc{>{\bfseries}P{4em}}{Maximum speed}
+  & \multicolumn{2}{P{4em}@{}}{Fuel consumption per 100\,km}\\
+\mc{@{}C}{cm$^3$} & \mc{C}{kW} & \mc{C}{s} & \mc{>{\bfseries}C}{\nicefrac{km}{h}}
+  & \multicolumn{2}{C@{}}{l}\\\cmidrule(r){1-1}\cmidrule(lr){2-2}\cmidrule(lr){3-3}
+                               \cmidrule(lr){4-4}\cmidrule(l){5-6}
+1288 & 37 & 22.7 & 133 & 8.6         \\ 1488 & 44 & 18.8 & 140 & 8.7 \\
+1688 & 55 & 13.7 & 155 & 9.4  & Super\\ 1985 & 66 & 11.7 & 165 & 9.9  & Super \\
+2274 & 80 &  9.8 & 178 & 10.1 & Super\\\bottomrule
+\end{tabular}
+\end{document}

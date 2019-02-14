@@ -1,0 +1,21 @@
+%% 
+%%  Example 01-16-2 
+%%  Copyright (C) 2017 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{110.31393pt}
+\usepackage[T1]{fontenc}
+\usepackage{kpfonts}
+%StartShownPreambleCommands
+\makeatletter
+\newcommand\foo{\mathop{\operator@font foo}\nolimits}
+\makeatother
+%StopShownPreambleCommands
+\begin{document}
+\[ \foo\limits_1^2 = x^2 \]
+\end{document}

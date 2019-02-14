@@ -1,0 +1,29 @@
+%% 
+%%  Example 02-04-1 
+%%  Copyright (C) 2016 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{328.62788pt}
+\setlength\parindent{0pt}
+%StartShownPreambleCommands
+\usepackage{amsmath}
+%StopShownPreambleCommands
+\begin{document}
+\begin{equation}
+\underline{A}=\left[\begin{array}{ccccccc}
+a_{11} & a_{12} & 0 & \ldots & \ldots & \ldots & 0\\
+a_{21} & a_{22} & a_{23} & 0 & \ldots & \ldots & 0\\
+0 & a_{32} & a_{33} & a_{34} & 0 & \ldots & 0\\
+\vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots\\
+\hdotsfor{7}\cr\vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \vdots\\
+0 & \ldots & 0 & a_{n-2,n-3} & a_{n-2,n-2} & a_{n-2,n-1} & 0\\
+0 & \ldots & \ldots & 0 & q_{n-1,n-2} & a_{n-1,n-1} & a_{n-1,n}\\
+0 & \ldots & \ldots & \ldots & 0 & a_{n,n-1} & a_{nn}
+\end{array}\right]
+\end{equation}
+\end{document}

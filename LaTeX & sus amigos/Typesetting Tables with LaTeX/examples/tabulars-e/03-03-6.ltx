@@ -1,0 +1,36 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 03-03-6 on page 124.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{177.70511pt}
+\setlength\parindent{0pt}
+\usepackage[utf8]{inputenc}
+
+\usepackage[table]{xcolor}
+\usepackage{booktabs} \arrayrulecolor{red}
+
+\begin{document}
+\begin{tabular}{@{}llr@{}}\toprule
+\multicolumn{2}{c}{Item}\\\cmidrule(r){1-2}\morecmidrules\cmidrule(r){1-2}
+Animal & Description & Price (\$)\\\arrayrulecolor{blue}\cmidrule(r){1-1}
+	\cmidrule[2pt](l{1em}r{1em}){2-2}\cmidrule(l){3-3}
+Gnat  & per gram   & 13.65 \\              & each       &  0.01 \\\addlinespace[2ex]
+Gnu   & stuffed    & 92.50 \\\midrule  Emu & stuffed    & 33.33 \\\specialrule{2pt}{1ex}{1ex}
+Armadillo & frozen &  8.99 \\\arrayrulecolor{green}\bottomrule
+\end{tabular}
+\end{document}

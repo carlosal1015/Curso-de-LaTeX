@@ -1,0 +1,54 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%%  
+%%  7. Auflage
+%% 
+%%  Beispiel 35-00-35 auf Seite 833.
+%% 
+%%  Copyright (C) 2016 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+%StartShownPreambleCommands
+\usepackage[dvipsnames,x11names]{pstricks}
+\usepackage{multido}
+\usepackage{pstricks-add}
+%StopShownPreambleCommands
+\begin{document}
+\psset{unit=2mm}
+\begin{pspicture}(-0.5,-0.5)(50,20)
+\psaxes[Dx=10,Dy=5,ticksize=-3pt]{->}(0,0)(-0.5,-0.5)(50,20)
+\pstVerb{
+	/gg 9.82 def
+	/v0 20 def
+	/c0w 0.2 def
+	/costhetac c0w v0 mul gg div 2 div neg def
+	/sinthetac costhetac dup mul neg 1 add sqrt def
+	/thetac sinthetac costhetac atan def
+	/x2 gg c0w div def
+}%
+\multido{\nn=1+1}{15}{%
+\parametricplot[linecolor=Red1,plotpoints=200,linewidth=0.5pt,plotstyle=line]{0}{60}%
+  [/theta \nn\space 5 mul def
+   /x1 theta sin v0 mul def
+   /x2 theta cos v0 mul def ]%
+  { /tt t DegtoRad c0w div def
+    /zz tt x1 mul tt dup mul gg mul 2 div sub def
+    t sin x2 mul c0w div zz
+    zz 0 lt { /ps@Exit true def } if }%
+}%
+\end{pspicture}
+\end{document}

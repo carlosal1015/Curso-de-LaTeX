@@ -1,0 +1,84 @@
+%% 
+%%  An UIT Edition example
+%% 
+%%  Example 03-07-1 on page 30.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{375.57637pt}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\setcounter{equation}{35}
+\renewcommand\theequation{3.\arabic{equation}}
+\usepackage{amsmath,esint,array,esvect}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\def\Q#1#2{\frac{\partial #1}{\partial #2}}
+\def\half{\frac{1}{2}}
+\def\vvec#1{\vv{#1}}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\<{\negthickspace}
+\newcommand*\TT{\boldsymbol{\mathsf{T}}}
+\def\DD{\boldsymbol{\mathsf{D}}}
+\StopShownPreambleCommands
+\begin{document}
+The conservation principles for mass, torque, and energy can be given in
+differential or integral form:
+\setlength\jot{15pt}
+
+\begin{description}
+\item[Differential form]
+\begin{align}
+\begin{aligned}
+  \Q{\varrho}{t}+\mathrm{div}(\varrho\vv{v}) &= 0 \\
+  \varrho\Q{\vv{v}}{t}+(\varrho\vv{v}\times\nabla)\vv{v}   &= \vv{f}_0+\mathrm{div}\TT=\vv{f}_0
+	-\mathrm{grad}p+\mathrm{div}\TT' \\
+  \varrho T\frac{\diff s}{\diff t}               &= \varrho\frac{\diff e}{\diff t}
+    -\frac{p}{\varrho}\frac{\diff\varrho}{\diff t}=-\mathrm{div}\vv{q}+\TT':\DD
+\end{aligned}
+\end{align}
+
+\item[Integral form]
+\begin{align}
+ \Q{}{t}\iiint\<\varrho\diff^3V+\oiint\varrho(\vv{v}\times\vv{v}ec{n})\diff^2A          &= 0\\
+ \Q{}{t}\iiint\<\varrho\vv{v}\diff^3V+\oiint\varrho\vv{v}(\vv{v}\times\vv{n}\,)\diff^2A &=
+        \iiint\<f_0\diff^3V+\oiint\vv{n}\times T\diff^2A \\
+ \Q{}{t}\iiint\<\left(\half v^2+e\right)\varrho\diff^3V+\oiint\left(\half v^2+e\right)
+        \varrho\left(\vv{v}\times\vv{n}\,\right)\diff^2A                                & =\\
+ \multispan2{\hfill${\displaystyle-\oiint\left(\vv{q}\times\vv{v}ec{n}\right)\diff^2A+
+         \iiint\<\left(\vv{v}\times\vv{f}_0\right)\diff^3V+\oiint\left(\vv{v}
+         \times\vv{n}~\TT\right)\diff^2A}$}.\nonumber
+\end{align}
+\end{description}
+
+\def\QQ#1#2{\frac{\partial^2 #1}{\partial #2^2}}
+\def\ee#1{\vv{e}_{#1}}
+The $\nabla$ operator in Cartesian coordinates:
+%
+\[
+  \vv{\nabla}=\Q{}{x}\ee{x}+\Q{}{y}\ee{y}+\Q{}{z}\ee{z}~~,~~
+  \mathrm{grad}f=\vv{\nabla}f=\Q{f}{x}\ee{x}+\Q{f}{y}\ee{y}+\Q{f}{z}\ee{z}
+\]
+%
+\[
+  \mathrm{div}~\vv{a}=\vv{\nabla}\times\vv{a}=\Q{a_x}{x}+\Q{a_y}{y}+\Q{a_z}{z}~~,~~\nabla^2 f=\QQ{f}{x}+\QQ{f}{y}+\QQ{f}{z}
+\]
+%
+\[
+\mathrm{rot}~\vv{a}=\vv{\nabla}\times\vv{a}=
+  \left(\Q{a_z}{y}-\Q{a_y}{z}\right)\ee{x}+\left(\Q{a_x}{z}-\Q{a_z}{x}\right)\ee{y}+
+       \left(\Q{a_y}{x}-\Q{a_x}{y}\right)\ee{z}
+\]
+\end{document}

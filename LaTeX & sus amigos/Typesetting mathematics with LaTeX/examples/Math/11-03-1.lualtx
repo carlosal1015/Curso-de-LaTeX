@@ -1,0 +1,83 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%%  Mathematiksatz mit LaTeX
+%%  2. Auflage
+%% 
+%%  Beispiel 11-03-1 auf Seite 316.
+%% 
+%%  Copyright (C) 2012 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle2}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\StartShownPreambleCommands
+\usepackage{amsmath,fontspec,unicode-math,rotating,array,booktabs}
+\setmathfont[version=Cambria,math-style=TeX]{Cambria Math}
+\setmathfont[version=Asana,math-style=TeX]{Asana Math}
+\setmathfont[version=XITS,math-style=TeX]{XITS Math}
+\setmathfont[version=LM,math-style=TeX]{Latin Modern Math}
+\setmathfont[version=Lucida,math-style=TeX]{Lucida Math}
+\setmathfont[version=Euler,math-style=upright]{Neo Euler}
+\def\rb#1{\rlap{\rotatebox{40}{#1}}}
+\StopShownPreambleCommands
+\begin{document}
+\begin{tabular}{*6c}
+%\rb{Computer Modern} &
+\rb{Neo Euler} & \rb{Asana Math} & \rb{XITS Math} & \rb{Cambria Math} & \rb{Lucida Math} & \rb{LM Math}\\\toprule
+%$\sqrt[a]{b}$  &
+\mathversion{Euler}%\setmathfont[range=\mathit/{greek,Greek}]{XITS Math}
+    $\displaystyle\sqrt[a]{b}$
+                                   & \mathversion{Asana}$\displaystyle\sqrt[a]{b}$
+                                   & \mathversion{XITS}$\displaystyle\sqrt[a]{b}$
+                                   & \mathversion{Cambria}$\displaystyle\sqrt[a]{b}$
+                                   & \mathversion{Lucida}$\displaystyle\sqrt[a]{b}$
+                                   & \mathversion{LM}$\displaystyle\sqrt[a]{b}$\\
+
+%$\sqrt[\uproot{10}a]{b}$           &
+\mathversion{Euler}%\setmathfont[range=\mathit/{greek,Greek}]{XITS Math}
+$\sqrt[\uproot{10}a]{b}$
+                                   & \mathversion{Asana}$\displaystyle\sqrt[\uproot{10}a]{b}$
+                                   & \mathversion{XITS}$\displaystyle\sqrt[\uproot{10}a]{b}$
+                                   & \mathversion{Cambria}$\displaystyle\sqrt[\uproot{10}a]{b}$
+                                   & \mathversion{Lucida}$\displaystyle\sqrt[\uproot{10}a]{b}$
+                                   & \mathversion{LM}$\displaystyle\sqrt[\uproot{10}a]{b}$\\
+
+%$\sqrt[\leftroot{10}a]{b}$         &
+\mathversion{Euler}%\setmathfont[range=\mathit/{greek,Greek}]{XITS Math}
+$\sqrt[\leftroot{10}a]{b}$
+                                   & \mathversion{Asana}$\displaystyle\sqrt[\leftroot{10}a]{b}$
+                                   & \mathversion{XITS}$\displaystyle\sqrt[\leftroot{10}a]{b}$
+                                   & \mathversion{Cambria}$\displaystyle\sqrt[\leftroot{10}a]{b}$
+                                   & \mathversion{Lucida}$\displaystyle\sqrt[\leftroot{10}a]{b}$
+                                   & \mathversion{LM}$\displaystyle\sqrt[\leftroot{10}a]{b}$\\
+
+%$\sqrt[\leftroot{10}\uproot{10}a]{b}$ &
+\mathversion{Euler}%\setmathfont[range=\mathit/{greek,Greek}]{XITS Math}
+$\sqrt[\leftroot{10}\uproot{10}a]{b}$
+                                   & \mathversion{Asana}$\displaystyle\sqrt[\leftroot{10}\uproot{10}a]{b}$
+                                   & \mathversion{XITS}$\displaystyle\sqrt[\leftroot{10}\uproot{10}a]{b}$
+                                   & \mathversion{Cambria}$\displaystyle\sqrt[\leftroot{10}\uproot{10}a]{b}$
+                                   & \mathversion{Lucida}$\displaystyle\sqrt[\leftroot{10}\uproot{10}a]{b}$
+                                   & \mathversion{LM}$\displaystyle\sqrt[\leftroot{10}\uproot{10}a]{b}$     \\
+
+%$\displaystyle\int\limits_1^\infty\frac1{\alpha^2}\mathrm d\alpha$ &
+   \mathversion{Euler}$\displaystyle\int\limits_1^\infty\frac1{\alpha^2}\mathrm d\alpha$
+                                   & \mathversion{Asana}$\displaystyle\int\limits_1^\infty\frac1{\alpha^2}\mathrm d\alpha$
+                                   & \mathversion{XITS}$\displaystyle\int\limits_1^\infty\frac1{\alpha^2}\mathrm d\alpha$
+                                   & \mathversion{Cambria}$\displaystyle\int\limits_1^\infty\frac1{\alpha^2}\mathrm d\alpha$
+                                   & \mathversion{Lucida}$\displaystyle\int\limits_1^\infty\frac1{\alpha^2}\mathrm d\alpha$
+                                   & \mathversion{LM}$\displaystyle\int\limits_1^\infty\frac1{\alpha^2}\mathrm d\alpha$  \\\bottomrule
+\end{tabular}
+\end{document}

@@ -1,0 +1,13 @@
+run the examples with pdflatex or latex
+
+All examples with an ps in the file extension
+must be run with latex->dvips->ps2pdf
+
+The file extension .???crop has no further meaning,
+it was only needed for the book production.
+Commands like \AtBeginDocument, \setlength, aso are
+often also without a special meaning and only valid
+for the book production.
+
+If you find in an example two \documentclasses commands,
+then simply delete one. 

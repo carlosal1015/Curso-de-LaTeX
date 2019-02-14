@@ -1,0 +1,23 @@
+%% 
+%%  Example 01-11-1 
+%%  Copyright (C) 2017 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{86.31393pt}
+
+%StartShownPreambleCommands
+\usepackage{amsmath}
+%StopShownPreambleCommands
+\begin{document}
+\begin{align*}
+a & \rightarrow b\\
+  & \hphantom{\rightarrow} b\\
+  & \mkern\thickmuskip\hphantom{\rightarrow}\mkern\thickmuskip b\\
+  & \mathrel{\hphantom{\rightarrow}} b
+\end{align*}
+\end{document}

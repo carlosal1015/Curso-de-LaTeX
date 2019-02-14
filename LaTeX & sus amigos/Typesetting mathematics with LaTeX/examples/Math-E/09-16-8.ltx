@@ -1,0 +1,47 @@
+%% 
+%%  An UIT Edition example
+%% 
+%%  Example 09-16-8 on page 185.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{375.57637pt}
+\AtBeginDocument{\setlength\parindent{0pt}}
+\setcounter{equation}{17}
+\renewcommand\theequation{9.\arabic{equation}}
+\StartShownPreambleCommands
+\usepackage{amsmath,gauss}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\setlength\arraycolsep{1.4pt}
+\renewcommand\rowmultlabel[1]{\left|\,#1\right.}
+\newcommand*\xstrut{\rule{0pt}{5ex}}
+\StopShownPreambleCommands
+\begin{document}
+\begin{equation}
+\renewcommand\arraystretch{1.8}
+\begin{gmatrix}
+ \dfrac{1}{C}\int i\times\diff t+L\times\dfrac{\diff i}{\diff t}
+               +R\times i\hfill &= & 0\\
+ \xstrut\dfrac{1}{C}\times i+L\times\dfrac{\diff ^2i}{\diff t^2}+
+     R\times\dfrac{\diff i}{\diff t}\hfill &= &0\\
+ \xstrut\dfrac{\diff ^2i}{\diff t^2}+\dfrac{R}{L}\times\dfrac{\diff i}{\diff t}+
+    \dfrac{1}{LC}\times i\hfill &= & 0\\
+ \xstrut\ddot{i}+\delta\dot{i}+\omega_0^2i\hfill & = &0
+ \rowops
+ \mult{0}{\mbox{differentiation}}  \mult{1}{:L\mbox{ and sorting}}
+ \mult{2}{\dfrac{R}{L}=\delta;\ \dfrac{1}{LC}=\omega_0^2}
+\end{gmatrix}
+\end{equation}
+\end{document}

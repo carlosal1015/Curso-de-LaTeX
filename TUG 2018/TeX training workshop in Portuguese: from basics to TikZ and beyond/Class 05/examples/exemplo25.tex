@@ -1,0 +1,38 @@
+% Não trabalhe com o PGF 1.16 no TeX Live 2018, mas funciona na versão anterior.
+% https://tex.stackexchange.com/questions/162808/area-between-curves-tikz
+\documentclass{standalone}
+\usepackage{pgfplots}
+% \pgfplotsset{compat=newest}	%	Please do not use this package, see https://tex.stackexchange.com/questions/139690/dos-and-donts-of-pgfplotssetcompat-newest
+\pgfplotsset{compat=1.15}
+\usepgfplotslibrary{fillbetween}
+\begin{document}
+	
+\pgfmathdeclarefunction{poly}{0}{%
+			\pgfmathparse{-x^3+5*(x^2)-3*x-3}%
+}
+	
+\begin{tikzpicture}
+	\begin{axis}[
+		axis y line = left,
+		axis x line = bottom,
+		xtick       = {-1.2,2,4.2},
+		xticklabels = {$a$,$\zeta$,$b$},
+		ytick       = {3},
+		yticklabels = {$f(\zeta)$},
+		samples     = 160,
+		domain      = -1.2:4.2,
+		xmin = -2, xmax = 5,
+		ymin = -5, ymax = 10,
+	]
+	
+	\addplot[name path=poly,black,thick,mark=none,stack plots=y] {poly};
+	\addplot[name path=line,gray,no markers,line width=1pt] {3};
+	\addplot fill between[ 
+	of = poly and line, 
+	split, % calculate segments
+	every even segment/.style = {orange!70},
+	every odd segment/.style  ={gray!60}
+	];
+	\end{axis}
+\end{tikzpicture}
+\end{document}

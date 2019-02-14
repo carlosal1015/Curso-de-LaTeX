@@ -1,0 +1,36 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 02-05-3 on page 25.
+%% 
+%%  Copyright (C) 2011 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{373.86667pt}
+\setlength\parindent{0pt}
+\usepackage[utf8]{inputenc}
+\newcommand\Largrfix[1]{\texttt{(#1)}}
+
+\usepackage{pstricks,pst-plot}
+
+\begin{document}
+\raggedright The reserved box, by definition, sits on the baseline of the current
+line of text, as you can see with this
+\psframebox[framesep=0]{%
+  \begin{pspicture}(-1,-0.5)(1.5,1)
+    \psaxes[labels=none]{->}(0,0)(-1,-1)(2,2)
+  \end{pspicture}}, whose \textbf{internal} origin may be somewhere completely
+different, even outside the box. In this example it is at \Largrfix{1,0.5},
+measured from the lower left corner of the box.
+\end{document}

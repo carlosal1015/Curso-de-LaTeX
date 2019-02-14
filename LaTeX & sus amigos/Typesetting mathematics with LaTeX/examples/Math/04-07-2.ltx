@@ -1,0 +1,54 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%%  Mathematiksatz mit LaTeX
+%%  2. Auflage
+%% 
+%%  Beispiel 04-07-2 auf Seite 53.
+%% 
+%%  Copyright (C) 2012 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle2}
+\pagestyle{empty}
+\setlength\textwidth{282.2524pt}
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs}
+\def\Lcs#1{\texttt{\textbackslash#1}}
+\AtBeginDocument{\setlength\parindent{0pt}}
+\StartShownPreambleCommands
+
+\StopShownPreambleCommands
+\begin{document}
+\begin{tabular}{@{} l|l @{}}\toprule
+\emph{Makro}  & \emph{Test}\tabularnewline\midrule
+\rule{0pt}{2.5ex} -- & $ABCDEFGHIJKLMNOPQRSTUVWXYZ$\\
+              & $abcdefghijklmnopqrstuvwxyz$\tabularnewline
+\Lcs{mathrm}  & $\mathrm{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$\\
+              & $\mathrm{abcdefghijklmnopqrstuvwxyz}$\tabularnewline
+\Lcs{mathit}  & $\mathit{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$\\
+              & $\mathit{abcdefghijklmnopqrstuvwxyz}$\tabularnewline
+%\Lcs{mathfrak} &
+%$\mathfrak{{ABCDEFGHIJKLMNOPQRSTUVWXYZ}}$
+%$\mathfrak{{abcdefghijklmnopqrstuvwxyz}}$\tabularnewline
+\Lcs{mathcal} & $\mathcal{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$\tabularnewline
+\Lcs{mathsf}  & $\mathsf{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$\\
+              & $\mathsf{abcdefghijklmnopqrstuvwxyz}$\tabularnewline
+%\Lcs{mathbb}${}^a$ & $\mathbb{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$\tabularnewline
+\Lcs{mathtt}  & $\mathtt{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$\\
+              & $\mathtt{abcdefghijklmnopqrstuvwxyz}$\tabularnewline
+\Lcs{mathbf}  & $\mathbf{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$\\
+              & $\mathbf{abcdefghijklmnopqrstuvwxyz}$\tabularnewline
+%\Lcs{mathds}${}^b$ & $\mathds{ABCDEFGHIJKLMNOPQRSTUVWXYZ}$\tabularnewline
+\bottomrule
+\end{tabular}
+\end{document}

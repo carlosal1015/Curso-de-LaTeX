@@ -1,0 +1,4 @@
+Nueva secci n	header_foot_title.tex	/^\\pagestyle{fancy}$/;"	s
+Segunda secci n	header_foot_title.tex	/^\\lipsum[1-10]$/;"	s
+Secci n de t tulo largo	document.tex	/^	\\begin{paracol}{2}[\\section{Sección de título largo}]$/;"	s
+Columnas dispares	document.tex	/^	\\end{paracol}$/;"	b

@@ -1,0 +1,36 @@
+%% 
+%%  Example 07-04-2 
+%%  Copyright (C) 2017 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{328.62788pt}
+\setlength\parindent{0pt}
+\usepackage[T1]{fontenc}
+%StartShownPreambleCommands
+\usepackage{amsmath}
+%StopShownPreambleCommands
+\begin{document}
+\begin{equation}
+\begin{array}{rcl}
+\underline{RS} & = & \left(\begin{array}{cccccccc}
+01 & a4 & 55 & 87 & 5a & 58 & db & 9e\\
+a4 & 56 & 82 & f3 & 1e & c6 & 68 & e5\\
+02 & a1 & fc & c1 & 47 & ae & 3d & 19\\
+a4 & 55 & 87 & 5a & 58 & db & 9e & 03\end{array}\right)\\
+\\
+\left(\begin{array}{c}
+  s_{i,0}\\  s_{i,1}\\  s_{i,2}\\  s_{i,3}
+\end{array}\right) & = & \underline{RS}\cdot
+\left(\begin{array}{c}
+  m_{8i+0}\\ m_{8i+1}\\ \cdots\\ m_{8i+6}\\ m_{8i+7}
+\end{array}\right)\\[\bigskipamount]
+S_{i} & = & \sum\limits_{j=0}^{3}s_{i,j}\cdot2^{8j}\qquad i=0,1,...,k-1\\[\medskipamount]
+S & = & \left(S_{k-1},S_{k-2},...,S_{1},S_{0}\right)
+\end{array}
+\end{equation}
+\end{document}

@@ -1,0 +1,55 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 36-00-110 on page 816.
+%% 
+%%  Copyright (C) 2011 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{201.70511pt}
+\setlength\parindent{0pt}
+
+\usepackage{pstricks-add,multido,amsmath}
+
+\begin{document}
+\psset{yunit=0.8,plotpoints=300}
+\begin{pspicture}(-1,-17.5)(9,1.5)%\psgrid
+\psline[linecolor=lightgray]{->}(3.5,1.2)(4.5,1.2)
+\uput[90](4,1.2){$c_1$}
+\psline[linecolor=gray]{->}(2.85,1.2)(1.85,1.2)
+\uput[90](2.35,1.2){$c_2$}
+\multido{\iA=0+1}{12}{
+ \rput(!0 1.5 \iA\space mul neg){%
+  \pscustom[linestyle=none,fillstyle=solid,fillcolor=lightgray!60]{%
+  \psplot[algebraic]{0}{7.854}{0.5*sin(2*x-\iA*Pi/6)+0.5*sin(2*x+\iA*Pi/6)}
+  \psplot[algebraic]{7.854}{0}{0}}
+  \psaxes[ticks=none,yAxis=false]{->}(0,0)(0,-0.5)(8.5,1)
+  \psplot[algebraic]{0}{7.854}{0.5*sin(2*x-\iA*Pi/6)+0.5*sin(2*x+\iA*Pi/6)}
+  \psplot[algebraic,linecolor=lightgray]{0}{7.854}{0.5*sin(2*x-\iA*Pi/6)}
+  \psplot[algebraic,linecolor=gray,linestyle=dashed]{0}{7.854}{0.5*sin(2*x+\iA*Pi/6)}
+  \psdot(0,0)
+  \psdot(!Pi 2 div 0)
+  \psdot(!Pi 0)
+  \psdot(!Pi 2 div 3 mul 0)
+  \psdot(!Pi 2 mul 0)
+  \psdot(!Pi 2 div 5 mul 0)}}
+\multido{\iA=-1+1}{11}{%
+  \uput[0](!8.5 1.5 \iA\space mul neg 3 sub){$\dfrac{\the\multidocount}{12}T$}}
+\uput[0](8.5,0){$t=0$}
+\psline{->}(0,-17.5)(0,1.5)
+\uput[90](0,1.5){$y$}
+\multido{\iA=1+1}{5}{%
+  \psline[linestyle=dashed](!\iA\space Pi mul 2 div 17.5 neg)(!\iA\space Pi mul 2 div 1.5)}
+\end{pspicture}
+\end{document}

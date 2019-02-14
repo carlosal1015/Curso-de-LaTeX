@@ -1,0 +1,10 @@
+Die Beispiele benötigen die ebenfalls hier vorhandenen
+Dokumentenklassen, die alle eine Endung .cls haben.
+Diese Beispielklassen müssen entweder in ein 
+TDS-kompatibles Verzeichnis kopiert werden oder im
+Dokumentenverzeichnis verbleiben. Im Allgemeinen
+können die Klassen auch durch die Standardklassen
+ersetzt werden, wenn die entsprechenden Pakete
+der Klassen selbst geladen werden.
+
+Version 2 / 2015-03-29

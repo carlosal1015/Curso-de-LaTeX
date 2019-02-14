@@ -1,0 +1,66 @@
+\documentclass[11pt]{standalone} % use larger type; default would be 10pt
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usetkzobj{all} %% om allerhande objecten te gebruiken zoals gradenboog...
+\usetikzlibrary{calc,intersections,through,backgrounds,snakes}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.8}
+\usepgfplotslibrary{statistics}
+\begin{document}
+ \begin{tikzpicture}
+ \begin{axis}%
+ [
+    anchor=center,  % sets axis anchor to the axis origin
+    grid=major, 
+    x=50mm,
+    y=50mm,
+    xmin=-1.1, xmax=1.1,
+    xtick={-1,0,1},   
+    minor xtick={-1,-0.9,...,1},
+    xminorgrids = true,
+    xlabel={\tiny $x$},
+    axis x line=middle,
+    ymin=-1.1, ymax=1.1,
+    ytick={-1,0,1},
+    minor ytick={-1,-0.9,...,1},
+    yminorgrids = true,
+    ylabel={\scriptsize $y$},
+    axis y line=middle,
+    no markers,
+    samples=100,
+    ]
+
+ \draw[blue] (axis cs:0,0) circle[radius=1];
+ \end{axis}     
+ \tkzDefPoint(0,0){A}
+ \tkzDrawCircle[R](A,5cm)
+ \tkzDefPoint[shift={(0,0)}](0:5.2){B}
+ \tkzDefPoint[shift={(0,0)}](50:5.2){C}
+ \tkzDefPoint[shift={(0,0)}](130:5.2){D}
+
+ \tkzDrawSegments[color = red, line width = 1pt](A,B A,C)
+ \tkzDrawSegments[color = blue, line width = 1pt](A,B A,D)
+
+
+ % Finds the intersections of segments and circle
+ \tkzInterLC[R](A,C)(A,5cm)\tkzGetSecondPoint{CC}
+ \tkzInterLC[R](A,D)(A,5cm)\tkzGetSecondPoint{DC}
+
+ % draw and label points
+ \tkzDrawPoints(A,CC,DC) \tkzLabelPoints(A,CC,DC)
+
+ \tkzMarkAngle[fill= blue,size=2.5cm, opacity=.4](B,A,D);
+ \tkzMarkAngle[fill= red,size=1.5cm, opacity=.7](B,A,C);
+
+ \tkzFindAngle(B,A,C) \tkzGetAngle{angleBAC}; 
+ \FPround\angleBAC\angleBAC{0}
+ \tkzLabelAngle[pos = 1](B,A,C){\angleBAC$^\circ$ };
+
+ \tkzFindAngle(B,A,D) \tkzGetAngle{angleBAD};
+ \FPround\angleBAD\angleBAD{0}
+ \tkzLabelAngle[pos = 2](B,A,D){\angleBAD$^\circ$ };    
+
+ \end{tikzpicture}
+\end{document}
+
+^{}

@@ -1,0 +1,36 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Beispiel 03-03-2 auf Seite 122.
+%% 
+%%  Copyright (C) 2010 H. Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+
+%%Run also: >>  << 
+% Show page(s) 1
+
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{170.59192pt}
+\setlength\parindent{0pt}
+\usepackage[utf8]{inputenc}% evtl. anpassen!
+
+\usepackage[table]{xcolor}
+\newcommand\Chline[1]{\arrayrulecolor{#1}%
+  \hline\arrayrulecolor{black}}
+\newcommand\Ccline[2]{\arrayrulecolor{#1}%
+  \cline{#2}\arrayrulecolor{black}}
+
+\begin{document}
+\begin{tabular}{l r r}\\\Chline{blue}
+marching band & AN & 9.80\\\hline
+presentation  & AN & 8.66\\\Ccline{red}{1-2}
+commity       & AN & 13.31\\\Ccline{blue}{2-3}
+\end{tabular}
+\end{document}

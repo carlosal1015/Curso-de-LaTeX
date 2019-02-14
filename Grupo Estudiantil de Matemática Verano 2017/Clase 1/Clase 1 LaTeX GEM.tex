@@ -1,0 +1,145 @@
+%
+% Clase 1 LaTeX GEM.tex -- a document for writing notes with GEM.
+%
+% Copyright © 2017 Oromion <caznaranl@uni.pe>
+%
+% This program is free software: you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
+%
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+%s along with this program.  If not, see <http://www.gnu.org/licenses/>.
+%
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage[usenames,dvipsnames,x11names,table,svgnames]{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=black,anchorcolor=black,citecolor=black]{hyperref}
+\usepackage{fancyhdr}
+
+\lhead{Curso de \LaTeX}
+\chead{Apuntes de clase}
+\rhead{Clase 1}
+\lfoot{\textit{Grupo Estudiantil de Matemática}}
+\cfoot{\thepage}
+\rfoot{31 de enero del 2017} % today
+\pagestyle{fancy}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=3cm]{geometry}
+\usepackage{lscape}
+\pagecolor{GreenYellow}
+\color{Sepia}
+
+\title{Apuntes de clases de \LaTeX{} Verano 2017}
+\author{Carlos Alonso Aznarán Laos}
+\date{31 de enero del 2017} %\today
+
+\setlength\parindent{0pt} % \noindent automático en todo el documento.
+
+\begin{document}
+
+\maketitle
+
+\section{Introducción al curso}
+
+\subsection{Expositor}
+
+Estudiante de matemática: Luis Felipe Villavicencio López.
+
+E-mail: \href{mailto:lvillavicenciol@uni.pe}{lvillavicenciol@uni.pe}
+
+\subsection{Organizador}
+
+Estudiante de matemática: Carlos Alonso Aznarán Laos.
+
+E-mail: \href{mailto:caznaranl@uni.pe}{caznaranl@uni.pe}
+
+\subsection{Horario}
+
+Sábado 28 de febrero: 10:00 A.M. (Primera Clase).
+
+Miércoles 1 de febrero: 4:00 P.M a 6:00 P.M. (Segunda clase).
+
+\subsection{Lugar}
+
+Sala del Centro de Estudiantes de la Facultad de Ciencias. (Primera clase).
+
+Sala de cómputo N$^{\circ} 1$ Tercer piso Facultad de Ciencias (Segunda clase).
+
+\pagebreak
+
+\begin{center}
+\section*{Primera clase}
+
+La extensión con la cual se guarda todo archivo en \LaTeX\\ se llama
+\texttt{.tex} y genera archivos \texttt{.pdf} por lo general.
+\end{center}
+
+\begin{verbatim}
+    \documentclass{article} % También puede estar dentro de las llaves: book,
+        letter, report, beamer.
+\end{verbatim}
+
+\flushleft{\texttt{$\backslash$usepackage[optional]\{obligatorio\}} \Bigg \} Preámbulo}\\
+\flushleft{\texttt{$\backslash$begin\ldots} \Bigg \} Cuerpo}
+\begin{verbatim}
+\end{document}
+\end{verbatim}
+
+Para digitar el caracter ``backslash'' ($\backslash$) se puede realizar usando la combinación de teclas \texttt{Alt + 92} o sino \texttt{Alt Gr + tecla ubicada al lado derecho del 0}.
+
+Para compilar basta con pulsar la tecla \texttt{F5}.
+
+Para realizar un comentario, se escribe primero \texttt{\%} y se usa con el propósito de hacer el código fuente más fácil de entender con vistas a su mantenimiento o reutilización.
+
+Estos son algunos de los paquetes más populares que se usan en \LaTeX{}:
+
+$\backslash$usepackage\{amsmath\}$\rightarrow  \int \iint \oint \sum$\\
+$\backslash$usepackage\{amssym\}$  \rightarrow \text{N}^{\circ}$\\
+$\backslash$usepackage\{amsthm\}$  \rightarrow \text{Teoremas, pruebas}$.
+
+Otros paquetes: Tikz, asymptote, graphicxs. Todos ellos paquetes de dibujos e inclusión de gráficos.
+
+\begin{verbatim}
+    \usepackage[spanish]{babel}
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \noindent % Omite la indentación o sangrado en una línea.
+    \setlenght\parindent{0} % Omite la indentación de todo el documento.
+\end{verbatim}
+
+Pulsar las teclas \texttt{Ctrl + e} para crear un nuevo entorno en TeXstudio 
+
+\begin{center}
+    \begin{verbatim}
+        \begin{}
+        \end{}    
+    \end{verbatim}    
+\end{center}
+
+Para crear un documento nuevo:
+
+\begin{center}
+    \begin{verbatim}
+        \documentclass[12pt,a4paper]{article}
+        \usepackage[spanish]{babel}
+        \usepackage[T1]{fontenc}
+        \usepackage[utf8x]{inputenc}
+        \institute
+        \author{Yo\\Tú}
+        \title{Título grandioso}
+        \date{\today}
+        \begin{document}
+        \maketitle
+        \end{document}
+    \end{verbatim}    
+\end{center}
+
+\end{document}

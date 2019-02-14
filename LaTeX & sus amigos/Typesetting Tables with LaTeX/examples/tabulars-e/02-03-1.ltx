@@ -1,0 +1,36 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 02-03-1 on page 31.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{177.70511pt}
+\setlength\parindent{0pt}
+
+\usepackage{multirow}
+
+\begin{document}
+\begin{tabular}{|l|l|l|}\hline
+  col1 row0 & col2 row0 & col3 row0\\
+  col1 row1 & col2 row1
+    & \multirow{3}{2cm}{col 3}\\\cline{1-1}
+  col1 row2 & col2 row2 & \\\cline{1-2}
+  col1 row3
+    & \multirow{2}{1cm}{col 2 and more text} &\\
+    \cline{1-1}\cline{3-3}
+  col1 row4 &        & col3 row4\\\hline
+\end{tabular}
+\end{document}

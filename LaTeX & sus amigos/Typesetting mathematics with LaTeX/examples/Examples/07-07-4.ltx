@@ -1,0 +1,57 @@
+%% 
+%%  Example 07-07-4 
+%%  Copyright (C) 2017 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{328.62788pt}
+\setlength\parindent{0pt}
+\usepackage[T1]{fontenc}
+\usepackage{kpfonts}
+%StartShownPreambleCommands
+\usepackage{amsmath}
+\makeatletter
+\@fleqntrue
+\let\old@mathmargin=\@mathmargin
+\@mathmargin=-1sp
+\let\oldmathindent=\mathindent
+\let\mathindent=\@mathmargin
+\newsavebox\myendhook % for the tabulars
+\def\tagform@#1{{(\maketag@@@{\ignorespaces#1\unskip\@@italiccorr)}
+  \makebox[0pt][r]{% after the equation number
+    \makebox[0.5\textwidth][l]{\usebox{\myendhook}}}%
+  \global\sbox\myendhook{}}}% empty box
+\makeatother
+\sbox{\myendhook}{%
+\footnotesize
+ \begin{tabular}{@{}ll}
+  $a_0$    & Bohrscher Radius ($\mathrm{= 0{,}53\,\mbox{\AA}}$)\\
+  $e$      & Elementarladung\\
+  $N_{si}$ & Anzahl der Siliziumatome\\
+           & pro Einheitsvolumen\\
+  $m$      & Atomgewicht\\
+  $Z$      & Kernladungszahl
+ \end{tabular}}
+%StopShownPreambleCommands
+\begin{document}
+text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text
+%
+\begin{equation}
+\varepsilon = \frac{E\cdot 4\cdot\pi\cdot\varepsilon_{0}\cdot a_0\cdot
+  \left(Z_i^{\frac{2}{3}}+Z_{Si}^{\frac{2}{3}}\right)^{-\frac{1}{2}}}{Z_i\cdot Z_{Si}
+  \cdot e2 \cdot\left(1+ \frac{m_i}{m_{Si}} \right)}\,;
+\end{equation}
+%
+\sbox\myendhook{abc}
+\begin{equation} a2+b2=c2 \end{equation}
+\begin{equation} z = 9 \end{equation}
+text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text
+text text text text text text text text text text text text text text
+\end{document}

@@ -1,0 +1,101 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%%  
+%%  7. Auflage
+%% 
+%%  Beispiel 35-00-31 auf Seite 831.
+%% 
+%%  Copyright (C) 2016 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+%StartShownPreambleCommands
+\usepackage{pstricks}
+%StopShownPreambleCommands
+\begin{document}
+\makeatletter
+\def\psYoungR{\pst@object{psYoungR}}
+\def\psYoungR@i{\@ifnextchar({\psYoungR@do}{\psYoungR@do(0,0)}}
+\def\psYoungR@do(#1)#2#3#4#5{%
+  \begin@ClosedObj
+  \pst@@getcoor{#1}%
+  \addto@pscode{%
+    \pst@coor
+    translate
+    /bornexpt  400 def
+    bornexpt neg 1 bornexpt{
+      /abscissept exch def
+    % x en m
+      /abscisse abscissept 2845 div def
+      /DistanceEcran #3 def
+      /EcartFentes #2 def
+      /largeurFentes #4 def
+      /lambdaR #5 def
+      /argumentDeg abscisse 180 mul largeurFentes mul DistanceEcran div def
+      /argumentRad argumentDeg 180 div Pi mul def
+      /sinCR argumentRad 0 eq {1} {argumentDeg lambdaR div sin argumentRad div lambdaR mul} ifelse def
+      180 EcartFentes mul abscisse mul lambdaR div DistanceEcran div cos dup mul
+      sinCR dup  mul mul
+      0
+      0
+      setrgbcolor 2 setlinewidth
+      abscissept -40  moveto abscissept 40 lineto stroke}
+    for }%
+  \end@ClosedObj\ignorespaces%
+}
+\def\psYoungRVB{\pst@object{psYoungRVB}}
+\def\psYoungRVB@i{\@ifnextchar({\psYoungRVB@do}{\psYoungRVB@do(0,0)}}
+\def\psYoungRVB@do(#1)#2#3#4{
+\begin@ClosedObj
+\pst@@getcoor{#1}%
+\addto@pscode{%
+\pst@coor
+ translate
+ /bornexpt  400 def
+ bornexpt neg 1 bornexpt{
+ /abscissept exch def
+ % x en m
+ /abscisse abscissept 2845 div def
+ /lambdaB 436e-9 def
+ /lambdaV 546e-9 def
+ /lambdaR 700e-9 def
+ /DistanceEcran #3 def
+ /EcartFentes #2 def
+ /largeurFentes #4 def
+ /argumentDeg abscisse 180 mul largeurFentes mul DistanceEcran div def
+ /argumentRad argumentDeg 180 div Pi mul def
+ /sinCR argumentRad 0 eq {1} {argumentDeg lambdaR div sin argumentRad div lambdaR mul}
+  ifelse def
+ /sinCV argumentRad 0 eq {1} {argumentDeg lambdaV div sin argumentRad div lambdaV mul}
+  ifelse def
+ /sinCB argumentRad 0 eq {1} {argumentDeg lambdaB div sin argumentRad div lambdaB mul}
+  ifelse def
+ 180 EcartFentes mul abscisse mul lambdaR div DistanceEcran div cos dup mul
+ sinCR dup  mul mul
+ 180 EcartFentes mul abscisse mul lambdaV div DistanceEcran div cos dup mul
+ sinCV dup  mul mul
+ 180 EcartFentes mul abscisse mul lambdaB div DistanceEcran div cos dup mul
+ sinCB dup  mul mul
+ setrgbcolor 2 setlinewidth
+  abscissept -40  moveto abscissept 40 lineto stroke}
+ for}
+\end@ClosedObj
+}
+\makeatother
+\begin{pspicture*}(-8.5,-1.5)(8.5,1.5)
+\psYoungRVB(0,0){50e-6}{2}{10e-6}
+\end{pspicture*}
+\end{document}

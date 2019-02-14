@@ -1,0 +1,136 @@
+%
+% Segunda Clase.tex -- a document for writing notes with GEM.
+%
+% Copyright © 2017 Oromion <caznaranl@uni.pe>
+%
+% This program is free software: you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
+%
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+%s along with this program.  If not, see <http://www.gnu.org/licenses/>.
+%
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage[utf8x]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage[shortlabels]{enumitem} % Paquete para enumeraciones.
+\usepackage{tikz}
+\usetikzlibrary{babel} % Evita conflictos con tikz y spanish.
+% opening
+\title{Segunda clase de \LaTeX}
+\author{Grupo Estudiantil de Matemática}
+\date{1 de febrero del 2017}
+\usepackage{graphicx} % Se emplea para insertar imágenes.
+
+\theoremstyle{theorem}
+\newtheorem{teo}{Teorema}[section]
+\theoremstyle{definition}
+\newtheorem{lema}{Lema}[section]
+\newtheorem{defi}{Definición}[section]
+\setlength\parindent{0pt}
+\pagecolor{BlueGreen}
+\color{Sepia}
+\begin{document}
+\maketitle
+
+Algún texto texto mucho texto.
+
+\begin{teo}
+	Sea \( f_i \colon \mathbb{R} \to \mathbb{R}^n \) una función vectorial de variable real.
+\end{teo}
+
+\begin{lema} 
+	Este lema no tiene sentido \( x^2+y^2=1 \). Luego tenemos 
+	\[ f(x)=\begin{cases} 5 & \mbox{ si } x<5 \\ 3 & \mbox{ si } x\ge5  \end{cases} \]
+\end{lema}
+
+\section{Fracciones}
+	
+El frac es para textos \( \frac{5}{4} \) vs \( \dfrac{5}{4} \) en línea y se ajusta automáticamente si es centrada o en línea.
+	
+\[ \frac{5}{4} \mbox{ comparada con } \dfrac{5}{4}  \]
+
+\section{Los paréntesis}
+	
+\[   \left(  \int^\int  \right)  \]
+\[ \left\lbrace \iint \right\rbrace \] 
+	  
+\[ \left. \int \right\rbrace ~~~ \left\lbrace \int \right. \]
+	 
+	 
+\[  f(x)=
+	\begin{cases}
+	x-1 & \mbox{ si } x<1 \\
+	x+1 & \mbox{ si } x>1 
+	\end{cases}
+\]
+	       
+	       
+\begin{itemize}
+	\item Cálculo Vectorial. % control + shift + i 
+	\item Análisis Numérico.
+	\item Análisis Complejo.
+	\item Análisis de Fourier.
+\end{itemize}
+	       
+\section{Matrices}
+
+\[
+	\begin{pmatrix}
+	2 & 3 & 4 \\ 
+	1 & 2 & 3
+	\end{pmatrix}
+\]
+
+\[
+	\begin{bmatrix}
+	2 & 3 & 4 \\ 
+	1 & 2 & 3
+	\end{bmatrix}
+\]
+
+\[
+	\begin{pmatrix}
+	2 \\
+	3 \\
+	4 
+	\end{pmatrix}
+\]
+
+\begin{tabular}{||l|c|r||}
+	\hline Nombre & Edad & Carrera \\ 
+	\hline Carlos & 21 & N2 \\ 
+	\hline Junior & 19 & N2 \\ 
+	\hline Cynthia & Muy joven & Ingeniería Física \\ 
+	\hline Jaime & Muy joven & Maravilloso \\ 
+	\hline\hline
+\end{tabular} 
+ 
+\begin{center}
+	\includegraphics[scale=0.5]{gem2016-2.png}
+\end{center}
+\( {\int }_{2}^{3}xdx \) 
+% Nota es posible que te genere error ya que la ubicación del archivo con el que fue creado no está en tu pc. Para solucionar este error, clic en asistentes, luego insertar gráfico, seleccionar el archivo y clic en OK. ¡Gracias!
+
+\section{Tikz}
+
+\begin{tikzpicture}
+	\draw[color=green, dotted] (0,0) -- (5,0);
+	\draw[draw=red, fill= blue!50, dashed] (5,3) circle(3);
+	\draw (1,2) node[left] { \( \mbox{ Este es un texto} \)};
+	                % right  Derecha 
+	                % above  Arriba 
+	                % below  Abajo
+	
+	\draw (3,6) node[left] { \( \int xdx \)};	
+\end{tikzpicture}
+
+\end{document}

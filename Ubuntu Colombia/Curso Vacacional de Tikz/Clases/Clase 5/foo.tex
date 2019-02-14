@@ -1,0 +1,9 @@
+\documentclass{article}
+\usepackage{tikz}
+\usetikzlibrary{datavisualization}
+
+\begin{document}
+\begin{tikzpicture}
+  \datavisualization [ scientific axes, visualize as scatter ] data [headline={x, y},read from file="datos.dat"];
+\end{tikzpicture}
+\end{document}

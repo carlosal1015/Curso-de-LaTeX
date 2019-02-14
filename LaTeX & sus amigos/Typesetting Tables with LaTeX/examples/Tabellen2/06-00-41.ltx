@@ -1,0 +1,97 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Beispiel 06-00-41 auf Seite 207.
+%% 
+%%  Copyright (C) 2010 H. Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+
+%%Run also: >>  << 
+% Show page(s) 1
+
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{355.65944pt}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+
+\usepackage{booktabs,paralist,dcolumn,ragged2e}
+\newenvironment{Vorteile}
+  {\hbox{}\vspace{-\baselineskip}\begin{compactitem}[$\oplus$]}
+  {\hbox{}\vspace{-\baselineskip}\end{compactitem}}
+\newenvironment{Nachteile}
+  {\hbox{}\vspace{-\baselineskip}\begin{compactitem}[$\ominus$]}
+  {\hbox{}\vspace{-\baselineskip}\end{compactitem}}
+\newcolumntype{v}[1]{>{\RaggedRight\hspace{0pt}}p{#1}}
+
+\begin{document}
+\sffamily\footnotesize
+\begin{tabular}{@{}v{1.4cm}*{2}{v{6.9cm}}@{}}\toprule
+Material & Vorteile & Nachteile \\\cmidrule(r){1-1}\cmidrule(rl){2-2}\cmidrule(l){3-3}
+Edelstahl
+  & \begin{Vorteile}
+    \item robust \item preisgünstig \item leicht zu verarbeiten
+    \item unterschiedliche Durchmesser und Längen im Handel erhältlich
+    \end{Vorteile}
+  & \begin{Nachteile}
+    \item nur inert bei geringen Temperaturen in Verbindung mit bestimmten Substanzen
+    \item Oxidationen der Oberfläche führen zu unsymmetrischen Peaks
+    \item Zersetzung durch Verunreinigungen der Legierungsform
+    \end{Nachteile} \tabularnewline\cmidrule(r){1-1}\cmidrule(rl){2-2}\cmidrule(l){3-3}
+Glas
+  & \begin{Vorteile}%
+    \item fast vollständig inert
+    \item durchsichtig, bessere Kontrolle der Packung auf Gleichmäßigkeit
+    \end{Vorteile}%
+  & \begin{Nachteile}%
+    \item aufwendige Reinigung der Säule
+    \item keine Analyse von aggressiver Fluoride möglich
+    \item leicht zerbrechlich
+    \item Knallgasexplosion beim Zerbrechen bei erhitzter Kapillare und
+          Wasserstoff als Trägergas
+    \end{Nachteile} \tabularnewline\cmidrule(r){1-1}\cmidrule(rl){2-2}\cmidrule(l){3-3}
+Nickel
+  & \begin{Vorteile}%
+    \item stabil
+    \item Analyse von empfindlichen Substanzen möglich, z\,.B. Steroide, Analgetica
+          und Barbiturate
+    \end{Vorteile}%
+  & \begin{Nachteile}%
+    \item nicht so inert wie Glassäulen
+    \end{Nachteile} \tabularnewline\cmidrule(r){1-1}\cmidrule(rl){2-2}\cmidrule(l){3-3}
+Kupfer
+  & \begin{Vorteile}%
+    \item leicht zu verarbeiten
+    \end{Vorteile}%
+  & \begin{Nachteile}
+    \item Oberfläche ist autoxydabel
+    \item Kupferoxid oxidiert organische Stoffe
+    \item ungeeignet wenn Sauerstoff im Trägergas vorhanden ist
+    \item aufwendiges Herstellungsverfahren
+    \end{Nachteile} \tabularnewline\cmidrule(r){1-1}\cmidrule(rl){2-2}\cmidrule(l){3-3}
+Teflon
+  & \begin{Vorteile}
+    \item vollständig inert
+    \item Analyse von aggressiven Substanzen möglich
+    \end{Vorteile}
+  & \begin{Nachteile}
+    \item Material kann mikroporös sein, Spurenelemente der Außenluft rufen negative
+          Effekte bei der Analyse hervor
+    \end{Nachteile} \tabularnewline\cmidrule(r){1-1}\cmidrule(rl){2-2}\cmidrule(l){3-3}
+Silizium
+  & \begin{Vorteile}
+    \item fast vollständig inert
+    \item nahezu unbegrenzte Rohstoffreserven
+    \item autoxydable Bildung von nativen Siliziumdioxiden
+    \end{Vorteile}
+  & \begin{Nachteile}
+    \item zerbrechlicher als Metalle
+    \end{Nachteile} \tabularnewline\addlinespace\bottomrule
+  \end{tabular}
+\end{document}

@@ -1,0 +1,38 @@
+\documentclass{article}
+\usepackage{natbib}
+\renewcommand{\refname}{Additional reading}
+\begin{document}
+\title{01:  The simplest document}
+\author{Boris Veytsman}
+\date{TUG18 knitr workshop; July 2018\thanks{This work is licensed
+    under a Creative Commons Attribution 4.0 International License
+    (CC-BY)}}
+\maketitle
+
+<<iris-plot, eval=TRUE, message=TRUE>>=
+plot(iris)
+@ 
+
+\clearpage
+
+What happens at compilation?
+\begin{enumerate}
+\item R takes everything in chunks, makes calculations and puts the
+  result in place of the chunk.
+\item \TeX\ compiles the file.
+\end{enumerate}
+
+Chunk elements:
+\begin{enumerate}
+\item Chunk name:  \texttt{iris-plot}
+\item Chunk options, e.g. \texttt{eval=FALSE}, \texttt{message=TRUE},
+  etc.  
+\item Chunk contents.
+\end{enumerate}
+
+\nocite{KnitrManual, KnitrBook, KnitrPaper}  % To get references
+
+\bibliography{workshop}
+\bibliographystyle{plainnat}
+
+\end{document}

@@ -1,0 +1,36 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%%  
+%%  7. Auflage
+%% 
+%%  Beispiel 32-03-32 auf Seite 741.
+%% 
+%%  Copyright (C) 2016 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{145.16928pt}
+\setlength\parindent{0pt}
+%StartShownPreambleCommands
+\usepackage{pst-optexp}
+%StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}[showgrid](0,-0.3)(3,3.3)
+  \pnode(1,2.5){A}\pnode(2.5,1){B}
+  \psset{optboxsize=1 0.6}
+  \optbox[position=start](A)(B|A)
+  \optbox[position=end](B|A)(B)
+  \drawfiber[fiberstyle=angle, linearc=0.5]{1}{2}
+\end{pspicture}
+\end{document}

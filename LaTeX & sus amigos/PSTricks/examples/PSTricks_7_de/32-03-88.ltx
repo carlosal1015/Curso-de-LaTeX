@@ -1,0 +1,49 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%%  
+%%  7. Auflage
+%% 
+%%  Beispiel 32-03-88 auf Seite 779.
+%% 
+%%  Copyright (C) 2016 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{145.16928pt}
+%StartShownPreambleCommands
+\usepackage[dvipsnames]{pstricks}
+\usepackage{pst-perspective,pst-eucl}
+%StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}[showgrid](3,5)
+{\psset{base=-1,translineA,translineB,
+  transAcolor=red,transBcolor=blue}
+\pnodes(0,0){O}(0,1){Z}(4,0|Z){W1}
+\pstransTS[originT={Z}](3;60){A}{A'}}
+\pcline[linewidth=1.3pt](0,0|O)(3,0|O)
+\psdot(A)\uput{4pt}[90]{0}(A){A}
+\psdot[linecolor=brown](A')
+\uput{4pt}[45]{0}(A'){$\text{A}'$}
+\psdot(Z)\uput{4pt}[225]{0}(Z){$\text{Z}$}
+\psarc[linestyle=dashed,
+  linecolor=cyan](Z){3}{15}{100}
+\pcline[linecolor=cyan,linestyle=dashed](Z)(A)
+\naput[nrot=:U]{$r=3$}
+\pstMarkAngle[LabelSep=0.8,MarkAngleRadius=1.2,
+  linecolor=cyan,arrows=->]{W1}{Z}{A}{$60^{\circ}$}
+\pstMarkAngle[LabelSep=1.5,MarkAngleRadius=0.7,
+  linecolor=blue,arrows=->]{3,0}{A|O}{A'}%
+  {$\varphi=45^{\circ}$}
+\end{pspicture}
+\end{document}

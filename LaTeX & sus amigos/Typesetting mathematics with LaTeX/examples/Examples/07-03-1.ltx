@@ -1,0 +1,27 @@
+%% 
+%%  Example 07-03-1 
+%%  Copyright (C) 2017 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{328.62788pt}
+\setlength\parindent{0pt}
+\usepackage[T1]{fontenc}
+%StartShownPreambleCommands
+
+%StopShownPreambleCommands
+\begin{document}
+\begin{equation}
+\addtolength{\arraycolsep}{-3pt}
+I(z)=\delta_{0}\left\{
+  \begin{array}{lcrcl}
+    D+z & \quad & -D & \le z\le & -p\\
+    D-\frac{1}{2}\left(p-\frac{z^{2}}{p}\right) & \quad & -p & \le z\le & \phantom{-}p\\
+    D-z & \quad & p & \le z\le & \phantom{-}D
+  \end{array}\right.
+\end{equation}
+\end{document}

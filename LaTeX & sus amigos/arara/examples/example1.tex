@@ -1,0 +1,53 @@
+% arara: identifier: pdflatex
+% arara: name: PDFLaTeX
+% arara: authors;
+% arara:
+- Marco Daniel
+- Paulo Cereda
+% arara: command:ls
+% arara: command: "@{ return getCommand('ls') }"
+% arara: command: "@{ return 1 == 1}"
+% arara: command: "@{ return [ 'ls', 'ls', 'ls'] }"
+
+command: <arara> @{ return getCommand('ls') }
+command: >
+	@{
+		return command('ls')
+	}
+
+exit: value > 0
+
+commands:
+- name: The PDFLaTeX engine
+	command: >
+		@{
+			return getCommand('pdflatex', file)
+		}
+	exit: value == 0
+
+arguments: []
+
+identifier: shell
+
+flag: >
+	@{
+			isTrue(parameters.shell, '--shell-escape',
+						 '--no-shell-escape')
+	}
+
+default: ''
+
+required: false
+
+arguments:
+- identifier: shell
+	flag: >
+		@{
+				isTrue(parameters.shell,
+							'--shell-escape',
+							'--no-shell-escape')
+		}
+required: false
+default: ''
+
+key: value

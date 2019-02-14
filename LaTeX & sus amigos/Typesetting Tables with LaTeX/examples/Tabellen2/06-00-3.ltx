@@ -1,0 +1,54 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Beispiel 06-00-3 auf Seite 180.
+%% 
+%%  Copyright (C) 2010 H. Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+
+%%Run also: >>  << 
+% Show page(s) 1
+
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{355.65944pt}
+\setlength\parindent{0pt}
+\usepackage[utf8]{inputenc}
+
+\usepackage{array,booktabs}
+\newcounter{Platz}
+
+\begin{document}
+\begin{tabular}{@{}>{\ifnum\thePlatz>0 \thePlatz.\fi}r
+  l rrr c@{ :}c c<{\stepcounter{Platz}} @{}}\\
+\multicolumn{8}{c}{%
+   \bfseries\rule[-2ex]{0pt}{5ex}1.\,Fußballbundesliga Abschluss 1986/87}\\ \toprule
+\multicolumn{1}{@{}c}{}
+ & Verein             &  S &  U &  N &\multicolumn{2}{c}{Punkte}& Kommentar\\\midrule
+ & Bayern München     & 20 & 13 &  1 & 53 & 15 & Dt. Meister\\
+ & Hamburger SV       & 19 &  9 &  6 & 47 & 21 & Pokalsieger\\
+ & Bor. M'Gladbach    & 18 &  7 &  9 & 43 & 21 & Teilnehmer\\
+ & Bor. Dortmund      & 15 & 10 &  9 & 40 & 28 & am\\
+ & Werder Bremen      & 17 &  6 & 11 & 40 & 28 & UEFA\\
+ & Bayer Leverkusen   & 16 &  7 & 11 & 39 & 29 & Pokal\\\midrule
+ & 1.FC Kaiserslautern& 15 &  7 & 12 & 37 & 31 & \\
+ & Bayer Uerdingen    & 12 & 11 & 11 & 35 & 33 & \\
+ & 1.FC Nürnberg      & 12 & 11 & 11 & 35 & 33 & \\
+ & 1.FC Köln          & 13 &  9 & 12 & 35 & 33 & \\
+ & VfL Bochum         &  9 & 14 & 11 & 32 & 36 & Mittelfeld\\
+ & VfB Stuttgart      & 13 &  6 & 15 & 32 & 36 & \\
+ & Schalke 04         & 12 &  8 & 14 & 32 & 36 & \\
+ & Waldhof Mannheim   & 10 &  8 & 16 & 28 & 40 & \\
+ & Eintracht Frankfurt&  8 &  9 & 17 & 25 & 43 & \\\midrule
+ & FC Homburg         &  6 &  9 & 19 & 21 & 47 & Rel. St.Pauli\\\midrule
+ & Fortuna Düsseldorf &  7 &  6 & 21 & 20 & 48 & \\
+ & BW 90 Berlin       &  3 & 12 & 19 & 18 & 50
+    & \raisebox{1.5ex}[-1.5ex]{Absteiger}\\\bottomrule
+\end{tabular}
+\end{document}

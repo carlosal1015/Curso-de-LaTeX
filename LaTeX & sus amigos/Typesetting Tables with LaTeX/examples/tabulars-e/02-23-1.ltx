@@ -1,0 +1,37 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 02-23-1 on page 98.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{375.57637pt}
+\setlength\parindent{0pt}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\usepackage{tabularx,widetable}
+
+\begin{document}
+\begin{tabular*}{\linewidth}{|l|c@{\kern\tabcolsep\vrule\extracolsep{\fill}}c|}\hline
+column A & wider column B & longtable*\\\hline
+\end{tabular*}\par\bigskip
+\begin{tabularx}{\linewidth}{|l|X|X|}\hline
+column A & wider column B & tabularx\\\hline
+\end{tabularx}\par\bigskip
+\begin{widetable}{\linewidth}{|l|c|c|}\hline
+column A & wider column B & widetable\\\hline
+\end{widetable}
+\end{document}

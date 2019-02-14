@@ -1,0 +1,48 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Beispiel 02-07-4 auf Seite 55.
+%% 
+%%  Copyright (C) 2010 H. Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+
+%%Run also: >>  << 
+% Show page(s) 1,2
+
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{190.59192pt}
+\setlength\parindent{0pt}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage[paperheight=9.5cm, paperwidth=6.5cm, lmargin=5mm, rmargin=5mm,
+    bmargin=10mm,tmargin=15mm]{geometry}
+\AtBeginDocument{\small\pagestyle{headings}}
+\setcounter{page}{2}
+
+\usepackage{ctable}
+
+\begin{document}
+Hier kommt zur Demonstration ziemlich sinnloser Text vor der folgenden Tabelle,
+die wegen der \texttt{sideways}-Option auf einer eigenen Seite erscheinen wird.
+
+\ctable[sideways,maxwidth=\textheight,
+  caption=Eine Tabelle mit \texttt{\textbackslash ctable}]{@{}>{\ttfamily}l X@{}
+}{%
+  \tnote[*]{Eine Demonstration mit \texttt{\textbackslash ctable}.}%
+}{%
+\FL% FirstLine mit Standarddicke
+sideways\tmark[*] & Dreht die Tabelle entgegen (oneside) oder mit (twoside) dem
+    Uhrzeigersinn um 90 Grad und setzt sie auf eine eigene Seite. Die
+    \texttt{pos}-Option darf in diesem Fall nicht benutzt werden.\ML[0.1pt]% MidLine
+star     & Verwendet als Gleitumgebung die jeweilige Sternvariante, was nur im
+    \texttt{\textbackslash twocolumn}-Modus sinnvoll ist, um damit die Tabelle über
+    beide Spalten zu setzen.\LL[0.5pt]% LastLine
+}% Ende des Tabellenarguments
+\end{document}

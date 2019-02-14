@@ -1,0 +1,46 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 02-04-8 on page 43.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{201.70511pt}
+\setlength\parindent{0pt}
+\usepackage[utf8]{inputenc}
+\AtBeginDocument{\setbox0\hbox{$ $}}
+
+\usepackage{blkarray}
+\BAtablenotestrue
+
+\begin{document}
+\begin{blockarray}{|c||c|}
+   I\footnotetext[\textsc{sourceA:}]{Chicago Manual of Style.}
+ & II\footnote{Note on II. This is a particularly long footnote to demonstrate a line break
+    in the footnote.}\\
+   \begin{blockarray}{(ll)}
+     \footnotetext[\textsc{sourceB:}]{Chicago Manual of Style.}
+     \footnotetext[\textsc{noteA:}]{The statement above is incorrect.}
+     left column--1 & left--2 \\
+     left--3\footnote{Footnote on left-3.} & left--4\\
+   \end{blockarray} & \begin{blockarray}{(ll)}
+     \footnotetext[\textsc{sourceC:}]{Chicago Manual of Style.}
+     \footnotetext[\textsc{noteB:}]{The statement above is incorrect.}
+     right column--1 & right--2 \\
+     right--3\footnote{Footnote on right-3.} & right--4\\
+   \end{blockarray}\\
+ III\footnote{Note on THREE.} & IV \\
+\end{blockarray}
+\end{document}

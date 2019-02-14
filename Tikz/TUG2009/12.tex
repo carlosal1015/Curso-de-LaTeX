@@ -1,0 +1,14 @@
+\documentclass{standalone}
+\usepackage{tikz}
+
+\newcommand{\fig}{
+\begin{tikzpicture}
+\draw (-30pt,-30pt) rectangle (30pt,30pt);
+\fill[red] (0,0) circle (30pt);
+\fill[white] (0,0) circle (20pt);
+\fill[blue] (0,0) circle (10pt);
+\end{tikzpicture}
+}
+\begin{document}
+This is an example of an \fig in-line diagram.
+\end{document}

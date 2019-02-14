@@ -1,0 +1,108 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{201.70511pt}
+\setlength\parindent{0pt}
+
+\usepackage{pst-tree}
+\SpecialCoor
+\makeatletter
+\def\MyNodeA{\@ifnextchar[{\MyNodeA@i}{\MyNodeA@i[]}}
+\def\MyNodeA@i[#1]#2{\Tr[#1]{\psframebox{#2}}}
+\def\MyNodeB{\@ifnextchar[{\MyNodeB@i}{\MyNodeB@i[]}}
+\def\MyNodeB@i[#1]#2{\TR[#1]{\psframebox{#2}}}
+\def\MyNodeC{\@ifnextchar[{\MyNodeC@i}{\MyNodeC@i[]}}
+\def\MyNodeC@i[#1]#2#3{\Tr[#1]{\rnode[b]{#2}{\psframebox{#3}}}}
+\makeatother
+
+\begin{document}
+\psrotateleft{%
+\pstree[arrows={-*},arrowscale=2,nodesepB=0.1]{\MyNodeA[ref=b]{matrix package}}{%
+    \pstree[treesep=-2,levelsep=1.5] {\MyNodeC[ref=t]{Types}{matrix types}}{%
+        \psset{levelsep=0.8,labelsep=0.1}%
+        \def\pspred{Types}%
+        \MyNodeB[href=-0.4]{\Rnode[href=-0.4]{Dense}{dense matrices}}
+        \tlput[tpos=0.44]{0.7}
+        \skiplevels{1}
+            \MyNodeB{\Rnode{Sparse}{sparse matrices}}
+            \tlput[tpos=0.58]{0.3}
+        \endskiplevels
+        \pspolygon*([nodesep=3.3]{\pspred}Dense)(\pspred)([nodesep=2.8]{\pspred}Sparse)
+        \skiplevels{2}
+            \MyNodeB[href=0.3]{\Rnode[href=0.3]{Real}{real matrices}}
+            \tlput[tpos=0.65]{0.7}
+        \endskiplevels
+        \skiplevels{3}
+            \MyNodeB[href=0.3]{\Rnode[href=0.3]{Complex}{complex matrices}}
+            \tlput[tpos=0.7]{0.3}
+        \endskiplevels
+        \pspolygon*([nodesep=2.75]{\pspred}Real)(\pspred)([nodesep=2.3]{\pspred}Complex)
+        \skiplevels{4}
+            \MyNodeB[href=0.4]{rectangular matrices}
+        \endskiplevels
+        \psset{arrows={-o},tpos=0.78}%
+        \skiplevels{5}
+            \MyNodeB[href=0.4]{symmetric matrices}
+            \tlput[tpos=0.74]{0.3}
+        \endskiplevels
+        \skiplevels{6}
+            \MyNodeB[href=0.5]{diagonal matrices}
+            \tlput{0.3}
+        \endskiplevels
+        \skiplevels{7}
+            \MyNodeB[href=0.5]{triangular matrices}
+            \tlput{0.3}
+        \endskiplevels
+        \skiplevels{8}
+            \MyNodeB[href=1]{band matrices}
+            \tlput[labelsep=0]{0.1}
+        \endskiplevels
+        \tspace{6}\Tn%
+    }
+    \pstree[treesep=-3.5,levelsep=1.5]%
+      {\MyNodeC[ref=t]{Computation}{matrix computation types}}{%
+        \def\pspred{Computation}%
+        \MyNodeB[href=0.6]{factorizations}
+        \psset{levelsep=0.8,labelsep=0.05,tpos=0.8}%
+        \skiplevels{1}
+            \MyNodeB[href=-0.4]{%
+            \Rnode[href=-0.4]{Linear}{linear systems}}
+            \tlput[tpos=0.7]{0.3}
+        \endskiplevels
+        \skiplevels{2}
+            \MyNodeB[href=-0.6]{least squares}
+            \tlput[tpos=0.75]{0.2}
+        \endskiplevels
+        \skiplevels{3}
+            \MyNodeB[href=-0.6]{eigenvalues}
+            \tlput{0.2}
+        \endskiplevels
+        \skiplevels{4}
+            \MyNodeB[href=-0.8]{%
+            \Rnode[href=-0.8]{Iterative}{iterative methods}}
+            \tlput{0.2}
+        \endskiplevels
+        \pnode([nodesep=0.8]{\pspred}Linear){LinearB}
+        \pnode([nodesep=3.3]{\pspred}Iterative){IterativeB}
+        \pscustom*[arrows=-]{%
+            \psline(IterativeB)(\pspred)(LinearB)
+            \ncarc[arcangle=40]{LinearB}{IterativeB}%
+        }%
+    }%
+}}
+\end{document}

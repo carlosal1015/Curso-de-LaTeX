@@ -1,0 +1,58 @@
+%% 
+%%  An UIT Edition example
+%% 
+%%  Example 10-10-2 on page 223.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{375.57637pt}
+\AtBeginDocument{\setlength\parindent{0pt}}
+\StartShownPreambleCommands
+\usepackage{amsmath,amssymb}
+\makeatletter
+\def\resetMathstrut@{\setbox\z@\hbox{%
+  \mathchardef\@tempa\mathcode`\[\relax
+  \def\@tempb##1"##2##3{\the\textfont"##3\char"}%
+  \expandafter\@tempb\meaning\@tempa \relax}%
+  \ht\Mathstrutbox@\ht\z@ \dp\Mathstrutbox@\dp\z@}
+\makeatother
+\def\Active#1#2{\catcode`#2\active\bgroup\uccode`\~`#2\uppercase{\egroup #1~}}
+\def\Math #1#2{\mathcode`#2 "8000\bgroup\afterassignment\egroup \Active {#1}#2}
+\Math\def({\left(}        \Math\def){\right)}
+     \def\{{\left\lbrace}      \def\}{\right\rbrace}
+\StopShownPreambleCommands
+\begin{document}
+\[ (\frac{3}{4}) \{\frac{3}{4}\} \]
+
+\begin{align*}
+  & \left.
+  \begin{aligned}
+    r(x)=&\frac{a_{11}}{x-\lambda_1}+\frac{a_{12}}{(x-\lambda_1)^2}+\ldots+
+     \frac{a_{1n_1}}{(x-\lambda_1)^{n_1}}+\ldots\\
+  & +\frac{a_{r1}}{x-\lambda_r}+\frac{a_{r2}}{(x-\lambda_r)^2}+\ldots+
+     \frac{a_{rn_r}}{(x-\lambda_r)^{n_r}}+
+  \end{aligned} \}~\mathbb{R}\\
+  & \left.
+  \begin{aligned}
+    \phantom{r(x)=}
+  & +\frac{\alpha_{11}x+\beta_{11}}{x^2+A_1x+B_1}+\frac{\alpha_{12}x+
+    \beta_{12}}{(x^2+A_1x+B_1)^2}+\ldots+\frac{\alpha_{1m_1}x+
+    \beta_{1m_1}}{(x^2+A_1x+B_1)^{m_1}}+\ldots\\
+  & +\frac{\alpha_{s1}x+\beta_{s1}}{x^2+A_sx+B_s}+\frac{\alpha_{s2}x+
+     \beta_{s2}}{(x^2+A_sx+B_s)^2}+\ldots+
+     \frac{\alpha_{sm_s}x+\beta_{sm_s}}{(x^2+A_sx+B_s)^{m_s}}+\ldots
+  \end{aligned} \}~\mathbb{C}
+\end{align*}
+\end{document}

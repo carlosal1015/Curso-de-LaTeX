@@ -1,0 +1,41 @@
+%% 
+%%  Die DANTE-Edition
+%%  Ein Beispiel der LaTeX Referenz
+%%  3. Auflage
+%% 
+%% 
+%%  Copyright (C) 2013 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%StartShownPreambleCommands
+\usepackage{array,rotating}
+\usepackage[table,svgnames]{xcolor}  \rowcolors{2}{Peru}{Peru!50}
+\newcolumntype{B}{>{\bfseries}c}     \newcolumntype{T}{>{\ttfamily}l}
+\newcolumntype{R}[1]{>{\color{Crimson}\begin{turn}{#1}}l<{\end{turn}}}
+%StopShownPreambleCommands
+\begin{document}
+\begin{tabular}[b]{BTl}
+\multicolumn{1}{R{45}}{Abkürzung} & \multicolumn{1}{R{45}}{Bezugsspalte} &
+\multicolumn{1}{R{45}}{Parameter}\\\hline B & c & - \\ T & l & - \\ R & l & 1\\\hline
+\end{tabular} \qquad       \rowcolors{2}{Thistle}{Wheat}
+\begin{tabular}[b]{@{}BTl@{}}
+\multicolumn{1}{R{90}}{Abkürzung} & \multicolumn{1}{R{90}}{Bezugsspalte} &
+\multicolumn{1}{R{90}}{Parameter}\\ B & c & - \\ T & l & - \\ R & l & 1
+\end{tabular}
+\end{document}

@@ -1,0 +1,34 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 36-00-105 on page 813.
+%% 
+%%  Copyright (C) 2011 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{201.70511pt}
+\setlength\parindent{0pt}
+
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage{pst-solides3d}
+
+\begin{document}
+\psset{unit=0.5}
+\begin{pspicture}(-10,-4)(10,17)
+\psset{lightsrc=viewpoint,lightintensity=1,viewpoint=40 10 30 rtp2xyz,Decran=120}
+\axesIIID[showOrigin=true,linecolor=Orange](0,0,0)(7.5,6,6)
+\psSolid[object=octahedron,a=4.5]
+\psSolid[r=4.5,object=sphere,action=draw,ngrid=20 20]
+\end{pspicture}
+\end{document}

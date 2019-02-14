@@ -1,0 +1,48 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\usepackage[utf8]{inputenc}% adapt maybe
+\usepackage[paper=70mm:82mm,pagesize]{typearea}
+\setlength\parindent{0pt}
+\usepackage[ngerman]{babel}
+\usepackage{fancyhdr}
+\lhead{\small\texttt{\textbackslash caption}-Demo}
+\let\belowcaptionskip\abovecaptionskip
+\pagestyle{fancy}
+\setcounter{page}{1}
+\renewcommand\thepage{Seite \arabic{page}}
+
+\usepackage{longtable}
+
+\begin{document}
+\begin{longtable}{|c|}\hline
+Eine \texttt{longtable} ohne
+\texttt{\textbackslash caption}.\\\hline
+\end{longtable}
+\addtocounter{table}{-1}%%%%%
+
+\begin{table}
+\centering
+\caption{Eine Tabellenüberschrift mit
+         richtiger Zählung.}
+\begin{tabular}{|c|}\hline
+Eine normale Tabelle\\\hline
+\end{tabular}
+\end{table}
+\end{document}

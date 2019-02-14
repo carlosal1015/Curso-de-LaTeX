@@ -1,0 +1,38 @@
+%% 
+%%  An UIT Edition example
+%% 
+%%  Example 06-03-3 on page 89.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{177.70511pt}
+\AtBeginDocument{\setlength\parindent{0pt}}
+\setcounter{equation}{31}
+\renewcommand\theequation{6.\arabic{equation}}
+\StartShownPreambleCommands
+\usepackage{amsmath}
+\StopShownPreambleCommands
+\begin{document}
+\begin{gather}\label{eq:gather}
+\begin{gathered}
+ i_{11}=0.25\\
+ i_{21}=\frac{1}{3}i_{11}\\
+ i_{31}=0.33i_{22}\\
+ i_{41}=i_{11}+i_{22}
+\end{gathered}
+\end{gather}
+%
+A reference to Equation~\eqref{eq:gather}.
+\end{document}

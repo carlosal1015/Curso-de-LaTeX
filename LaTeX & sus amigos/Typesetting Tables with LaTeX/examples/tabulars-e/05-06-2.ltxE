@@ -1,0 +1,33 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 05-06-2 on page 176.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{201.70511pt}
+\usepackage[latin9]{inputenc}% adapt maybe
+\usepackage[T1]{fontenc}
+
+\usepackage{exceltex,booktabs}
+
+\begin{document}
+Reading of a table:\par\setlength\tabcolsep{2pt}
+\begin{tabular}{@{} *{16}{l} @{}}\toprule
+given name & surname & DOB & \multicolumn{13}{c@{}}{subjects}\\
+        &          &      &D &U &T &E &F &L &G &K &M &P &C &B &S\\\midrule
+\inctab{test.xls!Zeugnisliste!C2!R5}\bottomrule
+\end{tabular}
+\end{document}

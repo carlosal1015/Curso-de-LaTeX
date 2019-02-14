@@ -1,0 +1,47 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 06-00-44 on page 210.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{201.70511pt}
+\setlength\parindent{0pt}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\usepackage{booktabs}
+\usepackage{dcolumn}
+\newcommand\mc[1]{\multicolumn{1}{@{}c@{}}{#1}}
+\newcolumntype{x}{D{.}{.}{3.2}@{\kern1pt\%\kern10pt}}
+\newcolumntype{y}{D{.}{.}{3.1}@{\%\kern10pt}}
+
+\begin{document}
+\begin{tabular}{@{} r @{\kern2pt} yyy x y x yyy @{}}\toprule
+ &\mc{CSY} &\mc{Ezaki}  &\mc{Holz}&\mc{Maddison}&\mc{Wong}    &\mc{Chow}  &\mc{Wang}
+   &\mc{Scheibe}&\mc{IMF} \\
+ &\mc{}    &\mc{and Sun}&\mc{}    &\mc{}        &\mc{and Chan}&\mc{and Li}&\mc{and Yao}
+   &\mc{}       & \mc{}\\
+ &\mc{2006}&\mc{1999}   &\mc{2005}&\mc{2007}    &\mc{2003}    &\mc{2002}  &\mc{2003}
+   &\mc{2003}   & \mc{}\\\midrule
+1978 & 11.7 &\mc{} & 11.7 &  7.71 &\mc{} &  7.60 &  7.6 &  7.6 &\mc{} \\
+1979 &  7.6 &\mc{} &  7.6 &  3.37 &\mc{} &  7.81 &  7.8 &  7.6 &\mc{} \\
+1980 &  7.8 &\mc{} &  7.8 &  5.98 &\mc{} &  5.26 &  5.2 &  5.2 &  7.9 \\
+1981 &  5.2 &  5.2 &  5.2 &  7.52 &  5.3 &  9.01 &  9.1 &  9.1 &  4.7 \\
+1982 &  9.1 &  9.3 &  9.1 &  8.48 & 12.1 & 10.89 & 10.9 & 10.9 &  9.1 \\
+1983 & 10.9 & 11.2 & 10.9 & 12.45 &  9.6 & 15.18 & 15.2 & 15.2 & 10.9 \\\bottomrule
+% \mc{} in empty cells to prevent output of the % character
+\end{tabular}
+\end{document}

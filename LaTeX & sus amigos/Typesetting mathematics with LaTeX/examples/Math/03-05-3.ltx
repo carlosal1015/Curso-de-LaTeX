@@ -1,0 +1,51 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%%  Mathematiksatz mit LaTeX
+%%  2. Auflage
+%% 
+%%  Beispiel 03-05-3 auf Seite 30.
+%% 
+%%  Copyright (C) 2012 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\setcounter{equation}{26}
+\renewcommand\theequation{3.\arabic{equation}}\setlength\parindent{0pt}
+\setlength\parskip{1ex plus 0.2ex}
+\StartShownPreambleCommands
+\usepackage{color}
+\makeatletter
+\def\myMathBox{\@ifnextchar[{\my@MBoxi}{\my@MBoxi[black]}}
+\def\my@MBoxi[#1]{\@ifnextchar[{\my@MBoxii[#1]}{\my@MBoxii[#1][white]}}
+\def\my@MBoxii[#1][#2]#3#4{%
+  \par\noindent\fcolorbox{#1}{#2}{%
+     \parbox{\dimexpr\linewidth-1.5\labelwidth-2\fboxrule-2\fboxsep}{#3}}%
+  \parbox{1.5\labelwidth}{\begin{eqnarray}\label{#4}\end{eqnarray}}\par}
+\makeatother
+\StopShownPreambleCommands
+\begin{document}
+Ähnlich zum Zeilenmodus kann man auch abgesetzte Formeln einrahmen, allerdings
+müssen \ldots\ (Dies ist ein reiner Demonstrationstext für die Zeilenbreite)
+%
+\begin{equation}
+  f(x)=x^2 +x
+\end{equation}
+%
+\myMathBox[red]{ \[f(x)=x^2 +x \]}{eq:frame3}
+\myMathBox[red][yellow]{ \[f(x)=x^2 +x\] }{eq:frame4}
+\myMathBox{ \[f(x)=x^2 +x\] }{eq:frame5}
+\end{document}

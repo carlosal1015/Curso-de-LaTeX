@@ -1,0 +1,13 @@
+\documentclass{standalone}
+\usepackage[utf8x]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{tikz}
+\usetikzlibrary{babel,datavisualization}
+\begin{document}
+\begin{tikzpicture}
+%\datavisualization[scientific axes,visualize as scatter]
+%data[headline={x,y}, read from file = datos.csv]{;};%{datos.csv};
+\datavisualization [ scientific axes, visualize as scatter ] data [headline={x, y},read from file="datos.csv"];
+\end{tikzpicture}
+\end{document}
+https://tex.stackexchange.com/questions/198323/tikz-data-visualization-fails-to-load-data-from-file

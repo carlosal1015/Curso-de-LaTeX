@@ -1,0 +1,41 @@
+\documentclass{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{amsmath,amsfonts,amssymb}
+
+\usepackage{tikz}
+\usetikzlibrary{graphdrawing,graphs,babel,arrows,calc}
+\usegdlibrary{layered,circular,force,trees}
+
+\begin{document}
+\begin{figure}[ht]
+	\centering
+		\begin{tikzpicture}
+			\graph[layered layout, nodes={circle,draw}]{
+				1 -> {2,4},
+				2 -> {4,5},
+				3 -> {1,6},
+				4 -> {3,5,6,7},
+				5 -> 7,
+				7 -> 6
+};
+\end{tikzpicture}
+\caption{grafo simple}
+\end{figure}
+
+%\begin{figure}[ht]
+\begin{tikzpicture}[>=stealth,thick,rotate=90]
+\graph[nodes={circle,draw},node distance=2.5cm]{
+1->[line width=2pt,red]{2,4},
+2->{4,5},
+3->{1,6},
+4->{3,5,6,7},
+5->7,
+7->6
+};
+\end{tikzpicture}
+%\caption{grafo}
+%\end{figure}
+
+\end{document}

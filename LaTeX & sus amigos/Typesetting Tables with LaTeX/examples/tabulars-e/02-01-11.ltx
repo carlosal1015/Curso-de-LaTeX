@@ -1,0 +1,39 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 02-01-11 on page 24.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{375.57637pt}
+\setlength\parindent{0pt}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage{array,rotating}
+\newcolumntype{B}{>{\bfseries}c}
+\newcolumntype{T}{>{\ttfamily}l}
+\newcolumntype{R}[1]{>{\begin{turn}{#1}}l<{\end{turn}}}
+
+\begin{document}
+\begin{tabular}[b]{BTl}
+\multicolumn{1}{R{45}}{abbreviation} & \multicolumn{1}{R{45}}{reference column} &
+\multicolumn{1}{R{45}}{parameter}\\\hline B & c & - \\ T & l & - \\ R & l & 1\\\hline
+\end{tabular} \qquad
+\begin{tabular}[b]{@{}BTl@{}}
+\multicolumn{1}{R{90}}{abbreviated} & \multicolumn{1}{R{90}}{reference column} &
+\multicolumn{1}{R{90}}{parameter}\\ B & c & - \\ T & l & - \\ R & l & 1
+\end{tabular}
+\end{document}

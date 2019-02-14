@@ -1,0 +1,21 @@
+% http://pgfplots.net/tikz/examples/surface-plot-math/
+\documentclass[border=10pt]{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{width=7cm,compat=1.8}
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+  	 title={$x \exp(-x^2-y^2)$}, 
+   	 xlabel=$x$, ylabel=$y$,
+			small,
+	]
+
+\addplot3[
+		surf,
+		domain=-2:2,
+		domain y=-1.3:1.3,
+]
+	{exp(-x^2-y^2)*x};
+\end{axis}
+\end{tikzpicture}
+\end{document}

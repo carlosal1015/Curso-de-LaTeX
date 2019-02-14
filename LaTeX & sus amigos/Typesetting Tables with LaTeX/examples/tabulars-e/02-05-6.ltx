@@ -1,0 +1,37 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 02-05-6 on page 49.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{129.70511pt}
+\setlength\parindent{0pt}
+
+\usepackage{booktabs}
+
+\begin{document}
+\begin{tabular}{cccc}
+one& two& three& four\\\cmidrule{1-2}\cmidrule{3-4}
+one& two& three& four\\\cmidrule{1-1}\cmidrule{2-2}
+                        \cmidrule{3-3}\cmidrule{4-4}
+one& two& three& four\\\cmidrule(lr){1-2}\cmidrule(lr){3-4}
+one& two& three& four\\\cmidrule(lr){1-1}\cmidrule(lr){2-2}
+                        \cmidrule(lr){3-3}\cmidrule(lr){4-4}
+one& two& three& four\\\cmidrule(r){1-2}\cmidrule(l){3-4}
+one& two& three& four\\\cmidrule(r){1-1}\cmidrule(lr){2-2}
+                        \cmidrule(lr){3-3}\cmidrule(l){4-4}
+\end{tabular}
+\end{document}

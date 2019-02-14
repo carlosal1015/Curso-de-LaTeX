@@ -1,0 +1,72 @@
+\documentclass[10pt]{article}
+\usepackage[utf8x]{inputenc}
+\usepackage[spanish]{babel}
+\spanishdatedel
+\usepackage[demo]{graphicx}
+\usepackage{lipsum}
+\usepackage{lscape}
+\usepackage{tikz}
+\usepackage{fancyhdr}
+%El paquete fancydr Nos permite configurar el contenido de los pies de ṕágina.
+\lhead{Autor}
+\rhead{pág. \thepage}
+\chead{\includegraphics[scale=.01,height=.5cm]{demo}}
+\lfoot{\thesection}
+\cfoot{}
+\rfoot{\tikz \draw[magenta, opacity = 50] (0,0) circle[radius = 5pt];}
+
+\usepackage[lmargin = 2.5cm, rmargin = 1.5cm, top = 3cm, bottom =1cm, foot = 5mm, head =1.5cm, width = 10cm]{geometry}% includeheadfoot
+
+\renewcommand{\headrulewidth}{0pt} %Se elimina la línea del encabezado.
+\renewcommand{\footrulewidth}{.5pt}
+
+\author{Oromion}
+\title{Lección V2.2}
+\begin{document}
+\maketitle
+\begin{titlepage}
+\thispagestyle{empty}
+\newgeometry{hmargin = {1.5cm}, vmargin = {2cm}, nomarginpar, ignorefoot, ignorehead}
+\center
+\Huge{Título del libro}\\
+\Large{Subtítulo del libro}
+
+\vspace{3.5cm}
+
+\Large{Universidad}\\
+\small{Departamento}
+
+\vspace{5mm}
+
+\includegraphics[scale=.15]{example-image-a}
+
+\vspace{4cm}
+
+\begin{minipage}{.4\textwidth}
+	Autor: Nombre del autor\\
+	\small{Título del autor}
+\end{minipage}
+\hfill
+\begin{minipage}{.4\textwidth}
+	\flushright
+	Jurado: Nombre del jurado\\
+	\small{Título del jurado}
+\end{minipage}
+
+\vspace{2cm}
+
+\begin{tikzpicture}
+\draw[fill = magenta, opacity = .5] (0, .5) circle[radius =1];
+\draw[fill = cyan, opacity =.5](.5, 0) circle[radius =1];
+\draw[fill = yellow, opacity =.5](-.5,0) circle[radius =1];
+\end{tikzpicture}
+
+\vspace{4cm}
+
+\today
+\end{titlepage}
+\pagestyle{fancy}
+\section{Capítulo uno}
+\lipsum[1-12]
+\section{Nueva sección}
+\end{document}

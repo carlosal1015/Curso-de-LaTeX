@@ -1,0 +1,39 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 36-00-102 on page 811.
+%% 
+%%  Copyright (C) 2011 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{201.70511pt}
+\setlength\parindent{0pt}
+
+\usepackage{pst-solides3d}
+
+\begin{document}
+\psset{viewpoint=50 20 10 rtp2xyz,Decran=50}
+\psset{unit=0.75}
+\begin{pspicture}(-5,-5)(5,5)
+\psSolid[object=sphere,r=4,action=draw*,ngrid=9 9,resolution=720]%
+\defFunction[algebraic]{helicespherique}(t)%
+  {4*cos(10*t)*cos(t)}%
+  {4*sin(10*t)*cos(t)}%
+  {4*sin(t)}
+\psSolid[object=courbe,linecolor=blue,
+        resolution=720,range=pi -2 div pi 2 div,
+       function=helicespherique,r=0.05]
+%\gridIIID[Zmin=-4,Zmax=4](-4,4)(-4,4)
+\end{pspicture}
+\end{document}

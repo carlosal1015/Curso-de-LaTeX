@@ -1,0 +1,25 @@
+%% 
+%%  Example 07-03-4 
+%%  Copyright (C) 2017 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{328.62788pt}
+\setlength\parindent{0pt}
+\usepackage[T1]{fontenc}
+%StartShownPreambleCommands
+\usepackage{amsmath,bigdelim}
+%StopShownPreambleCommands
+\begin{document}
+\[
+\begin{array}{rc@{\qquad}c}
+\ldelim\{{2}{2.75cm}[some text here]     %%% ----- Martin -----
+  & x = 2\quad\text{if }y > 2  & \refstepcounter{equation}(\theequation)\\
+  & x = 3\quad\text{if }y \le 2& \refstepcounter{equation}(\theequation)
+\end{array}
+\]
+\end{document}

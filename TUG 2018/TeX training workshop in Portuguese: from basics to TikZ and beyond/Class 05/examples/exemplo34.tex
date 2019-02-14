@@ -1,0 +1,35 @@
+% !TeX document-id = {c2f8ccfe-6fe8-4f86-9a2b-c7b7673ef5e3}
+% !TeX TXS-program:compile = txs:///lualatex
+\documentclass{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.8}
+\usepackage{verbatim}
+\renewcommand*{\r}{(sin(4*u)^3 + cos(2*u)^3 + sin(6*v)^2 + cos(6*v)^4)}
+\begin{document}
+\begin{comment}
+Por favor compile com lualatex. Demora alguns minutos, seja paciente
+Exemplo do site
+https://texwelt.de/wissen/fragen/6952/kann-man-bei-pgfplots-die-argumente-trigonometrischer-funktionen-von-grad-auf-radiant-umstellen
+\end{comment}
+\begin{tikzpicture}
+  \begin{axis}[
+      view = {120}{310},
+      hide axis,
+      colormap = {flower}{
+        color(0cm)  = (yellow);       color(4cm)  = (yellow!70!red);
+        color(8cm)  = (red!60!black); color(12cm) = (red!90!black);
+        color(16cm) = (green);        color(20cm) = (green!20!black)},
+    ]
+    \addplot3[
+      surf,
+      z buffer = sort,  point meta = u,
+      domain   = 0:180, domain y   = 0:360,
+      samples  = 80,    samples y  = 80,
+      variable = \u,    variable y = \v
+    ]
+    ( { \r*sin(u)*cos(v) },
+      { \r*cos(u) },
+      { \r*sin(u)*sin(v) } );
+  \end{axis}
+\end{tikzpicture}
+\end{document}

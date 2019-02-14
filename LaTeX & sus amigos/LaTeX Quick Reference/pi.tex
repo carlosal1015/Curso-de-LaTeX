@@ -1,0 +1,13 @@
+% !TeX document-id = {d4502f82-cbd8-4fc8-a141-b57336452c7f}
+% !TeX TXS-program:compile = txs:///lualatex
+\documentclass{article}
+\usepackage[utf8]{luainputenc}
+\def\Length(#1,#2)(#3,#4){%
+\directlua{%
+	tex.print(math.sqrt((#4-#2)^2+(#3-#1)^2))}}
+\begin{document}
+$\pi/2=\directlua{tex.print(math.pi/2)}$
+
+El punto $A(4,1)$ y el punto $B(3.2,5.5)$ tiene \Length(4,1)(3.2,5.5) unidades de longitud.
+\end{document}
+

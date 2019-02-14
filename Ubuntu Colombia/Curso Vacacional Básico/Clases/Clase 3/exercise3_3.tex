@@ -1,0 +1,51 @@
+\documentclass{article}
+\usepackage[utf8x]{inputenc}
+\usepackage[spanish]{babel}
+\spanishdatedel
+\usepackage{lipsum}
+
+\newtheorem{definicion}{Definición}
+\newtheorem{obs}{Observación}[section] % Numeración continua en cada sección.
+\input{cajas.tex}
+\input{colores.tex}
+\title{Tomando el control de \LaTeX{}}
+\author{Oromion}
+\date{\today}
+\begin{document}
+\maketitle
+
+\section{Sección 1}
+
+\lipsum[1]
+
+\begin{definicion}
+\lipsum[1]
+\end{definicion}
+
+\begin{obs}
+Esta es una primera observación de la sección 1.
+\end{obs}
+
+\lipsum[1]
+
+\begin{definicion}
+\lipsum[1]
+\end{definicion}
+
+
+\begin{obs}
+Esta es una segunda observación de la sección 1.
+\end{obs}
+
+\section{Sección 2}
+
+\begin{obs}
+Primera observación de la sección 2.
+\end{obs}
+
+\begin{remark}{Nota importante}
+	\lipsum[1]
+\end{remark}
+
+\end{document}
+https://github.com/piratax007/LaTeX_Course/tree/2ad16f1eeef80f35ab7fdabca01b980f6a51a7c5/ejemplos/leccion_4

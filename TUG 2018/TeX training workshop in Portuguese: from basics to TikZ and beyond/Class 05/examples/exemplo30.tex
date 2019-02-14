@@ -1,0 +1,58 @@
+% !TeX document-id = {478201d8-e6ae-4552-a529-10f8a6073306}
+% !TeX TXS-program:compile = txs:///pdflatex/[--shell-escape]
+\documentclass[border=10pt]{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{width=7cm,compat=1.8}
+\usepackage{verbatim}
+\begin{document}
+\begin{comment}
+Por favor compile com pdflatex --shell-escape
+Exemplo do site
+http://pgfplots.net/tikz/examples/contour-and-surface/
+\end{comment}
+\begin{tikzpicture}
+  \begin{axis}[
+    domain=-2:2,
+    domain y=0:2*pi,
+  ]
+
+    \newcommand\expr[2]{exp(-#1^2) * sin(deg(#2))}
+
+    \addplot3[
+        contour gnuplot={
+            % cdata should not be affected by z filter:
+            output point meta=rawz,
+            number=10,
+            labels=false,
+        },
+        samples=41,
+        z filter/.code=\def\pgfmathresult{-1.6},
+    ]
+        {\expr{x}{y}};
+
+    \addplot3[
+        samples=41,
+        samples y=10,
+        domain=0:2*pi,
+        domain y=-2:2,
+        % we want 1d (!) individually colored mesh segments:
+        mesh, patch type=line,
+        x filter/.code=\def\pgfmathresult{-2.5},
+    ] 
+        (y,x,{\expr{y}{x}});
+
+    \addplot3[
+        samples=41,
+        samples y=10,
+        % we want 1d (!) individually colored mesh segments:
+        mesh, patch type=line,
+        y filter/.code=\def\pgfmathresult{8},
+    ] 
+        {\expr{x}{y}};
+
+    \addplot3[surf,samples=25]
+        {\expr{x}{y}};
+
+\end{axis}
+\end{tikzpicture}
+\end{document}

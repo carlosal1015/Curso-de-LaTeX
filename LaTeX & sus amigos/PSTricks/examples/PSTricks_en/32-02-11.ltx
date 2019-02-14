@@ -1,0 +1,40 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 32-02-11 on page 658.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{375.57637pt}
+\setlength\parindent{0pt}
+
+\usepackage{uml}
+
+\begin{document}
+\umlPackage[box=,subof=subof,stereotype=stereo,importedFrom=importedFrom,
+    comment=comment]{Package}{%
+  \umlDiagram[sizeX=7cm,sizeY=4cm,box=,ref=pack]{%
+    \umlClass[pos=\umlBottomLeft{pack},posDelta={2ex,2ex},refpoint=bl]{Book}{}{}
+    \umlClass[pos=\umlTopLeft{pack},posDelta={2ex,-2ex},refpoint=tl]{House}{}{}
+    \umlClass[pos=\umlTopRight{pack},posDelta={-2ex,-2ex},refpoint=tr]{Person}{}{}
+    \umlClass[pos=\umlBottomRight{pack},posDelta={-2ex,2ex},refpoint=br]{Author}{}{}
+    \umlAssociation{Book}{House}  \umlLabelB[refpoint=l]{BookHouse}{is in}
+    \umlAssociation{Book}{Person}\umlLabelA{BookPerson}{reads}
+    \umlSubclass{Author}{Person}  \umlAssociation{Book}{Author}
+    \umlLabelA[height=.5ex,refpoint=lb]{BookAuthor}{written}
+    \umlAssociation{House}{Person}\umlLabelA{HousePerson}{lives in}
+  }% end of \umlDiagram
+}% end of \umlPackage
+\end{document}

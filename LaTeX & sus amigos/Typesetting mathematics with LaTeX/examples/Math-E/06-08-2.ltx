@@ -1,0 +1,29 @@
+%% 
+%%  An UIT Edition example
+%% 
+%%  Example 06-08-2 on page 102.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{375.57637pt}
+\AtBeginDocument{\setlength\parindent{0pt}}
+\StartShownPreambleCommands
+\usepackage{amsmath}\newcommand\rV{\rule{5mm}{0.4pt}}
+\StopShownPreambleCommands
+\begin{document}
+\Large A\rV$\sqrt{\frac{x}{\lambda}}\rV\sqrt{\smash[b]{\frac{b}{\lambda}}}
+ \rV\sqrt{\smash[t]{\frac{t}{\lambda}}}\rV\sqrt{\smash[tb]{\frac{tb}{\lambda}}}
+ \rV\sqrt{\frac{b}{\lambda_{k_i}}}\rV\sqrt{\frac{b}{\smash[b]{\lambda_{k_i}}}}$\rV B
+\end{document}

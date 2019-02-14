@@ -1,0 +1,55 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 04-01-10 on page 134.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1,2
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{183.78818pt}
+\usepackage[utf8]{inputenc}% adapt maybe
+\usepackage[paper=70mm:85mm,pagesize]{typearea}
+\setlength\parindent{0pt}
+\usepackage[english]{babel}
+\usepackage{fancyhdr}
+\lhead{\small\texttt{\textbackslash caption} demo}
+\pagestyle{fancy}
+\setcounter{page}{1}
+\renewcommand\thepage{page \arabic{page}}
+
+\usepackage{longtable}
+
+\begin{document}
+Text without sense before the now inserted \texttt{longtable}.
+
+\begin{longtable}{@{}l c r p{1.5cm}@{}}
+L & C & R & box\\\hline
+\endfirsthead
+\multicolumn{4}{@{}l}{\small\ldots\emph{continued}}\\\hline
+L & C & R & box\\\hline
+\endhead
+\hline
+\multicolumn{4}{r@{}}{\small\emph{continued on the next page} \ldots}\\
+\caption{table caption}\\
+\endfoot
+\hline
+\\[-2ex]
+\caption{table caption}
+\endlastfoot
+l & c & r & 1st row\\ l & c & r & 2nd row\\ l & c & r & 3rd row\\
+l & c & r & 4th row\\ l & c & r & 5th row\\ l & c & r & 6th row\\
+l & c & r & 7th row\\ l & c & r & 8th row\\ l & c & r & 9th row\\
+l & c & r &10th row\\ l & c & r &11th row\\ l & c & r &12th row\\
+\end{longtable}
+\end{document}

@@ -1,0 +1,24 @@
+%% 
+%%  Example 02-07-2 
+%%  Copyright (C) 2016 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{134.31393pt}
+\setlength\parindent{0pt}
+%StartShownPreambleCommands
+\usepackage{amsmath,amssymb}
+\def\curvearrowleftright{%
+ \ensuremath{%
+  \mathaccent\curvearrowright{%
+   \mkern-5mu\curvearrowleft}}}
+%StopShownPreambleCommands
+\begin{document}
+\huge
+$\curvearrowleft\curvearrowright
+ \curvearrowleftright$
+\end{document}

@@ -1,0 +1,35 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Beispiel 01-01-5 auf Seite 6.
+%% 
+%%  Copyright (C) 2010 H. Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+
+%%Run also: >>  << 
+% Show page(s) 1
+
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{218.59192pt}
+\setlength\parindent{0pt}
+\setlength\textwidth{201.7051pt}
+
+
+
+\begin{document}
+\begin{tabular*}{\linewidth}%
+   {|l@{\extracolsep{\fill}}|l|l|}
+1 & 2 & 3 \\\hline A & B & C \\\hline
+\end{tabular*}\par\bigskip
+\begin{tabular*}{\linewidth}%
+   {|l|l|@{\extracolsep{\fill}}r|}
+1 & 2 & 3 \\\hline A & B & C \\\hline
+\end{tabular*}
+\end{document}

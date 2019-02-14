@@ -1,0 +1,37 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 04-04-1 on page 145.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{201.70511pt}
+\setlength\parindent{0pt}
+
+\usepackage{stabular}
+
+\begin{document}
+\begin{stabular}{lc}\\\hline
+1st & table row 1 \\\hline
+\emptyrow\hline
+3rd & table row 3 \\\hline
+\emptyrow[10pt]\hline
+5th & table row 5 \\\hline
+\tabrow{text}\hline
+7th & table row 7 \\\hline
+\tabrow{text}[5pt]\hline
+9th & table row 9 \\\hline
+\end{stabular}
+\end{document}

@@ -1,0 +1,49 @@
+DANTE Edition
+*** PSTricks ***
+7. Auflage 2016
+http://www.dante.de/index/Literatur/PsTricks.html
+
+Die Beispiele benötigen die ebenfalls hier vorhandenen
+Dokumentenklassen, die alle eine Endung .cls haben.
+Diese Beispielklassen müssen entweder in ein 
+TDS-kompatibles Verzeichnis kopiert werden oder im
+Dokumentenverzeichnis verbleiben. Im Allgemeinen
+können die Klassen auch durch die Standardklassen
+ersetzt werden.
+
+Dateiendung : Compiler
+==================================
+.ltx        : latex->dvips->ps2pdf
+.ltx1       : latex->dvips->ps2pdf
+.ltx2       : pdflatex
+.ltx2crop   : latex->dvips->ps2pdf
+.ltx4       : pdflatex
+.ltx5       : pdflatex
+.ltx6       : pdflatex
+.ltxb       : pdflatex
+.ltxps      : latex->dvips->ps2pdf
+.ltxverb    : pdflatex
+.xltxverb   : xelatex
+.lualtxverb : lualatex
+.lualtx     : lualatex
+.lualtx2    : lualatex
+.xinl       : xelatex
+.xltx       : xelatex
+.mp         : metapost
+.mp2        : metapost
+.mp3        : metapost
+.sh         : Shell
+.ctx        : context
+.ctxcrop    : context
+
+
+%% Copyright 2016- Herbert Voss
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in
+%   http://www.latex-project.org/lppl.txt
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2003/12/01 or later.
+

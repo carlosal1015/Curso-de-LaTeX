@@ -1,0 +1,31 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 33-03-38 on page 707.
+%% 
+%%  Copyright (C) 2011 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{201.70511pt}
+\setlength\parindent{0pt}
+
+\usepackage{pst-diffraction}
+
+\begin{document}
+\begin{pspicture}(-3.5,-1.5)(3.5,3.5)
+\psdiffractionCircular[IIID,r=0.5e-3,
+  f=10,pixel=0.5,lambda=520,
+  colorMode=0]
+\end{pspicture}
+\end{document}

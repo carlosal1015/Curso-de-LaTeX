@@ -1,0 +1,42 @@
+%% 
+%%  An UIT Edition example
+%% 
+%%  Example 03-06-4 on page 29.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{375.57637pt}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\setlength\parindent{0pt}
+\setlength\parskip{1ex plus 0.2ex}
+\StartShownPreambleCommands
+\usepackage{varwidth}
+\usepackage{calc}
+\StopShownPreambleCommands
+\begin{document}
+Similar to inline mode, displayed formulae can be framed, but have to be \ldots
+(This text is to illustrate the line width.)
+\begin{center}
+\fbox{\begin{varwidth}{\linewidth-2\fboxsep-2\fboxrule}
+\[ f(x)=\int\limits_1^{\infty}\frac{1}{x^2}\,\mathrm{d}x=1 \]
+\end{varwidth}}
+
+\fbox{\begin{varwidth}{\linewidth-2\fboxsep-2\fboxrule}
+\[ f(x)=\int\limits_1^{\infty}\frac{1}{x^2}\,\mathrm{d}x=1 \]
+\vspace{\belowdisplayshortskip}
+\end{varwidth}}
+\end{center}
+\end{document}

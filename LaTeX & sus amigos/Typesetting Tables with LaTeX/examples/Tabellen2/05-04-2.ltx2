@@ -1,0 +1,63 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Beispiel 05-04-2 auf Seite 173.
+%% 
+%%  Copyright (C) 2010 H. Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+
+%%Run also: >>  << 
+% Show page(s) 1,2
+
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{173.82971pt}
+\usepackage[utf8]{inputenc}% adapt maybe
+\usepackage[paper=70mm:90mm,pagesize]{typearea}
+\usepackage[utf8]{inputenc}% eventuell anpassen
+\areaset{50mm}{58mm}
+\usepackage[ngerman]{babel}
+\setlength\parindent{0pt}
+\newcommand\demoText{Theoretisch kann man die Definition der
+Tabellenumgebung auch erweitern und das
+\protect\texttt{\textbackslash need}-Makro  integrieren.
+Das Beispiel zeigt die ersten beiden Seiten eines Dokuments,
+wobei die erste Seite einen (ohne \protect\texttt{\textbackslash need})
+oder keinen  (mit \protect\texttt{\textbackslash need})
+Seitenumbruch aufweist.}
+\setlength\emergencystretch{1.5em}
+\usepackage{fancyhdr}
+\lhead{\small\texttt{need}-Demo}
+\pagestyle{fancy}
+\usepackage[ngerman]{babel}
+\setcounter{page}{1}
+\renewcommand\thepage{Seite \arabic{page}}
+
+\usepackage{supertabular}
+\makeatletter
+\newcommand\need[1]{\par \penalty-100 \begingroup % preserve \dimen@
+  \dimen@\pagegoal \advance\dimen@-\pagetotal % space left
+  \ifdim #1>\dimen@ % not enough space left
+%    only do \vfil if some space left on page
+     \ifdim\dimen@>\z@ \vskip -\pagedepth plus 1fil \fi
+     \break
+  \fi \endgroup}
+\makeatother
+
+\begin{document}
+\demoText% siehe anderes Beispiel
+\need{6\normalbaselineskip}
+\begin{center}
+\tablecaption{Überschrift}
+\tablehead{\hline Spalte1 & Spalte2 \\}
+\begin{supertabular}{|cl|cl|}\hline
+  yyy & xxx \\\hline yyy & xxx \\\hline yyy & xxx \\\hline
+\end{supertabular}
+\end{center}
+\end{document}

@@ -1,0 +1,35 @@
+%% 
+%%  Example 01-08-3 
+%%  Copyright (C) 2017 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{328.62788pt}
+
+%StartShownPreambleCommands
+\usepackage{amsmath}
+%StopShownPreambleCommands
+\begin{document}
+\begin{align*}
+\Biggl[-2x - 4y\Biggr]& \quad\text{\emph{with} ``l'': }
+     \begin{array}{l}
+       \text{\textbullet\ tight spacing after opening fence;}\\
+       \text{\textbullet\ first ``$-$'' symbol treated as unary operator}
+     \end{array}\\
+\Bigg[ -2x - 4y\Bigg]&  \quad\text{without ``l'': }
+     \begin{array}{l}
+       \text{\textbullet\ loose spacing after opening fence;}\\
+       \text{\textbullet\ first ``$-$'' symbol treated as binary operator}
+     \end{array}\\
+\biggl(+3u + 7v\biggr)&\\
+\bigg( +3u + 7v\bigg) &\\
+\Bigl\vert \div 2x \times 4y\Bigr\vert &\\
+\Big\vert  \div 2x \times 4y\Big\vert  &\\
+\bigl\{ \times 3u \div 7v\bigr\} &\\
+\big\{  \times 3u \div 7v\big\}  &
+\end{align*}
+\end{document}

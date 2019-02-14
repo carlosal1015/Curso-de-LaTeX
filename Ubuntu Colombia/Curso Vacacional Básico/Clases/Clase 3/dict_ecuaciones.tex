@@ -1,0 +1,48 @@
+\usepackage{amsmath}
+\newcommand{\cuadratica}{
+\[
+	x_{1,2} = \frac{1}{2a}\Bigl(-b\pm \sqrt{b^{2}-4ac}\Bigr)
+\tag{A}
+\]
+}
+%No suma al conteo de ecuaciones
+%IfeqCase es como el Swithcase
+\usepackage{xstring} % Paquete necesario para cargar condicionales en \newcommand. 
+
+\newcommand{\Fourier}[2][eq]{ % Si no recibe parámetro de entrada, entonces se numerará. Se define dos parámetros de entrada. Parámetro opcional es inLine y el parámetro obligatorio es el color.
+	\IfEqCase {#1}{
+		{eq}{
+			\begin{equation}
+				\hat{f}(\xi) = \int_{-\infty}^{\infty}f(x)e^{-2\pi ix\xi}dx
+			\end{equation}
+			}
+		{disp}{
+			\[
+			\hat{f}(\xi) = \int_{-\infty}^{\infty}f(x)e^{-2\pi ix\xi}dx
+			\]
+		}
+		{inLine}{
+			\textcolor{#2}{$\hat{f}(\xi) = \int_{-\infty}^{\infty}f(x)e^{-2\pi ix\xi}dx$}
+		}
+	}
+}
+
+\newcommand{\Wave}{
+\begin{equation}
+	\frac{\partial ^{2}u}{\partial t^{2}} = c^{2}\frac{\partial^{2}u}{\partial x^{2}}
+\end{equation}
+}
+
+\newcommand{\Maxwell}{
+	\begin{align*}
+		\nabla \cdot E &= 0 & \nabla \times E &= -\frac{1}{c}\frac{\partial H}{\partial t} \\
+		\vspace{5pt} \\
+		\nabla \cdot H &= 0 & \nabla \times H &= \frac{1}{c}\frac{\partial E}{\partial t}
+	\end{align*}
+}
+
+\newcommand{\Schrodinger}{
+	\begin{equation}
+		i\hbar \frac{\partial}{\partial t}\psi = \hat{H}\psi
+	\end{equation}
+}

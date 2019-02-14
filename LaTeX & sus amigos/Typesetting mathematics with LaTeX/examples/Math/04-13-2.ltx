@@ -1,0 +1,33 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%%  Mathematiksatz mit LaTeX
+%%  2. Auflage
+%% 
+%%  Beispiel 04-13-2 auf Seite 67.
+%% 
+%%  Copyright (C) 2012 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{118.324pt}
+\AtBeginDocument{\setlength\parindent{0pt}}
+\StartShownPreambleCommands
+\makeatletter
+\newcommand*\foo{\mathop{\operator@font foo}\nolimits}
+\newcommand*\baz{\mathop{\operator@font baz}}
+\makeatother
+\StopShownPreambleCommands
+\begin{document}
+\[ \foo_1^2 = \baz_1^2 = \foo\limits_1^2 \]
+\end{document}

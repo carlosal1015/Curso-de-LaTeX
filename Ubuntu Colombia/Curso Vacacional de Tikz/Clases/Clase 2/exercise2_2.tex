@@ -1,0 +1,18 @@
+%Segundo ejercicio.
+\documentclass{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{PTSansNarrow}
+\usepackage[usenames,dvipsnames,x11names,table,svgnames]{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{calc,babel,through,intersections,backgrounds}
+\begin{document}
+\begin{tikzpicture}[scale=4]
+\filldraw [gray] (0,0) circle [radius=2pt]
+(1,1) circle [radius=2pt]
+(2,1) circle [radius=2pt]
+(2,0) circle [radius=2pt];
+\draw (0,0) .. controls (1,1) and (2,1) .. (2,0);
+\end{tikzpicture}
+\end{document}

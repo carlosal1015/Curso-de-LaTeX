@@ -1,0 +1,46 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%%  Mathematiksatz mit LaTeX
+%%  2. Auflage
+%% 
+%%  Beispiel 09-16-8 auf Seite 196.
+%% 
+%%  Copyright (C) 2012 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\AtBeginDocument{\setlength\parindent{0pt}}
+\setcounter{equation}{17}
+\renewcommand\theequation{9.\arabic{equation}}
+\StartShownPreambleCommands
+\usepackage{amsmath,gauss}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}\setlength\arraycolsep{1.4pt}
+\renewcommand\rowmultlabel[1]{\left|\,#1\right.} \def\xstrut{\rule{0pt}{5ex}}
+\StopShownPreambleCommands
+\begin{document}
+\begin{equation}  \renewcommand\arraystretch{1.8}
+\begin{gmatrix}
+ \dfrac{1}{C}\int i\cdot\diff t+L\cdot\dfrac{\diff i}{\diff t}+R\cdot i\hfill &= & 0\\
+ \xstrut\dfrac{1}{C}\cdot i+L\cdot\dfrac{\diff ^2i}{\diff t^2}+
+     R\cdot\dfrac{\diff i}{\diff t}\hfill &= &0\\
+ \xstrut\dfrac{\diff ^2i}{\diff t^2}+\dfrac{R}{L}\cdot\dfrac{\diff i}{\diff t}+
+    \dfrac{1}{LC}\cdot i\hfill &= & 0\\
+ \xstrut\ddot{i}+\delta\dot{i}+\omega_0^2i\hfill & = &0
+ \rowops
+ \mult{0}{\mbox{Differentiation}}  \mult{1}{:L\mbox{ und sortieren}}
+ \mult{2}{\dfrac{R}{L}=\delta;\ \dfrac{1}{LC}=\omega_0^2}
+\end{gmatrix}
+\end{equation}
+\end{document}

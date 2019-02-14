@@ -1,0 +1,28 @@
+%% 
+%%  Example 04-01-24 
+%%  Copyright (C) 2016 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{158.31393pt}
+\setlength\parindent{0pt}
+%StartShownPreambleCommands
+\usepackage{mathtools}
+%StopShownPreambleCommands
+\begin{document}
+\begin{align}
+ x &=
+  \begin{lgathered}[t]
+    a + b + c \\
+    d + e +
+      \!\begin{gathered}[t]
+        f + g + h \\
+        i + j + k
+      \end{gathered}
+  \end{lgathered}
+\end{align}
+\end{document}

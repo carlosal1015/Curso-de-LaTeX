@@ -1,0 +1,14 @@
+Run the files with:
+
+ltx      -- pdflatex
+ltx2     -- pdflatex
+ltxb     -- pdflatex
+ltx2crop -- pdflatex->pdfcrop
+ltxps    -- latex->dvips->ps2pdf
+xltx     -- xelatex
+lux      -- lualatex
+ltxE     -- pdflatex->exceltex->pdflatex
+
+Additional runs are marked in the examples, eg:
+%%Run also >> bibtex <<
+

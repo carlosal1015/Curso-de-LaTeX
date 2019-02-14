@@ -1,0 +1,30 @@
+%% 
+%%  Example 04-01-4 
+%%  Copyright (C) 2016 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{328.62788pt}
+\setlength\parindent{0pt}
+%StartShownPreambleCommands
+\usepackage{amsmath,bigdelim}
+%StopShownPreambleCommands
+\begin{document}
+\[
+  \begin{pmatrix}
+     & x_{11} & x_{12} & \dots & x_{1p} & \rdelim\}{4}{3cm}[some text]\\
+     \ldelim[{5}{1cm}[text] & x_{21} & x_{22} & \dots & x_{2p} \\
+     & \vdots\\
+     & x_{n_1 1}& x_{n_1 2} & \dots & x_{n_1 p}\\
+     & x_{n_1+1,1}&x_{n_1+1,2} & \dots & x_{n_1+1, p} &
+         \rdelim\}{3}{3cm}[some more text]\\
+     & \vdots\\
+     & x_{n_1+n_2, 1} & x_{n_1+n_2,2} & \dots & x_{n_1+n_2,p}\\
+     & \vdots \\
+  \end{pmatrix}
+\]
+\end{document}

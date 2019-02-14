@@ -1,0 +1,84 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{multirow}
+\usepackage{pict2e}
+\usepackage{diagbox}
+\usepackage[table]{xcolor}
+\author{Carlos Alonso Aznarán Laos}
+\title{Ejercicio Tabla}
+
+\begin{document}
+\maketitle
+\section{Tabla 1}
+\begin{tabular}{|l|c|}
+\hline País & Población \\
+\hline Bolivia & 10.1 \\
+\hline Perú & 29.4 \\
+\hline
+\end{tabular}
+\section{Tabla 2}
+\begin{table}[h]
+\centering
+\caption{Población de Bolivia y Perú en 2011 (en millones)}
+\begin{tabular}{lc}
+\hline País & Población \\
+\hline Bolivia & 10.1 \\ Perú & 29.4\\
+\hline \hline
+\end{tabular}
+\caption*{\scriptsize Fuente: Ined, 2011} \end{table}
+\section{Tabla 3}
+\begin{table}[h]
+\centering
+\caption{Lima: Población por distritos según a~no censal}
+\begin{tabular}{|l|c|c|c|}
+\hline \bf Distrito & \multicolumn{3}{c|}{\bf Censo} \\
+\hline & 1981 & 1993 & 2007 \\
+\hline Ate&&&\\
+\hline Barranco &&&\\
+\hline
+\end{tabular}
+\end{table}
+\section{Tabla 4}
+\begin{table}[h]
+\centering
+\caption{Población...}
+\begin{tabular}{|l|l|l|} \hline &&\bf Población \\ \hline
+\multirow {3}{1.5cm}{\bf Censo} & 1981 & \\ & 1993 & \\ & 2007 & \\
+\hline
+\end{tabular}
+\end{table}
+\section{Tabla 5}
+\begin{tabular}{|l|c|c|}
+\hline
+\diagbox[width=10em]{Distrito} {A~no\\Censal}&1993 & 2007\\
+\hline & & \\
+\hline
+\end{tabular}
+\section{Tabla 6}
+\pagebreak
+
+\begin{table}
+\caption{Tabla con texto horizontal}
+\begin{tabular}{|c|c|c|}
+\hline Texto 1 & \rotatebox{90}{Texto 2\,} & Texto 3 \\ \hline Dato1&Dato2&Dato3\\
+\hline
+\end{tabular}
+\end{table}
+\section{Tabla 7}
+\begin{table}[h]
+\centering
+\parbox{5cm}{ \caption{ \centering {Selección de países de América del Sur-2011: Población (en millones)}}} \\ {\rowcolors{2}{cyan!80!blue!50}{cyan!70!white!40} \begin{tabular}{ l c}
+\hline País& Población \\
+\hline Bolivia & 10.1 \\ Chile & 17.3 \\ Ecuador & 14.7 \\ Perú & 29.4 \\
+\hline \end{tabular} } \\[0.1cm] \parbox{5cm}{\hspace{0.5cm} {\footnotesize Fuente: Ined, 2011}}
+\end{table}
+\end{document}

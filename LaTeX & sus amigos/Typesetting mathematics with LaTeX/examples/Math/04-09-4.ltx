@@ -1,0 +1,46 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%%  Mathematiksatz mit LaTeX
+%%  2. Auflage
+%% 
+%%  Beispiel 04-09-4 auf Seite 61.
+%% 
+%%  Copyright (C) 2012 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\usepackage[utf8]{inputenc}
+\AtBeginDocument{\setlength\parindent{0pt}}
+\setcounter{equation}{33}
+\renewcommand\theequation{4.\arabic{equation}}
+\StartShownPreambleCommands
+
+\StopShownPreambleCommands
+\begin{document}
+Eine Formel soll, aus welchen Gründen auch immer, in sehr kleiner Schrift gesetzt
+werden, wozu man die Schriftgröße mit dem Makro \texttt{\textbackslash tiny}
+außerhalb der abgesetzten Umgebung auf einen sehr kleinen Wert setzt und nach der
+Formel den Absatz beendet. Vor dem darauf folgenden Absatz wird ein
+\texttt{\textbackslash normalsize} gesetzt, sodass man wieder die standardmäßige
+Schriftgröße erhält.
+\tiny
+\begin{equation}
+\int_1^2\,\frac{1}{x^2}\,\mathrm{d}x=0.5
+\end{equation}
+\normalsize
+Es ist deutlich sichtbar, dass dieser Absatz dichter gesetzt ist als alle anderen;
+der so genannte Durchschuss hat sich aufgrund der
+\texttt{\textbackslash tiny}-Anweisung verringert.
+\end{document}

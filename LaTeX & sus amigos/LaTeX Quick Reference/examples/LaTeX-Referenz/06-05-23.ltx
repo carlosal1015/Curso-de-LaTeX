@@ -1,0 +1,208 @@
+%% 
+%%  Die DANTE-Edition
+%%  Ein Beispiel der LaTeX Referenz
+%%  3. Auflage
+%% 
+%% 
+%%  Copyright (C) 2013 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{193.16928pt}
+\setlength\parindent{0pt}
+\usepackage{xtemplate,xparse}
+\ExplSyntaxOn
+\DeclareObjectType { names } { 2 }
+
+% das Interface für das Template `fullname':
+\DeclareTemplateInterface { names } { fullname } { 2 }
+  {
+    reversed           : boolean   = false ,
+    use-last-name      : boolean   = true  ,
+    use-first-name     : boolean   = true  ,
+    last-name-format   : tokenlist         ,
+    first-name-format  : tokenlist         ,
+  }
+% das Interface für das Template `initial':
+\DeclareTemplateInterface { names } { initial } { 2 }
+  {
+    reversed           : boolean   = false ,
+    use-last-name      : boolean   = true  ,
+    use-first-name     : boolean   = true  ,
+    last-name-format   : tokenlist         ,
+    first-name-format  : tokenlist         ,
+    last-name-initial  : boolean   = false ,
+    first-name-initial : boolean   = true  ,
+  }
+
+% erst einmal die Variablen:
+\bool_new:N \l_names_reversed_bool
+\bool_new:N \l_names_use_last_bool
+\bool_new:N \l_names_use_first_bool
+\tl_new:N   \l_names_last_format_tl
+\tl_new:N   \l_names_first_format_tl
+
+% und dann der Template-Code:
+\DeclareTemplateCode { names } { fullname } { 2 }
+  {
+    reversed           = \l_names_reversed_bool   ,
+    use-last-name      = \l_names_use_last_bool   ,
+    use-first-name     = \l_names_use_first_bool  ,
+    last-name-format   = \l_names_last_format_tl  ,
+    first-name-format  = \l_names_first_format_tl ,
+  }
+  {
+    \AssignTemplateKeys
+    \bool_if:NTF \l_names_reversed_bool
+      {
+        \bool_if:NT \l_names_use_last_bool
+          { { \tl_use:N \l_names_last_format_tl #2 } }
+        \bool_if:nT { \l_names_use_first_bool && \l_names_use_last_bool }
+          { , ~ }
+        \bool_if:NT \l_names_use_first_bool
+          { { \tl_use:N \l_names_first_format_tl #1 } }
+      }
+      {
+        \bool_if:NT \l_names_use_first_bool
+          { { \tl_use:N \l_names_first_format_tl #1 } }
+        \bool_if:nT { \l_names_use_first_bool && \l_names_use_last_bool }
+          { \tl_use:N \c_space_tl }
+        \bool_if:NT \l_names_use_last_bool
+          { { \tl_use:N \l_names_last_format_tl #2 } }
+      }
+  }
+
+% zwei weitere Variablen:
+\bool_new:N \l_names_last_initial_bool
+\bool_new:N \l_names_first_initial_bool
+
+% Hilfsfunktion:
+\cs_new:Npn \names_get_initial:w #1#2 \q_stop { #1 . }
+
+% der Template-Code:
+\DeclareTemplateCode { names } { initial } { 2 }
+  {
+    reversed           = \l_names_reversed_bool      ,
+    use-last-name      = \l_names_use_last_bool      ,
+    use-first-name     = \l_names_use_first_bool     ,
+    last-name-format   = \l_names_last_format_tl     ,
+    first-name-format  = \l_names_first_format_tl    ,
+    last-name-initial  = \l_names_last_initial_bool  ,
+    first-name-initial = \l_names_first_initial_bool ,
+  }
+  {
+    \AssignTemplateKeys
+    \bool_if:NTF \l_names_reversed_bool
+      {
+        \bool_if:NT \l_names_use_last_bool
+          {
+            \group_begin:
+              \tl_use:N \l_names_last_format_tl
+              \bool_if:NTF \l_names_last_initial_bool
+                { \names_get_initial:w #2 \q_stop }
+                { #2 }
+            \group_end:
+          }
+        \bool_if:nT { \l_names_use_first_bool && \l_names_use_last_bool }
+          { , ~ }
+        \bool_if:NT \l_names_use_first_bool
+          {
+            \group_begin:
+              \tl_use:N \l_names_first_format_tl
+              \bool_if:NTF \l_names_first_initial_bool
+                { \names_get_initial:w #1 \q_stop }
+                { #1 }
+            \group_end:
+          }
+      }
+      {
+        \bool_if:NT \l_names_use_first_bool
+          {
+            \group_begin:
+              \tl_use:N \l_names_first_format_tl
+              \bool_if:NTF \l_names_first_initial_bool
+                { \names_get_initial:w #1 \q_stop }
+                { #1 }
+            \group_end:
+          }
+        \bool_if:nT { \l_names_use_first_bool && \l_names_use_last_bool }
+          { \tl_use:N \c_space_tl }
+        \bool_if:NT \l_names_use_last_bool
+          {
+            \group_begin:
+              \tl_use:N \l_names_last_format_tl
+              \bool_if:NTF \l_names_last_initial_bool
+                { \names_get_initial:w #2 \q_stop }
+                { #2 }
+            \group_end:
+          }
+      }
+  }
+
+% ein paar Instanzen, erst mal mit dem Template `fullname':
+\DeclareInstance { names } { standard } { fullname } {}
+\DeclareInstance { names } { it-rev } { fullname }
+  {
+    first-name-format = \itshape ,
+    reversed          = true
+  }
+\DeclareInstance { names } { first-only } { fullname }
+  { use-last-name = false }
+% und dann mit `initial':
+\DeclareInstance { names } { init-first } { initial } {}
+\DeclareInstance { names } { init-it-rev } { initial }
+  {
+    first-name-format = \itshape ,
+    reversed          = true
+  }
+\DeclareInstance { names } { init-all } { initial }
+  { last-name-initial = true }
+
+% eine weitere Hilfsvariable:
+\tl_new:N  \l_names_instance_tl
+\tl_set:Nn \l_names_instance_tl { standard }
+
+% der interne Befehl:
+\cs_new:Npn \names_typeset_name:nnn #1#2#3
+  {
+    \IfInstanceExistTF { names } { #1 }
+      { \UseInstance { names } { #1 } }
+      { \UseInstance { names } { standard } }
+    { #2 } { #3 }
+  }
+\cs_generate_variant:Nn \names_typeset_name:nnn { V }
+
+% der Benutzerbefehl:
+\DeclareDocumentCommand \name { o > { \SplitArgument { 1 } { ~ } } m }
+  {
+    \group_begin:
+      \IfNoValueF { #1 } { \tl_set:Nn \l_names_instance_tl { #1 } }
+      \names_typeset_name:Vnn \l_names_instance_tl #2
+    \group_end:
+  }
+\ExplSyntaxOff
+%StartShownPreambleCommands
+\usepackage{xtemplate,xparse}
+\usepackage[T1]{fontenc}
+\usepackage{libertine}
+\usepackage[utf8]{inputenc}
+%StopShownPreambleCommands
+\begin{document}
+\name{Herbert Voß} \\
+\name[it-rev]{Herbert Voß} \\
+\name[first-only]{Herbert Voß} \\
+\name[init-first]{Herbert Voß} \\
+\name[init-it-rev]{Herbert Voß} \\
+\name[init-all]{Herbert Voß}
+\end{document}

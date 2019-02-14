@@ -1,0 +1,45 @@
+%% 
+%%  Die DANTE-Edition
+%%  Ein Beispiel der LaTeX Referenz
+%%  3. Auflage
+%% 
+%% 
+%%  Copyright (C) 2013 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+%
+\newsavebox\MBox
+\newlength\MBoxht
+\newcommand\FBox[2][Beispiel]{%
+  \sbox\MBox{#2}%
+  \setlength\MBoxht{\ht\MBox}%
+  \setlength\fboxsep{6pt}%
+  \addtolength\MBoxht{\fboxsep}%
+  \addtolength\MBoxht{\baselineskip}%
+  \fcolorbox{blue}{yellow!50}{\usebox\MBox}%
+  \hspace*{-\wd\MBox}%
+  \raisebox{1.5\ht\MBox}{%
+    \makebox[\wd\MBox]{%
+      \fboxsep=3pt\colorbox{blue}{\color{white}#1}}}}
+%StartShownPreambleCommands
+\usepackage{amsmath,empheq,xcolor}% \FBox->Praeambel
+%StopShownPreambleCommands
+\begin{document}
+\begin{empheq}[{box=\FBox[Ein Beispiel]}]{alignat=3}
+  abc &= xxx             &&= xxxxxxxxxxxx &&= aaaaaaaaa \\
+  ab  &= yyyyyyyyyyyyyyy &&= yyyy         &&= ab
+\end{empheq}
+\end{document}

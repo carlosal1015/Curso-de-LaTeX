@@ -1,0 +1,36 @@
+%% 
+%%  Example 01-06-4 
+%%  Copyright (C) 2017 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{328.62788pt}
+
+%StartShownPreambleCommands
+\usepackage{mathtools}% for \boxed 
+%StopShownPreambleCommands
+\begin{document}
+\begin{subequations}
+\begin{minipage}{0.45\textwidth}
+\begin{equation}
+\fboxsep=0pt\fboxrule=0.1pt
+\boxed{\sum_{%
+  \makebox[0pt]{$
+    {{\scriptscriptstyle 1\le j\le p\atop {{1\le j\le q\atop 1\le k\le r}}}}%
+  $}}%
+}\boxed{a_{ij}b_{jk}c_{ki}}
+\end{equation}
+\end{minipage}\hfill
+\begin{minipage}{0.45\textwidth}
+\begin{equation}\label{eq:disp-limits3}
+\sum_{%
+  \makebox[0pt]{${{\scriptscriptstyle 1\le j\le p\atop {%
+     {1\le j\le q\atop 1\le k\le r}}}} $}}a_{ij}b_{jk}c_{ki}
+\end{equation}
+\end{minipage}
+\end{subequations}
+\end{document}

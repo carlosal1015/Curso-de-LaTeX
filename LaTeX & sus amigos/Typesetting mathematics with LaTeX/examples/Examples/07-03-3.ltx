@@ -1,0 +1,24 @@
+%% 
+%%  Example 07-03-3 
+%%  Copyright (C) 2017 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{328.62788pt}
+\setlength\parindent{0pt}
+\usepackage[T1]{fontenc}
+%StartShownPreambleCommands
+\usepackage{amsmath}
+\usepackage{tabularx,bigdelim}
+%StopShownPreambleCommands
+\begin{document}
+\begin{tabularx}{\linewidth}{rXc}
+\ldelim\{{2}{2.75cm}[some text here]
+  & $ x = 2\quad\text{if }y > 2  $ & \refstepcounter{equation}(\theequation)\\
+  & $ x = 3\quad\text{if }y \le 2$ &\refstepcounter{equation}(\theequation)
+\end{tabularx}
+\end{document}

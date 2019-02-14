@@ -1,0 +1,33 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%% 
+%%  Copyright (C) 2011 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{375.57637pt}
+\setlength\parindent{0pt}
+\setcounter{section}{15}
+\usepackage[utf8]{inputenc}
+
+\usepackage{pst-node}
+
+\begin{document}
+\section{\texttt{pst-node}: Nodes and \protect\rnode{A}{connections}}
+In principle it is concerned with the placing of nodes, such as
+\verb+\rnode{A}{connections}+ on the first line of this chapter, and with the creation of
+connections, such as from \rnode{B}{here}
+\ncarc[arcangle=-100,linestyle=dashed,linewidth=0.5pt,arrowscale=2]{->}{B}{A} to
+the node defined above.
+\end{document}

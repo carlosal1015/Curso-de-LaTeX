@@ -1,0 +1,23 @@
+%% 
+%%  Example 03-02-8 
+%%  Copyright (C) 2016 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{328.62788pt}
+\setlength\parindent{0pt}
+%StartShownPreambleCommands
+\usepackage{xcolor}
+\def\myRule{{\color{red}%
+  \mathchoice{\rule{2pt}{20pt}}{\rule{1pt}{10pt}}%
+    {\rule{0.5pt}{5pt}}{\rule{0.25pt}{2.5pt}}\mkern2mu}}
+%StopShownPreambleCommands
+\begin{document}
+\Large
+$\myRule\sum\limits_{\myRule i=1}^{\myRule\infty}%
+ \myRule\frac{\myRule\sqrt{\myRule i+1}}{\myRule i^2}$
+\end{document}

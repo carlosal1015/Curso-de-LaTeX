@@ -1,0 +1,43 @@
+%% 
+%%  Example 07-07-2 
+%%  Copyright (C) 2017 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{328.62788pt}
+\setlength\parindent{0pt}
+\usepackage[T1]{fontenc}
+%StartShownPreambleCommands
+\usepackage{amsmath}
+\newcommand\x{blah blah blah blah blah blah blah blah }
+\addtolength\abovedisplayshortskip{-.5cm}% decrease the skip
+\addtolength\abovedisplayskip{-.5cm}
+%StopShownPreambleCommands
+\begin{document}
+\rule{\columnwidth}{1pt}
+\x\x\x
+\begin{align}
+\hphantom{\mbox{$f(x)-g(x)$}} & \hphantom{\mbox{$= x^2+x^3+x^4+x^5+b$}}\nonumber\\
+f(x) &= a\\
+g(x) &= x^2-4x
+\end{align}
+%
+\x\x\x
+\begin{align}
+\hphantom{\mbox{$f(x)-g(x)$}} & \hphantom{\mbox{$= x^2+x^3+x^4+x^5+b$}}\nonumber\\
+f(x)-g(x) &= x^2+x^3+x
+\end{align}
+\x\x\x
+%
+\begin{align}
+\hphantom{\mbox{$f(x)-g(x)$}} & \hphantom{\mbox{$= x^2+x^3+x^4+x^5+b$}}\nonumber\\
+g(x) &= x^2+x^3+x^4+x^5+b
+\end{align}
+\x\x\x
+
+\rule{\columnwidth}{1pt}
+\end{document}

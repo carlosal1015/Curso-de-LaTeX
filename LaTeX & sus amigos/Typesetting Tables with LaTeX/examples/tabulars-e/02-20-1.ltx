@@ -1,0 +1,49 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 02-20-1 on page 92.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{201.70511pt}
+\setlength\parindent{0pt}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+
+\usepackage{threeparttable,array,booktabs,calc}
+
+\begin{document}
+\begin{threeparttable}
+\caption{Summary of the signs for the most important trigonometric
+    functions.\tnote{1}}
+\begin{tabular}{@{}rc*{6}{>{$}c<{$}}}\toprule
+\emph{quadrant} & angle & \sin\tnote{a} & \cos\tnote{a} & \tan\tnote{b}
+ & \mathrm{cot}\tnote{b} & \mathrm{sec}\tnote{c} & \mathrm{csec}\tnote{c} \\\midrule
+   I & $0^\circ$ to $90^\circ$    & + & + & + & + & + & + \\
+  II & $90^\circ$ to $180^\circ$  & + & - & - & - & - & + \\
+ III & $180^\circ$ to $270^\circ$ & - & - & + & + & - & - \\
+  IV & $270^\circ$ to $360^\circ$ & - & + & - & - & + & - \\\bottomrule
+\end{tabular}
+\begin{tablenotes}
+  \item[1] Conversion to radian is easy.
+  \begingroup% keep local
+  \renewcommand\tnote[1]{\normalsize\bfseries#1}
+  \item[range:] ~ \endgroup
+  \item[a] \makebox[1.8em][r]{$-1$}      to $+1$
+  \item[b] \makebox[1.8em][r]{$-\infty$} to $+\infty$
+  \item[c] \makebox[1.8em][r]{$-\infty$} to $-1$ and $+1$ to $+\infty$
+\end{tablenotes}
+\end{threeparttable}
+\end{document}

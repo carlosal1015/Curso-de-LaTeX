@@ -1,0 +1,13 @@
+\documentclass[border=10pt]{standalone}
+\usepackage{pgfplots}
+\usepgfplotslibrary{polar}
+\begin{document}
+\begin{tikzpicture}
+\begin{polaraxis}[
+		domain	=	-3600:3600,
+		samples	=	4000
+		]
+		\addplot[blue!50!black] {1-sin(50*x/49) - sin(8*x)};
+\end{polaraxis}
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,186 @@
+% !TeX document-id = {9d223eca-9818-4f05-a953-42e014392f08}
+% !TeX TXS-program:compile = txs:///pdflatex/[--shell-escape]
+
+\documentclass{article}
+\usepackage[utf8x]{inputenc}
+\usepackage[spanish]{babel}
+\spanishdatedel
+\usepackage{amsfonts}
+\usepackage[pdftex]{graphicx}
+\usepackage{float}
+\usepackage{vmargin}
+\setpapersize{A4} % Define el tamaño del papel.
+\setmargins{2.5cm} % Margen izquierdo
+{1.5cm} % Margen superior
+{16.5cm} % Ancho del área de impresión
+{23.42cm} % Longitud del área de impresión.
+{0pt} % Espacio para el encabezado
+{5mm} % Espacio entre el encabezado y el texto.
+{0pt} % Espacio para el pie de página.
+{5mm} % Espacio entre el texto y el pie de página.
+\graphicspath{./images/}
+\usepackage{wrapfig}
+\usepackage{lipsum}
+\usepackage{subcaption}
+\usepackage{slashbox} % https://ctan.org/pkg/slashbox
+\usepackage{colortbl} % For the command \rowcolor{}
+\usepackage[table]{xcolor} % Necessary load.
+\usepackage{multicol, multirow}
+
+\input{code.tex}
+\input{colores.tex}
+
+\title{Ejemplo de uso de Imágenes y Tablas}
+\author{Oromion}
+\date{\today}
+
+\begin{document}
+\maketitle
+\renewcommand{\contentsname}{Tabla de contenido}
+\renewcommand{\listfigurename}{Lista de figuras}
+\renewcommand{\listtablename}{Lista de tablas}
+\renewcommand{\figurename}{Fig.}
+\renewcommand{\tablename}{Tabla.}
+\tableofcontents
+\listoffigures
+
+\section{Construcción de tablas}
+
+El ambiente \cmd{table} define un objeto flotante de tipo \bftt{tabla} y el símbolo \cmd{tabular} define el arreglo en filas y columnas, el uso básico del ambiente \cmd{tabular} es idéntico al uso de cualquiera de los ambientes para la definición de matrices.
+
+\renewcommand{\tabcolsep}{10pt}
+\renewcommand{\arraystretch}{1.5}
+\renewcommand{\arrayrulewidth}{1pt}
+
+\begin{wraptable}[11]{L}[5mm]{.4\textwidth}
+	\centering
+	\begin{tabular}{ccc}
+		$\mathbf{x}$ & $\mathbf{y}$ & $\mathbf{f_{xy}(x,y)}$ \\
+		\hline
+		$-1$ & $-2$ & $\frac{1}{8}$ \\
+		$-0.5$ & $-1$ & $\frac{1}{4}$ \\
+		$0.5$ & $1$ & $\frac{1}{2}$ \\
+		$1$ & $2$ & $\frac{1}{8}$ \\
+		\hline 
+	\end{tabular}
+	\caption{Tabla con espacios automáticos}
+\end{wraptable}
+\lipsum[1-2]
+
+Algunas veces dividir una celda en diagonal es algo útil, una de las formas de conseguirlo es utilizar el comando \cmdbs{backslashbox} del paquete \cmd{slashbox}, este no es un paquete estándar.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|l||c|c|c|}
+		\hline
+		\backslashbox{Adición}{Cesión} & CNC & CNS & CM \\
+		\hline \hline
+		CNC & & & \\
+		\hline
+		CNS & & & \\
+		\hline
+		CM & & & \\
+		\hline
+	\end{tabular}
+	\caption{Tabla con una celda dividida en diagonal}
+\end{table}
+
+\subsection{Agregando color a una tabla}
+
+Para agregar colores vamos a utilizar el paquete \cmd{colortbl}.
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|>{\columncolor{emeraldGreen!50}}c|>{\columncolor{myOrange!30}}c|}
+		\hline
+		\rowcolor{signBlue!50}
+		\textbf{Clase} & $\mathbf{x_i}$ & $\mathbf{f_i}$ & $\mathbf{h_i}$\\
+		\hline
+		$[5, 10]$ & 7.5 & 5 & 0.5 \\
+		\hline
+		$[10, 15]$ & 12.5 & 8 & 0.24 \\
+		\hline
+		$[15, 20]$ & 17.5 & 8 & 0.24 \\
+		\hline
+		$[20, 25]$ & \cellcolor{myRed!75}{22.5} & 10 & 0.39 \\
+		\hline
+		$[25, 30]$ & 27.5 & 2 & 0.07 \\
+		\hline
+	\end{tabular}
+	\caption{Tabla con colores}
+\end{table}
+
+\lipsum[1-2]
+
+\begin{table}[H]
+	\centering
+	\caption{Ejemplo de colores en tablas}
+	\rowcolors{1}{darkOliveGreen2!35}{myBlue!35}
+	\begin{tabular}{lc}
+		\hline
+		Población empadronada en España & 46.600.949 \\
+		Población española & 41.882.085 \\
+		Población extranjera & 4.718.864 {10.1\%} \\
+		Población extranjera de 16 años & 16\% \\
+		Población extranjera $<$ 16 años & 15.8 \% \\
+		Países de procedencia más frecuentes & \\
+		\begin{tabular}{ll}
+			Rumania & 15.9\% \\
+			Marruecos & 15.8 \% \\
+			China & 4.05 \% \\
+		\end{tabular} & \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\section{Combinar celdas}
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|>{\cellcolor{myBlue!75}}cc|c|c|}
+		\hline
+		\rowcolor{myBlue!75}
+		& \multicolumn{3}{c|}{\textcolor{white}{Tolerancia Resistiva ($\pm$)}} \\
+		\rowcolor{myBlue!75}
+		& \textcolor{white}{20\%} & \textcolor{white}{10\%} & \textcolor{white}{5\%} \\
+		& \multirow{4}{*}{100} & \multirow{2}{*}{100} & 100 \\
+		& & & 91 \\
+		\cline{3-4}
+		& & \multirow{2}{*}{82} & 82\\
+		& & & 75 \\
+		\cline{2-4}
+		& \multirow{4}{*}{68} & \multirow{2}{*}{68} & 68 \\
+		& & & 62 \\
+		\cline{3-4}
+		& & \multirow{2}{*}{56} & 56 \\
+		& & & 51 \\
+		\cline{2-4}
+		& \multirow{4}{*}{47} & \multirow{2}{*}{47} & 47 \\
+		& & & 43 \\
+		\cline{3-4}
+		& & \multirow{2}{*}{39} & 39 \\
+		& & & 36 \\
+		\cline{2-4}
+		& \multirow{4}{*}{33} & \multirow{2}{*}{33} & 33 \\
+		& & & 30 \\
+		\cline{3-4}
+		& & \multirow{2}{*}{27} & 27 \\
+		& & & 24 \\
+		\cline{2-4}
+		& \multirow{4}{*}{22} & \multirow{2}{*}{22} & 22 \\
+		& & & 20 \\
+		\cline{3-4}
+		& & \multirow{2}{*}{18} & 18 \\
+		& & & 16 \\
+		\cline{2-4}
+		& \multirow{4}{*}{15} & \multirow{2}{*}{15} & 15 \\
+		& & & 13 \\
+		\cline{3-4}
+		& & \multirow{2}{*}{12} & 12 \\
+		& & & 11 \\
+		\cline{2-4}
+		\multirow{-25}{*}{\rotatebox[origin=c]{90}{\textcolor{white}{Valores de Resistencia Estándar}}} & 10 & 10 & 10 \\
+		\hline
+	\end{tabular}
+\end{table}
+\end{document}

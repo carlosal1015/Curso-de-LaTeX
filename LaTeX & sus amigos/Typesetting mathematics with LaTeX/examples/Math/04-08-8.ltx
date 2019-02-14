@@ -1,0 +1,38 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%%  Mathematiksatz mit LaTeX
+%%  2. Auflage
+%% 
+%%  Beispiel 04-08-8 auf Seite 58.
+%% 
+%%  Copyright (C) 2012 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{190.324pt}
+\AtBeginDocument{\setlength\parindent{0pt}}
+\setcounter{equation}{30}
+\renewcommand\theequation{4.\arabic{equation}}
+\StartShownPreambleCommands
+\newenvironment{mathspace}[1][3pt]{%
+  \setlength{\jot}{#1}\ignorespaces\eqnarray
+}{\endeqnarray\ignorespacesafterend}
+\StopShownPreambleCommands
+\begin{document}
+\begin{mathspace}[0pt]
+  y & = & d\\
+  y & = & c\,\frac{1}{x}+d\\
+  y & = & b\,\frac{1}{x^{2}}+cx+d
+\end{mathspace}
+\end{document}

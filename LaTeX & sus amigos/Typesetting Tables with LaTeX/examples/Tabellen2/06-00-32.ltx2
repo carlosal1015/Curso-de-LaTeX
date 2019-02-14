@@ -1,0 +1,190 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Beispiel 06-00-32 auf Seite 196.
+%% 
+%%  Copyright (C) 2010 H. Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+
+%%Run also: >>  << 
+% Show page(s) 1,2
+
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{173.82971pt}
+\usepackage[utf8]{inputenc}% adapt maybe
+\usepackage[paper=70mm:88mm,pagesize]{typearea}
+\usepackage[utf8]{inputenc}% eventuell anpassen
+\usepackage[ngerman]{babel}
+\setlength\parindent{0pt}
+\usepackage{etex}           % Damit Marken verwendet werden koennen
+\usepackage{ltxtable}
+\usepackage[savepos,user]{zref}  % Um die aktuelle Position zu merken
+\usepackage{fltpoint}       % Rechnen mit Komma-Zahlen
+\usepackage{calc}           % Fuer das Makro \widthof
+\usepackage{numprint}       % Zahlen formatiert ausgeben
+\usepackage{eurosym}        % Das Euro-Zeichen
+% Globale Einstellungen fuer numprint
+\npstylegerman      % Deutsche Zahlenformatierung
+\nprounddigits{2}   % Zwei Nachkommasstellen
+\npreplacenull{---} % Buchhalter-Strich statt Nachkomma-Nullen
+
+%%%%%%%%%%%%%%Befehle zur Berechnung der Zwischensumme%%%%%%%%%%%%%%%%%%%%
+\newcommand*\laufsumme{0}
+\newcommand*\resetlaufsumme{\global\def\laufsumme{0}}
+\newcommand*\addlaufsumme[1]{\fpAdd{\laufsumme}{\laufsumme}{#1}%
+                                 \global\let\laufsumme\laufsumme}
+\newcommand*\printwert[1]{\numprint{#1}}
+
+%%%%%%%%PlainTeX-Hack fuer Positionierung der Zwischensummen%%%%%%%%%%%%%%%
+\makeatletter  % Das at-Zeichen in Variablen zulassen
+% Variablen bereit stellen
+  \newdimen\drx
+  \newdimen\dry
+  \newmarks\ltm@marks
+  \def\ltm@setmarks#1{\marks\ltm@marks{#1}}
+  \def\ltm@getmarks{\botmarks\ltm@marks}
+
+% Den aktuellen Wert der Laufsumme berechnen und merken
+\newcommand*{\Wert}[1]{%
+  \printwert{#1}%     Ausgabe des Werts vor Ort
+  \addlaufsumme{#1}%  Den uebergebenen Wert zur Laufsumme addieren
+  \expandafter\ltm@setmarks\expandafter{\laufsumme}% Laufsumme merken
+}
+
+% Merken der aktuellen Position
+\newcommand*{\MarkZwsumPos}{%
+  \leavevmode
+     \zsavepos{zwsumpos\thepage}%
+     \zrefused{zwsumpos\thepage}}
+
+% Ausgabe der Zwischensumme
+\def\ltm@insertfoot#1{%
+    \vbox to\z@{%
+      \vss
+      \hb@xt@\z@{%
+        \color@begingroup
+            \zsavepos{tabende\thepage}%   % Die aktuelle Position merken
+            \drx=0sp
+            \dry=0sp
+            % Die aktuelle Position abziehen und die gemerkte addieren
+            \advance \drx by -\zposx{tabende\thepage}sp
+            \advance \drx by \zposx{zwsumpos\thepage}sp
+            \advance \dry by -\zposy{tabende\thepage}sp
+            \advance \dry by \zposy{zwsumpos\thepage}sp
+            \smash{\kern\drx\raise\dry%
+                   \hbox{\makebox[\widthof{ \euro}][r]{%
+                   \printwert{#1} \euro}}%
+                   }
+        \color@endgroup
+      }%
+    }%
+}
+
+% Ausgabe des Uebertrags
+% Wie die Ausgabe der Zwischensumme, nur ohne neu gemerkte Position
+\def\ltm@inserthead#1{%
+    \vbox to\z@{%
+      \vss
+      \hb@xt@\z@{%
+        \color@begingroup
+            \drx=0sp
+            \dry=0sp
+            % Die Position des Tabellenendes abziehen
+            \advance \drx by -\zposx{tabende\thepage}sp
+            \advance \drx by \zposx{zwsumpos\thepage}sp
+            \advance \dry by -\zposy{tabende\thepage}sp
+            \advance \dry by \zposy{zwsumpos\thepage}sp
+            \smash{\kern\drx\raise\dry%
+                   % Die eigentliche Ausgabe. Rechtsbuendig und
+                   % um die Breite des Euro-Zeichens verschoben.
+                   \hbox{\makebox[\widthof{ \euro}][r]{%
+                   \printwert{#1} \euro}}%
+                   }
+        \color@endgroup
+      }%
+    }%
+}
+
+\def\ltm@lastfoot{\ltm@insertfoot\ltm@getmarks}
+\def\ltm@foot{\ltm@insertfoot{\ltm@getmarks}}
+\def\ltm@head{\ltm@inserthead{\ltm@getmarks}}
+
+% Ueberschreiben der Output-Routine von longtable
+\def\LT@output{%
+  \ifnum\outputpenalty <-\@Mi
+    \ifnum\outputpenalty > -\LT@end@pen
+      \LT@err{floats and marginpars %
+              not allowed in a longtable}\@ehc
+    \else
+      \setbox\z@\vbox{\unvbox\@cclv}%
+      \ifdim \ht\LT@lastfoot>\ht\LT@foot
+        \dimen@\pagegoal
+        \advance\dimen@-\ht\LT@lastfoot
+        \ifdim\dimen@<\ht\z@
+          \setbox\@cclv\vbox{%
+            \unvbox\z@\copy\LT@foot\ltm@foot\vss
+          }%
+          \@makecol
+          \@outputpage
+          \setbox\z@\vbox{\box\LT@head}%
+        \fi
+      \fi
+      \global\@colroom\@colht
+      \global\vsize\@colht
+      \vbox{%
+        \unvbox\z@
+        \box\ifvoid\LT@lastfoot
+          \LT@foot\ltm@foot
+        \else
+          \LT@lastfoot\ltm@lastfoot
+        \fi
+      }%
+    \fi
+  \else
+    \setbox\@cclv\vbox{%
+      \unvbox\@cclv\copy\LT@foot\ltm@foot\vss
+    }%
+    \@makecol
+    \@outputpage
+    \global\vsize\@colroom
+    \copy\LT@head\ltm@head
+  \fi
+}
+\makeatother    % Das at-Zeichen in Variablen wieder verbieten
+%%%%%%%%%%%%%%%%%%%%Ende plaintex-Hack%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\usepackage{longtable}
+
+\begin{document}
+\resetlaufsumme
+\begin{longtable}{p{0.7\linewidth}r}
+  links & rechts
+\endfirsthead
+  Übertrag & \\
+\endhead
+  Zwischensumme: & \MarkZwsumPos \\
+\endfoot
+  Summe: &\MarkZwsumPos \\
+\endlastfoot
+  Ein beliebiger einleitender Text zu Beginn der Spalte \ldots.
+    & \Wert{1,00} \\
+  b & \Wert{2,1}  \\
+  c & \Wert{3,4}  \\
+  d & \Wert{4,5}  \\
+  e & \Wert{5,6}  \\
+  f & \Wert{6,7}  \\
+  g & \Wert{7,8}  \\
+  h & \Wert{8,9}  \\
+  i & \Wert{9,42} \\
+  j & \Wert{10,88}\\
+  k & \Wert{15,76}
+\end{longtable}
+\end{document}

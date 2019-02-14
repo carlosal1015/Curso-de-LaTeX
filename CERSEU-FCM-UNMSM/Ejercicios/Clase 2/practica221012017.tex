@@ -1,0 +1,146 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%\usepackage{undertilde}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage[left=3cm,right=3cm,top=2.5cm,bottom=2.5cm]{geometry}
+\author{Registrar nombres y apellidos}
+\title{Curso de \LaTeX{}\\{\normalsize Práctica N$^{\circ}$ 2: escribir matemáticas}}
+\date{}
+\lhead{UNMSM-FCM-Cerseu}
+\chead{}
+\rhead{Curso de \LaTeX}
+\lfoot{Prof. R. Collatón Ch.}
+\cfoot{\thepage}
+\rfoot{\today}
+\pagestyle{fancy}
+\setlength{\headheight}{15pt}
+\newtheorem{ejer}{Ejercicio}
+\begin{document}
+\maketitle
+
+\begin{ejer}
+Raíces, fracciones y exponentes
+\begin{displaymath}
+\sqrt[n]{\frac{a}{b}}= \left(\frac{a}{b}\right)^{\frac{1}{n}}=\frac{a^{\frac{1}{n}}}{b^{\frac{1}{n}}}=\frac{\sqrt[n]{a}}{\sqrt[n]{b}}
+\end{displaymath}
+\end{ejer}
+
+\begin{ejer}
+Uso del entorno gather
+\begin{gather}
+x^{y^{z}}=a\\
+x^{2}_{1}=x^{2}_{1}\\
+x^{2y}=z\\
+a_{ij}=0
+\end{gather}
+\end{ejer}
+
+\begin{ejer}
+Letras griegas, sombreros y sumatoria
+
+\begin{displaymath}
+n^{-1}\sum^{n}_{i=1}(y_{i}- \hat{\beta}_{0}-\hat{\beta}_{1}x_{i})=0
+\end{displaymath}
+
+\begin{displaymath}
+\bar{y}=\hat{\beta}_{0}+\hat{\beta}_{1}\bar{x},
+\end{displaymath}
+\end{ejer}
+donde $\bar{y}=n^{-1}\sum^{n}_{i=1}y_{i}$ es la muestra promedio de $y_{i}$ e igualmente por $\bar{x}$. 
+%\end{ejer}
+
+\begin{ejer}
+Ecuaciones: uso de entorno equation y entorno cases
+\begin{equation*}
+|x| =
+\begin{cases}
+a & \text{if $a\ge 0$}\\
+-a & \text{if $a< 0$}
+\end{cases}
+\end{equation*}
+\end{ejer}
+\begin{ejer}
+Uso de entorno equation y entorno split
+\begin{equation}
+\begin{split}
+a& =b+c-d\\
+& \quad +e-f\\
+& =g+h\\
+& =i
+\end{split}
+\end{equation}
+\end{ejer}
+\begin{ejer}
+Uso del entorno gather
+\begin{gather}
+a_1=b_1+c_1\\
+a_2=b_2+c_2-d_2+e_2
+\end{gather}
+\end{ejer}
+\begin{ejer}
+Uso del entorno align
+\begin{align}
+a_1& =b_1+c_1\\
+a_2& =b_2+c_2-d_2+e_2
+\end{align}
+\end{ejer}
+
+
+\begin{ejer}
+Matrices
+
+Dado que
+$
+\left|\begin{smallmatrix}
+a & h & g\\
+h & b & f\\
+g & f & c
+\end{smallmatrix}\right|
+=0
+$,
+la matriz
+$
+\left(\begin{smallmatrix}
+a & h & g\\
+h & b & f\\
+g & f & c
+\end{smallmatrix}\right)
+$
+no es invertible.
+\end{ejer}
+
+
+\begin{ejer}
+\[
+\overbrace{x+\underbrace{y+z}_{2} +w}^{4} 
+\]
+
+\begin{displaymath}
+a^{n}=\overbrace{a \times a \times \ldots \times a}^{\mbox{$n$ veces}}
+\end{displaymath}
+\end{ejer}
+
+
+
+
+
+
+\nocite{*}
+
+\begin{thebibliography}{9}
+\bibitem{mat}
+Harshbarger, R., \& Reynolds, J. J. (2013). Mathematical applications for the management, life, and social sciences. Cengage Learning.
+
+\bibitem{harald}
+Helfgott, H. (2013). La conjetura débil de Goldbach. La Gaceta de la RSME, 16(4), 709-726.
+
+\bibitem{eco}
+Wooldridge, J. M. (2015). Introductory econometrics: A modern approach. Cengage Learning.
+\end{thebibliography}
+\end{document}

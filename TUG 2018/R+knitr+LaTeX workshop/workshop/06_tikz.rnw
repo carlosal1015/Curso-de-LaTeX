@@ -1,0 +1,112 @@
+\documentclass{article}
+\newcommand{\chunklabel}[1]{{\noindent\bfseries\flushleft Chunk: #1\par}}
+\usepackage{booktabs}
+\usepackage[math]{anttor}
+\usepackage{inconsolata}
+\usepackage[T1]{fontenc}
+\begin{document}
+\title{06:  Figures and tikzdevice}
+\author{Boris Veytsman}
+\date{TUG18 knitr workshop; July 2018\thanks{This work is licensed
+    under a Creative Commons Attribution 4.0 International License
+    (CC-BY)}}
+\maketitle
+
+
+In this tutorial we use Antykwa Toru\'nska for the body text and
+Inconsolata for the typewriter:
+\begin{verbatim}
+\usepackage[math]{anttor}
+\usepackage{inconsolata}
+\end{verbatim}
+
+
+<<setup, echo=FALSE>>=
+opts_chunk$set(fig.path="06_figures/")
+knit_hooks$set(
+    chunklabel=
+        function(before, options, envir) {
+            if(before && options$chunklabel) 
+                sprintf(
+                    "\\chunklabel{%s}", options$label)
+        })
+opts_chunk$set(chunklabel=TRUE)
+@ 
+
+
+
+<<setup, eval=FALSE>>=
+@ 
+
+
+<<libraries, message=FALSE>>=
+library(tidyverse)       # The Swiss Army knife of data processing
+library(ggthemes)        # A better look for plots
+theme_set(theme_tufte())
+library(Hmisc)           # for the latex tabl
+@ 
+
+\clearpage
+
+<<Sepal, echo=FALSE>>=
+ggplot(iris) + geom_point(aes(Sepal.Length, Sepal.Width,
+                              color=Species))
+@   
+
+Problems with knitr plots:
+\begin{enumerate}
+\item \textsl{R} uses Times Roman and Helvetica---this might clash
+  with the document fonts.
+\item We would like to use \TeX-based annotations---adding $\sqrt{x}$
+  to the plot labels!
+\end{enumerate}
+
+
+\clearpage
+
+Solution: \verb|dev="tikz"| either per chunk or as
+\begin{verbatim}
+opts_chunk$set(dev="tikz")
+\end{verbatim}
+
+<<Sepal1, echo=FALSE, dev="tikz">>=
+ggplot(iris) + geom_point(aes(Sepal.Length, Sepal.Width,
+                              color=Species))
+@   
+
+\clearpage
+
+<<annotation, dev="tikz">>=
+x <- 1:100
+sqr <- tibble(x=x, y=sqrt(x))
+ggplot(sqr) + geom_line(aes(x,y)) +
+    annotate("text", x=50, y=8,
+             label="$y=\\sqrt{x}$") +
+    annotate("text", x=50, y=2.5,
+             label=
+     "$\\displaystyle\\int_0^x y(u)\\, du = \\frac{2}{3} \\sqrt{x^3}$")
+@ 
+
+\clearpage
+
+Compare with annotations \emph{without} tikz device:
+<<annotation-notikz>>=
+x <- 1:100
+sqr <- tibble(x=x, y=sqrt(x))
+ggplot(sqr) + geom_line(aes(x,y)) +
+    annotate("text", x=50, y=8,
+             label="$y=\\sqrt{x}$") +
+    annotate("text", x=50, y=2.5,
+             label=
+     "$\\displaystyle\\int_0^x y(u)\\, du = \\frac{2}{3} \\sqrt{x^3}$")
+@ 
+
+
+\clearpage
+
+The problem with this approach:  it is slow, especially at the first
+run! 
+
+I use it mostly for publications.
+
+\end{document}

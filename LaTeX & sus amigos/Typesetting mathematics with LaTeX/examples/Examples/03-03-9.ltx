@@ -1,0 +1,22 @@
+%% 
+%%  Example 03-03-9 
+%%  Copyright (C) 2016 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{134.31393pt}
+
+%StartShownPreambleCommands
+
+%StopShownPreambleCommands
+\begin{document}
+$\overline{x}+\overline{y}=\overline{z}$\\
+\let\ol\overline
+$ \ol{x}+\ol{A}=\ol{z} $\\[5pt]
+\def\yPh{\vphantom{A}}
+$ \ol{x\yPh}+\ol{A}=\ol{z\yPh} $
+\end{document}

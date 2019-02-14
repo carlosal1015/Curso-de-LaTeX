@@ -1,0 +1,68 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%%  
+%%  7. Auflage
+%% 
+%%  Beispiel 35-00-94 auf Seite 857.
+%% 
+%%  Copyright (C) 2016 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+%StartShownPreambleCommands
+\usepackage{pst-eucl}
+%StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(-1,-2)(6,3)
+\psset{%
+RightAngleType=german,
+MarkAngleRadius=1.2,
+LabelSep=0.65,
+shortput=nab,
+PointName=none,
+PointSymbol=none,
+PtNameMath=false,
+linewidth=0.7pt
+}
+\pstGeonode(0,0){O}(6;20){C}(C|O){A}(0,0.75){X}
+\pspolygon[fillstyle=solid,fillcolor=lightgray!10](O)(A)(C)
+\pstMarkAngle{A}{O}{C}{$\alpha$}
+\pstRightAngle{C}{A}{O}
+\pstTranslation{O}{X}{O,C}[O',C']
+\pstMiddleAB{O'}{C'}{M}
+\pstTranslation[DistCoef=0.2]{C'}{O'}{M}[M']
+\pstGeonode(M|0,-1.5){Y}
+\pstProjection{O}{C}{M}[M'']
+\pstMiddleAB{M''}{M}{S}
+\pstTranslation[DistCoef=0.15]{C'}{O'}{S}[A1]
+\pstTranslation[DistCoef=0.15]{O'}{C'}{S}[A2]
+\pstOrtSym{O'}{C'}{A1,A2}[A4,A3]
+\pspolygon[fillstyle=solid,fillcolor=blue!50](A1)(A2)(A3)(A4)
+\pstMiddleAB{M''}{A2}{R2}
+\pstMiddleAB{M''}{A1}{R1}
+\pstProjection{O}{C}{R2}[Z2]
+\pstProjection{O}{C}{R1}[Z1]
+\pstCircleOA{R2}{Z2}
+\pstCircleOA{R1}{Z1}
+\ncline{->}{M}{Y}
+\ncline{->}{M}{M'}
+\ncline[linestyle=dashed]{M'}{Y}
+\pstMarkAngle{M}{Y}{M'}{$\alpha$}
+\psdot(M)
+\psdot(R1)
+\psdot(R2)
+\end{pspicture}
+\end{document}

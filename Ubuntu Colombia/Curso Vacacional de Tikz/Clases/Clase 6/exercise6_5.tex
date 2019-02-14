@@ -1,0 +1,19 @@
+\documentclass{article}
+\usepackage[utf8x]{inputenc}
+\usepackage[spanish]{babel}
+\spanishdatedel
+\usepackage{graphicx,float}
+\usepackage{tikz}
+\usetikzlibrary{graphdrawing,graphs,babel,arrows,calc}
+\usegdlibrary{layered, circular, force,trees}
+\begin{document}
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\graph[tree layout]{
+ A -- {B -- {D -- {H, I -- {N, O}}, E -- {J, K}}, C --{F, G -- {L -- {P, Q}, M -- R}}}; % del nodo A va una arista al nodo B y C.
+};
+\end{tikzpicture}
+\caption{Grafo árbol}
+\end{figure}
+\end{document}

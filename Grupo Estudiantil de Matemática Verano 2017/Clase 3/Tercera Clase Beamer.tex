@@ -1,0 +1,101 @@
+%
+% Tercera Clase Beamer.tex -- a document for writing notes with GEM.
+%
+% Copyright © 2017 Luis Felipe Villavicencio<lvillavicenciol@uni.pe>
+%
+% This program is free software: you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
+%
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+%s along with this program.  If not, see <http://www.gnu.org/licenses/>.
+%
+\documentclass[handout]{beamer}
+\usepackage[utf8x]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amsthm,amssymb,enumerate}
+\author{Grupo Estudiantil de Matemática}
+\title{Primera presentación en Beamer}
+\institute{\LARGE{Universidad Nacional de Ingeniería\\Facultad de Ciencias}}
+\date{8 de febrero del 2017} % Si deseas mostrar la fecha actual, entonces escribe \date{\today}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\re}{\mathbb{R}}
+\usetheme{Antibes}
+
+\begin{document}
+
+\begin{frame}
+		\maketitle
+\end{frame}
+
+\begin{frame}{Esto es un título}{Esto es un subtitulo}
+Esto es un frame, aquí podemos escribir fórmulas como \(\ds\int_S f(x,y)dA \).\\
+También podemos crear tablas o ecuaciones centradas.
+
+\[1+2+3+4+5+6+\cdots+n = {\color{blue}\frac{n(n+1)}{2}}.\]
+
+{\color{red} Texto a ser coloreado de rojo.}
+
+\begin{center}
+
+	\begin{tabular}{||c||c||}
+		\hline 1 & 2 \\ \hline
+		\hline 3 & 4 \\ \hline
+		\hline 
+	\end{tabular}
+	
+\end{center}
+	
+\end{frame}
+
+\begin{frame}{Tipos de Cajas}
+
+\begin{exampleblock}{Exampleblock}
+Texto o fórmulas en \LaTeX o imágenes o cuadros.
+\[f(x)\subset \re.\]
+\end{exampleblock}
+	
+\begin{alertblock}{Alertblock}
+Esta caja es de color rojo.
+
+\begin{center}
+	\begin{tabular}{||c||c||}
+		\hline 1 & 2 \\ \hline						
+	\end{tabular} 
+\end{center}
+	
+\end{alertblock}
+
+\begin{block}{Block}
+	Caja pequeña de color azul.
+\end{block}	
+\end{frame}
+
+\begin{frame}{El poder de \LaTeX}
+A continuación aparecerá una caja. \pause 
+\begin{alertblock}{¡Apareció la caja!}
+	Matemáticas
+	\begin{itemize}
+		\item Primera ítem \pause
+		\item Segunda ítem  \pause
+		\item Una ecuación \pause \[x^0+y^0=2,~\forall x,y\in\re\setminus\{0\}.\]
+	\end{itemize}
+	
+\end{alertblock}
+	
+\end{frame}
+
+\begin{frame}
+\[1+2+3+4+5+6= \pause(1+2+3)+\pause(4+5+6) = \pause6 + \pause 15= \pause 21.\]
+
+\pause Para eliminar los velos cambiar\\
+$\backslash\!\!$ documentclass[handout] por  $\backslash\!\!$ documentclass[beamer]\\\Large{¡Gracias por tu atención!}
+\end{frame}
+
+\end{document}

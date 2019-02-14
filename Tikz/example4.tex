@@ -1,0 +1,31 @@
+\documentclass[tikz]{standalone}
+\usepackage{tkz-euclide}
+\begin{document}
+	\begin{tikzpicture}[scale=.3, rotate=-100]
+	\tkzDefPoints{	0/0/O,
+					8/0/A,
+					12.5/0/C}
+	\tkzDefPoint(35:9.6){B}
+	
+	\tkzDefLine[parallel=through C](A,B)
+	\tkzGetPoint{c}
+	
+	\tkzInterLL(O,B)(C,c)
+	\tkzGetPoint{D}
+	
+	\tkzDrawLine[add=0 and .2](O,D)
+	\tkzDrawLine[add=0 and .2](O,C)
+	
+	\tkzDrawLine[add=.8 and 1.2](A,B)
+	\tkzDrawLine[add=.5 and .5](C,D)
+	
+	\tkzLabelLine[above, pos=2.1](A,B){$r$}
+	\tkzLabelLine[above, pos=1.4](C,D){$s$}
+	
+	\tkzDrawPoints[fill=black](O,A,B,C,D)
+	\tkzLabelPoints[above](O)
+	\tkzLabelPoints[above left](A,C)
+	\tkzLabelPoints[above right](B,D)
+	
+	\end{tikzpicture}
+\end{document}

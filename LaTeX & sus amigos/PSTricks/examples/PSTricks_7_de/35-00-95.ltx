@@ -1,0 +1,51 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%%  
+%%  7. Auflage
+%% 
+%%  Beispiel 35-00-95 auf Seite 857.
+%% 
+%%  Copyright (C) 2016 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+%StartShownPreambleCommands
+\usepackage{pst-eucl,pstricks-add}
+%StopShownPreambleCommands
+\begin{document}
+\def\f#1{((#1)*(#1-5)*(#1-6)/4+1.5*(#1)-5)}
+\def\A{1}
+\def\B{6.5}
+\def\M{(\f{\B}-\f{\A})/(\B-\A)}
+\begin{pspicture}[algebraic,saveNodeCoors](-1,-1)(8,8)
+   \psaxes[labels=none,ticks=none]{->}(0,0)(-.5,-.5)(7.5,7.5)[$x$,0][$y$,90]
+   \psplot[linecolor=blue,plotpoints=100,linewidth=1.5pt]{.75}{6.75}{\f{x}}
+   \psplot[linestyle=dashed,linecolor=blue,plotpoints=100,linewidth=1.5pt]{.75}{6.75}{Derive(1,\f{x})}
+   \pnodes(*{\A} {\f{\A}}){A}(*{\B} {\f{\B}}){B}
+   \psCoordinates[linestyle=dashed](A)\psCoordinates[linestyle=dashed](B)
+   \pcline[nodesep=-5mm,linecolor=red](A)(B)
+   \pstInterFF{\M}{Derive(1,\f{x})}{1}{C}
+   \pstInterFF{\M}{Derive(1,\f{x})}{4}{D}
+   \psCoordinates[linestyle=dotted](C)\psCoordinates[linestyle=dotted](D)
+   \pnodes(*{N-C.x} {\f{x}}){X1}(*{N-D.x} {\f{x}}){X2}
+   \psCoordinates[linestyle=dashed,linecolor=red](X1)
+   \psCoordinates[linestyle=dashed,linecolor=red](X2)
+   \psParallelLine[linecolor=red](A)(B)(X1){0.1}{X}
+   \pcline[nodesepA=-1,linecolor=red](X1)(X)
+   \psParallelLine[linecolor=red](A)(B)(X2){0.1}{X}
+   \pcline[nodesepA=-1,linecolor=red](X2)(X)
+\end{pspicture}
+\end{document}

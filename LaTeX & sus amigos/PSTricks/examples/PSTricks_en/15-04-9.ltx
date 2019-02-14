@@ -1,0 +1,36 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 15-04-9 on page 218.
+%% 
+%%  Copyright (C) 2011 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{177.70511pt}
+\setlength\parindent{0pt}
+\usepackage{filecontents}
+
+\usepackage{pst-plot}
+\begin{filecontents*}{data9.dat}
+data set from 2006-10-21
+time forcex (forcey)
+0 0.2 1 1 2 3
+\end{filecontents*}
+
+\begin{document}
+\readdata[ignoreLines=2]{\data}{data9.dat}
+\pspicture(0,-0.25)(2,3)
+ \listplot[showpoints]{\data} \psaxes{->}(2,3)
+\endpspicture
+\end{document}

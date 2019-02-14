@@ -1,0 +1,33 @@
+% http://latex-cookbook.net/media/cookbook/examples/TEX/triangle-circles.tex
+\documentclass{standalone}
+\usepackage{tkz-euclide}
+\usetkzobj{all}
+\begin{document}
+\begin{tikzpicture}
+	\tkzDefPoints{0/0/A, 5/0/B, 1/4/C}
+	\tkzDefCircle[in](A,B,C)
+	\tkzGetPoint{M}
+	\tkzGetLength{r}
+	\tkzDefCircle[circum](A,B,C)
+	\tkzGetPoint{N}
+	\tkzGetLength{R}
+	\tkzDefPointBy[projection=onto A--B](M)
+	\tkzGetPoint{a}
+	\tkzDefPointBy[projection=onto B--C](M)
+	\tkzGetPoint{b}
+	\tkzDefPointBy[projection=onto A--C](M)
+	\tkzGetPoint{c}
+	
+	\tkzDrawCircle[R](M,\r pt)
+	\tkzDrawCircle[R](N,\R pt)
+	\tkzDrawPolygon[very thick](A,B,C)
+	\tkzDrawLines[dotted](N,A N,B N,C)
+	\tkzDrawLines[dashed](M,a M,b M,c)
+	\tkzMarkRightAngles(M,a,B M,b,C M,c,C)
+	\tkzDrawPoints(A,B,C,M,N,a,b,c)
+	\tkzLabelPoints[below left](A,M,a,c)
+	\tkzLabelPoints[below right](B)
+	\tkzLabelPoints[above](C,b)
+	\tkzLabelPoints[below](N)
+\end{tikzpicture}
+\end{document}

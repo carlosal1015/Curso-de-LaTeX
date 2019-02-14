@@ -1,0 +1,11 @@
+Artículos y libros 	
+No ver pdf mientras escribo en látex
+Capítulos partes libro
+Sección reportes, artículos
+Todo investigador estructura documento
+Los libros no aceptan abstract
+Openany no páginas en blanco
+SPSS
+Escribir latex, escribir y presentar
+\title{Práctica N∘∘1}
+\date{}

@@ -1,0 +1,31 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 02-14-12 on page 81.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{375.57637pt}
+
+
+\usepackage{spreadtab}
+
+\begin{document}
+\begin{spreadtab}{{tabular}{ @{} r *6c @{}}}
+@age      & 10 & 11 & 12 & 13 & 14 & 15\\
+@number     &  5 &  8 & 20 & 55 &  9 &  3\\\hline
+\multicolumn{7}{@{}l}{mean age: :={sumprod(b1:g1;b2:g2)/sum(b2:g2)}}
+\end{spreadtab}
+\end{document}

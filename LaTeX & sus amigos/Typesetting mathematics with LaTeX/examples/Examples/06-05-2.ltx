@@ -1,0 +1,21 @@
+%% 
+%%  Example 06-05-2 
+%%  Copyright (C) 2016 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{158.31393pt}
+\setlength\parindent{0pt}
+\usepackage[T1]{fontenc}
+%StartShownPreambleCommands
+\newcommand\Let{\mathrel{%
+  \mathop:\!\!=}}%  Upper case L!
+\newcommand\teL{\mathrel{=\!\!\mathop:}}
+%StopShownPreambleCommands
+\begin{document}
+$x\Let y$ $y\teL x$
+\end{document}

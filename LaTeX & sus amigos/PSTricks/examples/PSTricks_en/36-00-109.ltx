@@ -1,0 +1,36 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 36-00-109 on page 815.
+%% 
+%%  Copyright (C) 2011 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{201.70511pt}
+\setlength\parindent{0pt}
+
+\usepackage{pst-plot,multido}
+
+\begin{document}
+\begin{pspicture}(-1,-1)(5,5)
+\psaxes[ticksize=0 -4pt]{->}(5,5)
+\psparametricplot[algebraic,linewidth=1.5pt,linecolor=blue]{0}{5}{2*sqrt(t)|sin(t)+t}
+\psparametricplot[algebraic,linewidth=1.5pt,linecolor=red]{0}{5}{2*sqrt(t)|cos(t)+t}
+\multido{\rA=0.0+0.25}{20}{%
+  \psline{<->}(!2 \rA\space sqrt mul
+                  \rA\space RadtoDeg sin \rA\space add)
+              (!2 \rA\space sqrt mul
+                  \rA\space RadtoDeg cos \rA\space add)}
+\end{pspicture}
+\end{document}

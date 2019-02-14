@@ -1,0 +1,13 @@
+To run these example you need the also present example
+document classes. ALternatively you can edit the files:
+
+- change documentclass to article or report
+- delete the lines 
+  -- \StartShownPreambleCommands
+  -- \StopShownPreambleCommands
+
+Some minor examples, which uses non free available math fonts,
+like Palatino or Helvetica will not work, if you do not have
+these fonts installed on your local TeX system.
+
+Herbert Voss, October 2010

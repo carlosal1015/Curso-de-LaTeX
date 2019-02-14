@@ -1,0 +1,28 @@
+%% 
+%%  Example 07-07-5 
+%%  Copyright (C) 2017 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{158.31393pt}
+\setlength\parindent{0pt}
+\usepackage[T1]{fontenc}
+\usepackage{kpfonts}
+%StartShownPreambleCommands
+\usepackage{amsmath}
+\newsavebox\eqbox
+\sbox{\eqbox}{$\null=\null$}
+\newcommand\Vdots{\makebox[\wd\eqbox]{\vdots}}
+%StopShownPreambleCommands
+\begin{document}
+\begin{align}
+ a_1 & = b_1    & c_1 & = d_1 \\
+ a_2 & = b_2    & c_2 & = d_2 \\
+ a   & \Vdots b &     & \Vdots \nonumber \\
+ a_n & = b_n    & c_n & = d_n
+\end{align}
+\end{document}

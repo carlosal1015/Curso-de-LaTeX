@@ -1,0 +1,57 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%%  
+%%  7. Auflage
+%% 
+%%  Beispiel 35-00-91 auf Seite 855.
+%% 
+%%  Copyright (C) 2016 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+%StartShownPreambleCommands
+\usepackage{filecontents}
+\begin{filecontents*}{node2.data}
+12  12
+12  13
+13  15
+15  15
+15  13
+13  12
+12  10
+10  8
+8   8
+8   10
+10  12
+12  12
+12  10
+10  10
+\end{filecontents*}
+\usepackage{pst-node,pst-plot}
+\def\CPut(#1)#2{\pscircle*[linecolor=white](#1){3mm}\rput(#1){#2}\pscircle(#1){3mm}}
+%StopShownPreambleCommands
+\begin{document}
+\begin{pspicture}(6.5,6.5)(16,16)
+  \psaxes[axesstyle=frame,ticksize=0 9cm,tickcolor=black!20,Ox=7,Oy=7](7,7)(16,16)
+  \saveDataAsNodes{node2.data}{N}
+  \psset{radius=2.5mm,arrows=->,arrowscale=1.5,nodesep=3mm,linewidth=1.3pt}
+  \multido{\iA=\the\psLoopIndex+-1,\iB=\numexpr\the\psLoopIndex-1\relax+-1}%
+     {\the\psLoopIndex}{\CPut(N\iA){\iA}\ncline{N\iB}{N\iA}\ncput*[npos=0.4]{\tiny\iB/\iA}}
+  \pscircle*[linecolor=red](N0){3mm}\rput(N0){\bf\white0}
+  \readdata\data{node2.data}
+  \pslistplot[linecolor=blue,linestyle=dashed,plotstyle=LSM,xStart=7,xEnd=16]{\data}
+\end{pspicture}
+\end{document}

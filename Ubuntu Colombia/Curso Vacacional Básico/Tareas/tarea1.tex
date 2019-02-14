@@ -1,0 +1,33 @@
+%Tarea N°1 Curso Vacacional de \LaTeX{}
+%Redactar una carta
+\documentclass[12pt,a4paper,sans]{moderncv}
+\moderncvstyle{classic}
+\moderncvcolor{blue}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,english]{babel}
+\usepackage[scale=0.75]{geometry}
+\name{Gianni}{Infantino}
+\title{Resumé title}
+\address{Ave. Aviación 2085}{San Luis, Lima 30}{Perú}
+\extrainfo{Federación Peruana de Fútbol}
+\photo[64pt][0.4pt]{imágen}                        % opcional, remover o comentar 
+\begin{document}
+	
+	\recipient{Enhorabuena}{}
+	\date{Zurich, 16 de noviembre de 2017}
+	\opening{Estimado presidente}
+	
+	\closing{Atentamente}
+	\enclosure[]{\textbf{Féderation Internationale de Football Association}}          % opcional, remover o comentar si no incluye anexos 
+	\makelettertitle
+	Tras la victoria por 2-0 alcanzada ayer frente a Nueva Zelanda en el Estadio Nacional de Lima, Perú ha logrado clasificarse para la Copa Mundial de la FIFA Rusia 2018 para representar a la CONMEBOL, junto con Argentina, Brasil, Colombia y Uruguay.
+	
+	Deseo hacerles llegar mis sinceras felicitaciones a usted y a su selección nacional por esta clasificación para la mayor competición mundial de una única disciplina deportiva.
+	
+	La edición de Rusia marcará la $5^{\circ}$ participación mundialista de \emph{La Blanquirroja}, y la primera desde España 1982. La consecución de esta empresa refleja la determinación de todos los que han colaborado en ella. Reitero mi enhorabuena a los jugadores, al director técnico Ricardo Gareca, a todo el cuerpo técnico y médico, así como a la afición peruana.
+	
+	Con la esperanza de poder saludarle muy pronto en persona, aprovecho la ocasión para enviarle mis mejores deseos.
+	
+	\makeletterclosing
+	
+\end{document}

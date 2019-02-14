@@ -1,0 +1,32 @@
+%% 
+%%  Example 01-22-5 
+%%  Copyright (C) 2017 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{182.31393pt}
+
+%StartShownPreambleCommands
+\makeatletter
+\let\itemOld\item
+\renewcommand\item[1][]{%
+  \def\@tempa{#1}
+  \ifx\@tempa\@empty\itemOld
+  \else\boldmath\itemOld[#1]\unboldmath
+  \fi}
+\makeatother
+\let\sectionOld\section
+\renewcommand\section[2][\empty]{%
+  \boldmath\sectionOld[#1]{#2}\unboldmath}
+%StopShownPreambleCommands
+\begin{document}
+\section{The math function $f(x)=x^2$}
+\begin{description}
+\item[This is $y=f(x)$] Only a demonstration.
+\item[And $z=f(x,y)$] Another demonstration.
+\end{description}
+\end{document}

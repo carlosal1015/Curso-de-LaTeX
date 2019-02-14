@@ -1,0 +1,39 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 02-19-2 on page 90.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{262.9023pt}
+\setlength\parindent{0pt}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\setlength\parskip{8pt plus 3pt}
+
+\usepackage{tabulary}
+
+\begin{document}
+Text before the table, which will span the whole width of the line with an
+additional linebreak but without sense.\par
+\begin{tabulary}{\linewidth}{@{}J | J | J@{}}
+The height of this column is determined automatically.
+  & This column is ?\,cm wide, but how wide exactly is unknown.
+  & The height of this column is determined automatically such that all columns
+    have the same height for the given width.
+\end{tabulary}\par
+Text after the table, which will span the whole width of the line with an
+additional linebreak but without sense.
+\end{document}

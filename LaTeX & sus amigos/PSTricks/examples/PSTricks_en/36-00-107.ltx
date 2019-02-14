@@ -1,0 +1,52 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 36-00-107 on page 814.
+%% 
+%%  Copyright (C) 2011 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{201.70511pt}
+\setlength\parindent{0pt}
+
+\usepackage{amsmath, amsthm, amssymb}
+\usepackage{pst-node}
+\newcommand {\card}[1]     {\lvert#1\rvert}
+\newcommand {\eqobs}       {\equiv_{obs}}
+\newcommand {\gameemph}[1] {{\color{blue} #1}}
+\newcommand {\gen}[1]      {\langle#1\rangle}
+\newcommand {\mybox}[1]    {\psshadowbox[linecolor=gray,shadowcolor=lightgray]{#1}}
+\newcommand {\sel}         {\leftarrow}
+
+\begin{document}
+\rnode{game1}{\mybox{\small
+      \begin{tabular}{llcl}
+        let & ($e$, $d$)          & $\sel$ & \gameemph{:encGen ElGamal: $1^n$}\\
+            & ($m_1$, $m_2$, $a$) & $\sel$ & :A: ($1^n$, $e$)\\
+            & $c$                 & $\sel$ & \gameemph{:encEnc ElGamal: ($1^n$, $e$, $m_1$)}\\
+        in  & \multicolumn{3}{l}{:A': ($1^n$, $m_1$, $m_2$, $a$, $e$, $c$)}\\
+      \end{tabular}}}\\[1cm]
+\hspace*{2cm}
+\rnode{game2}{\mybox{\small
+      \begin{tabular}{llcl}
+        let & ($e$, $d$)          & $\sel$ & \gameemph{let $x$ $\sel$ fun(uniform, $\card{\gen{g_n}}$)}\\
+            &                     &        & \gameemph{in ($g_n^x$, $x$)}\\
+            & ($m_1$, $m_2$, $a$) & $\sel$ & :A: ($1^n$, $e$)\\
+            & $c$                 & $\sel$ & \gameemph{let $y$ $\sel$ fun(uniform, $\card{\gen{g_n}}$)}\\
+            &                     &        & \gameemph{in ($g_n^y$, $m_1 \times e^y$)}\\
+        in  & \multicolumn{3}{l}{:A': ($1^n$, $m_1$, $m_2$, $a$, $e$, $c$)}\\
+      \end{tabular}}}
+  %Arrows
+  \ncline{->}{game1}{game2}\ncput*{$\eqobs$}
+\end{document}

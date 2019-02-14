@@ -1,0 +1,24 @@
+%% 
+%%  Example 04-01-17 
+%%  Copyright (C) 2016 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{158.31393pt}
+\setlength\parindent{0pt}
+%StartShownPreambleCommands
+\usepackage{empheq,xcolor}
+%StopShownPreambleCommands
+\begin{document}
+\begin{subequations}
+\begin{empheq}[box={\fboxsep=10pt%
+               \colorbox{cyan}}]{align}
+ f(x) &= \int_1^{\infty}\frac{1}{x^1}\mathrm{d}x=1\\
+ f(x) &= \int_2^{\infty}\frac{1}{x^2}\mathrm{d}x=0.25
+\end{empheq}
+\end{subequations}
+\end{document}

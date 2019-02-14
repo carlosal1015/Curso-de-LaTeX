@@ -1,0 +1,31 @@
+%% 
+%%  Example 02-01-1 
+%%  Copyright (C) 2016 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{158.31393pt}
+\setlength\parindent{0pt}
+\AtBeginDocument{%
+\abovedisplayskip=0pt
+\abovedisplayshortskip=0pt
+\belowdisplayskip=0pt
+\belowdisplayshortskip=0pt}
+%StartShownPreambleCommands
+\usepackage{amsmath}
+%StopShownPreambleCommands
+\begin{document}
+\begin{align}
+y &= x\makebox(0,0){\rule[-2.2cm]{0.2pt}{1.5cm}}
+\end{align}
+\begin{align}
+y \makebox(0,0){\rule[-1.5cm]{0.2pt}{1.5cm}}=& x
+\end{align}
+\begin{align}
+y ={}& x
+\end{align}
+\end{document}

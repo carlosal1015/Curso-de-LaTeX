@@ -1,0 +1,58 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 14-02-3 on page 155.
+%% 
+%%  Copyright (C) 2011 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{300.46223pt}
+\setlength\parindent{0pt}
+\usepackage[utf8]{inputenc}
+
+\usepackage{pstricks}
+
+\begin{document}
+\begin{verbatim}
+(pstverb)
+\pstverb{newpath 100 -100 moveto
+  50 0 rlineto  0 50 rlineto
+ -50 0 rlineto 0 -50 rlineto
+ 1 1 0 setrgbcolor gsave fill grestore}%
+\pstVerb{newpath 100 -100 moveto
+  50 0 rlineto  0 50 rlineto
+ -50 0 rlineto 0 -50 rlineto
+   1 0 0 setrgbcolor gsave fill grestore}
+(pstVerb)
+\end{verbatim}
+(pstverb)
+\pstverb{newpath 100 -100 moveto
+  50 0 rlineto  0 50 rlineto
+ -50 0 rlineto 0 -50 rlineto
+ 1 1 0 setrgbcolor gsave fill grestore}%
+\pstVerb{newpath 100 -100 moveto
+  50 0 rlineto  0 50 rlineto
+ -50 0 rlineto 0 -50 rlineto
+   1 0 0 setrgbcolor gsave fill grestore}
+(pstVerb)
+
+In theory both commands should draw the same size square since the absolute
+coordinates are identical, placed logically
+in the middle of the ``(pstverb) (pstVerb)'' text. However, what in fact we get is a large yellow square
+in the middle of this paragraph, a small, red one at the top left of this example page, and the
+``(pstverb) (pstVerb)'' text output concatenated at the current text position. Furthermore, after the
+red square is drawn, the font is set to red (1 0 0) -- only a \black\verb+\black+ switches this back.
+The fact that the two squares are different sizes is in fact not a difference in the commands themselves
+but with the \verb+dvips+ programme -- it does not reset all values correctly.
+\end{document}

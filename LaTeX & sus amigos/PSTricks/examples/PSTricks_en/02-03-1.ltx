@@ -1,0 +1,36 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 02-03-1 on page 22.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{129.70511pt}
+\setlength\parindent{0pt}
+
+\usepackage{pstricks}
+
+\begin{document}
+\psframebox[framesep=0pt,linestyle=dotted]{%
+\begin{pspicture}(2,1)% cm is default
+  \psset{xunit=0.5mm,yunit=2mm}
+  \psline{->}(40,5)\psline{->}(0,1cm)(40,0)
+\end{pspicture}}\\[20pt]
+\psset{xunit=0.5mm,yunit=2mm}% changes the default!
+\psframebox[framesep=0pt,linestyle=dotted]{%
+\begin{pspicture}(40,5)% default for x and y is different
+  \psline{->}(40,5)\psline{->}(0,1cm)(40,0)
+\end{pspicture}}
+\end{document}

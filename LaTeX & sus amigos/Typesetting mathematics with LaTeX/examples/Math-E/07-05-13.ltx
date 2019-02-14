@@ -1,0 +1,33 @@
+%% 
+%%  An UIT Edition example
+%% 
+%%  Example 07-05-13 on page 137.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exasymbol}
+\pagestyle{empty}
+\setlength\textwidth{375.57637pt}
+\AtBeginDocument{\setlength\parindent{0pt}}
+\StartShownPreambleCommands
+\usepackage{array,mathabx}
+\def\mathSymbol#1#2{ $ \csname#1\endcsname{#2} $ & \small\Lcs{#1}\{#2\} &}
+\StopShownPreambleCommands
+\begin{document}
+\renewcommand\arraystretch{1.7}
+\begin{tabular}{@{}*{3}{c@{\kern3pt}l}c@{\kern3pt}l@{}l@{}}
+\mathSymbol{overbrace}{abc} \mathSymbol{widebar}{abc}   \mathSymbol{overgroup}{abc} \\
+\mathSymbol{widecheck}{abc} \mathSymbol{underbrace}{abc}\mathSymbol{wideparen}{abc}\\
+\mathSymbol{undergroup}{abc}\mathSymbol{widering}{abc}  \mathSymbol{widearrow}{abc}
+\end{tabular}
+\end{document}

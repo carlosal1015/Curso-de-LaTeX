@@ -1,0 +1,37 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Beispiel 05-01-1 auf Seite 168.
+%% 
+%%  Copyright (C) 2010 H. Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+
+%%Run also: >>  << 
+% Show page(s) 1
+
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{355.65944pt}
+\AtBeginDocument{\setlength\parindent{0pt}}
+
+\usepackage[T3,T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{array,dcolumn,tabularx,textcomp,ragged2e}
+\usepackage[noenc]{tipa}
+\newcolumntype{C}{>{\Centering}X}
+
+\begin{document}
+\begin{tabularx}{0.85\linewidth}{|>{\tipaencoding}c|l|
+                                  >{\RaggedRight}X|D{.}{.}{-1}|}\hline
+ \multicolumn{1}{|c|}{Sound} & \multicolumn{1}{c|}{Examples}
+ & \multicolumn{1}{C|}{Place and manner of articulation}
+ & \multicolumn{1}{C|}{Occurence frequency (\%)} \\\hline
+\relax\textepsilon & lait, jouet, merci & front, half-open & 5.3 \\\hline
+\end{tabularx}
+\end{document}

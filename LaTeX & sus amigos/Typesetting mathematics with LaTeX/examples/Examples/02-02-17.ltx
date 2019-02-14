@@ -1,0 +1,26 @@
+%% 
+%%  Example 02-02-17 
+%%  Copyright (C) 2016 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{328.62788pt}
+\setlength\parindent{0pt}
+%StartShownPreambleCommands
+\usepackage{amsmath}
+%StopShownPreambleCommands
+\begin{document}
+\begin{equation}
+x=\begin{cases}
+  0 & \text{if A=...}\\
+  1 & \text{if B=...}\\
+  x & \parbox{7cm}{\flushleft
+      this runs with as much text as you like, but without an automatic
+      linebreak, it runs out of page~\ldots}%
+\end{cases}
+\end{equation}
+\end{document}

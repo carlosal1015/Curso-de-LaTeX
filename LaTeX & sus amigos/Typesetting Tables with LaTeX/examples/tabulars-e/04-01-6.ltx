@@ -1,0 +1,46 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 04-01-6 on page 130.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{201.70511pt}
+\usepackage[utf8]{inputenc}% adapt maybe
+\setlength\parindent{0pt}
+\setlength\textwidth{6cm}
+
+\usepackage{longtable,calc}
+
+\begin{document}
+left \hfill centred \hfill right
+\setlength\LTleft{0pt}
+\begin{longtable}{|l|c|r|p{1.5cm}|}\hline
+left & centred & right & box\\\hline
+l & c & r & p\{1.5cm\}\\\hline
+\end{longtable}
+\setlength\LTleft{\fill}\setlength\LTright{0pt}
+\hfill right-aligned
+\begin{longtable}{|l|c|r|p{1.5cm}|}\hline
+left & centred & right & box\\\hline
+l & c & r & p\{1.5cm\}\\\hline
+\end{longtable}
+\setlength\LTleft{\fill}\setlength\LTright{\fill}
+\centerline{centred}
+\begin{longtable}{|l|c|r|p{1.5cm}|}\hline
+left & centred & right & box\\\hline
+l & c & r & p\{1.5cm\}\\\hline
+\end{longtable}
+\end{document}

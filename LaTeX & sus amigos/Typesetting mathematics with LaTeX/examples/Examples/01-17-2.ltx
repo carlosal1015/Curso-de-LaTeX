@@ -1,0 +1,23 @@
+%% 
+%%  Example 01-17-2 
+%%  Copyright (C) 2017 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{110.31393pt}
+\usepackage[T1]{fontenc}
+\usepackage{kpfonts}
+%StartShownPreambleCommands
+\usepackage{bm,upgreek}
+\makeatletter
+\newcommand\bfgreek[1]{\bm{\@nameuse{up#1}}}
+\makeatother
+%StopShownPreambleCommands
+\begin{document}
+$\bfgreek{beta}\bfgreek{mu}\bfgreek{delta}
+ \bfgreek{theta}\bfgreek{sigma}$
+\end{document}

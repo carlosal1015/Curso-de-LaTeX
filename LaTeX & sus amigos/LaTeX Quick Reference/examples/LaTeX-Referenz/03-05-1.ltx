@@ -1,0 +1,43 @@
+%% 
+%%  Die DANTE-Edition
+%%  Ein Beispiel der LaTeX Referenz
+%%  3. Auflage
+%% 
+%% 
+%%  Copyright (C) 2013 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[ngerman]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{169.16928pt}
+\usepackage{babel}
+\setlength\parindent{0pt}
+%StartShownPreambleCommands
+\usepackage{siunitx,booktabs}
+\sisetup{expproduct=cdot}
+%StopShownPreambleCommands
+\begin{document}
+\SI{10}{\gram}    \SI{23.4}{g.cm^3}\\
+\num{1e34}        \ang{1;2;3}\\
+\emph{\SI{16,7}{\metre\per\second}}\\
+\textbf{\SI{30e3}{\Hz}}\\
+\SI{1.2 x 3.56 x 9.2}{\milli\metre}\\
+\sisetup{obeyall} \textbf{\SI{-4.5}{\cm}}\\
+\si{\joule\per\mole\per\kelvin}\\
+\si[per=frac]{\joule\per\mole\per\kelvin}\\
+\num[dp=4]{1.23456} \num[dp=4]{9.8}\\
+\begin{tabular}{S[tabformat=3.2]}\toprule
+{Heading}\\\midrule
+1.3 \\ 134.2 \\ 3.56 \\ 74,7 \\\bottomrule
+\end{tabular}
+\end{document}

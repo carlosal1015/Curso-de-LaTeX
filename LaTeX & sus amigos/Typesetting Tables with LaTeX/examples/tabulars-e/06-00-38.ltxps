@@ -1,0 +1,63 @@
+%% 
+%%  A DANTE-Edition example
+%% 
+%%  Example 06-00-38 on page 203.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{article}
+\pagestyle{empty}
+\setlength\textwidth{415.41023pt}
+\setlength\parindent{0pt}
+
+\usepackage{pst-node,pst-tree,graphicx,geometry}
+\def\GraphTabLine#1(#2,#3,#4,#5){%
+  #1 & \rnode{A}{#2} & \checkSpace(#2,#3){B}{#3}
+     & \checkSpace(#2,#4){C}{#4} & \checkSpace(#2,#5){D}{#5}
+  \ncline{A}{B}\ncline{B}{C}\ncline{C}{D}}
+\newlength\Vspace
+\def\checkSpace(#1,#2)#3#4{%
+  \Vspace=#1pt \advance\Vspace by -#2pt
+  \raisebox{-3\Vspace}{\rnode{#3}{#4}}}
+
+\begin{document}
+\psset{nodesep=2pt,arrows=->}
+\resizebox{!}{0.5\textheight}{%
+\begin{tabular}{@{}l*4{p{2cm}}@{}}
+ & 5 year & 10 year & 15 year & 20 year\\
+ \GraphTabLine{Prostate}             (99,95,87,81)\\
+ \GraphTabLine{Thyroid}              (96,96,94,95)\\
+ \GraphTabLine{Testis}               (95,94,91,88)\\[-15pt]
+ \GraphTabLine{Melanomas}            (89,87,84,82)\\[-15pt]
+ \GraphTabLine{Breast}               (86,78,71,65)\\[-45pt]
+ \GraphTabLine{Hodgkin's disease}    (85,80,74,67)\\[-10pt]
+ \GraphTabLine{Corpus uteri, uterus} (84,83,81,79)\\[-10pt]
+ \GraphTabLine{Urinar bladder}       (82,76,70,67)\\[-27pt]
+ \GraphTabLine{Cervix uteri}         (71,64,63,60)\\[-25pt]
+ \GraphTabLine{Larynx}               (69,57,46,37)\\[-35pt]
+ \GraphTabLine{Rectum}               (63,55,52,49)\\[-35pt]
+ \GraphTabLine{Kidney, renal pelvis} (62,54,50,47)\\[-25pt]
+ \GraphTabLine{Colon}                (62,55,54,52)\\[-20pt]
+ \GraphTabLine{Non-Hodgkin's}        (58,46,38,34)\\[-63pt]
+ \GraphTabLine{Oral cavity, pharynx} (57,44,38,33)\\[-10pt]
+ \GraphTabLine{Ovary}                (55,49,50,50)\\[-10pt]
+ \GraphTabLine{Leukaemias}           (43,32,29,26)\\[-10pt]
+ \GraphTabLine{Brain, nervous system}(32,29,27,26)\\[-10pt]
+ \GraphTabLine{Multiple myeloma}     (30,13, 7, 5)\\[-15pt]
+ \GraphTabLine{Stomach}              (24,19,19,15)\\[-20pt]
+ \GraphTabLine{Lung and bronchus}    (15,11, 8, 6)\\[-20pt]
+ \GraphTabLine{Esophagus}            (14, 8, 8, 5)\\[ 30pt]
+ \GraphTabLine{Liver, bile duct}     ( 8, 6, 6, 8)\\
+ \GraphTabLine{Pancreas}             ( 4, 3, 3, 3)
+\end{tabular}}
+\end{document}

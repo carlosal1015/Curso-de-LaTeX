@@ -1,0 +1,35 @@
+%% 
+%%  An UIT Edition example
+%% 
+%%  Example 06-02-13 on page 85.
+%% 
+%%  Copyright (C) 2010 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{375.57637pt}
+\AtBeginDocument{\setlength\parindent{0pt}}
+\usepackage[english]{babel}
+\setcounter{equation}{15}
+\renewcommand\theequation{6.\arabic{equation}}
+\StartShownPreambleCommands
+\usepackage{amsmath}
+\StopShownPreambleCommands
+\begin{document}
+\begin{alignat}{2}
+y      &= d              & z &= 1                    \\ % <=== 3 times &
+y      &= cx+d           & z &= x+1         \nonumber\\
+y_{12} &= bx^2+cx+d      & z &= x^2+x+1     \nonumber\\
+y(x)   &= ax^3+bx^2+cx+d & z &= x^3+x^2+x+1
+\end{alignat}
+\end{document}

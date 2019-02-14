@@ -1,0 +1,22 @@
+%% 
+%%  Example 05-02-4 
+%%  Copyright (C) 2017 Herbert Voss
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle2}
+\pagestyle{empty}
+\setlength\textwidth{328.62788pt}
+\setlength\parindent{0pt}
+%StartShownPreambleCommands
+\usepackage{unicode-math}
+\setmainfont{TeX Gyre Termes}
+\setmathfont{TeX Gyre Termes Math}
+%StopShownPreambleCommands
+\begin{document}
+\hrule\strut\par
+\input{fontDemo.txt}
+\par\strut\hrule
+\end{document}

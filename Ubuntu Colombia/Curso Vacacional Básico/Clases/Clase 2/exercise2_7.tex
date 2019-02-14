@@ -1,0 +1,56 @@
+\documentclass{article}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{PTSansNarrow}
+\usepackage[spanish]{babel}
+\spanishdatedel
+\usepackage{mathtools,amssymb,amsfonts,amsmath,amsthm,mathrsfs,bm,times,bbold}
+\usepackage[usenames,dvipsnames,x11names,table,svgnames]{xcolor}
+\usepackage[pdftex,demo]{graphicx}
+\usepackage{siunitx}
+\usepackage{float}
+\usepackage{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=black,anchorcolor=black,citecolor=black]{hyperref}
+\hypersetup{pdfinfo={
+		Title={Clase 2 - Ejercicio 1},
+		Author={Oromion},
+		Keywords={layout},
+		Subject={Curso Vacacional Básico},
+		Producer={TeXstudio 2.12.6},
+		Creator={pdfTeX Version 3.14159265 TeX Live 2018 Debian}
+}}
+\usepackage{lipsum}
+\title{\textit{Configurando Encabezado y pie}}
+\geometry{
+letterpaper,
+includeall,
+left = 2cm,
+right = 1.5cm,
+top = 3cm,
+bottom = 1.5cm,
+includeheadfoot,
+twoside,
+head = 1.5cm,
+headsep = 5mm,
+foot = 5mm,
+marginparwidth = 3cm, %Notas al margen.
+marginparsep = 5mm% ¡Muy útil!
+}
+\begin{document}
+\maketitle
+\lipsum[1-5]
+\newgeometry{
+left = 5cm,
+right = 5cm,
+top = 5cm,
+bottom = 5cm
+}
+\savegeometry{D1}
+\lipsum[1-4]
+
+\restoregeometry
+\lipsum[1-5]
+
+\loadgeometry{D1}
+\lipsum[1-4]
+\end{document}

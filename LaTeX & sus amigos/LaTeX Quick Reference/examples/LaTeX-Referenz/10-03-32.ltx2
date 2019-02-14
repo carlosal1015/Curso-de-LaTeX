@@ -1,0 +1,70 @@
+%% 
+%%  Die DANTE-Edition
+%%  Ein Beispiel der LaTeX Referenz
+%%  3. Auflage
+%% 
+%% 
+%%  Copyright (C) 2013 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==command biber ++FILE++== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[a5paper,ngerman]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[scaled=0.83]{beramono}
+\usepackage[margin=15mm]{geometry}
+\usepackage{babel}
+\pagestyle{empty}
+\usepackage{marginnote}
+%StartShownPreambleCommands
+\usepackage[style=authoryear,backref=false,hyperref=auto,
+  abbreviate=true,sorting=nyt,bibencoding=inputenc,block=ragged]{biblatex}
+\setlength\bibitemsep{0.5\baselineskip plus 0.3\baselineskip minus 0.1\baselineskip}
+\renewcommand*{\bibsetup}{%
+  \interlinepenalty=5000\relax \widowpenalty=10000\relax
+  \clubpenalty=5000\relax % 10000
+  \raggedbottom\frenchspacing\sloppy\emergencystretch=4em}
+\makeatletter
+\usepackage{marginnote}
+\newcommand*\formatItemCnt[1]{}
+\newcommand*\@formatItemCnt[1]{\edef\@tempa{\ifnum#1<100\relax 0\fi
+  \ifnum#1<10\relax 0\fi#1}{\fboxsep=2pt\fbox{\footnotesize\sffamily\@tempa}}}
+\newcommand*\enableBibItemCount{\let\formatItemCnt=\@formatItemCnt}
+\AtEveryBibitem{\raggedright\ifx\formatItemCnt=\@formatItemCnt\@tempswatrue\fi
+  \if@tempswa\marginnote[\formatItemCnt{\the\value{instcount}}]%
+      {\formatItemCnt{\the\value{instcount}}}\fi}
+\makeatother
+\bibliography{klassiker}
+%StopShownPreambleCommands
+\begin{document}
+\nocite{*}
+
+\enableBibItemCount
+\defbibheading{Goe}{\section*{Literatur von Johann Wolfgang Goethe}}
+\defbibheading{AGoe}{\section*{Literatur über Johann Wolfgang Goethe}}
+\defbibnote{AGoe}{Dieser Abschnitt zeigt nur einen Teil der Literatur über
+                  Johann Wolfgang Goethe.}
+\defbibheading{Sch}{\section*{Literatur von Friedrich Schiller}}
+\defbibheading{ASch}{\section*{Literatur über Friedrich Schiller}}
+\defbibnote{ASch}{Dieser Abschnitt zeigt nur einen Teil der Literatur über
+                  Friedrich Schiller.}
+\defbibfilter{Sch}{\keyword{Friedrich Schiller}}
+\defbibfilter{ASch}{\keyword{About Friedrich Schiller}}
+\defbibfilter{Goe}{\keyword{Johann Wolfgang Goethe}}
+\defbibfilter{AGoe}{\keyword{About Johann Wolfgang Goethe}}
+\printbibliography[heading=Goe,filter=Goe]
+\printbibliography[heading=AGoe,prenote=AGoe,filter=AGoe]
+\printbibliography[heading=Sch,filter=Sch]
+\printbibliography[heading=ASch,prenote=ASch,filter=ASch]
+\end{document}

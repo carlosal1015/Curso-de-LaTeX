@@ -1,0 +1,34 @@
+%% 
+%%  Ein Beispiel der DANTE-Edition
+%%  
+%%  7. Auflage
+%% 
+%%  Beispiel 16-02-2 auf Seite 305.
+%% 
+%%  Copyright (C) 2016 Herbert Voss
+%% 
+%%  It may be distributed and/or modified under the conditions
+%%  of the LaTeX Project Public License, either version 1.3
+%%  of this license or (at your option) any later version.
+%% 
+%%  See http://www.latex-project.org/lppl.txt for details.
+%% 
+%% 
+%% ==== 
+% Show page(s) 1
+%% 
+%% 
+\documentclass[]{exaarticle}
+\pagestyle{empty}
+\setlength\textwidth{352.81416pt}
+\setlength\parindent{0pt}
+\AtBeginDocument{\Large}
+%StartShownPreambleCommands
+\usepackage{pst-tree}
+%StopShownPreambleCommands
+\begin{document}
+\pstree[linewidth=0.2pt,nodesepB=3pt]{\TC*}{%
+   \Tr{a\rlap{\rule{3cm}{0.4pt}}}\Tr{$\hat{X}$}\Tr{b}\Tr{x}} \qquad
+\pstree[linewidth=0.2pt,nodesepB=3pt]{\TC*}{%
+   \TR{a\rlap{\rule{3cm}{0.4pt}}}\TR{$\hat{X}$}\TR{b}\TR{x}}
+\end{document}

@@ -1,0 +1,60 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Font Setup
+\starttypescriptcollection[mylibertine]
+
+\starttypescript[serif][libertine][name]
+    \definefontsynonym[Serif]           [name:Linux Libertine O]             [features=default]
+    \definefontsynonym[SerifItalic]     [name:Linux Libertine Italic O]      [features=default]
+    \definefontsynonym[SerifBold]       [name:Linux Libertine Bold O]        [features=default]
+    \definefontsynonym[SerifBoldItalic] [name:Linux Libertine Bold Italic] [features=default]
+    \definefontsynonym[SerifSlanted]    [name:Linux Libertine Slanted O]     [features=default]
+    \definefontsynonym[SerifSlantedBold][name:Linux Libertine Slanted O Bold][features=default]
+    \definefontsynonym[SerifCaps]       [name:Linux Libertine Capitals]    [features=smallcaps]
+\stoptypescript
+
+\starttypescript[sans][biolinum][name]
+    \setups[font:fallback:Serif]
+    \definefontsynonym [Sans]           [name:Linux Biolinum O]             [features=default]
+    \definefontsynonym [SansBold]       [name:Linux Biolinum Bold O]        [features=default]
+    \definefontsynonym [SansItalic]     [name:Linux Biolinum Italic O]      [features=default]
+    \definefontsynonym [SansBoldItalic] [name:Linux Biolinum Slanted O Bold][features=default]
+    \definefontsynonym [SansSlanted]    [name:Linux Biolinum Slanted O]     [features=default]
+    \definefontsynonym [SansSlantedBold][name:Linux Biolinum Slanted O Bold][features=default]
+\stoptypescript
+
+\starttypescript[keyboard][biolinumKB]
+    \definefontsynonym[Keyboard][name:Linux BiolinumKB][features=default]
+\stoptypescript
+
+\starttypescript[outline][biolinumOL]
+    \definefontsynonym[Outline]      [name:Linux BiolinumOL] [features=default]
+    \definefontsynonym[OutlineBold]  [name:Linux BiolinumOL Bold][features=default]
+    \definefontsynonym[OutlineItalic][name:Linux BiolinumOL Italic][features=default]
+\stoptypescript
+
+\starttypescript[shadow][biolinumSH]
+    \definefontsynonym[Shadow]      [name:Linux BiolinumSH] [features=default]
+    \definefontsynonym[ShadowBold]  [name:Linux BiolinumSH Bold][features=default]
+    \definefontsynonym[ShadowItalic][name:Linux BiolinumSH Italic][features=default]
+\stoptypescript
+
+\starttypescript[mono][bera][name]
+    \setups[font:fallback:Serif]
+    \definefontsynonym [Mono] [name:BeraSansMono-Roman]
+%    \definefontsynonym [Mono] [file:fvmr8a.afm]
+\stoptypescript
+
+\starttypescript[mylibertine]
+   \definetypeface[mylibertine][rm][serif][libertine][default]
+   \definetypeface[mylibertine][ss][sans] [biolinum] [default]
+   \definetypeface[mylibertine][tt][mono] [bera]     [default][rscale=0.85]
+   \definetypeface[mylibertine][mm][math]    [modern]   [default]
+   \definetypeface[mylibertine][kb][keyboard][biolinumKB][default]
+   \definetypeface[mylibertine][ol][outline] [biolinumOL][default]
+   \definetypeface[mylibertine][sh][shadow]  [biolinumSH][default]
+\stoptypescript
+
+\stoptypescriptcollection
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setupbodyfont[mylibertine,11pt,rm]
+
+\endinput
