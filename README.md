@@ -57,6 +57,7 @@ Primero, su sistema en el que está ejecutando va a necesitar un par de cosas:
 | Curso Vacional de LaTeX | diciembre del 2017| [Ubuntu Colombia](https://www.facebook.com/UbuntuColombia/) :colombia: |
 | [TUG 2018](https://tug.org/tug2018/) | July 20-22, 2018 | [Institute for Pure and Applied Mathematics](https://impa.br/videos/) :brazil: |
 | En espera de la autorización | 2018 -- 2019 | [Centro de Tecnologías de Información y Comunicaciones](https://www.ctic.uni.edu.pe/) |
+| [TUG 2020]() | 2020 | [LaTeX Workshop TUG 2020 Conference](https://www.overleaf.com/project/5ef0eeaad5a33b0001721d3d) |
 
 ## Apoyando el desarrollo
 
