@@ -1,0 +1,320 @@
+% !TeX document-id = {4a66a092-a797-425f-b588-c0b0f6bcb4d3}
+% !TeX TXS-program:compile = txs:///lualatex | txs:///view
+% arara: clean: { extensions: ['aux', 'log', 'pdf'] }
+% arara: lualatex
+% arara: clean: { extensions: ['aux', 'log'] }
+% https://tex.stackexchange.com/a/365573
+\RequirePackage[l2tabu,orthodox]{nag}
+\documentclass[a4paper]{article}
+\usepackage{libertine}
+\usepackage[libertine]{newtxmath}
+\usepackage[margin=1cm,landscape]{geometry}
+\usepackage[protrusion=true,expansion=true]{microtype}
+\usepackage{mdframed}
+\usepackage[svgnames,table]{xcolor}
+\usepackage{multicol}
+\usepackage{booktabs}
+\usepackage{tabularx}
+
+\newcommand{\hlx}{\\\midrule}
+\newcommand{\cmd}[1]{\textbf{#1}}
+\newcommand{\tbl}{\textbackslash}
+\newcommand{\ctrlp}{Ctrl$+$}
+\newcommand{\ctrlshiftp}{Ctrl$+$Shift$+$}
+\newcommand{\ctrlaltp}{Ctrl$+$Alt$+$}
+\newcommand{\altp}{Alt$+$}
+\newcommand{\shiftp}{Shift$+$}
+\newcommand{\altshiftp}{Alt$+$Shift$+$}
+\newcommand*{\altcmd}{\hspace*{1em}\rule[.5ex]{3.5em}{.4pt}}
+
+\setlength{\parindent}{0pt}
+\newcommand{\spacebtwtables}{%
+	\newline%
+	\vspace*{1em}%
+	\newline%
+}
+\pagestyle{empty}
+\sbox9{\scriptsize\libertine%
+	\cmd{\ctrlshiftp \#[0--9]}% Enter the longest command here
+}
+
+% Mdframed settings
+\global\mdfdefinestyle{mystyle}{%
+	linecolor=gray,linewidth=1pt,%
+	leftmargin=0mm,rightmargin=0mm,skipbelow=0mm,skipabove=0mm
+}
+
+% Table settings
+\renewcommand\arraystretch{1.2}
+\renewcommand{\aboverulesep}{0pt}
+\renewcommand{\belowrulesep}{0pt}
+\newcommand{\headbf}[1]{\color{DarkBlue}\Large\textbf{#1}}
+\definecolor{impt}{HTML}{E6E7E9}
+\newcolumntype{P}{>{\columncolor{white}[0pt][\tabcolsep]}X}
+\newcolumntype{L}{>{\columncolor{white}[\tabcolsep][0pt]}m{\wd9}}
+
+\begin{document}
+\begin{multicols}{4}
+	% Header/Title
+	\begin{mdframed}[style=mystyle]
+		\begin{center}
+			\color{DarkBlue}
+			\fontfamily{pnc}\selectfont
+			\Large\scshape
+			\TeX{}studio \\
+			Atajos por defecto \\\bigskip
+			\footnotesize
+			Carlos Aznarán Laos \\
+			Grupo Estudiantil de Matemática \\
+			Universidad Nacional de Ingeniería \\
+			Última modificación: 29 de agosto de 2025%\today
+		\end{center}
+	\end{mdframed}
+	%
+	% Main body
+	\scriptsize
+	\bigskip
+	% <File>
+	\begin{tabularx}{\linewidth}[th]{%
+			@{}P L@{}%
+		}
+		\multicolumn{2}{@{}l@{}}{\headbf{Archivo}}                  \\
+		\toprule
+		Nuevo archivo              & \cmd{\ctrlp N} \hlx
+		Abrir archivo              & \cmd{\ctrlp O} \hlx
+		Guardar archivo            & \cmd{\ctrlp S} \hlx
+		Guardar archivo como       & \cmd{\ctrlaltp S} \hlx
+		Guardar todos los archivos & \cmd{\ctrlaltp Shift$+$S} \hlx
+		Cerrar archivo             & \cmd{\ctrlp W} \hlx
+		Imprimir código fuente     & \cmd{\ctrlp P} \hlx
+		Salir de \TeX{}studio      & \cmd{\ctrlp Q}                 \\
+		\bottomrule
+	\end{tabularx}
+	\spacebtwtables
+	% <Edit>
+	\begin{tabularx}{\linewidth}[th]{%
+			@{}P L@{}%
+		}
+		\multicolumn{2}{@{}l@{}}{\headbf{Editar}}                             \\
+		\toprule
+		Deshacer                                 & \cmd{\ctrlp Z} \hlx
+		Rehacer                                  & \cmd{\ctrlp Y} \hlx
+		                                         & \cmd{\ctrlshiftp Z} \hlx
+		Copiar                                   & \cmd{\ctrlp C} \hlx
+		Pegar                                    & \cmd{\ctrlp V} \hlx
+		Insertar carácter unicode                & \cmd{\ctrlaltp U} \hlx
+		\multicolumn{2}{c}{--Selección--} \hlx
+		Seleccionar todo                         & \cmd{\ctrlp A} \hlx
+		Expandir selección a palabra             & \cmd{\ctrlp D} \hlx
+		Expand selección a línea                 & \cmd{\ctrlp L} \hlx
+		\multicolumn{2}{c}{--Operaciones línea--} \hlx
+		\rowcolor{impt}
+		Eliminar línea                           & \cmd{\ctrlp K} \hlx
+		Eliminar hasta el fin de línea           & \cmd{\altp K} \hlx
+		\multicolumn{2}{c}{--Búsqueda--} \hlx
+		Buscar                                   & \cmd{\ctrlp F} \hlx
+		Buscar siguiente                         & \cmd{F3} \hlx
+		Buscar anterior                          & \cmd{\shiftp F3} \hlx
+		Reemplazar                               & \cmd{\ctrlp R} \hlx
+		\multicolumn{2}{c}{--Ir a--} \hlx
+		Ir a línea                               & \cmd{\ctrlp G} \hlx
+		Ir al cambio anterior                    & \cmd{\ctrlp H} \hlx
+		Ir al cambio siguiente                   & \cmd{\ctrlshiftp H} \hlx
+		Ir a la marca anterior                   & \cmd{\ctrlp Arriba} \hlx
+		Ir a la marcaa siguiente                 & \cmd{\ctrlp Abajo} \hlx
+		Ir atrás                                 & \cmd{\altp Left} \hlx
+		Ir adelante                              & \cmd{\altp Right} \hlx
+		Ir al marcador \#[0--9]                  & \cmd{\ctrlp \#[0--9]} \hlx
+		\multicolumn{2}{c}{--Activar/desactivar marcador--} \hlx
+		Activar/desactivar marcador (sin nombre) & \cmd{\ctrlshiftp B} \hlx
+		Activar/desactivar marcador \#[0--9]     & \cmd{\ctrlshiftp \#[0--9]} \\
+		\bottomrule
+	\end{tabularx}
+	%\spacebtwtables
+	% <Idefix>
+	\begin{tabularx}{\linewidth}[th]{%
+			@{}P L@{}%
+		}
+		\multicolumn{2}{@{}l@{}}{\headbf{Idefix}}                            \\
+		\toprule
+		Borrar palabra/cmd/env               & \cmd{\altp Suprimir} \hlx
+		Pegar como \LaTeX                    & \cmd{\ctrlshiftp V} \hlx
+		Vista previa de selección/Paréntesis & \cmd{\altp P} \hlx
+		\rowcolor{impt}
+		Comentar                             & \cmd{\ctrlp T} \hlx
+		Descomentar                          & \cmd{\ctrlp U} \hlx
+		Ir al error anterior                 & \cmd{\ctrlshiftp Arriba} \hlx
+		Ir al error siguiente                & \cmd{\ctrlshiftp Abajo} \hlx
+		Ir a la caja mala anterior           & \cmd{\altshiftp Arriba} \hlx
+		Ir a la caja mala siguiente          & \cmd{\altshiftp Abajo} \hlx
+		Ir a la definición                   & \cmd{\ctrlaltp F} \hlx
+		\multicolumn{2}{c}{--Paréntesis--} \hlx
+		Saltar para coincidir                & \cmd{\ctrlshiftp P, J} \hlx
+		Seleccionar interior                 & \cmd{\ctrlshiftp P, I} \hlx
+		Seleccionar exterior                 & \cmd{\ctrlshiftp P, O} \hlx
+		Seleccionar comando                  & \cmd{\ctrlshiftp P, C} \hlx
+		Seleccionar línea                    & \cmd{\ctrlshiftp P, L} \hlx
+		Seleccionar inversión                & \cmd{\ctrlshiftp P, S} \hlx
+		Encontrar desajuste                  & \cmd{\ctrlshiftp P, M} \hlx
+		\multicolumn{2}{c}{--Completar--} \hlx
+		Normal                               & \cmd{\ctrlp Espacio} \hlx
+		\tbl begin\{ marcador de posición    & \cmd{\ctrlaltp Espacio} \hlx
+		Texto normal                         & \cmd{\altshiftp Espacio} \hlx
+		Cerrar el último entorno abierto     & \cmd{\altp Enter} \hlx
+		Eliminar marcadores de posición      & \cmd{\ctrlshiftp K}           \\
+		\bottomrule
+	\end{tabularx}
+	\spacebtwtables
+	% <Tools>
+	\begin{tabularx}{\linewidth}[th]{%
+			@{}P L@{}%
+		}
+		\multicolumn{2}{@{}l@{}}{\headbf{Herramientas}} \\
+		\toprule
+		\rowcolor{impt}
+		Construir y Ver       & \cmd{F5} \hlx
+		Compilar              & \cmd{F6} \hlx
+		Ver                   & \cmd{F7} \hlx
+		Bibliografía          & \cmd{F8} \hlx
+		Glosario              & \cmd{F9} \hlx
+		Revisar la ortografía & \cmd{\ctrlp :} \hlx
+		Tesauro               & \cmd{\ctrlshiftp F8}    \\
+		\bottomrule
+	\end{tabularx}
+	%\spacebtwtables
+	% <LaTeX>
+	\begin{tabularx}{\linewidth}[th]{%
+			@{}P L@{}%
+		}
+		\multicolumn{2}{@{}l@{}}{\headbf{\LaTeX}}                            \\
+		\toprule
+		Insertar \tbl ref a la siguiente etiqueta & \cmd{\ctrlaltp R} \hlx
+		\multicolumn{2}{c}{--Entornos--} \hlx
+		\rowcolor{impt}
+		\tbl begin\{<entorno>\}                   & \cmd{\ctrlp E} \hlx
+		\multicolumn{2}{c}{--Lista de Entornos--} \hlx
+		\tbl ítem                                 & \cmd{\ctrlshiftp I} \hlx
+		\multicolumn{2}{c}{--Font Styles--} \hlx
+		Émfasis -- \tbl emph                      & \cmd{\ctrlshiftp E} \hlx
+		Itálicas -- \tbl textit                   & \cmd{\ctrlp I} \hlx
+		Inclinado -- \tbl textsl                  & \cmd{\ctrlshiftp S} \hlx
+		Negrita -- \tbl textbf                    & \cmd{\ctrlp B} \hlx
+		Máquina de escribir -- \tbl texttt        & \cmd{\ctrlshiftp T} \hlx
+		Versalitas -- \tbl textsc                 & \cmd{\ctrlshiftp C} \hlx
+		Sans Serif -- \tbl textsf                 & \cmd{\ctrlshiftp A} \hlx
+		\multicolumn{2}{c}{--Espaciado Vertical--} \hlx
+		Nueva línea -- \tbl\tbl                   & \cmd{\ctrlp Enter}       \\
+		\bottomrule
+	\end{tabularx}
+	\spacebtwtables
+	% <Math>
+	\begin{tabularx}{\linewidth}[th]{%
+			@{}P L@{}%
+		}
+		\multicolumn{2}{@{}l@{}}{\headbf{Matemática}}                          \\
+		\toprule
+		Mode matemático en línea \$\ldots\$         & \cmd{\ctrlshiftp M} \hlx
+		Mode matemático desplegado \tbl[\ldots]\tbl & \cmd{\altshiftp M} \hlx
+		Subíndice -- \_\{\,\}                       & \cmd{\ctrlshiftp D} \hlx
+		Superíndice -- \^{}\{\,\}                   & \cmd{\ctrlshiftp U} \hlx
+		\tbl frac\{\,\}\{\,\}                       & \cmd{\altshiftp F} \hlx
+		\tbl dfrac\{\,\}\{\,\}                      & \cmd{\ctrlshiftp F} \hlx
+		\tbl sqrt\{\,\}                             & \cmd{\ctrlshiftp Q} \hlx
+		\tbl left                                   & \cmd{\ctrlshiftp L} \hlx
+		\tbl right                                  & \cmd{\ctrlshiftp R} \hlx
+		\multicolumn{2}{c}{--Ecuaciones matemáticas--} \hlx
+		env equation                                & \cmd{\ctrlshiftp N}      \\
+		\bottomrule
+	\end{tabularx}
+	\spacebtwtables
+	% <View>
+	\begin{tabularx}{\linewidth}[th]{%
+			@{}P L@{}%
+		}
+		\multicolumn{2}{@{}l@{}}{\headbf{Ver}}           \\
+		\toprule
+		Documento anterior  & \cmd{\ctrlp PgArriba} \hlx
+		\altcmd             & \cmd{\ctrlshiftp Tab} \hlx
+		Documento siguiente & \cmd{\ctrlp PgAbajo} \hlx
+		\altcmd             & \cmd{\ctrlp Tab} \hlx
+		Enfoque al editor   & \cmd{\ctrlaltp Left} \hlx
+		Enfoque al visor    & \cmd{\ctrlaltp Right} \hlx
+		Cerrar algo         & \cmd{Esc} \hlx
+		\multicolumn{2}{c}{--Editor Zoom--} \hlx
+		Acercar             & \cmd{\ctrlp $+$} \hlx
+		Alejar              & \cmd{\ctrlp $-$} \hlx
+		Pantalla completa   & \cmd{F11}                  \\
+		\bottomrule
+	\end{tabularx}
+	%\spacebtwtables
+	% <PDF-Viewer>
+	\begin{tabularx}{\linewidth}[th]{%
+			@{}P L@{}%
+		}
+		\multicolumn{2}{@{}l@{}}{\headbf{Visor PDF}}           \\
+		\toprule
+		\multicolumn{2}{c}{--Archivo--} \hlx
+		Cerrar                     & \cmd{\ctrlp W} \hlx
+		\multicolumn{2}{c}{--Editar--} \hlx
+		Buscar                     & \cmd{\ctrlp F} \hlx
+		Buscar de nuevo            & \cmd{\ctrlp M} \hlx
+		Construcción rápida        & \cmd{\ctrlp T} \hlx
+		\multicolumn{2}{c}{--Ver--} \hlx
+		Primera página             & \cmd{Home} \hlx
+		Atrás                      & \cmd{\altp L} \hlx
+		Adelante                   & \cmd{\altp R} \hlx
+		Última página              & \cmd{End} \hlx
+		Ir a la página\ldots       & \cmd{\ctrlp J} \hlx
+		Acercar                    & \cmd{\ctrlp $+$} \hlx
+		Alejar                     & \cmd{\ctrlp $-$} \hlx
+		Tamaño actual              & \cmd{\ctrlp 1} \hlx
+		Ajustar al ancho           & \cmd{\ctrlp 2} \hlx
+		Ajustar al ancho del texto & \cmd{\ctrlp 4} \hlx
+		Ajustar a la ventana       & \cmd{\ctrlp 3} \hlx
+		Pantalla completa          & \cmd{\ctrlshiftp F} \hlx
+		Presentación               & \cmd{F5} \hlx
+		Visor externo              & \cmd{\ctrlaltp X} \hlx
+		\multicolumn{2}{c}{--Ventana--} \hlx
+		Cerrar algo                & \cmd{Esc} \hlx
+		Ir a la fuente             & \cmd{\ctrlp Click} \hlx
+		Enfoque al editor          & \cmd{\ctrlaltp Left} \hlx
+		\multicolumn{2}{c}{--Help--} \hlx
+		Acerca                     & \cmd{\ctrlaltp Shift$+$A} \\
+		\bottomrule
+	\end{tabularx}
+	\spacebtwtables
+	% <Editor>
+	\begin{tabularx}{\linewidth}[th]{%
+			@{}P L@{}%
+		}
+		\multicolumn{2}{@{}l@{}}{\headbf{Editor}}                                                   \\
+		\toprule
+		\multicolumn{2}{c}{--Asignación básica de teclas--} \hlx
+		Cambiar el modo de sobrescritura                           & \cmd{Ins} \hlx
+		Crear cursor reflejado hacia abajo                         & \cmd{\ctrlaltp Abajo} \hlx
+		Crear cursor reflejado hacia arriba                        & \cmd{\ctrlaltp Arriba} \hlx
+		Cortar                                                     & \cmd{\ctrlp X} \hlx
+		\altcmd                                                    & \cmd{\shiftp Suprimir} \hlx
+		Eliminar carácter izquierdo                                & \cmd{BackEspacio} \hlx
+		\altcmd                                                    & \cmd{\shiftp BackEspacio} \hlx
+		Eliminar palabra izquierda                                 & \cmd{\ctrlp BackEspacio} \hlx
+		Eliminar carácter izquierdo                                & \cmd{Suprimir} \hlx
+		Eliminar palabra derecha                                   & \cmd{\ctrlp Suprimir} \hlx
+		Siguiente marcador de posición o una palabra a la derecha  & \cmd{\ctrlp Right} \hlx
+		Marcador de posición anterior o una palabra a la izquierda & \cmd{\ctrlp Left}              \\
+		\bottomrule
+	\end{tabularx}
+	\spacebtwtables
+	% <Own Shortcuts/Macros>
+	\begin{tabularx}{\linewidth}[th]{%
+			@{}P L@{}%
+		}
+		\multicolumn{2}{@{}l@{}}{\headbf{Atajos/Macros propios}} \\
+		\toprule
+		Ejemplo de prueba de la macro 1 & \cmd{\shiftp F1} \hlx
+		Ejemplo de prueba de la macro 2 & \cmd{\ctrlp M, A}      \\
+		\bottomrule
+	\end{tabularx}
+	\spacebtwtables
+\end{multicols}
+\end{document}

@@ -1,0 +1,29 @@
+\begin{theorem}[Monotonocidad del gradiente]
+Sea $\Omega\subseteq\mathbb{R}^{n}$ un conjunto convexo. $f\in C^{1}\left(\Omega\right)$ es convexa si y solo si
+$\forall x,y\in\Omega:\left\langle x-y,\nabla f\left(x\right)-\nabla f\left(y\right)\right\rangle\geq 0$.
+\end{theorem}
+
+\begin{proof}
+\begin{itemize}
+\item[$\left(\Longrightarrow\right)$]
+Dado que $f\in C^{1}\left(\Omega\right)$ es convexa, se cumple la desigualdad del gradiente
+\begin{align*}
+\forall x,y\in\Omega:f\left(x\right) & \geq f\left(y\right)+\left\langle x-y,\nabla f\left(y\right)\right\rangle. \\
+\forall x,y\in\Omega:f\left(y\right) & \geq f\left(x\right)+\left\langle y-x,\nabla f\left(x\right)\right\rangle.
+\end{align*}
+Sumando las dos desigualdades obtenemos lo que se pide.
+\item[$\left(\Longleftarrow\right)$]
+Suponga que se verifica la desigualdad. Defina $g\colon\left[0,1\right]\to\mathbb{R}$, dada por
+$g\left(t\right)\coloneqq f\left(x+t\left(y-x\right)\right)$.
+Por el TFC,
+\begin{align*}
+f\left(y\right) & = g\left(1\right)=g\left(0\right)+\int_{0}^{1}\diff{g\left(t\right)}{t}\dl t=
+f\left(x\right)+\int_{0}^{1}\left\langle\nabla f\left(x+t\left(y-x\right)\right),y-x\right\rangle\dl t. \\
+& =f\left(x\right)+\left\langle y-x,\nabla f\left(x\right)\right\rangle+\int_{0}^{1}
+\underbrace{\left\langle\nabla f\left(x+t\left(y-x\right)\right)-\nabla f\left(x\right),y-x\right\rangle}_{
+\frac{1}{t}\left\langle x+t\left(y-x\right)-x,\nabla f\left(x+t\left(y-x\right)\right)-\nabla f\left(x\right)\right\rangle
+\geq 0}\dl t.                                                                                                 \\
+& \geq f\left(x\right)+\left\langle y-x,\nabla f\left(x\right)\right\rangle.
+\end{align*}
+\end{itemize}
+\end{proof}

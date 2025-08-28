@@ -1,0 +1,44 @@
+% arara: clean: {
+% arara: --> extensions:
+% arara: --> ['aux', 'bbl', 'bcf', 'blg', 'log', 'nav', 'out', 'pdf',
+% arara: --> 'run.xml', 'snm', 'toc', 'vrb']
+% arara: --> }
+% arara: lualatex: {
+% arara: --> shell: yes,
+% arara: --> draft: yes,
+% arara: --> interaction: batchmode
+% arara: --> }
+% arara: biber
+% arara: lualatex: {
+% arara: --> shell: yes,
+% arara: --> draft: no,
+% arara: --> interaction: batchmode
+% arara: --> }
+% arara: lualatex: {
+% arara: --> shell: yes,
+% arara: --> draft: no,
+% arara: --> interaction: batchmode
+% arara: --> }
+% arara: clean: {
+% arara: --> extensions:
+% arara: --> ['aux', 'bbl', 'bcf', 'blg', 'log', 'nav', 'out',
+% arara: --> 'run.xml', 'snm', 'toc', 'vrb']
+% arara: --> }
+\input{preamble}
+\title{Taller de \LaTeX}
+\subtitle{Parte II: Listas, unidades, tablas, figuras y colores}
+\date{6 de septiembre de 2025}
+\addbibresource{references2.bib}
+\begin{document}
+\input{titlepage}
+\input{toc}
+\input{sections/lists}
+\input{sections/units}
+\input{sections/floats}
+\input{sections/tables}
+\input{sections/figures}
+\input{sections/colors}
+\input{sections/exercise}
+\input{references}
+\input{thanks}
+\end{document}

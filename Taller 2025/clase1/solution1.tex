@@ -1,0 +1,24 @@
+% Paquetes requeridos: mathtools, diffcoeff, amssymb, amsthm.
+% Defina los comandos: \newtheorem{definition}{Definición} y
+%\newtheorem{theorem}{Teorema}.
+\begin{definition}
+  Sea $\Omega\subseteq\mathbb{R}^{n}$ un conjunto convexo.
+  $f\colon\Omega\to\mathbb{R}$ es convexa si y solo si
+  \begin{math}
+    \forall x,y\in\Omega:\forall\lambda\in\left[0,1\right]:
+    f\left(\lambda x+\left(1-\lambda\right)y\right)\leq \lambda
+    f\left(x\right)+\left(1-\lambda\right)f\left(y\right)
+  \end{math}.
+\end{definition}
+
+\begin{theorem}
+  Sea $\Omega\subseteq\mathbb{R}^{n}$ un conjunto convexo.
+  Si $f\colon\Omega\to\mathbb{R}$ es convexa y
+  $x_{0}\in\operatorname{int}\left(\Omega\right)$,
+  entonces $\exists\varepsilon>0$ y $L>0$ tal que
+  $B\left[x_{0},\varepsilon\right]\subseteq\Omega$ y
+  \begin{math}
+    \forall x\in\Omega:
+    \left|f\left(x\right)-f\left(x_{0}\right)\right|\leq L\left\|x-x_{0}\right\|
+  \end{math}.
+\end{theorem}

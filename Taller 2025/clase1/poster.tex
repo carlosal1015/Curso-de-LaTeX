@@ -1,0 +1,41 @@
+\documentclass[36pt]{sciposter}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\graphicspath{{../images/}}
+\usepackage{multicol}
+\usepackage{lipsum}
+\usepackage[citestyle=numeric,backend=biber]{biblatex}
+\addbibresource{bibliografia.bib}
+
+\title{\sffamily Un Gran Título de Investigación}
+\author{Javier Rodríguez, Luisa Saravia}
+\conference{Feria de matemática}
+\email{gem@uni.edu.pe}
+\institute{Facultad de Ciencias, Universidad Nacional de Ingeniería \\
+Av. Túpac Amaru, s/n, Lima, Perú}
+\leftlogo[1.5]{gem}\rightlogo[1.2]{logouni}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}\lipsum[1]\end{abstract}
+
+\begin{multicols*}{2}
+\section{Introducción}\lipsum[1]
+\section{Marco Teórico}\lipsum[2]
+\section{Metodología}\lipsum[1-2]
+\section{Resultados}\lipsum[2-3]
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=.2\paperwidth]{example-image-duck}
+\includegraphics[width=.2\paperwidth]{example-image-duck}
+\caption{Izquierda: Descripción. Derecha: Descripción.}
+\end{figure}
+
+\section{Referencias}\nocite{*}\printbibliography[heading=none]
+\section{Agradecimientos}
+Este trabajo fue apoyado por la Facultad de Ciencias.
+Los autores agradecen las discusiones útiles proporcionadas con el
+Grupo Estudiantil de Matemática.
+\end{multicols*}
+\end{document}

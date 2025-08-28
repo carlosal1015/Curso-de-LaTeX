@@ -1,0 +1,45 @@
+% arara: clean: {
+% arara: --> extensions:
+% arara: --> ['aux', 'bbl', 'bcf', 'blg', 'log', 'nav', 'out', 'pdf',
+% arara: --> 'run.xml', 'snm', 'toc', 'vrb']
+% arara: --> }
+% arara: lualatex: {
+% arara: --> shell: yes,
+% arara: --> draft: yes,
+% arara: --> interaction: batchmode
+% arara: --> }
+% arara: biber
+% arara: lualatex: {
+% arara: --> shell: yes,
+% arara: --> draft: no,
+% arara: --> interaction: batchmode
+% arara: --> }
+% arara: lualatex: {
+% arara: --> shell: yes,
+% arara: --> draft: no,
+% arara: --> interaction: batchmode
+% arara: --> }
+% arara: clean: {
+% arara: --> extensions:
+% arara: --> ['aux', 'bbl', 'bcf', 'blg', 'log', 'nav', 'out',
+% arara: --> 'run.xml', 'snm', 'toc', 'vrb']
+% arara: --> }
+\input{preamble}
+\title{Taller de \LaTeX}
+\subtitle{Parte I: Primeros pasos}
+\date{6 de septiembre de 2025}
+\usetikzlibrary{arrows,shapes}
+\tikzstyle{format} = [draw, thin, fill=blue!20]
+\tikzstyle{medium} = [ellipse, draw, thin, fill=green!20, minimum height=2.5em]
+\addbibresource{references1.bib}
+
+\begin{document}
+\input{titlepage}
+\input{forms}
+\input{toc}
+\input{sections/facts}
+\input{sections/firststeps}
+\input{sections/exercise}
+\input{references}
+\input{thanks}
+\end{document}

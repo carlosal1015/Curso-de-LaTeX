@@ -1,0 +1,160 @@
+\begin{frame}
+	\frametitle{Estilos de \LaTeX}
+	% https://ctan.org/topic/class
+	% https://ctan.org/topic/cv
+	\begin{center}
+		\fbox{
+			\alert{Sintáxis}:
+			\mintinline{latex}|\documentclass{<nombre-de-la-clase>}|
+		}
+	\end{center}
+
+	\pause
+
+	\begin{block}{Clases estándar}
+		\begin{itemize}
+			\item
+
+			      \mintinline{latex}|article|: Documentos
+			      breves (con opciones: horizontal, a dos columnas, fleqn,
+			      monócromo).
+
+			\item
+
+			      \mintinline{latex}|book|: Estilo libro (a doble
+			      cara).
+
+			\item
+
+			      \mintinline{latex}|letter|: Estilo carta.
+
+
+			\item
+
+			      \mintinline{latex}|report|: Documentos
+			      extensos + capítulos.
+
+			\item
+
+			      \mintinline{latex}|beamer|,
+			      \mintinline{latex}|powerdot|,
+			      \mintinline{latex}|ltx-talk|:
+			      Estilo transparencias.
+
+			\item
+
+			      \mintinline{latex}|standalone|,
+			      \mintinline{latex}|minimal|: Crea un PDF ajustado al
+			      texto, también para pruebas mínimas.
+		\end{itemize}
+	\end{block}
+
+	\pause
+
+	\begin{block}{Clases extendidas}
+		\vspace*{-.5\baselineskip}\setlength\belowdisplayshortskip{0pt}
+		\begin{columns}
+			\begin{column}{.52\paperwidth}
+				\begin{itemize}
+					\item
+
+					      \mintinline{latex}|scrartcl|,
+					      \mintinline{latex}|scrreprt|,
+					      \mintinline{latex}|scrbook|,
+					      \mintinline{latex}|scrlttr2|: KOMA-Script.
+
+					\item
+
+					      \mintinline{latex}|memoir|: Libro con diversas opciones.
+
+					\item
+
+					      \mintinline{latex}|powerdot|: Alternativa a
+					      \mintinline{latex}|beamer|.
+				\end{itemize}
+			\end{column}
+			\begin{column}{.44\paperwidth}
+				\begin{itemize}
+					\item
+
+					      \mintinline{latex}|exam|: Creación de exámenes.
+
+					\item
+
+					      \mintinline{latex}|sciposter|:
+					      Creación de póster.
+
+					\item
+
+					      \mintinline{latex}|paper|,
+					      \mintinline{latex}|amsproc|,
+					      \mintinline{latex}|amsbook|,
+					      etc.
+				\end{itemize}
+			\end{column}
+		\end{columns}
+	\end{block}
+
+	\pause
+
+	\begin{block}{Clases de revistas de artículos científicos}
+		\vspace*{-.5\baselineskip}\setlength\belowdisplayshortskip{0pt}
+		\begin{columns}
+			\begin{column}{.3\paperwidth}
+				\begin{itemize}
+					\item
+
+					      \mintinline{latex}|amsart|
+
+					\item
+
+					      \mintinline{latex}|IEEEtran|
+
+
+					\item
+
+					      \mintinline{latex}|elsarticle|
+				\end{itemize}
+			\end{column}
+			\begin{column}{.3\paperwidth}
+				\begin{itemize}
+					\item
+
+					      \mintinline{latex}|acmart|
+
+					\item
+
+					      \mintinline{latex}|siamart250211|
+
+					\item
+
+					      \mintinline{latex}|sn-jnl|
+				\end{itemize}
+			\end{column}
+			\begin{column}{.3\paperwidth}
+				\begin{itemize}
+					\item
+
+					      \mintinline{latex}|aastex631|
+
+					\item
+
+					      \mintinline{latex}|revtex4|
+
+					\item
+
+					      \mintinline{latex}|abntex2|
+				\end{itemize}
+			\end{column}
+		\end{columns}
+	\end{block}
+
+	% 	Niveles según la clase:
+	% ◦ artículo: secciones
+	% ◦ informe / libro: capítulos
+	% • Herramientas de estructuración:
+
+	% ◦ \tableofcontents : resumen
+	% ◦ \index : índice
+	% ◦ \footnote : nota de base de página
+\end{frame}

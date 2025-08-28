@@ -1,0 +1,303 @@
+% \section{\protect{\mintinline{latex}|amsmath|}}
+
+\begin{frame}[fragile]
+	\frametitle{\secname}
+
+	\begin{equation}
+		\left(a+b\right)^{2}=
+		a^{2}+2ab+b^{2}.
+	\end{equation}
+	\begin{displaymath}
+		\sen^{2}\eta+\cos^{2}\eta=1.
+	\end{displaymath}
+
+	\begin{align}
+		x^{2}+y^{2} & = z^{2}. \\
+		x^{3}+y^{3} & <z^{3}
+	\end{align}
+
+	\begin{eqnarray}
+		x^{2}+y^{2} & =& z^{2}. \\
+		x^{3}+y^{3} & <&z^{3}
+	\end{eqnarray}
+
+	\begin{equation*}
+		n^{p}+m^{p}\neq k^{p}\qquad p>2.
+	\end{equation*}
+\end{frame}
+
+% \section{\mintinline{latex}|amssymb|}
+
+% \section{\mintinline{latex}|amsthm|}
+
+% \section{\mintinline{latex}|mathtools|}
+
+% \section{\mintinline{latex}|diffcoeff|}
+
+% \section{\mintinline{latex}|optidef|}
+
+\begin{frame}[fragile]
+	\frametitle{\secname}
+
+	\begin{multline}
+		\text{Primera línea de una línea múltiple}
+		\\
+		\text{Línea media centrada}
+		\\
+		\shoveright{\text{Una línea media derecha}} \\
+		\text{Otra línea media centrada}
+		\\
+		\text{Otra línea media centrada} \\
+		\shoveleft{\text{Una línea media izquierda}}
+		\\
+		\text{Última línea de la línea múltiple}
+	\end{multline}
+
+	\begin{multline}
+		\tag{2}
+		\sum_{t\in\mathbf{T}}
+		\int_{a}^{t}
+		\biggl\lbrace
+		\int_{a}^{t}
+		f\left(t-x\right)^{2}\,
+		g\left(y\right)^{2}\,dx
+		\biggr\rbrace
+		\,dy \\
+		= \sum_{t\notin\mathbf{T}}
+		\int_{t}^{a}
+		\biggl\lbrace
+		g\left(y\right)^{2}
+		\int_{t}^{a}
+		f\left(x\right)^{2}\,dx
+		\biggr\rbrace\,dy
+	\end{multline}
+	\setlength\multlinegap{0pt}
+	\begin{multline}
+		\tag{2}
+		\sum_{t\in\mathbf{T}}
+		\int_{a}^{t}
+		\biggl\lbrace
+		\int_{a}^{t}
+		f\left(t-x\right)^{2}\,
+		g\left(y\right)^{2}\,dx
+		\biggr\rbrace\,dy \\
+		=\sum_{t\notin\mathbf{T}}
+		\int_{t}^{a}
+		\biggl\lbrace
+		g\left(y\right)^{2}
+		\int_{t}^{a}
+		f\left(x\right)^{2}\,dx
+		\biggr\rbrace
+		\,dy
+	\end{multline}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{\secname}
+
+	\begin{equation}
+		\begin{split}
+			\left(a+b\right)^{4} & = \left(a+b\right)^{2}\left(a+b\right)^{2}.                 \\
+			                     & = \left(a^{2}+2ab+b^{2}\right)\left(a^{2}+2ab+b^{2}\right). \\
+			                     & = a^{4}+4a^{3}b+6a^{2}b^{2}+4ab^{3}+b^{4}.
+		\end{split}
+	\end{equation}
+
+	\begin{equation}
+		\begin{split}
+			\left(a+b\right)^{3} & = \left(a+b\right)\left(a+b\right)^{2}.         \\
+			                     & = \left(a+b\right)\left(a^{2}+2ab+b^{2}\right). \\
+			                     & = a^{3}+3a^{2}b+3ab^{2}+b^{3}.
+		\end{split}
+	\end{equation}
+
+	\begin{equation}
+		\begin{split}
+			f_{h,\ve}\left(x,y\right) & = \ve\bfE_{x,y}
+			\int_{0}^{\tve}
+			L_{x,\yvf(\ve u)}\vf(x)\,du                                          \\
+			                          & = h\int L_{x,z}\vf(x)\rho_{x}(dz)        \\
+			                          & \relphantom{=} {} + h\biggl[
+			\frac{1}{\tve}
+			\biggl(
+			\bfE_{y}\int_{0}^{\tve}
+			L_{x, y^x(s)} \vf(x) \,ds
+			- \tve \int L_{x, z} \vf(x) \rho_x(dz)
+			\biggr) +                                                            \\
+			                          & \relphantom{=} \phantom{{} + h \biggl[ }
+				\frac{1}{\tve}
+				\biggl( \bfE_{y} \int_0^{\tve}
+				L_{x, y^x(s)} \vf(x) \,ds
+				- \bfE_{x, y} \int_0^{\tve} L_{x, \yvf(\ve s)}
+				\vf(x) \,ds
+				\biggr) \biggr]
+		\end{split}
+	\end{equation}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{\secname}
+
+	\begin{gather}
+		\left(a+b\right)^{2}=a^{2}+2ab+b^{2}. \\
+		\left(a+b\right)\cdot\left(a-b\right)=
+		a^{2}-b^{2}.
+	\end{gather}
+
+	\begin{gather}
+		D\left(a,r\right)\equiv
+		\left\{z\in\mathbf{C}\colon \left|z-a\right|<r\right\}. \notag \\
+		\operatorname{seg}\left(a,r\right)\equiv
+		\left\{
+		z\in\mathbf{C}\colon
+		\Im z<\Im a,\ \left|z-a\right|< r \right\}. \\
+		C\left(E,\theta,r\right)\equiv
+		\bigcup_{e \in E}
+		c\left(e,\theta,r\right).
+	\end{gather}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{\secname}
+
+	\begin{align}
+		\left(a+b\right)^{3} & = \left(a+b\right)\left(a+b\right)^{2}.         \\
+		                     & = \left(a+b\right)\left(a^{2}+2ab+b^{2}\right). \\
+		                     & = a^{3}+3a^{2}b+3ab^{2}+b^{3}.
+	\end{align}
+	\begin{align}
+		x^{2} + y^{2} & = 1             \\
+		x             & = \sqrt{1-y^2}.
+	\end{align}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{\secname}
+
+	This example has two column-pairs.
+	\begin{align}
+		\text{Compare }
+		x^{2}+y^{2} & = 1              & x^{3} + y^{3} & = 1                 \\
+		x           & = \sqrt{1-y^{2}} & x             & = \sqrt[3]{1-y^{3}}
+	\end{align}
+	This example has three column-pairs.
+	\begin{align}
+		x              & = y              & X              & = Y              & a           & = b+c         \\
+		x + x^{\prime} & = y + y^{\prime} & X + X^{\prime} & = Y + Y^{\prime} & a^{\prime}b & = c^{\prime}b
+	\end{align}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{\secname}
+
+	This example has two column-pairs.
+	\begin{flalign}
+		\text{Compare }
+		x^{2} + y^{2} & = 1              & x^{3} + y^{3} & = 1                 \\
+		x             & = \sqrt{1-y^{2}} & x             & = \sqrt[3]{1-y^{3}}
+	\end{flalign}
+	This example has three column-pairs.
+	\begin{flalign}
+		x              & = y              & X              & = Y              & a           & = b+c         \\
+		x + x^{\prime} & = y + y^{\prime} & X + X^{\prime} & = Y + Y^{\prime} & a^{\prime}b & = c^{\prime}b
+	\end{flalign}
+
+	This example has two column-pairs.
+	\renewcommand\minalignsep{0pt}
+	\begin{align}
+		\text{Compare }
+		x^{2} + y^{2} & = 1              & x^{3} + y^{3} & = 1                 \\
+		x             & = \sqrt{1-y^{2}} & x             & = \sqrt[3]{1-y^{3}}
+	\end{align}
+	This example has three column-pairs.
+	\renewcommand\minalignsep{15pt}
+	\begin{flalign}
+		x      & = y      & X      & = Y      & a   & = b+c \\
+		x + x’ & = y + y’ & X + X’ & = Y + Y’ & a’b & = c’b
+	\end{flalign}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{\secname: \mintinline{latex}|mathtools|}
+
+	\begin{itemize}
+		\item
+
+		      \mintinline{latex}|[sumlimits]|
+
+		      $\sum_{j=1}^{n}$
+
+		\item
+
+		      \mintinline{latex}|[intlimits]|
+
+
+		      $\int_{a}^{b}$
+
+		\item
+
+		      \mintinline{latex}|[leqno]|
+
+		      \begin{equation}
+			      e^{i\pi}+1=0.
+		      \end{equation}
+	\end{itemize}
+	\input{sections/math}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{\secname}
+
+	% https://arxiv.org/pdf/1402.4982
+	% https://www.ucm.es/data/cont/docs/1346-2019-04-12-BaSix%20LaTeX%20ba%CC%81sico%20con%20ejercicios%20resueltos%20-%20Noir16.pdf
+	% https://br.mirrors.cicku.me/ctan/macros/latex/contrib/microtype/microtype.pdf
+	\[
+		\int_{-1}^{1}
+		f\left(t\right)
+		\dl{\alpha\left(t\right)}\approx
+		Af\left(-\frac{\sqrt{3}}{3}\right)+
+		Bf\left(\frac{\sqrt{3}}{3}\right).
+	\]
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{\secname: \mintinline{latex}|amssymb|}
+
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{\secname: \mintinline{latex}|amsthm|}
+
+	\begin{example}\input{sections/theorem}\end{example}
+	% \begin{example}\input{sections/definition}\end{example}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{\secname: \mintinline{latex}|optidef|}
+	\begin{mini}<b>
+		{w}{f(w)+R(w+6x)}
+		{\label{eq:Example1}}{}
+		\addConstraint{p(w)}{=0}
+		\addConstraint{q(w)}{=0}
+		\addConstraint{r(w)}{=0\labelOP{testLabel}}
+		\addConstraint{n(w)}{= 6}
+		\addConstraint{L(w)+r(x)}{=Kw+p}
+		\addConstraint{h(x)}{=0.}
+	\end{mini}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{\secname: \mintinline{latex}|diffcoeff|}
+
+	\begin{equation}
+		\forall z\in\mathbb{C}:\Gamma\left(z\right)\coloneqq
+		\int_{0}^{\infty}t^{z-1}e^{-t}\dl t.
+	\end{equation}
+
+	\begin{equation*}
+		\diffp{u}{t}+\diff{u}{x}+\diff[2]{u}{x}+u=0.
+	\end{equation*}
+
+\end{frame}
+
+% \section{Paquete \protect{\mintinline{latex}|nicefrac|}}

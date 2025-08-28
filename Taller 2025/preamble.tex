@@ -1,0 +1,154 @@
+\PassOptionsToPackage{dvipsnames,x11names,table}{xcolor}
+\documentclass[
+	8pt,
+	aspectratio=1610,
+	c,
+	% handout,
+	intlimits,
+	leqno,
+	professionalfonts,
+	spanish,
+	xcolor=svgnames
+]{beamer}
+\usepackage[spanish]{babel}
+\usepackage{svg}
+\usepackage{pgfpages}
+% \pgfpagesuselayout{4 on 1}[letterpaper,border shrink=5mm,landscape]
+\usepackage[fixed]{fontawesome5}
+\usepackage[intlimits,sumlimits]{mathtools}
+\usepackage{mathrsfs}
+\usepackage{diffcoeff}
+\usepackage{minted}
+\usepackage[
+	citestyle=numeric,
+	backend=biber,
+	defernumbers=true,
+	maxcitenames=4
+]{biblatex}
+
+\usetheme[
+	language=spanish,
+	monoface=Fira Code,
+	allserif,
+	maincolor=DarkBlue,
+	frametitle=elegant,
+	decorative,
+	soberblock,
+	nofooter,
+	centeredtitle,
+	headstyle=sffamily,
+	quartercirclefooter,
+	compacttoc,
+	twocolumntoc,
+	soberblock
+	% headshape=sc,
+	% headweight=bfseries
+]{Celestia}
+
+\useinnertheme[
+	rounded,
+	shaded
+	shadow=true,
+	titlepage=false
+]{tcolorbox}
+
+\usetikzlibrary{shadows}
+\setminted{xleftmargin=1cm}
+\setminted[latex]{breaklines}
+%\usefonttheme[onlymath]{serif}
+\setbeamercolor{structure}{fg=DarkBlue}
+\setbeamercovered{transparent} % dynamic
+%\setbeamerfont{normal text}{size=\small}
+%\setbeamersize{text margin left=5pt,text margin right=5pt}
+\setbeamertemplate{footline}[frame number]{}
+\setbeamertemplate{frametitle}[default][center]
+\setbeamertemplate{headline}{}
+\setbeamertemplate{itemize items}[circle]
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{theorems}[ams style]
+\addtobeamertemplate{theorem begin}{\normalfont}{}
+%\AtBeginDocument{\usebeamerfont{normal text}}
+
+\graphicspath{{../images/}}
+
+\let\oldforall\forall
+\renewcommand{\forall}{\oldforall \, }
+\let\oldexist\exists
+\renewcommand{\exists}{\oldexist \: }
+\newcommand\existu{\oldexist! \: }
+\newcommand{\MVAt}{{\usefont{U}{mvs}{m}{n}\symbol{`@}}}
+
+\newcommand*\keystroke[1]{%
+	\tikz[baseline=(key.base)]
+	\node[%
+		draw,
+		fill=white,
+		drop shadow={shadow xshift=0.25ex,shadow
+				yshift=-0.25ex,fill=black,opacity=0.75},
+		rectangle,
+		rounded corners=2pt,
+		inner sep=1pt,
+		line width=0.5pt,
+		font=\scriptsize\sffamily
+	](key) {#1\strut}
+	;
+}
+
+\newcommand{\bftt}[1]{\textbf{\texttt{#1}}}
+\newcommand{\keystrokebftt}[1]{\keystroke{\bftt{#1}}}
+\newcommand{\bs}{\char`\\}
+
+% stolen from minted.dtx
+\newenvironment{exampletwoup}
+{\VerbatimEnvironment
+	\begin{VerbatimOut}{example.out}}
+		{
+	\end{VerbatimOut}
+	\setlength{\parindent}{0pt}
+	\fbox{
+		\begin{tabular}{l|l}
+			\begin{minipage}{0.45\linewidth}
+				\inputminted[fontsize=\tiny,resetmargins]{latex}{example.out}
+			\end{minipage} &
+			\begin{minipage}{0.45\linewidth}
+				\input{example.out}
+			\end{minipage}
+		\end{tabular}}}
+
+\newenvironment{exampletwouptiny}
+{\VerbatimEnvironment
+	\begin{VerbatimOut}{example.out}}
+		{
+	\end{VerbatimOut}
+	\setlength{\parindent}{0pt}
+	\fbox{
+		\begin{tabular}{l|l}
+			\begin{minipage}{0.45\linewidth}
+				\inputminted[fontsize=\scriptsize,resetmargins]{latex}{example.out}
+			\end{minipage} &
+			\begin{minipage}{0.45\linewidth}
+				\setlength{\parskip}{6pt plus 1pt minus 1pt}%
+				\raggedright\scriptsize\input{example.out}
+			\end{minipage}
+		\end{tabular}}}
+
+\newenvironment{exampletwouptinynoframe}
+{\VerbatimEnvironment
+	\begin{VerbatimOut}{example.out}}
+		{
+	\end{VerbatimOut}
+	\setlength{\parindent}{0pt}
+	\begin{tabular}{l|l}
+		\begin{minipage}{0.45\linewidth}
+			\inputminted[fontsize=\scriptsize,resetmargins]{latex}{example.out}
+		\end{minipage} &
+		\begin{minipage}{0.45\linewidth}
+			\setlength{\parskip}{6pt plus 1pt minus 1pt}%
+			\raggedright\scriptsize\input{example.out}
+		\end{minipage}
+	\end{tabular}}
+
+\author{Carlos Aznarán Laos}
+\institute{Universidad Nacional de Ingeniería\and
+	Facultad de Ciencias\and
+	Grupo Estudiantil de Matemática}

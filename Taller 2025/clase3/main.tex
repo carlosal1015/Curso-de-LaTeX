@@ -1,0 +1,49 @@
+% arara: clean: {
+% arara: --> extensions:
+% arara: --> ['aux', 'bbl', 'bcf', 'blg', 'log', 'nav', 'out', 'pdf',
+% arara: --> 'run.xml', 'snm', 'toc', 'vrb']
+% arara: --> }
+% arara: lualatex: {
+% arara: --> shell: yes,
+% arara: --> draft: yes,
+% arara: --> interaction: batchmode
+% arara: --> }
+% arara: biber
+% arara: lualatex: {
+% arara: --> shell: yes,
+% arara: --> draft: no,
+% arara: --> interaction: batchmode
+% arara: --> }
+% arara: lualatex: {
+% arara: --> shell: yes,
+% arara: --> draft: no,
+% arara: --> interaction: batchmode
+% arara: --> }
+% arara: clean: {
+% arara: --> extensions:
+% arara: --> ['aux', 'bbl', 'bcf', 'blg', 'log', 'nav', 'out',
+% arara: --> 'run.xml', 'snm', 'toc', 'vrb']
+% arara: --> }
+\input{preamble}
+\title{Taller de \LaTeX}
+\subtitle{Parte III: Entornos de matemática}
+\date{6 de septiembre de 2025}
+\addbibresource{references3.bib}
+\usepackage[short]{optidef}
+\usepackage{diffcoeff}
+\providecommand\relphantom[1]{\mathrel{\phantom{#1}}}
+\providecommand\ve{\varepsilon}
+\providecommand\tve{t_{\varepsilon}}
+\providecommand\vf{\varphi}
+\providecommand\yvf{y_{\varphi}}
+\providecommand\bfE{\mathbf{E}}
+
+\begin{document}
+\input{titlepage}
+\input{toc}
+\input{sections/mathematics}
+\input{sections/equations}
+\input{sections/exercise}
+\input{references}
+\input{thanks}
+\end{document}

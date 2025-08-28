@@ -1,0 +1,36 @@
+% arara: clean: {
+% arara: --> extensions:
+% arara: --> ['aux', 'log', 'pdf']
+% arara: --> }
+% arara: lualatex: {
+% arara: --> shell: no,
+% arara: --> draft: yes,
+% arara: --> interaction: batchmode
+% arara: --> }
+% arara: lualatex: {
+% arara: --> shell: no,
+% arara: --> draft: no,
+% arara: --> interaction: batchmode
+% arara: --> }
+% arara: clean: {
+% arara: --> extensions:
+% arara: --> ['aux', 'log']
+% arara: --> }
+\documentclass[a4paper]{article}
+\usepackage{libertine}
+\usepackage[margin=.75in]{geometry}
+\usepackage[dvipsnames,x11names,svgnames]{xcolor}
+\usepackage{notebeamer}
+
+\begin{document}
+
+\includebeamer[
+	nup=5,
+	pages=1-12,
+	lines=16,
+	ratio=.48,
+	lhead=\color{DarkBlue}Taller de \LaTeX{} 2025-2 -- Grupo Estudiantil de Matemática,
+	lineno,
+	rhead=\color{DarkBlue}Página~\thepage
+]{main.pdf}
+\end{document}

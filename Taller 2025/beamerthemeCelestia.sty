@@ -1,0 +1,1283 @@
+% beamethemeCelestia.sty
+%
+% copyright (C) 2025 Razik Ikhlef
+% razik.ikhlef@csilyon.fr
+%
+% The newest version of this beamer theme should always be available
+% from the following web page: https://apps.edulatex.xyz/celestia/
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{beamerthemeCelestia}[2025/07/20 v1.0.4]
+
+\RequirePackage{iftex}
+\RequirePackage{etoolbox}
+\RequirePackage{kvoptions}
+\RequirePackage[most]{tcolorbox}
+
+\RequirePackage{silence}
+\WarningFilter{latexfont}{Font shape}
+\renewcommand{\@font@warning}[1]{}
+
+%------------------
+% Theme options
+%------------------
+\SetupKeyvalOptions{
+    family=celestia,
+    prefix=celestia@
+}
+
+% Boolean declarations using kvoptions
+\DeclareBoolOption{allserif}
+\DeclareBoolOption{unicolor}
+\DeclareBoolOption{standout}
+\DeclareBoolOption{compacttoc}
+\DeclareBoolOption{twocolumntoc}
+\DeclareBoolOption{decorative}
+\DeclareBoolOption{nodecorative}
+\DeclareBoolOption{nofooter}
+\DeclareBoolOption{quartercirclefooter}
+\DeclareBoolOption{fullbarfooter}
+\DeclareBoolOption{centeredtitle}
+\DeclareBoolOption{titleright}
+\DeclareBoolOption[true]{codebox}
+\DeclareBoolOption{nocodebox}
+\DeclareBoolOption{nocodeframe}
+\DeclareBoolOption{soberblock}
+\DeclareBoolOption{softblock}
+\DeclareBoolOption{shownavigation}
+\DeclareBoolOption{boldurl}
+
+% String options with defaults
+\DeclareStringOption[sffamily]{headstyle}  % rmfamily, sffamily
+\DeclareStringOption[normal]{headshape}    % sc, it, normal
+\DeclareStringOption[bfseries]{headweight} % bfseries, mdseries
+
+\DeclareStringOption[045549]{maincolor}
+\DeclareStringOption[specialcolor]{accentcolor}
+\DeclareStringOption{backgroundcolor}
+\DeclareStringOption{codebackgroundcolor}
+\DeclareStringOption[045549]{mainblue}
+\DeclareStringOption[054924]{maingreen}
+\DeclareStringOption[490445]{mainred}
+
+\DeclareStringOption[2em]{margin}
+\DeclareStringOption[elegant]{frametitle}  % centered, plain, plain centered
+
+\DeclareStringOption[Literata]{mainface}
+\DeclareStringOption{mainfaceoptions}
+\DeclareStringOption[Inter]{sansface}
+\DeclareStringOption{sansfaceoptions}
+\DeclareStringOption[Roboto Mono]{monoface}
+\DeclareStringOption{monofaceoptions}
+
+\DeclareStringOption[english]{language}
+
+% Process options
+\ProcessKeyvalOptions*
+
+\@ifpackageloaded{babel}{}{
+  \RequirePackage[\celestia@language]{babel}
+}
+
+\ifcelestia@nodecorative
+    \setbool{celestia@decorative}{false}
+\fi
+
+\ifcelestia@nocodebox
+    \setbool{celestia@codebox}{false}
+\fi
+
+\def\celestia@bfseries{bfseries}
+\def\celestia@mdseries{mdseries}
+
+%------------------
+% Engine detection and package loading
+%------------------
+% Base packages for both engines
+\RequirePackage{tikz}
+\usetikzlibrary{backgrounds,calc,shapes,decorations.fractals}
+\RequirePackage{multicol}
+
+% Engine-specific packages and settings
+\ifluatex
+    \RequirePackage{fontspec}
+    \RequirePackage[T1]{fontenc}
+    \ifcelestia@allserif\RequirePackage{mathpazo}\else\RequirePackage{arev}\fi
+
+    \defaultfontfeatures{Ligatures=TeX,Renderer=HarfBuzz}
+
+    \IfFontExistsTF{\celestia@mainface}{
+        \setmainfont[\celestia@mainfaceoptions]{\celestia@mainface}
+    }{
+        \IfFontExistsTF{Source Serif Pro}{\setmainfont{Source Serif Pro}}{\setmainfont{TeX Gyre Termes}}
+    }
+
+    \IfFontExistsTF{\celestia@sansface}{
+        \setsansfont[\celestia@sansfaceoptions]{\celestia@sansface}
+    }{
+        \IfFontExistsTF{Source Sans Pro}{\setsansfont{Source Sans Pro}}{\setsansfont{TeX Gyre Heros}}
+    }
+
+    \IfFontExistsTF{\celestia@monoface}{
+        \setmonofont[\celestia@monofaceoptions]{\celestia@monoface}
+    }{
+        \IfFontExistsTF{Source Code Pro}{\setmonofont{Source Code Pro}}{\setmonofont{Latin Modern Mono}}
+    }
+
+    \RequirePackage[
+        protrusion=true,
+        expansion=true
+    ]{microtype}
+\else
+    \ifxetex
+        \RequirePackage{fontspec}
+        \ifcelestia@allserif\RequirePackage{mathpazo}\else\RequirePackage{arev}\fi
+
+        \defaultfontfeatures{Ligatures=TeX}
+
+        \IfFontExistsTF{\celestia@mainface}{
+            \setmainfont[\celestia@mainfaceoptions]{\celestia@mainface}
+        }{
+          \IfFontExistsTF{Source Serif Pro}{\setmainfont{Source Serif Pro}}{}
+        }
+
+        \IfFontExistsTF{\celestia@sansface}{
+            \setsansfont[\celestia@sansfaceoptions]{\celestia@sansface}
+        }{
+          \IfFontExistsTF{Source Sans Pro}{\setsansfont{Source Sans Pro}}{}
+        }
+
+        \IfFontExistsTF{\celestia@monoface}{
+            \setmonofont[\celestia@monofaceoptions]{\celestia@monoface}
+        }{
+          \IfFontExistsTF{Source Code Pro}{\setmonofont{Source Code Pro}}{}
+        }
+    \else
+        \RequirePackage[utf8]{inputenc}
+        \RequirePackage[T1]{fontenc}
+        \RequirePackage{sourceserifpro}
+        \RequirePackage{sourcesanspro}
+        \RequirePackage[scaled=0.9]{roboto-mono}
+        \RequirePackage[
+            protrusion=true,
+            expansion=true,
+            tracking=true,
+            kerning=true,
+            spacing=true,
+            factor=1100,
+            stretch=10,
+            shrink=10
+        ]{microtype}
+    \fi
+\fi
+
+\ifcelestia@allserif
+\usefonttheme{serif}
+\else
+\usefonttheme[stillsansserifmath,stillsansseriftext]{serif}
+\fi
+
+%------------------
+% Color definitions
+%------------------
+
+% Test if the color is a valid SVG name, otherwise use HTML code
+\newcommand{\@testcolor}[2]{%
+    \ifcsname\string\color@#1\endcsname
+        \colorlet{#2}{#1}%
+    \else
+        \definecolor{#2}{HTML}{#1}%
+    \fi
+}
+
+\@testcolor{\celestia@maincolor}{main}
+
+% Main color palette
+\@testcolor{\celestia@mainblue}{mainblue}
+\@testcolor{\celestia@maingreen}{maingreen}
+\@testcolor{\celestia@mainred}{mainred}
+
+\definecolor{rulecolor}{HTML}{888888}
+\definecolor{codeframecolor}{HTML}{95A5A6}
+
+\colorlet{specialcolor}{-main}
+\ifx\celestia@headweight\celestia@bfseries
+\colorlet{specialcolor}{specialcolor!45!black}
+\definecolor{background}{HTML}{F7F9FC}
+\else
+\colorlet{specialcolor}{specialcolor!40!black}
+\definecolor{background}{HTML}{F8FAFC}
+\fi
+
+\@testcolor{\celestia@accentcolor}{accent}
+
+\ifx\celestia@backgroundcolor\@empty\else
+    \@testcolor{\celestia@backgroundcolor}{background}
+\fi
+
+\definecolor{codebackground}{HTML}{F1F3F6}
+\ifx\celestia@codebackgroundcolor\@empty\else
+    \@testcolor{\celestia@codebackgroundcolor}{codebackground}
+\fi
+
+% Special colors based on options
+\setbeamercolor{plain frametitle}{fg=main,bg=background}
+
+%------------------
+% Basic settings
+%------------------
+\setbeamersize{text margin left=\celestia@margin,text margin right=\celestia@margin}
+
+\ifcelestia@shownavigation
+    \setbeamercolor{navigation symbols}{fg=main, bg=background}
+    \setbeamercolor{navigation symbols dimmed}{fg=main!50!background}
+
+    \ifcelestia@nofooter
+        \setbeamertemplate{navigation symbols}{}
+
+        \BeforeBeginEnvironment{frame}{%
+            \ifbeamer@plainframe
+                \setbeamertemplate{footline}[plain with nav]%
+            \fi
+        }
+    \else
+        \addtobeamertemplate{navigation symbols}{}{%
+            \ifbeamer@plainframe\else
+                \ifcelestia@standout\else
+                    \ifcelestia@quartercirclefooter
+                        \hspace*{1cm}%
+                    \else
+                        \ifcelestia@fullbarfooter
+                            \hspace*{1.15cm}%
+                        \fi
+                    \fi
+                \fi
+            \fi
+        }
+    \fi
+\else
+    \setbeamertemplate{navigation symbols}{}
+\fi
+
+%------------------
+% Font settings
+%------------------
+% Main fonts settings
+\setbeamerfont{subtitle}{series=\mdseries}
+\setbeamerfont{date}{series=\mdseries,size=\small}
+
+\setbeamerfont{title}{size=\Large,%
+    series=\csname\celestia@headweight\endcsname,%
+    family=\csname\celestia@headstyle\endcsname,%
+    shape=\csname\celestia@headshape\endcsname}
+\setbeamerfont{author}{size=\normalsize,%
+    series=\csname\celestia@headweight\endcsname,%
+    family=\csname\celestia@headstyle\endcsname,%
+    shape=\csname\celestia@headshape\endcsname}
+\setbeamerfont{description item}{size=\normalsize,%
+    series=\csname\celestia@headweight\endcsname,%
+    family=\ifcelestia@allserif\rmfamily\else\sffamily\fi,%
+    }
+\setbeamerfont{frametitle}{size=\large,%
+    series=\csname\celestia@headweight\endcsname,%
+    family=\csname\celestia@headstyle\endcsname,%
+    shape=\csname\celestia@headshape\endcsname,%
+    parent=structure}
+\setbeamerfont{plain title}{size=\large,%
+    series=\csname\celestia@headweight\endcsname,%
+    family=\csname\celestia@headstyle\endcsname,%
+    shape=\csname\celestia@headshape\endcsname,%
+    parent=structure}
+\setbeamerfont{section title}{size=\LARGE,%
+    series=\csname\celestia@headweight\endcsname,%
+    family=\csname\celestia@headstyle\endcsname,%
+    shape=\csname\celestia@headshape\endcsname,%
+    parent=structure}
+\setbeamerfont{section in toc}{size=\large,%
+    series=\mdseries,%
+    family=\ifcelestia@allserif\rmfamily\else\sffamily\fi,%
+    shape=\normalfont,%
+    parent=structure}
+\setbeamerfont{subsection title}{size=\Large,%
+    series=\csname\celestia@headweight\endcsname,%
+    family=\csname\celestia@headstyle\endcsname,%
+    shape=\csname\celestia@headshape\endcsname,%
+    parent=structure}
+\setbeamerfont{subsection in toc}{size=\normalsize,%
+    series=\mdseries,%
+    family=\ifcelestia@allserif\rmfamily\else\sffamily\fi,%
+    shape=\normalfont,%
+    parent=structure}
+\setbeamerfont{footline text}{size=\tiny,%
+    series=\mdseries,%
+    family=\csname\celestia@headstyle\endcsname,%
+    shape=\csname\celestia@headshape\endcsname,%
+    parent=structure}
+\setbeamerfont{block title}{size=\normalsize,%
+    series=\csname\celestia@headweight\endcsname,%
+    family=\ifcelestia@allserif\rmfamily\else\sffamily\fi,%
+    parent=structure}
+
+% Special fonts
+\setbeamerfont{caption}{size=\small}
+\setbeamerfont{footnote}{size=\small}
+
+% Itemize markers
+\newcommand{\celestiaCircle}{%
+    \raisebox{0.1ex}{\scalebox{1.2}{$\bullet$}}%
+}
+\newcommand{\celestiaSmallCircle}{%
+    \raisebox{0.2ex}{\scalebox{1}{$\circ$}}%
+}
+\newcommand{\celestiaDiamond}{%
+    \raisebox{0.2ex}{\scalebox{0.8}{$\diamond$}}%
+}
+
+% Block margins and spacing
+\setlength{\leftmargini}{2em}
+\setlength{\leftmarginii}{1.5em}
+\setlength{\leftmarginiii}{1.25em}
+
+%------------------
+% Color settings
+%------------------
+% Basic structure colors
+\usecolortheme[named=background]{structure}
+\setbeamercolor{background canvas}{bg=background}
+\ifcelestia@unicolor
+\setbeamercolor{normal text}{fg=main}
+\else
+\setbeamercolor{normal text}{fg=black}
+\fi
+\usebeamercolor[fg]{normal text}
+
+% Title and section colors
+\setbeamercolor{titlelike}{parent=structure}
+\setbeamercolor{title}{fg=main}
+% \setbeamercolor{subtitle}{parent={}}
+% \setbeamercolor{subtitle}{fg=black}
+\setbeamercolor{author}{fg=main}
+\setbeamercolor{section title}{fg=main}
+\setbeamercolor{subsection title}{fg=accent}
+\setbeamercolor{frametitle}{bg=main,fg=background}
+
+% Navigation and structural elements
+\setbeamercolor{item}{fg=main}
+\setbeamercolor{description}{fg=main}
+\setbeamercolor{section in toc}{fg=main}
+
+% Block colors with opacity control
+\newcommand{\setblockopacity}[1][10]{%
+    \setbeamercolor{block title}{fg=background,bg=mainblue!90!white}
+    \setbeamercolor{block body}{bg=mainblue!#1!white}
+}
+
+% Colors for different block types
+\ifcelestia@soberblock
+    \setbeamercolor{block title}{fg=mainblue,bg=background}
+    \setbeamercolor{block body}{bg=mainblue!10!white}
+    \setbeamercolor{block title example}{fg=maingreen,bg=background}
+    \setbeamercolor{block body example}{bg=maingreen!10!white}
+    \setbeamercolor{block title alerted}{fg=mainred,bg=background}
+    \setbeamercolor{block body alerted}{bg=mainred!10!white}
+\else
+    \ifcelestia@softblock
+        \setbeamercolor{block title}{fg=mainblue,bg=mainblue!10!white}
+        \setbeamercolor{block body}{bg=mainblue!10!white}
+        \setbeamercolor{block title example}{fg=maingreen,bg=maingreen!10!white}
+        \setbeamercolor{block body example}{bg=maingreen!10!white}
+        \setbeamercolor{block title alerted}{fg=mainred,bg=mainred!10!white}
+        \setbeamercolor{block body alerted}{bg=mainred!10!white}
+    \else
+        \setbeamertemplate{blocks}[rounded]
+        \setbeamercolor{block title}{fg=background,bg=mainblue!90!white}
+        \setbeamercolor{block body}{bg=mainblue!10!white}
+        \setbeamercolor{block title example}{fg=background,bg=maingreen!90!white}
+        \setbeamercolor{block body example}{bg=maingreen!10!white}
+        \setbeamercolor{block title alerted}{fg=background,bg=mainred!90!white}
+        \setbeamercolor{block body alerted}{bg=mainred!10!white}
+    \fi
+\fi
+
+% Caption colors
+\setbeamercolor{caption}{fg=main}
+\setbeamercolor{caption name}{parent=caption}
+
+% Bibliography colors
+\setbeamercolor{bibliography entry author}{fg=black}
+\setbeamercolor{bibliography entry title}{fg=black}
+\setbeamercolor{bibliography entry location}{fg=black}
+\setbeamercolor{bibliography entry note}{fg=black}
+
+% Button colors
+\setbeamercolor{button}{bg=main,fg=background}
+\setbeamercolor{button border}{fg=main}
+
+%------------------
+% Basic templates
+%------------------
+% List settings
+\setbeamertemplate{itemize/enumerate subbody begin}{\normalsize}
+
+% Itemize markers
+\setbeamertemplate{itemize item}{\celestiaCircle}
+\setbeamertemplate{itemize subitem}{\celestiaSmallCircle}
+\setbeamertemplate{itemize subsubitem}{\celestiaDiamond}
+
+% Enumeration settings
+% Level 1: Circled numbers with main color background
+\setbeamertemplate{enumerate item}[circle]
+\setbeamercolor{enumerate item}{fg=background,bg=main}
+
+% Level 2: Circled letters with white background
+\setbeamertemplate{enumerate subitem}{%
+    \begin{tikzpicture}[baseline=(char.base)]
+        \node[circle, draw=main, inner sep=0.5pt, fill=white] (char) {\textcolor{main}{\alph{enumii}}};
+    \end{tikzpicture}%
+}
+\setbeamercolor{enumerate subitem}{fg=main,bg=background}
+
+% Level 3: Numbers with parentheses
+\setbeamertemplate{enumerate subsubitem}{%
+    (\insertsubsubenumlabel)%
+}
+\setbeamercolor{enumerate subsubitem}{fg=main}
+
+% Special commands for text formatting
+\renewcommand{\texttt}[1]{\textcolor{accent}{{\ttfamily\csname\celestia@headweight\endcsname #1}}}
+\def\verb{\relax\ifmmode\hbox\else\leavevmode\null\fi
+  \bgroup
+    \ttfamily\bfseries
+    \color{main}
+    \let\do\@makeother\dospecials
+    \verbatim@font\@noligs
+    \@ifstar\@verb\@sverb}
+\renewcommand{\alert}[1]{{\csname\celestia@headweight\endcsname\textcolor{accent}{#1}}}
+
+% Caption template
+\setbeamertemplate{caption}{%
+    \raggedright%
+    \insertcaption\par%
+}
+
+% Hyperlink setup
+\hypersetup{colorlinks=true, urlcolor=mainblue}
+
+% Bold urls
+\ifcelestia@boldurl
+\def\UrlFont{\bfseries}
+\fi
+
+% Additional spacing settings
+\setlength{\parskip}{0.5ex}
+\setlength{\itemsep}{0.5ex}
+
+%------------------
+% Table of contents
+%------------------
+% Base TOC style
+\setbeamertemplate{section in toc}{%
+    \leavevmode%
+    {\color{main}\inserttocsectionnumber.}%
+    \hspace{0.5em}%
+    \hypersetup{linkcolor=main}%
+    {\color{main}\inserttocsection}\par%
+}
+\setbeamertemplate{subsection in toc}{%
+    \leavevmode\leftskip=3.2em%
+    \rlap{\hskip-2em{\color{specialcolor}\inserttocsectionnumber.\inserttocsubsectionnumber}}%
+    \hypersetup{linkcolor=specialcolor}%
+    \hspace{0.5em}%
+    {\color{specialcolor}\inserttocsubsection}\par%
+}
+
+% Compact TOC handling
+\ifcelestia@compacttoc
+    \patchcmd{\beamer@sectionintoc}
+        {\vfill}
+        {\vskip\itemsep}
+        {}
+        {}
+\fi
+
+% Two-column TOC handling
+\NewDocumentCommand{\twocolumntoc}{ O{} O{} O{} }{%
+    \ifcelestia@twocolumntoc
+        \setlength{\columnsep}{2em}
+        \begin{multicols}{2}
+            \tableofcontents[sections={#1-\the\numexpr#2-1}]
+            \columnbreak
+            \tableofcontents[sections={#2-#3}]
+        \end{multicols}
+    \else
+        \tableofcontents
+    \fi
+}
+
+%------------------
+% Frame title
+%------------------
+% Define colors for different frame title styles
+\setbeamercolor{elegant frametitle}{bg=main,fg=background}
+\setbeamercolor{plain frametitle}{fg=main,bg=}
+\setbeamercolor{centered frametitle}{bg=main,fg=background}
+\setbeamercolor{plaincentered frametitle}{fg=main,bg=}
+
+% Elegant frame title (default) with decorative line
+\defbeamertemplate{frametitle}{elegant}{%
+    \nointerlineskip%
+    \begin{beamercolorbox}[wd=\paperwidth,sep=0.5em]{elegant frametitle}
+        \usebeamerfont{frametitle}\insertframetitle%
+        \ifx\insertframesubtitle\@empty\else%
+            \par{\usebeamerfont{framesubtitle}\insertframesubtitle}%
+        \fi%
+    \end{beamercolorbox}%
+    \ifcelestia@quartercirclefooter\ifcelestia@nofooter\vskip-.5em\else\vskip-1em\fi\else\ifcelestia@fullbarfooter\vskip-1em\else\vskip-1em\fi\fi%
+    \begin{tikzpicture}[remember picture,overlay]
+        \draw[main,line width=0.3pt]
+            ([yshift=-1pt]current page.north west) --
+            ([yshift=-1pt]current page.north east);
+        \ifcelestia@decorative
+            \fill[main,opacity=0.1]
+                ([xshift=1em]current page.north west) --
+                ([xshift=3em]current page.north west) --
+                ([xshift=2em,yshift=-1em]current page.north west) -- cycle;
+        \fi
+    \end{tikzpicture}%
+}
+
+% Plain frame title (no background, left-aligned)
+\defbeamertemplate{frametitle}{plain}{%
+    \nointerlineskip%
+    \begin{beamercolorbox}[wd=\paperwidth,sep=1em]{plain frametitle}
+        \usebeamerfont{plain title}\insertframetitle%
+        \ifx\insertframesubtitle\@empty\else%
+            \par{\usebeamerfont{framesubtitle}\insertframesubtitle}%
+        \fi%
+    \end{beamercolorbox}%
+    \ifcelestia@quartercirclefooter\ifcelestia@nofooter\vskip-.25em\else\vskip-.75em\fi\else\ifcelestia@fullbarfooter\vskip-1em\else\vskip-1em\fi\fi%
+}
+
+% Centered frame title (like elegant but centered)
+\defbeamertemplate{frametitle}{centered}{%
+    \nointerlineskip%
+    \begin{beamercolorbox}[wd=\paperwidth,sep=0.5em,center]{centered frametitle}
+        \usebeamerfont{frametitle}\insertframetitle%
+        \ifx\insertframesubtitle\@empty\else%
+            \par{\usebeamerfont{framesubtitle}\insertframesubtitle}%
+        \fi%
+    \end{beamercolorbox}%
+    \ifcelestia@quartercirclefooter\ifcelestia@nofooter\vskip-.25em\else\vskip-.75em\fi\else\ifcelestia@fullbarfooter\vskip-1em\else\vskip-1em\fi\fi%
+    \begin{tikzpicture}[remember picture,overlay]
+        \draw[main,line width=0.3pt]
+            ([yshift=-1pt]current page.north west) --
+            ([yshift=-1pt]current page.north east);
+        \ifcelestia@decorative
+            \fill[main,opacity=0.1]
+                ([xshift=1em]current page.north west) --
+                ([xshift=3em]current page.north west) --
+                ([xshift=2em,yshift=-1em]current page.north west) -- cycle;
+        \fi
+    \end{tikzpicture}%
+}
+
+% Plain centered frame title (no background, centered)
+\defbeamertemplate{frametitle}{plaincentered}{%
+    \nointerlineskip%
+    \begin{beamercolorbox}[wd=\paperwidth,sep=1em,center]{plaincentered frametitle}
+        \usebeamerfont{plain title}\insertframetitle%
+        \ifx\insertframesubtitle\@empty\else%
+            \par{\usebeamerfont{framesubtitle}\insertframesubtitle}%
+        \fi%
+    \end{beamercolorbox}%
+    \ifcelestia@quartercirclefooter\ifcelestia@nofooter\vskip-.25em\else\vskip-0.75em\fi\else\ifcelestia@fullbarfooter\vskip-1em\else\vskip-1em\fi\fi%
+}
+
+% Set the default style to elegant
+\setbeamertemplate{frametitle}[\celestia@frametitle]
+
+%------------------
+% Frame continuation
+%------------------
+\setbeamertemplate{frametitle continuation}{\usebeamerfont{frametitle}(\insertcontinuationcount)}
+
+%------------------
+% Footline
+%------------------
+
+\setbeamertemplate{footline}{%
+    \leavevmode%
+    \setbeamercolor{current author}{fg=main,bg=background}%
+    \setbeamercolor{current title}{fg=background,bg=main}%
+    \setbeamercolor{current date}{fg=main,bg=background}%
+    \setbeamercolor{current page}{fg=background,bg=main}%
+    \ifcelestia@nofooter%
+        \hspace*{2em}%
+        \hfill%
+        \ifcelestia@shownavigation%
+            \setbeamercolor{navigation symbols}{fg=main, bg=background}
+            \setbeamercolor{navigation symbols dimmed}{fg=main!50!background}                                %
+            \insertslidenavigationsymbol%
+            \insertframenavigationsymbol%
+            \insertsubsectionnavigationsymbol%
+            \insertsectionnavigationsymbol%
+            \insertdocnavigationsymbol%
+            \insertbackfindforwardnavigationsymbol%
+        \fi%
+        \hfill\usebeamerfont{footline text}\textcolor{main}{\insertframenumber/\inserttotalframenumber}%
+        \hspace*{2em}%
+        \vspace*{1em}%
+    \else%
+        \ifcelestia@quartercirclefooter%
+            \begin{tikzpicture}[overlay]
+                \usebeamercolor[bg]{current title}
+                \draw[fill] (\paperwidth,0ex) circle (8ex);
+                \usebeamercolor[fg]{current title}
+                \node at (\paperwidth-3.25ex,3.25ex) {\footnotesize\insertframenumber};
+            \end{tikzpicture}
+        \else%
+            \ifcelestia@fullbarfooter%
+                \hbox{%
+                  \begin{beamercolorbox}[wd=.275\paperwidth,ht=2.75ex,dp=1.5ex,left]{current title}%
+                        \usebeamerfont{footline text}\hspace{1em}\insertshortauthor%
+                    \end{beamercolorbox}%
+                    \begin{beamercolorbox}[wd=.45\paperwidth,ht=2.75ex,dp=1.5ex,center]{current title}%
+                        \usebeamerfont{footline text}{\hypersetup{linkcolor=.}\insertshorttitle}%
+                    \end{beamercolorbox}%
+                    \begin{beamercolorbox}[wd=.275\paperwidth,ht=2.75ex,dp=1.5ex,right]{current title}%
+                        \usebeamerfont{footline text}\insertshortdate{}\hspace*{6.5em}%
+                    \end{beamercolorbox}%
+                  }%
+                    \begin{tikzpicture}[overlay]
+                      \usebeamercolor[fg]{title in head/foot}
+                      \draw (.275\paperwidth,0) -- (.275\paperwidth,3.25ex);
+                      \draw (.725\paperwidth,0) -- (.725\paperwidth,3.25ex);
+                    \end{tikzpicture}
+
+                    \begin{tikzpicture}[overlay]
+                      \usebeamercolor[bg]{current title}
+                      \draw[fill] (\paperwidth-5ex,3.625ex) circle (6ex);
+                      \usebeamercolor[fg]{current title}
+                      \draw[fill] (\paperwidth-5ex,3.625ex) circle (5ex);
+                      \usebeamercolor[bg]{current title}
+                      \node at (\paperwidth-5ex,4ex) {{\footnotesize\mathversion{bold}${}^{\insertframenumber}/_{\inserttotalframenumber}$}};
+                    \end{tikzpicture}
+            \else%
+                \hbox{%
+                    \begin{beamercolorbox}[wd=.3\paperwidth,ht=3ex,dp=1.5ex,center,sep=-1ex]{current author}%
+                        \usebeamerfont{footline text}\insertshortauthor%
+                    \end{beamercolorbox}%
+                    \begin{beamercolorbox}[wd=.4\paperwidth,ht=3ex,dp=1.5ex,center,sep=-1ex]{current title}%
+                        \usebeamerfont{footline text}{\hypersetup{linkcolor=.}\insertshorttitle}%
+                    \end{beamercolorbox}%
+                    \begin{beamercolorbox}[wd=.2\paperwidth,ht=3ex,dp=1.5ex,center,sep=-1ex]{current date}%
+                        \usebeamerfont{footline text}\insertshortdate%
+                    \end{beamercolorbox}%
+                    \begin{beamercolorbox}[wd=.1\paperwidth,ht=3ex,dp=1.5ex,center,sep=-1ex]{current page}%
+                        \usebeamerfont{footline text}\insertframenumber/\inserttotalframenumber%
+                    \end{beamercolorbox}%
+                }%
+            \fi%
+        \fi%
+    \fi%
+}
+
+\defbeamertemplate{footline}{plain with nav}{%
+    \ifcelestia@shownavigation%
+        \ifcelestia@nofooter%
+            \leavevmode%
+            \hbox{%
+                \hbox to \paperwidth{%
+                    \hfill%
+                    \raise1mm\hbox{%
+                        \usebeamerfont{footline text}%
+                        \insertslidenavigationsymbol%
+                        \insertframenavigationsymbol%
+                        \insertsubsectionnavigationsymbol%
+                        \insertsectionnavigationsymbol%
+                        \insertdocumentnavigationsymbol%
+                        \insertbackfindforwardnavigationsymbol%
+                    }%
+                    \kern2mm%
+                }%
+            }%
+            \vskip1em%
+        \fi%
+    \fi%
+}
+
+%------------------
+% Standout frames
+%------------------
+\define@key{beamerframe}{standout}[true]{%
+    \booltrue{celestia@standout}%
+    \begingroup
+        % Center the frame and remove frame number
+        \setkeys{beamerframe}{c}%
+        \setkeys{beamerframe}{noframenumbering}%
+
+        % Set the colors for standout frame
+        \setbeamercolor{background canvas}{bg=accent!10}%
+        \setbeamercolor{frametitle}{fg=background,bg=accent}%
+        \setbeamercolor{normal text}{fg=accent}%
+        \usebeamercolor[fg]{normal text}%
+
+        \setbeamercolor{block title}{parent={}}%
+        \setbeamercolor{block title}{fg=mainblue,bg=accent!10}%
+        \setbeamercolor{block title example}{parent={}}%
+        \setbeamercolor{block title example}{fg=maingreen,bg=accent!10}%
+        \setbeamercolor{block title alerted}{parent={}}%
+        \setbeamercolor{block title alerted}{fg=mainred,bg=accent!10}%
+
+        \setbeamercolor{button}{bg=accent,fg=background}
+        \setbeamercolor{button border}{fg=accent}
+
+        % Remove footline for standout frames
+        \setbeamertemplate{footline}{}%
+}
+
+% Close the group at the end of the frame
+\pretocmd{\beamer@reseteecodes}{%
+    \ifbool{celestia@standout}{%
+        \endgroup
+        \boolfalse{celestia@standout}%
+    }{}%
+}{}{}
+
+% Format standout content
+\AtBeginEnvironment{beamer@frameslide}{%
+    \ifbool{celestia@standout}{%
+        \centering
+        \bfseries
+    }{}%
+}
+
+%------------------
+% Special pages
+%------------------
+% Title page
+\setbeamertemplate{title page}{%
+    \ifcelestia@nofooter\vskip3em\else\vskip2em\fi%
+    \vfill%
+    \begingroup
+    \def\titlealignment{left}
+    \ifcelestia@centeredtitle
+        \def\titlealignment{center}%
+    \fi
+    \ifcelestia@titleright
+        \def\titlealignment{right}%
+    \fi
+    \begin{beamercolorbox}[sep=8pt,wd=\textwidth,\titlealignment]{title}
+        \usebeamerfont{title}\inserttitle\par%
+        \ifx\insertsubtitle\@empty\else%
+            \vskip0.5em%
+            {\usebeamerfont{subtitle}\ifcelestia@unicolor\color{main}\else\color{black}\fi\insertsubtitle\par}%
+        \fi%
+        \vskip2pt%
+        {\color{rulecolor}\ifx\celestia@headwight\celestia@bfseries
+            \ifcelestia@centeredtitle
+                \rule{.5\linewidth}{1pt}%
+            \else
+                \rule{.95\linewidth}{1pt}%
+            \fi
+        \else
+            \ifcelestia@centeredtitle
+                \rule{.5\linewidth}{0.5pt}%
+            \else
+                \rule{.95\linewidth}{0.5pt}%
+            \fi
+        \fi}%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[sep=8pt,wd=\textwidth,\titlealignment]{author}
+        \usebeamerfont{author}\insertauthor
+    \end{beamercolorbox}%
+    \vskip-8pt%
+    \begin{beamercolorbox}[sep=8pt,wd=\textwidth,\titlealignment]{institute}
+        \usebeamerfont{institute}\insertinstitute%
+    \end{beamercolorbox}%
+    \vskip-4pt%
+    \begin{beamercolorbox}[sep=8pt,wd=\textwidth,\titlealignment]{date}
+        \usebeamerfont{date}\insertdate%
+    \end{beamercolorbox}%
+    \endgroup
+    \vfill%
+}
+
+% Apply background to title page
+\ifcelestia@decorative
+\addtobeamertemplate{title page}{%
+    \begin{tikzpicture}[remember picture,overlay]
+        \fill[background] (current page.south west) rectangle (current page.north east);
+
+        \begin{scope}
+            \fill[main!85!white,opacity=0.045] ([xshift=-1.4cm,yshift=-1.1cm]current page.north east) circle (0.55cm);
+            \fill[main!78!white,opacity=0.055] ([xshift=-0.7cm,yshift=-1.6cm]current page.north east) circle (0.45cm);
+
+            \fill[main!88!white,opacity=0.04] ([xshift=-1.9cm,yshift=-0.8cm]current page.north east) circle (0.32cm);
+            \fill[main!92!white,opacity=0.05] ([xshift=-1.2cm,yshift=-0.6cm]current page.north east) circle (0.25cm);
+
+            \fill[main!89!white,opacity=0.045] ([xshift=-0.5cm,yshift=-0.9cm]current page.north east) circle (0.2cm);
+        \end{scope}
+
+        \shade[ball color=main!5!white,opacity=0.2]
+            ([xshift=-1.3cm,yshift=-1.2cm]current page.north east) circle (0.5cm);
+    \end{tikzpicture}%
+}{}
+\fi
+
+%------------------
+% Section pages
+%------------------
+\setbeamertemplate{section page}{%
+  \ifcelestia@decorative
+    \begin{tikzpicture}[remember picture,overlay]
+
+      % Grande sphère centrale (rayon 2cm)
+      \shade[ball color=main!7!white, opacity=0.25]
+        (current page.center) circle (2cm);
+
+      % Sphères secondaires (15), légèrement plus grosses
+      \foreach \i in {1,...,15} {
+        \pgfmathsetmacro{\angle}{random(0,360)}
+        \pgfmathsetmacro{\dist}{random(2.5,6.5)}
+        \pgfmathsetmacro{\radius}{0.3 + rnd*0.8} % 0.3 à 1.1 cm
+        \pgfmathsetmacro{\opacity}{random(5,18)/100}
+        \shade[ball color=main!10!white, opacity=\opacity]
+          ([shift={({\dist*cos(\angle)},{\dist*sin(\angle)})}] current page.center) circle (\radius cm);
+      }
+
+      % Étoiles aléatoires, taille variable, moins nombreuses (12)
+      \foreach \i in {1,...,12} {
+        \pgfmathsetmacro{\x}{random(-7,7)}
+        \pgfmathsetmacro{\y}{random(-6,6)}
+        \pgfmathsetmacro{\scaleFactor}{0.3 + rnd*1.2}
+        \pgfmathsetmacro{\opacity}{random(5,15)/100}
+        \node[star, star points=5, star point ratio=2.25, fill=main!90!white, opacity=\opacity, scale=\scaleFactor]
+          at ([xshift=\x cm,yshift=\y cm] current page.center) {};
+      }
+
+    \end{tikzpicture}
+  \fi
+
+  \begin{center}
+    \parbox{.95\textwidth}{%
+      \centering
+      \begin{tikzpicture}[overlay,remember picture]
+        \node[fill=main!4!white,opacity=0.12,inner sep=1.6cm,shape=circle] at ([yshift=-0.38\textheight]current page.north) {};
+        \node[fill=main!6!white,opacity=0.16,inner sep=1.25cm,shape=circle] at ([yshift=-0.38\textheight]current page.north) {};
+        \node[fill=main!7!white,opacity=0.19,inner sep=0.95cm,shape=circle] at ([yshift=-0.38\textheight]current page.north) {};
+        \node[fill=main!8!white,opacity=0.21,inner sep=0.68cm,shape=circle] at ([yshift=-0.38\textheight]current page.north) {};
+
+        \node[align=center,text width=.95\textwidth] at (0,0) {
+          \centering
+          \hypersetup{linkcolor=main}%
+          {\usebeamerfont{section title}%
+           \LARGE%
+           \color{main}%
+           \insertsectionhead\par}%
+        };
+      \end{tikzpicture}
+    }
+  \end{center}
+}
+
+\setbeamertemplate{subsection page}{%
+    \begin{center}
+        \parbox{.95\textwidth}{%
+            \centering
+            \begin{tikzpicture}[overlay,remember picture]
+              \node[align=center,text width=.95\textwidth] at (0,0) {
+                \centering
+                \hypersetup{linkcolor=specialcolor}%
+                {\usebeamerfont{section title}%
+                \Large%
+                 \color{specialcolor}%
+                \insertsubsectionhead\par}%
+        };
+       \end{tikzpicture}
+        }
+    \end{center}
+}
+
+\AtBeginSection{%
+  \begin{frame}[noframenumbering,plain]
+    \sectionpage
+  \end{frame}
+}
+
+\AtBeginSubsection{%
+  \begin{frame}[noframenumbering,plain]
+    \subsectionpage
+  \end{frame}
+}
+
+%------------------
+% Math and Theorem Settings
+%------------------
+
+% Set basic theorem colors
+\setbeamercolor{theorem text}{parent=normal text}
+\setbeamercolor{theorem title}{parent=structure}
+
+% Define theorem environments
+\theoremstyle{plain}
+\newtheorem{proposition}[theorem]{\translate{Proposition}}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{\translate{Remark}}
+% \newtheorem{note}[theorem]{\translate{Note}}
+
+% Set theorem templates to normal font
+\setbeamertemplate{theorems}[normal font]
+
+% Math-specific commands for formatting
+\newcommand{\mathterm}[1]{\textcolor{mainblue}{\mathbf{#1}}}
+\newcommand{\mathdef}[1]{\textcolor{maingreen}{\mathit{#1}}}
+
+% Caption style
+\setbeamertemplate{caption}{%
+    \raggedright
+    \insertcaption\par
+  }
+
+%------------------
+% Listings Settings
+%------------------
+
+\RequirePackage{listings}
+
+\AtEndPreamble{
+    \colorlet{codeKeyword}{main}
+    \definecolor{codeString}{HTML}{333333}
+    \definecolor{codeComment}{HTML}{6A737D}
+    \colorlet{codeEmph}{accent}
+    \colorlet{codeNumber}{accent}
+    \definecolor{codeNumber}{HTML}{C84E3F}
+
+    \ifcelestia@unicolor
+        \colorlet{codeIdentifier}{main}
+    \else
+        \colorlet{codeIdentifier}{black}
+    \fi
+
+    \lstset{
+        basicstyle=\ttfamily\footnotesize\color{codeIdentifier},
+        keywordstyle=\color{codeKeyword}\csname\celestia@headweight\endcsname,
+        stringstyle=\color{codeString},
+        commentstyle=\color{codeComment},
+        emphstyle=\color{codeEmph}\csname\celestia@headweight\endcsname,
+        numberstyle=\color{codeNumber},
+        numbersep=5pt,
+        columns=fullflexible,
+        breaklines=true,
+        showstringspaces=false,
+        inputencoding=utf8,
+        extendedchars=true,
+        escapeinside={(*@}{@*)},
+        aboveskip=.25\baselineskip,
+        belowskip=.25\baselineskip,
+        literate={%
+            á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+            {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+            {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+            {À}{{\`A}}1 {È}{{\`E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+            {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+            {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+            {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+            {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+            {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+            {ẞ}{{\SS}}1 {ç}{{\c{c}}}1 {Ç}{{\c{C}}}1 {ø}{{\o}}1 {Ø}{{\O}}1
+            {å}{{\aa}}1 {Å}{{\AA}}1 {ã}{{\~a}}1 {õ}{{\~o}}1 {Ã}{{\~A}}1
+            {Õ}{{\~O}}1 {ñ}{{\~n}}1 {Ñ}{{\~N}}1 {¿}{{?`}}1 {¡}{{!`}}1
+            {°}{{\textdegree}}1 {º}{{\textordmasculine}}1 {ª}{{\textordfeminine}}1
+            {€}{{\euro}}1 {£}{{\pounds}}1 {©}{{\copyright}}1 {®}{{\textregistered}}1
+            {«}{{\guillemotleft}}1 {»}{{\guillemotright}}1 {Ð}{{\DH}}1 {ð}{{\dh}}1
+            {Ý}{{\'Y}}1 {ý}{{\'y}}1 {Þ}{{\TH}}1 {þ}{{\th}}1 {Ă}{{\u{A}}}1
+            {ă}{{\u{a}}}1 {Ą}{{\k{A}}}1 {ą}{{\k{a}}}1 {Ć}{{\'C}}1 {ć}{{\'c}}1
+            {Č}{{\v{C}}}1 {č}{{\v{c}}}1 {Ď}{{\v{D}}}1 {ď}{{\v{d}}}1 {Đ}{{\DJ}}1
+            {đ}{{\dj}}1 {Ė}{{\.{E}}}1 {ė}{{\.{e}}}1 {Ę}{{\k{E}}}1 {ę}{{\k{e}}}1
+            {Ě}{{\v{E}}}1 {ě}{{\v{e}}}1 {Ğ}{{\u{G}}}1 {ğ}{{\u{g}}}1 {Ĩ}{{\~I}}1
+            {ĩ}{{\~\i}}1 {Į}{{\k{I}}}1 {į}{{\k{i}}}1 {İ}{{\.{I}}}1 {ı}{{\i}}1
+            {Ĺ}{{\'L}}1 {ĺ}{{\'l}}1 {Ľ}{{\v{L}}}1 {ľ}{{\v{l}}}1 {Ł}{{\L{}}}1
+            {ł}{{\l{}}}1 {Ń}{{\'N}}1 {ń}{{\'n}}1 {Ň}{{\v{N}}}1 {ň}{{\v{n}}}1
+            {Ő}{{\H{O}}}1 {ő}{{\H{o}}}1 {Ŕ}{{\'{R}}}1 {ŕ}{{\'{r}}}1 {Ř}{{\v{R}}}1
+            {ř}{{\v{r}}}1 {Ś}{{\'S}}1 {ś}{{\'s}}1 {Ş}{{\c{S}}}1 {ş}{{\c{s}}}1
+            {Š}{{\v{S}}}1 {š}{{\v{s}}}1 {Ť}{{\v{T}}}1 {ť}{{\v{t}}}1 {Ũ}{{\~U}}1
+    }
+
+\lstdefinelanguage{json}{%
+    keywords={true,false,null},
+    sensitive=false,
+    morestring=[b]",
+    morecomment=[l]{//},
+    morecomment=[s]{/*}{*/},
+    literate=
+        *{0}{{{\color{codeComment}0}}}{1}
+        {1}{{{\color{codeComment}1}}}{1}
+        {2}{{{\color{codeComment}2}}}{1}
+        {3}{{{\color{codeComment}3}}}{1}
+        {4}{{{\color{codeComment}4}}}{1}
+        {5}{{{\color{codeComment}5}}}{1}
+        {6}{{{\color{codeComment}6}}}{1}
+        {7}{{{\color{codeComment}7}}}{1}
+        {8}{{{\color{codeComment}8}}}{1}
+        {9}{{{\color{codeComment}9}}}{1}
+        {:}{{{\color{codeKeyword}{:}}}}{1}
+        {,}{{{\color{codeKeyword}{,}}}}{1}
+        {\{}{{{\color{codeKeyword}{\{}}}}{1}
+        {\}}{{{\color{codeKeyword}{\}}}}}{1}
+        {[}{{{\color{codeKeyword}{[}}}}{1}
+        {]}{{{\color{codeKeyword}{]}}}}{1},
+}
+
+% YAML
+\lstdefinelanguage{yaml}{%
+    keywords={true,false,null,yes,no,on,off},
+    sensitive=false,
+    morestring=[b]",
+    morestring=[b]',
+    morecomment=[l]{\#},
+    literate=
+        *{:}{{{\color{codeKeyword}{:}}}}{1}
+        {-}{{{\color{codeKeyword}{-}}}}{1}
+        {>}{{{\color{codeKeyword}{>}}}}{1}
+        {|}{{{\color{codeKeyword}{|}}}}{1},
+}
+
+% TOML
+\lstdefinelanguage{toml}{%
+    keywords={true,false},
+    sensitive=false,
+    morestring=[b]",
+    morestring=[b]',
+    morecomment=[l]{\#},
+    literate=
+        *{=}{{{\color{codeKeyword}{=}}}}{1}
+        {[}{{{\color{codeKeyword}{[}}}}{1}
+        {]}{{{\color{codeKeyword}{]}}}}{1}
+        {.}{{{\color{codeKeyword}{.}}}}{1},
+}
+
+% CSV
+\lstdefinelanguage{csv}{%
+    sensitive=false,
+    morestring=[b]",
+    morecomment=[l]{\#},
+    literate=
+        *{,}{{{\color{codeKeyword}{,}}}}{1}
+        {;}{{{\color{codeKeyword}{;}}}}{1},
+}
+
+% Markdown
+\lstdefinelanguage{markdown}{%
+    sensitive=false,
+    morecomment=[l]{\%},
+    literate=
+        *{\#}{{{\color{codeKeyword}{\#}}}}{1}
+        {-}{{{\color{codeKeyword}{-}}}}{1}
+        {*}{{{\color{codeKeyword}{*}}}}{1}
+        {>}{{{\color{codeKeyword}{>}}}}{1}
+        {`}{{{\color{codeKeyword}{`}}}}{1}
+        {|}{{{\color{codeKeyword}{|}}}}{1}
+        {[}{{{\color{codeKeyword}{[}}}}{1}
+        {]}{{{\color{codeKeyword}{]}}}}{1}
+        {(}{{{\color{codeKeyword}{(}}}}{1}
+        {)}{{{\color{codeKeyword}{)}}}}{1},
+}
+
+%% Language-Specific Styles
+%% ----------------------------------
+\lstdefinestyle{python}{%
+    language=Python,
+    morekeywords={%
+        @property,@classmethod,@staticmethod,
+    },
+    emph={%
+        range,int,str,list,dict,set,bool,float,
+        tuple,super,type,print,len,sum,min,max,
+        enumerate,zip,map,filter,any,all,as,assert,
+        nonlocal,with,yield,self,True,False,None,
+        lambda,raise,await,async,
+    },
+    morestring=[b]""",
+}
+
+\lstdefinestyle{java}{%
+    language=Java,
+    morekeywords={%
+        @Override,@Deprecated,@SuppressWarnings,
+        @FunctionalInterface,@SafeVarargs,
+        var,record,sealed,permits,
+        public,private,protected,static,final,
+        abstract,interface,extends,implements
+    },
+    morecomment=[s]{/*}{*/},
+    morecomment=[l]//,
+    morestring=[b]",
+}
+
+\lstdefinestyle{cpp}{%
+    language=C++,
+    morekeywords={%
+        nullptr,constexpr,override,final,
+        template,typename,concept,requires,
+        auto,decltype,noexcept,static_assert,
+        thread_local,alignas,alignof
+    },
+    morecomment=[s]{/*}{*/},
+    morecomment=[l]//,
+    morestring=[b]",
+}
+
+\lstdefinestyle{javascript}{%
+    language=JavaScript,
+    morekeywords={%
+        let,const,var,function,class,extends,
+        static,get,set,new,this,super,
+        import,export,default,from,as,
+        async,await,yield,return,
+        undefined,null,true,false
+    },
+    morecomment=[s]{/*}{*/},
+    morecomment=[l]//,
+    morestring=[b]",
+    morestring=[b]',
+    morestring=[b]`,
+}
+
+\lstdefinestyle{sql}{%
+    language=SQL,
+    morekeywords={%
+        CREATE,TABLE,INSERT,INTO,VALUES,
+        SELECT,FROM,WHERE,GROUP,BY,HAVING,
+        ORDER,LIMIT,JOIN,LEFT,RIGHT,INNER,
+        UPDATE,SET,DELETE,ALTER,DROP,
+        CONSTRAINT,PRIMARY,KEY,FOREIGN,
+        REFERENCES,CASCADE,INDEX
+    },
+    sensitive=false,
+}
+
+\lstdefinestyle{latex}{%
+    language=[latex]TeX,
+    texcsstyle=*\bfseries\color{codeKeyword},
+    moretexcs = {usetheme,tableofcontents,index,footnote,sout,part,chapter,subsection,subsubsection,paragraph,maketitle,leqslant,geqslant,varnothing,includegraphics,draw,node,theoremstyle,newtcolorbox,tcbuselibrary,newtcbtheorem,SI,ang,ce,chemfig,norm,abs,deriv,R,N,Z,ProvidesPackage,color,ps,montitre,lstset,lstinline,lstinputlisting,definecolor,textcolor,colorlet,setlength,colorbox,fcolorbox,addplot,pgfplotsset,opadd,opsub,opmul,opdiv,opgcd,metre,second,squared,kelvin,coulomb,volt,per,opprint,legend,tkzDefPoint,tkzInterLL,tkzGetPoint,tkzDrawPolygon,tkzDrawSegments,tkzMarkRightAngles,tkzMarkSegments,tkzLabelPoints,boxed,boldsymbol,boldmath,multirow,addbibresource,printbibliography,bm,dfrac,meter,thead,makecell,euro,cellcolor,rowcolor,columncolor,base,repere,rog,ron,rond,derpart,drv,integrer,nuplet,anuplet,ensemble,E,V,suite,suitar,suitgeo,vect,norme,tr,rank,adj,sgn,im,di,intabfx,integrale,e,moinsinf,plusinf,sisetup,restoregeometry,newgeometry},
+    emph={width,axis~lines,xlabel,ylabel,xmin,ymin,grid,domain,samples,displayshiftintermediary,colback,colframe,colbacktitle,coltitle,enhanced,,fonttitle,margin,leftmargin,publisher,year,carrysub,lastcarry,locale,xmax,ymax,coordinates,mark,style,hmargin,vmargin,top,bottom,left,right,showframe,includeheadfoot,opacity,fill,above,},
+    morecomment=[l]{\%},
+    morestring=[b]",
+    sensitive=true
+  }
+
+\lstdefinestyle{bash}{%
+    language=bash,
+    morekeywords={%
+        source, alias, bg, bind, break, builtin, cd, command, compgen,
+        complete, continue, declare, dirs, disown, echo, enable, eval,
+        exec, exit, export, fc, fg, getopts, hash, help, history, jobs,
+        kill, let, local, logout, mapfile, popd, printf, pushd, pwd,
+        read, readarray, readonly, return, set, shift, shopt, suspend,
+        test, times, trap, type, typeset, ulimit, umask, unalias,
+        unset, wait
+    },
+    morestring=[b]",
+    morestring=[b]',
+    morestring=[b]\`,
+    morecomment=[l]{\#},
+    literate=
+        *{\$}{{{\color{codeKeyword}{\$}}}}{1}
+        {|}{{{\color{codeKeyword}{|}}}}{1}
+        {>}{{{\color{codeKeyword}{>}}}}{1}
+        {<}{{{\color{codeKeyword}{<}}}}{1}
+        {&}{{{\color{codeKeyword}{\&}}}}{1},
+}
+
+\lstdefinestyle{assembly}{%
+    language=[x86]Assembler,
+    morekeywords={%
+        section, global, extern
+    },
+    morecomment=[l]{;},
+    morecomment=[l]{\#},
+    literate=
+        *{,}{{{\color{codeKeyword}{,}}}}{1}
+        {:}{{{\color{codeKeyword}{:}}}}{1}
+        {[}{{{\color{codeKeyword}{[}}}}{1}
+        {]}{{{\color{codeKeyword}{]}}}}{1}
+        {\$}{{{\color{codeKeyword}{\$}}}}{1}
+        {\%}{{{\color{codeKeyword}{\%}}}}{1},
+}
+
+\lstdefinestyle{lisp}{%
+    language=Lisp,
+    morekeywords={%
+        setq, setf, loop, do, progn, when, unless
+    },
+    literate=
+        *{(}{{{\color{codeKeyword}{(}}}}{1}
+        {)}{{{\color{codeKeyword}{)}}}}{1}
+        {'}{{{\color{codeKeyword}{'}}}}{1}
+        {`}{{{\color{codeKeyword}{`}}}}{1}
+        {,}{{{\color{codeKeyword}{,}}}}{1},
+}
+
+\lstdefinestyle{json}{%
+    language=json,
+}
+
+\lstdefinestyle{yaml}{%
+    language=yaml,
+}
+
+\lstdefinestyle{toml}{%
+    language=toml,
+}
+
+\lstdefinestyle{csv}{%
+    language=csv,
+}
+
+\lstdefinestyle{markdown}{%
+    language=markdown,
+}
+
+}
+
+\newtcolorbox{lstbox}{
+  enhanced,
+  boxrule=0.5pt,
+  colback=codebackground,
+  colframe=\ifcelestia@nocodeframe background\else codeframecolor\fi,
+  left=1ex,
+  right=1ex,
+  top=0pt,
+  bottom=0pt,
+  boxsep=0pt
+}
+
+\ifcelestia@codebox
+    \BeforeBeginEnvironment{lstlisting}{\begin{lstbox}}
+    \AfterEndEnvironment{lstlisting}{\end{lstbox}}
+
+    \let\oldlstinputlisting\lstinputlisting
+    \renewcommand{\lstinputlisting}[2][]{%
+        \begin{lstbox}%
+        \oldlstinputlisting[#1]{#2}%
+        \end{lstbox}%
+    }
+\else
+    \BeforeBeginEnvironment{lstlisting}{}
+    \AfterEndEnvironment{lstlisting}{}
+\fi
+
+
+% Bibliography
+\AtBeginDocument{%
+  \@ifpackageloaded{biblatex}{%
+    \defbibheading{bibliography}{%
+      \frametitle{Références}%
+    }%
+  }{}%
+}
+
+% Mode declaration
+\mode<all>

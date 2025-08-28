@@ -1,0 +1,43 @@
+\documentclass[8pt,aspectratio=1610,c,spanish]{beamer}
+\usepackage[spanish]{babel}
+\usefonttheme[onlymath]{serif}
+\usetheme{Singapore}
+\setbeamertemplate{frametitle}[default][center]
+\setbeamertemplate{navigation symbols}{}
+\let\oldforall\forall\renewcommand{\forall}{\oldforall \, }
+\let\oldexist\exists\renewcommand{\exists}{\oldexist \: }
+
+\begin{document}
+\begin{frame}
+\frametitle{Entornos Matemáticos}
+
+\begin{definition}[Matriz simétrica]
+Una matriz $A\in\mathbb{R}^{n\times n}$ es \alert{simétrica} si y solo si $\forall u,v\in\mathbb{R}^{n}$:
+$\left\langle u,Av\right\rangle=\left\langle Au,v\right\rangle$.
+\end{definition}
+
+\begin{theorem}[Factorización $LDL^{T}$]
+Si $A\in\mathbb{R}^{n\times n}$ es simétrica y $\forall k\in\left\{1,\dotsc,n-1\right\}$: $A\left[1:k, 1:k\right]$
+es no singular, entonces $\exists L\in\mathbb{R}^{n\times n}$ triangular inferior de unos en su diagonal y
+$D=\operatorname{diag}\left(d_{1},\dotsc,d_{n}\right)$ tal que $A=LDL^{T}$. La factorización es única.
+\end{theorem}
+
+\begin{proof}Queda como ejercicio para el lector.\end{proof}
+
+\begin{corollary}[Factorización de Cholesky]
+Si $A\in\mathbb{R}^{n\times n}$ es simétrica definida positiva, entonces $\exists G\in\mathbb{R}^{n\times n}$ tal que
+$A=GG^{T}$ y las entradas de su diagonal son positivas.
+\end{corollary}
+
+\begin{lemma}\end{lemma}
+
+\begin{columns}
+\begin{column}{.48\paperwidth}
+	\begin{example}[Ejemplo de Aplicación]\end{example}
+\end{column}
+\begin{column}{.48\paperwidth}
+	\begin{examples}[Dos contraejemplos]\end{examples}
+\end{column}
+\end{columns}
+\end{frame}
+\end{document}

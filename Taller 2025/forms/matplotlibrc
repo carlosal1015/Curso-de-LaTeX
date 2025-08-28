@@ -1,0 +1,17 @@
+# animation.html: html5
+# axes.grid: True
+figure.autolayout: True
+# figure.constrained_layout.use : True
+figure.dpi: 750
+# figure.figsize: (8.0, 4.0)
+font.family: serif
+# https://github.com/matplotlib/matplotlib/issues/26698
+font.serif: DejaVu Math TeX Gyre
+# font.size: 14
+# lines.linewidth: 2
+# lines.markersize: 8
+mathtext.fontset: cm
+mathtext.rm: serif
+savefig.dpi: 750
+text.latex.preamble: \usepackage[spanish]{babel} \usepackage{mathtools} \usepackage{diffcoeff} \usepackage{amsfonts} \usepackage[lite]{mtpro2}
+text.usetex: True

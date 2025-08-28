@@ -1,0 +1,112 @@
+\section{Unidades de medida}
+
+\begin{frame}
+	\frametitle{\secname}
+
+	\begin{block}{Unidades de medida y longitudes en \LaTeX}
+		\LaTeX{} reconoce solamente las unidades de medida básicas de \TeX.
+		\begin{table}[ht!]
+			\centering
+			\begin{tabular}{ccl}
+				\hline
+				Unidades de \TeX & Abreviatura            & Significado                                                                              \\
+				\hline
+				Pulgadas         & \mintinline{latex}|in| & Usual                                                                                    \\
+				\hline
+				Centímetros      & \mintinline{latex}|cm| & 1\mintinline{latex}|cm|=28.5\mintinline{latex}|pt|                                       \\
+				\hline
+				Milímetros       & \mintinline{latex}|mm| & Usual                                                                                    \\
+				\hline
+				Puntos           & \mintinline{latex}|pt| & 1\mintinline{latex}|pt|=ancho de un punto$\approx 0.35146$\mintinline{latex}|cm|         \\
+				\hline
+				Picas            & \mintinline{latex}|pc| & 1\mintinline{latex}|pc|=12 puntos                                                        \\
+				\hline
+				Emes             & \mintinline{latex}|em| & 1\mintinline{latex}|em|=ancho de una \mintinline{latex}|M| en el tamaño de letra vigente \\
+				\hline
+				Equis            & \mintinline{latex}|ex| & 1\mintinline{latex}|ex|=ancho de una \mintinline{latex}|x| en el tamaño de letra vigente \\
+				\hline
+			\end{tabular}
+			\caption{Unidades de medida en \LaTeX.}
+		\end{table}
+	\end{block}
+
+	\pause
+
+	\begin{block}{Espaciado vertical}
+		Para añadir espacio vertical de una \mintinline{latex}|<longitud-con-unidad>|
+		determinada podemos usar las siguientes instrucciones.
+		\vspace*{-\baselineskip}\setlength\belowdisplayshortskip{0pt}
+		\begin{itemize}
+			\item
+
+			      \mintinline{latex}|\\[<longitud-con-unidade>]|:
+			      \LaTeX{} inserta un nuevo renglón con un espaciado
+			      vertical de la \mintinline{latex}|<longitud-con-unidade>|
+			      dada.
+
+			\item
+
+			      \mintinline{latex}|\vspace{<longitud-con-unidad>}|:
+			      \LaTeX{} inserta un espaciado vertical de
+			      \mintinline{latex}|<longitud-con-unidade>|.
+
+			\item
+
+			      \mintinline{latex}|\newline|: Tiene el mismo efecto de
+			      \mintinline{latex}|\\|.
+
+			\item
+
+			      \mintinline{latex}|\linebreak|: Justifica el renglón
+			      actual, es decir, estira proporcionalmente todos los
+			      caracteres hasta tocar el margen derecho y comienza un
+			      nuevo renglón, sin sangría.
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{}
+
+	\begin{block}{Control sobre cambios de página}
+		\begin{itemize}
+			\item
+
+			      \mintinline{latex}|\newpage|: Inserta una nueva página.
+
+			\item
+
+			      \mintinline{latex}|\pagebreak|:
+
+			      Justifica verticalmente el contenido de la página
+			      insertando espacio adicional entre los párrafos
+			      (no entre los renglones) y comienza una nueva página.
+
+			\item
+
+			      \mintinline{latex}|\clearpage|:
+
+			      Es similar a \mintinline{latex}|\newpage| excepto que las
+			      tablas o figuras que estén bajo el alcance de los
+			      entornos \mintinline{latex}|table| o
+			      \mintinline{latex}|figure|, y que no hayan sido colocadas
+			      por \LaTeX{}, se imprimen en una o más hojas separadas.
+
+			\item
+
+			      \mintinline{latex}|\cleardoublepage|:
+			      Funciona como \mintinline{latex}|\clearpage| para
+			      documentos con la opción \mintinline{latex}|twoside|.
+			      \LaTeX{} añade toda una hoja en blanco adicional, si es
+			      necesario, para que la siguiente página de texto tenga
+			      numeración impar.
+		\end{itemize}
+	\end{block}
+
+	\begin{block}{Alinación de texto}\input{sections/text}\end{block} % tex-fmt: skip
+\end{frame}
+
+\begin{frame}
+	\begin{block}{Cajas de texto}\input{sections/boxes}\end{block} % tex-fmt: skip
+\end{frame}
+% siunitx enumitem

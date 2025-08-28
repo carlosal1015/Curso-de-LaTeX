@@ -42,9 +42,9 @@
 
 Primero, su sistema en el que está ejecutando va a necesitar un par de cosas:
 
-* [`TeX Live`](https://tug.org/texlive/) `2018` o superior - hay muchas formas de instalarlo, pero recomiendo en [`GNU/Linux`](https://tug.org/texlive/quickinstall.html).
-* [`GNU Emacs`](https://www.gnu.org/software/emacs/) `26` o superior.
-* [`Git`](https://git-scm.com/) `2.20` o superior.
+* [`TeX Live`](https://tug.org/texlive) `2025` o superior - hay muchas formas de instalarlo, pero recomiendo en [`GNU/Linux`](https://tug.org/texlive/quickinstall.html).
+* [`GNU Emacs`](https://www.gnu.org/software/emacs) `30` o superior.
+* [`Git`](https://git-scm.com) `2.51` o superior.
 
 > Ante la imposibilidad de instalar alguno de estos programas en su sistema, por favor cree un USB booteable con la imagen [ArchTeXlive](https://sourceforge.net/projects/archtexlive), el cual cuenta con todas las herramientas necesarias.
 
@@ -52,12 +52,13 @@ Primero, su sistema en el que está ejecutando va a necesitar un par de cosas:
 
 | Nombre | Tiempo | Descripción |
 |------|:-------:|-------------|
-| Taller de LaTeX | verano del 2017 | [Centro de Responsabilidad Social y Extensión Universitaria](http://matematicas.unmsm.edu.pe/ceups/ceups.php) de la Facultad de Ciencias Matemáticas en la [Universidad Nacional Mayor de San Marcos](http://unmsm.edu.pe/) de Lima, Perú :peru: |
-| Primer y [segundo taller de LaTeX](https://sites.google.com/uni.edu.pe/gemlatex) | febrero del 2017 y julio del 2017 | [Grupo Estudiantil de Matemática](https://es-la.facebook.com/gemfcuni/) de la [Universidad Nacional de Ingeniería](http://www.uni.edu.pe/) de Lima, Perú :peru: |
+| Taller de LaTeX | verano del 2017 | [Centro de Responsabilidad Social y Extensión Universitaria](http://matematicas.unmsm.edu.pe/ceups/ceups.php) de la Facultad de Ciencias Matemáticas en la [Universidad Nacional Mayor de San Marcos](http://unmsm.edu.pe) de Lima, Perú :peru: |
+| Primer y [segundo taller de LaTeX](https://sites.google.com/uni.edu.pe/gemlatex) | febrero del 2017 y julio del 2017 | [Grupo Estudiantil de Matemática](https://es-la.facebook.com/gemfcuni) de la [Universidad Nacional de Ingeniería](http://www.uni.edu.pe) de Lima, Perú :peru: |
 | Curso Vacional de LaTeX | diciembre del 2017| [Ubuntu Colombia](https://www.facebook.com/UbuntuColombia/) :colombia: |
-| [TUG 2018](https://tug.org/tug2018/) | July 20-22, 2018 | [Institute for Pure and Applied Mathematics](https://impa.br/videos/) :brazil: |
-| En espera de la autorización | 2018 -- 2019 | [Centro de Tecnologías de Información y Comunicaciones](https://www.ctic.uni.edu.pe/) |
-| [TUG 2020]() | 2020 | [LaTeX Workshop TUG 2020 Conference](https://www.overleaf.com/project/5ef0eeaad5a33b0001721d3d) |
+| [TUG 2018](https://tug.org/tug2018) | July 20-22, 2018 | [Institute for Pure and Applied Mathematics](https://impa.br/videos) :brazil: |
+| En espera de la autorización | 2018 -- 2019 | [Centro de Tecnologías de Información y Comunicaciones](https://www.ctic.uni.edu.pe) |
+| [TUG 2020](https://tug.org/tug2020) | 2020 | [LaTeX Workshop TUG 2020 Conference](https://www.overleaf.com/project/5ef0eeaad5a33b0001721d3d) |
+| [Taller 2025]() | 2025 | [Grupo Estudiantil de Matemática](https://es-la.facebook.com/gemfcuni) de la [Universidad Nacional de Ingeniería](http://www.uni.edu.pe) de Lima, Perú :peru: |
 
 ## Apoyando el desarrollo
 

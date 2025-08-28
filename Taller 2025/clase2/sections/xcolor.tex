@@ -1,0 +1,20 @@
+% tex-fmt: off
+\begin{exampletwoup}
+%\usepackage[dvipsnames]{xcolor}
+\definecolor{AzulIntenso}{HTML}{0404E2}
+\textcolor{AzulIntenso}{Hoy,~\bfseries\today}.
+$\mathcolor{cyan}{\sqrt[5]{1419857}=17}$.
+
+% Mezcla de $40\%$ gris y el resto blanco
+{\color{gray!40!white}
+\scshape Lima, la Ciudad de los Reyes.
+
+% Mezcla de $50\%$ naranja y el resto verde
+\color{orange!50!green}
+\slshape Cusco, el ombligo del mundo.}
+
+\foreach\x in {380,400,...,780}{
+\textcolor[wave]{\x}{$\x$}\
+}
+\end{exampletwoup}
+% tex-fmt: on

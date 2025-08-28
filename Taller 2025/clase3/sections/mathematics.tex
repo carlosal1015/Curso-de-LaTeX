@@ -1,0 +1,226 @@
+\section{Matemáticas en \LaTeX}
+
+\begin{frame}
+	\frametitle{\secname}
+
+	\begin{block}{\AmS-\LaTeX}
+		\begin{columns}
+			\begin{column}{.65\paperwidth}
+				\LaTeX{} básico ofrece excelentes capacidades de composición
+				matemática para documentos sencillos.
+				Sin embargo, cuando se utilizan con frecuencia ecuaciones complejas
+				o construcciones matemáticas más avanzadas, se necesita algo más.
+
+				Si bien es posible definir nuevos comandos o entornos para
+				simplificar la escritura de fórmulas, esta no es la mejor solución.
+				A principios de los noventa, la
+				\alert{American Mathematical Society (AMS)} proporcionó un
+				paquete importante: \mintinline{latex}|amsmath|, que
+				simplificó considerablemente la preparación de documentos
+				matemáticos.
+			\end{column}
+			\begin{column}{.25\paperwidth}
+				\begin{figure}[ht!]
+					\centering
+					\includesvg[width=.25\paperwidth]{ams}
+					\caption{Aprenda más sobre \AmS-\LaTeX{} en~\cite{AMS2025}.}
+				\end{figure}
+			\end{column}
+		\end{columns}
+	\end{block}
+
+	\
+
+	Al final de esta sesión, podrás crear un documento básico con
+	ecuaciones matemáticas basado en los siguientes paquetes.
+	\begin{block}{Paquetes de la \AmS-\LaTeX}
+		\vspace*{-\baselineskip}\setlength\belowdisplayshortskip{0pt}
+		\begin{columns}
+			\begin{column}{.2\paperwidth}
+				\begin{itemize}
+					\item
+
+					      \mintinline{latex}|asmath|.
+				\end{itemize}
+			\end{column}
+			\begin{column}{.2\paperwidth}
+				\begin{itemize}
+					\item
+
+					      \mintinline{latex}|amssymb|.
+				\end{itemize}
+			\end{column}
+			\begin{column}{.2\paperwidth}
+				\begin{itemize}
+					\item
+
+					      \mintinline{latex}|amsthm|.
+				\end{itemize}
+			\end{column}
+			\begin{column}{.2\paperwidth}
+				\begin{itemize}
+					\item
+
+					      \mintinline{latex}|mathtools|.
+				\end{itemize}
+			\end{column}
+		\end{columns}
+	\end{block}
+
+	\begin{block}{Paquetes de extensión}
+		\vspace*{-\baselineskip}\setlength\belowdisplayshortskip{0pt}
+		\begin{columns}
+			\begin{column}{.2\paperwidth}
+				\begin{itemize}
+					\item
+
+					      \mintinline{latex}|cancel|.
+
+					\item
+
+					      \mintinline{latex}|euler|.
+				\end{itemize}
+			\end{column}
+			\begin{column}{.2\paperwidth}
+				\begin{itemize}
+					\item
+
+					      \mintinline{latex}|fouriernc|.
+
+					\item
+
+					      \mintinline{latex}|siunitx|.
+				\end{itemize}
+			\end{column}
+			\begin{column}{.2\paperwidth}
+				\begin{itemize}
+					\item
+
+					      \mintinline{latex}|optidef|.
+
+					\item
+
+					      \mintinline{latex}|tikz-cd|.
+				\end{itemize}
+			\end{column}
+			\begin{column}{.2\paperwidth}
+				\begin{itemize}
+					\item
+
+					      \mintinline{latex}|unicode-math|.
+
+					\item
+
+					      \mintinline{latex}|diffcoeff|.
+				\end{itemize}
+			\end{column}
+		\end{columns}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{\secname}
+
+	Las dos maneras más simples de invocar el modo matemático son:
+
+	\begin{table}[ht!]
+		\centering
+		\begin{tabular}{cc}
+			\mintinline{latex}|$...$|                                & expresiones matemáticas no desplegadas          \\
+			\mintinline{latex}|\begin{math}...\end{math}|            & expresiones matemáticas no desplegadas          \\
+			\mintinline{latex}|\[...\]|                              & expresiones matemáticas desplegadas y centradas \\
+			\mintinline{latex}|\begin{displaymath}\end{displaymath}| & expresiones matemáticas desplegadas y centradas \\
+		\end{tabular}
+	\end{table}
+
+	\begin{equation*}
+		\forall\varepsilon>0:\exists\delta>0\text{ tal que }
+		\forall x\in\operatorname{dom}\left(f\right):
+		\left|x-a\right|<\delta\implies\left|f\left(a\right)-f\left(x\right)\right|<\varepsilon.
+	\end{equation*}
+
+	\begin{columns}
+		\begin{column}{.54\paperwidth}
+			\begin{table}[ht!]
+				\centering
+				\begin{tabular}{|cl|cl|cl|}
+					\hline
+					$\alpha$      & \mintinline{latex}|\alpha|      & $\mu$     & \mintinline{latex}|\mu|     & $\varsigma$ & \mintinline{latex}|\varsigma| \\
+					\hline
+					$\beta$       & \mintinline{latex}|\beta|       & $\nu$     & \mintinline{latex}|\nu|     & $\lambda$   & \mintinline{latex}|\lambda|   \\
+					\hline
+					$\gamma$      & \mintinline{latex}|\gamma|      & $\psi$    & \mintinline{latex}|\psi|    & $\tau$      & \mintinline{latex}|\tau|      \\
+					\hline
+					$\delta$      & \mintinline{latex}|\delta|      & $\phi$    & \mintinline{latex}|\phi|    & $\theta$    & \mintinline{latex}|\theta|    \\
+					\hline
+					$\epsilon$    & \mintinline{latex}|\epsilon|    & $\varphi$ & \mintinline{latex}|\varphi| & $\vartheta$ & \mintinline{latex}|\vartheta| \\
+					\hline
+					$\varepsilon$ & \mintinline{latex}|\varepsilon| & $\pi$     & \mintinline{latex}|\pi|     & $\upsilon$  & \mintinline{latex}|\upsilon|  \\
+					\hline
+					$\eta$        & \mintinline{latex}|\eta|        & $\varpi$  & \mintinline{latex}|\varpi|  & $\chi$      & \mintinline{latex}|\chi|      \\
+					\hline
+					$\iota$       & \mintinline{latex}|\iota|       & $\rho$    & \mintinline{latex}|\rho|    & $\xi$       & \mintinline{latex}|\xi|       \\
+					\hline
+					$\kappa$      & \mintinline{latex}|\kappa|      & $\varrho$ & \mintinline{latex}|\varrho| & $\zeta$     & \mintinline{latex}|\zeta|     \\
+					\hline
+					$\varkappa$   & \mintinline{latex}|\varkappa|   & $\sigma$  & \mintinline{latex}|\sigma|  & $\omega$    & \mintinline{latex}|\omega|    \\
+					\hline
+				\end{tabular}
+			\end{table}
+		\end{column}
+		\begin{column}{.36\paperwidth}
+			\begin{table}[ht!]
+				\centering
+				\begin{tabular}{|cl|cl|}
+					\hline
+					$\Delta$   & \mintinline{latex}|\Delta|   & $\varDelta$   & \mintinline{latex}|\varDelta|   \\
+					\hline
+					$\Lambda$  & \mintinline{latex}|\Lambda|  & $\varLambda$  & \mintinline{latex}|\varLambda|  \\
+					\hline
+					$\Pi$      & \mintinline{latex}|\Pi|      & $\varPi$      & \mintinline{latex}|\varPi|      \\
+					\hline
+					$\Psi$     & \mintinline{latex}|\Psi|     & $\varPsi$     & \mintinline{latex}|\varPsi|     \\
+					\hline
+					$\Phi$     & \mintinline{latex}|\Phi|     & $\varPhi$     & \mintinline{latex}|\varPhi|     \\
+					\hline
+					$\Sigma$   & \mintinline{latex}|\Sigma|   & $\varSigma$   & \mintinline{latex}|\varSigma|   \\
+					\hline
+					$\Theta$   & \mintinline{latex}|\Theta|   & $\varTheta$   & \mintinline{latex}|\varTheta|   \\
+					\hline
+					$\Upsilon$ & \mintinline{latex}|\Upsilon| & $\varUpsilon$ & \mintinline{latex}|\varUpsilon| \\
+					\hline
+					$\Xi$      & \mintinline{latex}|\Xi|      & $\varXi$      & \mintinline{latex}|\varXi|      \\
+					\hline
+					$\Omega$   & \mintinline{latex}|\Omega|   & $\varOmega$   & \mintinline{latex}|\varOmega|   \\
+					\hline
+					$\Gamma$   & \mintinline{latex}|\Gamma|   & $\varGamma$   & \mintinline{latex}|\varGamma|   \\
+					\hline
+					$\digamma$ & \mintinline{latex}|\digamma| &               &                                 \\
+					\hline
+				\end{tabular}
+			\end{table}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{\secname}
+
+	$\sum_{n=1}^{\infty}a_{n}$
+
+	$\sum\limits_{n=1}^{\infty}a_{n}$
+
+	\[\sum_{n=1}^{\infty}a_{n}\]
+
+	\[\sum\nolimits_{n=1}^{\infty}a_{n}\]
+
+	$\smallint_{a}^{b}$
+
+	$\int_{a}^{b}f$
+
+	$\int_{[a,b]}f$
+
+	\[\int_{[a,b]}f\]
+
+	$\lim_{x\to0}\frac{\sen x}{x}=1$.
+\end{frame}

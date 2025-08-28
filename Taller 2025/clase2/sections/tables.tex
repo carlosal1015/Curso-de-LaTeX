@@ -1,0 +1,49 @@
+\section{Generación de tablas en \LaTeX}
+
+\begin{frame}[fragile]
+	\frametitle{\secname}
+
+	La sintaxis del entorno \mintinline{latex}|tabular| es el siguiente
+	\inputminted[fontsize=\tiny,frame=single]{latex}{sections/tabular}
+	donde uno de los argumentos válidos para la definición de la
+	columna son
+	\begin{columns}
+		\begin{column}{0.48\textwidth}
+			\begin{itemize}
+				\item
+
+				      \verb|l|: la columna es alineada a la izquierda.
+
+				\item
+
+				      \verb|c|: la columna es alineada al centro.
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.48\textwidth}
+			\begin{itemize}
+				\item
+
+				      \verb|r|: la columna es alineada a la derecha.
+
+				\item
+
+				      \verb|||: línea vertical.
+			\end{itemize}
+		\end{column}
+	\end{columns}
+	\begin{itemize}
+		\item
+
+		      \verb|p{longitud}|: corresponde a la definición
+		      \verb|\parbox[c]{longitud}|, el texto está justificado.
+	\end{itemize}
+	Para las líneas horizontales se tiene los comandos
+	\mintinline{latex}|\hline| o por rango
+	\mintinline{latex}|\cline{inicio-fin}|.
+
+	El comando
+	\mintinline{latex}|\multicolumn{número de columnas}{definición de la columna}{contenido}|
+	permite fusionar las celdas en una misma fila.
+
+	\begin{example}\input{sections/table}\end{example} % tex-fmt: skip
+\end{frame}

@@ -1,0 +1,160 @@
+\section{Datos sobre \LaTeX}
+
+\begin{frame}
+	\frametitle{Datos sobre \LaTeX}
+
+	\begin{columns}
+		\begin{column}{.58\paperwidth}
+			\begin{itemize}[<+->]
+				\item
+
+				      Leslie Barry Lamport en $1984$ documentó
+				      en~\cite{Lamport1994} un conjunto de macros \TeX{} en
+				      el \emph{Stanford Research Institute} con el propósito
+				      de redistribuir a través de paquetes.
+				      % Siguiendo el principio de desarrollo de software
+				      % ``Don't repeat yourself''.
+
+				      \
+
+				\item
+
+				      El mantenimiento del
+				      \href{https://github.com/latex3/latex2e}{kernel \LaTeX{}2e}
+				      está a cargo del
+				      \href{https://www.latex-project.org/about/team}{Proyecto \LaTeX},
+				      mientras que en
+				      \href{https://ctan.org}{\emph{Comprehensive \TeX{} Archive Network}}
+				      se encuentran los paquetes que la comunidad ha
+				      publicado.
+
+				      \
+
+				\item
+
+				      % tex-fmt: off
+				      \textcolor{cyan}{\faIcon{globe}}~\href{https://tex.stackexchange.com}{Foro
+					      de preguntas y respuestas de \LaTeX{}}.
+				      % tex-fmt: on
+
+				      \
+
+				\item
+
+				      El \href{https://tug.org}{\TeX{} User Group}
+				      realiza talleres cada año sobre \LaTeX{} y afines.
+
+				      \
+
+				\item
+
+				      Está licenciado como software libre bajo la \LaTeX{}
+				      Project Public License.
+
+				      \
+
+				\item
+
+				      % tex-fmt: off
+				      \textcolor{cyan}{\faIcon{globe}}~\href{https://tex.stackexchange.com/q/339}{Lista
+					      de editores de \LaTeX{}}.
+				      % tex-fmt: on
+
+				      \
+
+				\item
+
+				      Desde el 1 de noviembre del 2024~\cite{LaTeX40},
+				      para documentos nuevos se recomienda emplear el
+				      compilador Lua\TeX, pero el soporte para pdf\LaTeX{}
+				      continuará.
+
+				      \
+
+				\item
+
+				      % tex-fmt: off
+				      \textcolor{red}{\faIcon{youtube}}~\href{https://www.youtube.com/watch?v=Pa3eQ_OlBeE}{Instalación
+					      de una distribución de \LaTeX{} y del editor \TeX{}studio}.
+				      % tex-fmt: on
+
+				      \
+
+				\item
+
+				      Formateadores de sintáxis de \LaTeX{}:
+				      \href{https://github.com/cmhughes/latexindent.pl}{latexindent}
+				      y \href{https://github.com/WGUNDERWOOD/tex-fmt}{tex-fmt}.
+			\end{itemize}
+		\end{column}
+		\begin{column}{.38\paperwidth}
+			\begin{figure}[ht!]
+				\centering
+				\includegraphics[width=.32\paperwidth]{Lamport}
+				\caption{Leslie Lamport, matemático del MIT.
+					Creador de \LaTeX{} y ganador del premio Turing en el año 2013.}
+			\end{figure}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\input{alternatives}
+
+% https://texample.net/tex-workflow
+\begin{frame}[t,fragile]
+	\frametitle{Compiladores para \LaTeX}
+
+	\begin{block}{Motores de \LaTeX}
+		\begin{description}[<+->]
+			\item[\href{https://tug.org/texlive/Contents/live/texmf-dist/doc/pdftex/manual/pdftex-a.pdf}{pdf\TeX}]
+
+			      Genera directamente a PDF.
+			      Introdujo mejoras en la composición tipográfica de
+			      \TeX{}.
+			      Fue desarrollado por Hàn Thế Thành y sus detalles de
+			      implementación formaron la base de su tesis doctoral.
+
+
+			\item[\href{https://xml.web.cern.ch/XML/lgc2/xetexmain.pdf}{Xe\TeX}]
+
+			      Lee directamente archivos \TeX{} guardados en
+			      codificación UTF-8.
+			      Maneja la composición tipográfica multilingüe (por ejemplo, árabe) y
+			      matemática basada en fuentes OpenType.
+
+			\item[\href{https://mirrors.ibiblio.org/CTAN/systems/doc/luatex/luatex.pdf}{Lua\TeX}]
+
+			      Es derivado de pdf\TeX{}, incorpora del lenguaje de
+			      script Lua, que permite un control muy sofisticado del
+			      motor \TeX{} a través de un lenguaje de script fácil de
+			      usar.
+		\end{description}
+	\end{block}
+	\pause
+	\begin{center}
+		\fbox{
+			\alert{
+				La compatibilidad entre los compiladores de \LaTeX{} y los
+				paquetes puede variar.
+			}
+		}
+	\end{center}
+
+	\
+
+	\begin{figure}[ht!]
+		\centering
+		\caption{Flujo de trabajo del compilador Lua\TeX.}
+		\begin{tikzpicture}[node distance=3cm, auto,>=latex', thick]
+			\path[use as bounding box] (-1,0) rectangle (10,-2);
+			\path[->] node[format] (tex) {archivo \verb|.tex|};
+			\path[->] node[format, right of=tex] (dvi) {archivo \verb|.dvi|} (tex) edge node {\TeX} (dvi);
+			\path[->] node[format, right of=dvi] (ps) {archivo \verb|.ps|} node[medium, below of=dvi] (screen) {pantalla} (dvi) edge node {dvips} (ps) edge node[swap] {xdvi} (screen);
+			\path[->] node[format, right of=ps] (pdf) {archivo \verb|.pdf|} node[medium, below of=ps] (print) {impresora} (ps) edge node {ps2pdf} (pdf)  edge node[swap] {gs} (screen)  edge (print);
+			\path[->] (pdf) edge (screen) edge (print);
+			\path[->, draw] (tex) -- (0,1) -| node[near start] {Lua\TeX} (pdf);
+		\end{tikzpicture}
+	\end{figure}
+\end{frame}
+
+\input{keyboard}

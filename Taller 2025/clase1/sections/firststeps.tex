@@ -1,0 +1,148 @@
+\section{Primeros pasos en \LaTeX}
+
+\input{classes}
+
+\begin{frame}
+	\frametitle{Plantilla desde \TeX{}studio}
+	\begin{enumerate}
+		\item
+
+		      Abra el programa \TeX{}studio y seleccione la pestaña
+		      \alert{Archivo}.
+
+		\item
+
+		      Seleccione \alert{Nuevo desde Plantilla} y en la nueva
+		      ventana desde el panel lateral escoja \alert{Libro}.
+
+		\item
+
+		      Guarde el fichero y reemplaza los campos de \alert{Nombre}
+		      y \alert{Título} por su nombre y el título de un libro que
+		      haya escrito.
+	\end{enumerate}
+
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[width=.75\paperwidth]{texstudio}
+	\end{figure}
+\end{frame}
+
+\begin{frame}[fragile]
+	\setbeamercovered{invisible}
+	\frametitle{Estilo \mintinline{latex}|standalone|}
+
+	\begin{enumerate}
+		\item
+
+		      Guarde un archivo en blanco con el nombre
+		      \verb|helloworld.tex|.
+
+		\item
+
+		      Digite en el fichero el contenido que se muestra debajo y luego
+		      comente la primera línea
+		      \mintinline{latex}|\documentclass{standalone}| y descomente
+		      la segunda línea \mintinline{latex}|\documentclass{minimal}|
+		      ¿Cuál es la diferencia entre estos?
+	\end{enumerate}
+
+	\begin{columns}
+		\begin{column}{.58\paperwidth}
+			\inputminted[fontsize=\tiny,linenos,frame=single,escapeinside=||]{latex}{helloworld} % tex-fmt: skip
+		\end{column}
+		\pause
+		\begin{column}{.38\paperwidth}
+			\begin{figure}[ht!]
+				\centering
+				\includegraphics[width=.25\paperwidth]{helloworld}
+			\end{figure}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+	\setbeamercovered{invisible}
+	\frametitle{Estilo \mintinline{latex}|article|}
+
+	\begin{columns}
+		\begin{column}{.58\paperwidth}
+			\inputminted[fontsize=\tiny,linenos,frame=single,escapeinside=||]{latex}{article} % tex-fmt: skip
+		\end{column}
+		\pause
+		\begin{column}{.38\paperwidth}
+			\begin{figure}[ht!]
+				\centering
+				\includegraphics[width=.32\paperwidth]{article}
+			\end{figure}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+% https://www.overleaf.com/read/ypxhfkvjnfmm#1e97f7
+% https://www.overleaf.com/read/dhcctjytdkbh#2a8026
+% https://www.overleaf.com/read/qzqftbqcxdbs#150bb4
+
+\begin{frame}[fragile]
+	\frametitle{Estilos \mintinline{latex}|book| y \mintinline{latex}|report|}
+
+	\begin{columns}
+		\begin{column}{.48\paperwidth}
+			\inputminted[fontsize=\tiny,linenos,frame=single,escapeinside=||]{latex}{book} % tex-fmt: skip
+		\end{column}
+		\begin{column}{.48\paperwidth}
+			\inputminted[fontsize=\tiny,linenos,frame=single,escapeinside=||]{latex}{report} % tex-fmt: skip
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+	\setbeamercovered{invisible}
+	\frametitle{Estilo \mintinline{latex}|exam|}
+
+	\begin{columns}
+		\begin{column}{.6\paperwidth}
+			\inputminted[fontsize=\tiny,linenos,frame=single,escapeinside=||]{latex}{exam} % tex-fmt: skip
+		\end{column}
+		\pause
+		\begin{column}{.36\paperwidth}
+			\begin{figure}[ht!]
+				\centering
+				\includegraphics[width=.35\paperwidth]{exam}
+			\end{figure}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Estilo \mintinline{latex}|beamer|}
+
+	\inputminted[firstline=1,lastline=45,fontsize=\tiny,linenos,frame=single,escapeinside=||]{latex}{beamer} % tex-fmt: skip
+\end{frame}
+
+\begin{frame}
+	\frametitle{Estilo \mintinline{latex}|beamer|}
+
+	\begin{figure}[ht!]
+		\centering
+		\includegraphics[width=.88\paperwidth]{beamer}
+	\end{figure}
+\end{frame}
+
+\begin{frame}[fragile]
+	\setbeamercovered{invisible}
+	\frametitle{Estilo \mintinline{latex}|sciposter|}
+
+	\begin{columns}
+		\begin{column}{.6\paperwidth}
+			\inputminted[fontsize=\tiny,linenos,frame=single,escapeinside=||]{latex}{poster} % tex-fmt: skip
+		\end{column}
+		\pause
+		\begin{column}{.36\paperwidth}
+			\begin{figure}[ht!]
+				\centering
+				\includegraphics[width=.35\paperwidth]{poster}
+			\end{figure}
+		\end{column}
+	\end{columns}
+\end{frame}

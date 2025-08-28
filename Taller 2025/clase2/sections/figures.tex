@@ -1,0 +1,64 @@
+\section{Inclusión de figuras en \LaTeX}
+
+\begin{frame}[fragile]
+	\frametitle{\secname}
+
+	Al utilizar los paquetes gráficos de \LaTeX, el espacio necesario
+	para el material tipográfico tras la inclusión de un archivo o la
+	aplicación de una transformación geométrica se reserva en la página
+	de salida.
+	Sin embargo, es responsabilidad del controlador del dispositivo
+	(p. ej., \mintinline{latex}|dvips|, \mintinline{latex}|xdvi|,
+	\mintinline{latex}|dvipsone|) realizar la inclusión o
+	transformación en cuestión y mostrar el resultado correcto.
+	La sintaxis del entorno \mintinline{latex}|figure| es el siguiente
+	\inputminted[fontsize=\tiny,frame=single]{latex}{sections/figure.tex}
+	donde la lista llave=valor es una lista separada por comas de
+	pares \mintinline{latex}|llave=valor| para claves que toman un
+	valor.
+	\begin{columns}
+		\begin{column}{.48\paperwidth}
+			\begin{itemize}
+				\item
+
+				      \mintinline{latex}|[bb={1pt,2pt,3pt,4pt}]|.
+				      El cuadro delimitador de la imagen.
+
+				\item
+
+				      \mintinline{latex}|[angle=2]|.
+				      El ángulo de rotación (en grados, en sentido
+				      antihorario).
+
+				\item
+
+				      \mintinline{latex}|[width=3cm]|.
+				      El ancho requerido (el ancho de la imagen se escala a
+				      ese valor).
+			\end{itemize}
+		\end{column}
+		\begin{column}{.48\paperwidth}
+			\begin{itemize}
+				\item
+
+				      \mintinline{latex}|[height=4cm]|.
+				      La altura requerida (la altura de la imagen se escala a
+				      ese valor).
+
+				\item
+
+				      \mintinline{latex}|[scale=0.5]|.
+				      El factor de escala.
+
+				\item
+
+				      \mintinline{latex}|[clip=true]|.
+				      Recorta el gráfico al cuadro delimitador o al
+				      rectángulo especificado por la llave
+				      \mintinline{latex}|trim|.
+			\end{itemize}
+		\end{column}
+	\end{columns}
+
+	\begin{example}\input{sections/logo}\end{example} % tex-fmt: skip
+\end{frame}
