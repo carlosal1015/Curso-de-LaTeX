@@ -1,0 +1,120 @@
+\question
+
+Realice cada uno de los ejemplos de\href{https://drive.google.com/file/d/1OFmqAdh1-XTbVeuHS5Mn-c7aSAErCQe2/view}{\textcolor{red}{\faIcon{file-pdf}}\mintinline{latex}|t1.pdf|}:\href{https://drive.google.com/file/d/1rbNvSLlXMA1YnocPLROx05F6oJ-7Fvr6/view}{\textcolor{violet}{\faIcon{file}}\mintinline{latex}|helloworld.tex|},
+\href{https://drive.google.com/file/d/1nL1XyMtPDasrUvjSZe6VIK8f1OXC1M9K/view}{\textcolor{violet}{\faIcon{file}}\mintinline{latex}|article.tex|},\href{https://drive.google.com/file/d/1s7p8jGuN_j0TmOr0vXCmb4ENJQFdZuhz/view}{\textcolor{violet}{\faIcon{file}}\mintinline{latex}|book.tex|},\\\href{https://drive.google.com/file/d/1FwOW64Jd24TQpoHid0SUy4QbpD6IntSU/view}{\textcolor{violet}{\faIcon{file}}\mintinline{latex}|report.tex|},\href{https://drive.google.com/file/d/1CcgX8S3e-8eVyT29JlFR4L6X_LVgXl9w/view}{\textcolor{violet}{\faIcon{file}}\mintinline{latex}|exam.tex|},\href{https://drive.google.com/file/d/1G0sE_5IZ3Di322UcV4XJAzcyRFH4tbyC/view}{\textcolor{violet}{\faIcon{file}}\mintinline{latex}|beamer.tex|} y\href{https://drive.google.com/file/d/1ACXGEDKyuMb4JJr4pZ_dlAeLPUnh9zbB/view}{\textcolor{violet}{\faIcon{file}}\mintinline{latex}|poster.tex|}.
+En cada archivo, modifique\\\mintinline{latex}|\title{<Título>}| y \mintinline{latex}|\author{<Nombre>}|,
+siempre que existan.
+
+\question
+
+Digite el ejercicio final de\href{https://drive.google.com/file/d/1OFmqAdh1-XTbVeuHS5Mn-c7aSAErCQe2/view}{\textcolor{red}{\faIcon{file-pdf}}\mintinline{latex}|t1.pdf|},
+en el preámbulo incluya \mintinline{latex}|\documentclass{article}|.
+
+\question
+
+Importe \mintinline{latex}|\usepackage[shortlabels]{enumitem}|\footnote{Estudie la segunda sección de~\url{http://mirrors.ctan.org/macros/latex/contrib/enumitem/enumitem.pdf}}
+y realice el ejemplo de listas numeradas de\href{https://drive.google.com/file/d/1O9foAwQ7XXrF28VHOq9FNcEt7kRHy3t5/view}{\textcolor{red}{\faIcon{file-pdf}}\mintinline{latex}|t2.pdf|}
+con el entorno \mintinline{latex}|\begin{enumerate}[(i)]|.
+¿Qué observa si crea las listas numeradas con el entorno
+\mintinline{latex}|\begin{enumerate}[label=(\arabic*)]|?
+
+\question
+
+Importe \mintinline{latex}|\usepackage{siunitx}|\footnote{Estudie la tercera sección de~\url{http://mirrors.ctan.org/macros/latex/contrib/siunitx/siunitx.pdf}}
+y cree una tabla de las magnitudes físicas fundamentales y otra tabla
+de las magnitudes físicas derivadas, según el Sistema
+Internacional\footnote{Vea~\url{https://en.wikipedia.org/wiki/International_System_of_Quantities}},
+que indique en cada columna su nombre de la magnitud, su símbolo y su descripción.
+
+\question
+
+Importe \mintinline{latex}|\usepackage{xcolor}| y realice el espectro de
+colores\footnote{Vea la tercera sección de \url{http://mirrors.ctan.org/macros/latex/contrib/xcolor/xcolor.pdf}}.
+
+\begin{figure}[htbp]
+	\centering
+	\small
+	\newcount\WL \unitlength.75pt
+	\begin{picture}(460,60)(355,-10)
+		\sffamily \tiny \linethickness{1.25\unitlength} \WL=360
+		\multiput(360,0)(1,0){456}%
+		{{\color[wave]{\the\WL}\line(0,1){50}}\global\advance\WL1}
+		\linethickness{0.25\unitlength}\WL=360
+		\multiput(360,0)(20,0){23}%
+		{\picture(0,0)
+			\line(0,-1){5} \multiput(5,0)(5,0){3}{\line(0,-1){2.5}}
+			\put(0,-10){\makebox(0,0){\the\WL}}\global\advance\WL20
+			\endpicture}
+	\end{picture}
+\end{figure}
+
+\question
+
+Digite el ejercicio final de\href{https://drive.google.com/file/d/1O9foAwQ7XXrF28VHOq9FNcEt7kRHy3t5/view}{\textcolor{red}{\faIcon{file-pdf}}\mintinline{latex}|t2.pdf|},
+en el preámbulo incluya \mintinline{latex}|\documentclass{standalone}|.
+
+\question
+
+Digite la sección {\sffamily\color{AmurmapleBlue!80!black}1.6 The Gauss Transformation}
+del\href{https://www.ceremade.dauphine.fr/~fejoz/Enseignement/ds2021/Brin-Stuck_2002_Introduction-to-Dynamical-Systems.pdf}{\textcolor{red}{\faIcon{file-pdf}}texto},
+sin incluir los ejercicios.
+
+\question
+
+Importe \mintinline{latex}|\usepackage{diffcoeff}| y digite la
+sección {\sffamily\color{AmurmapleBlue!80!black}Transformación de Hopf-Cole}
+del\href{https://weblibrary.mila.edu.my/upload/ebook/engineering/2014_Book_IntroductionToPartialDifferent.pdf#page=338}{\textcolor{red}{\faIcon{file-pdf}}texto}
+para transformar la ecuación potencial de Burgers en la ecuación de
+difusión lineal.
+\begin{equation*}
+	\boxed{
+		\diffp{v}{t}=
+		\gamma\diffp[2]{v}{x}\quad
+		\xRightarrow{v\left(t,x\right)=\exp\left(\alpha\varphi\left(t,x\right)\right)}\quad
+		\diffp{\varphi}{t}=
+		\gamma\diffp[2]{\varphi}{x}+
+		\gamma\alpha{\left(\diffp{\varphi}{x}\right)}^{2}.
+	}
+\end{equation*}
+
+\question
+
+Importe \mintinline{latex}|\usepackage{subfig}| y realice el
+siguiente mosaico de figuras (referenciales).
+
+\begin{figure*}
+	\captionsetup[figure]{margin=10pt}
+	\subfloat[Primero izquierda.]{\includegraphics[width=.2\paperwidth]{example-image-duck}}
+	\hfill
+	\subfloat[Primero derecha.]{\includegraphics[width=.2\paperwidth]{example-image-duck}}\\[-10pt]
+	\caption{Primera figura.}
+
+	\subfloat[Segundo izquierda.]{\includegraphics[width=.2\paperwidth]{example-image-duck}}
+	\hfill
+	\subfloat[Segundo derecha.]{\includegraphics[width=.2\paperwidth]{example-image-duck}}\\[-10pt]
+	\caption{Segunda figura.}
+
+	\subfloat[Tercero izquierda.]{\includegraphics[width=.2\paperwidth]{example-image-duck}}
+	\hfill
+	\subfloat[Tercero derecha.]{\includegraphics[width=.2\paperwidth]{example-image-duck}}\\[-10pt]
+	\caption{Tercera figura.}
+\end{figure*}
+
+\question
+
+Importe \mintinline{latex}|\usepackage{optidef}| y digite la sección
+{\sffamily\color{AmurmapleBlue!80!black}1.8}
+del\href{http://cnsa.cmlaboratory.com/pdf/monograf/Andreasson,%20Evgrafov,%20Patriksson.%20An%20introduction%20to%20continuous%20optimization.pdf#page=28}{\textcolor{red}{\faIcon{file-pdf}}texto}.
+
+\question
+
+Importe \mintinline{latex}|\usepackage{amsthm}| y digite el teorema
+	{\sffamily\color{AmurmapleBlue!80!black}1.4}
+del\href{https://www.davcollegekanpur.ac.in/assets/ebooks/Maths/Hungerford-%20Algebra%20Graduate%20Texts%20in%20Mathematics.pdf}{\textcolor{red}{\faIcon{file-pdf}}texto}.
+
+\question
+
+Cree una presentación de al menos cinco \mintinline{latex}|frame|s
+acerca del algoritmo $QR$ con la plantilla
+\url{https://github.com/Numerical-Analysis-2024/beamertheme-numeric}.
+Agregue sus propias referencias en \mintinline{latex}|references.bib|.

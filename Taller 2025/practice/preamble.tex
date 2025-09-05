@@ -1,0 +1,93 @@
+\documentclass[
+	spanish,
+	addpoints,
+	answers,
+	a4paper,
+	11pt
+]{exam}
+\usepackage[spanish]{babel}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=3cm]{geometry}
+\usepackage{booktabs}
+\usepackage{hhline}
+\usepackage{array}
+\usepackage{subfig}
+\usepackage{duckuments}
+\usepackage[intlimits]{mathtools}
+\usepackage{amssymb}
+\usepackage{diffcoeff}
+\usepackage{amsthm}
+\usepackage{pxfonts}
+\usepackage[shortlabels]{enumitem}
+\usepackage{multicol}
+\usepackage{tikz}
+\usepackage{hyperref}
+\theoremstyle{definition}
+\newtheorem{definition}{Definición}
+\pagestyle{headandfoot}
+\usepackage{emoji}
+\usepackage[fixed]{fontawesome5}
+\usepackage{minted}
+
+\renewcommand{\solutiontitle}{\noindent\textcolor{AmurmapleBlue!80!black}{\sffamily\bfseries Solución}\par\noindent}
+\renewcommand\listingscaption{Listado}
+\newcommand{\unmarkedfntext}[1]{%
+	\begingroup
+	\renewcommand\thefootnote{}\footnote{#1}%
+	\addtocounter{footnote}{-1}%
+	\endgroup
+}
+
+% \difdef{c}{L}{op-symbol=\mathop{}\!\mathbin\bigtriangleup}
+% \difdef{c}{A}{op-symbol=\mathop{}\!\mathbin\Box}
+
+\pointpoints{Punto}{Puntos}
+\bracketedpoints
+\newcolumntype{C}{>{$}c<{$}}
+\footer{}{Página \thepage\ de \numpages}{}
+
+
+\def\logogem{%
+	\begin{picture}(0,0)\unitlength=1cm
+		\put(-11.5,-1){\href{https://fc.uni.edu.pe/estudios-de-grado/asociaciones-estudiantiles/gem}{\includegraphics[width=2.8cm]{gem}}}
+	\end{picture}
+}
+
+\def\logouni{%
+	\begin{picture}(0,0)\unitlength=1cm
+		\put(5,-1.2){\includegraphics[width=2.4cm]{logouni}}
+	\end{picture}
+}
+
+\unframedsolutions
+
+\newcommand{\MVAt}{{\usefont{U}{mvs}{m}{n}\symbol{`@}}}
+\definecolor{AmurmapleBlue}{RGB}{55,119,231}
+\definecolor{AmurmapleOrange}{RGB}{230,108,17}
+\definecolor{AmurmapleGreen}{rgb}{0.1,0.4,0.1}
+\DeclareMathOperator{\sen}{sen}
+
+\graphicspath{{../images/}}
+
+\usetikzlibrary{babel}
+\usetikzlibrary{arrows}
+\usetikzlibrary{matrix}
+
+\DeclareMathOperator{\Coker}{Koker}
+\DeclareMathOperator{\Ker}{Ker}
+
+\hypersetup{
+	pdfencoding=auto,
+	linktocpage=true,
+	colorlinks=true,
+	linkcolor=AmurmapleBlue!80!black,
+	% citecolor=AmurmapleBlue!80!black,
+	urlcolor=AmurmapleBlue!80!black,
+	pdfpagelabels,
+	pdftex,
+	pdfauthor={Carlos Aznarán Laos},
+	pdftitle={Taller de \LaTeX},
+	pdfsubject={Taller de \LaTeX},
+	pdfkeywords={pdf, programming},
+	pdfproducer={LuaHBTeX, Version 1.22.0 (TeX Live 2026/dev/Arch Linux)},
+	% bookmark=false
+}

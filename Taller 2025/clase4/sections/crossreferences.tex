@@ -1,0 +1,72 @@
+\section{Referencias cruzadas}
+
+\begin{frame}
+	\frametitle{}
+
+	Una de las razones para enumerar las diferentes partes en que se divide un documento \LaTeX,
+	como por ejemplo, en capítulos y secciones, es poder dirigir al lector hacia una cierta
+	parte del documento mediante las \alert{referencias cruzadas}.
+
+	\LaTeX{} tiene un mecanismo automático para incluir las referencias cruzadas con ayuda de un fichero
+	auxiliar \mintinline{latex}{.aux}, el cual es un subproducto de la última composición del documento.
+	Por este motivo, se requiere procesar el documento \LaTeX{} al menos dos veces para obtener las referencias
+	correctas.
+
+	\begin{itemize}
+		\item
+		      \mintinline{latex}|\ref{<etiqueta>}|: Reemplaza en el documento compuesto el número de capítulo, apartado, figura, tabla o teorema
+		      siempre que se haya incluido previamente \mintinline{latex}|\label{<etiqueta>}|.
+
+		\item
+
+		      \mintinline{latex}|\pageref{<etiqueta>}|: Reemplaza en el documento compuesto el número de página del documento.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\frametitle{}
+	\begin{columns}
+		\begin{column}{.3\paperwidth}
+			Las referencias bibliográficas se incluyen en un trabajo científico a fin de facilitar al lector
+			la identificación precisa de una fuente de información.
+
+			Los datos principales que se deben incluir en la referencia de un libro son
+			\begin{enumerate}
+				\item
+
+				      Nombre del autor o los autores, o nombre del editor o de la institución que lo publica oficialmente, si no consta de ningún autor.
+
+				\item
+
+				      Identificación: título completo con el subtítulo, si lo hay.
+
+				\item
+
+				      Colaboradores de la edición: prologuistas, revisores, traductores, ilustradores.
+
+				\item
+
+				      Ordinal de la edición concreta utilizada, si no es la primera.
+
+				\item
+
+				      Datos de la publicación: lugar, editorial y año de publicación.
+
+				\item
+
+				      Colección y número.
+
+				\item
+
+				      Extensión (número de páginas, si se trata de un solo volumen, y número de volúmenes)
+			\end{enumerate}
+		\end{column}
+		\begin{column}{.6\paperwidth}
+			\begin{figure}[ht!]
+				\centering
+				\includegraphics[width=.2\paperwidth]{libro}
+				\caption{Recuperado de~\url{https://fondoeduni.uni.edu.pe}.}
+			\end{figure}
+		\end{column}
+	\end{columns}
+\end{frame}

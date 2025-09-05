@@ -1,0 +1,36 @@
+\question
+
+Todo físico-matemático debería estudiar las ecuaciones de Maxwell al
+menos una vez en la vida, y estas fórmulas también ofrecen una buena
+oportunidad para que estudiantes de otras disciplinas pongan a prueba
+sus habilidades matemáticas. Las cuatro ecuaciones son:
+\begin{equation*}
+	\nabla\times\vec{E}=-\diffp{\vec{B}}{t}\qquad
+	\nabla\times\vec{B}=\vec{j}+\diffp{E}{t}\qquad
+	\nabla\cdot\vec{E}=\rho\qquad
+	\nabla\cdot\vec{B}=0
+\end{equation*}
+
+Considere un formato adecuado y una presentación clara y concisa.
+Corrija el espaciado si es necesario, elija un tipo de letra adecuado,
+considere posibles maneras de mostrar magnitudes vectoriales, etc.
+Los símbolos necesarios para esta tarea se pueden encontrar en
+este \href{https://tug.ctan.org/info/symbols/comprehensive/symbols-a4.pdf}{enlace}
+o con la herramienta \href{https://detexify.kirelabs.org/classify.html}{detexify}.
+
+% \begin{solutionorbox}
+% 	Una forma de resaltar vectores sería usar negrita con el comando
+% 	\mintinline{latex}|\pmb| del paquete \mintinline{latex}|amsmath|.
+% 	Se puede lograr una representación clara de las cuatro fórmulas
+% 	usando el entorno \mintinline{latex}|align|:
+% 	\begin{align*}
+% 		\nabla\times\pmb{E} & = -\diffp{\pmb{B}}{t} & \nabla\times\pmb{B} & = \pmb{j}+\diffp{\pmb{E}}{t} \\
+% 		\nabla\cdot\pmb{E}  & = \rho                & \nabla\cdot\pmb{B}  & = 0
+% 	\end{align*}
+% \end{solutionorbox}
+
+\begin{solution}
+	\begin{tikzpicture}[xscale=0.5,yscale=0.5]
+		\draw[help lines] (0,0) grid (32,14);
+	\end{tikzpicture}
+\end{solution}

@@ -1,0 +1,107 @@
+% arara: clean: {
+% arara: --> extensions:
+% arara: --> ['aux', 'log', 'out', 'pdf']
+% arara: --> }
+% arara: lualatex: {
+% arara: --> shell: yes,
+% arara: --> draft: yes,
+% arara: --> interaction: batchmode
+% arara: --> }
+% arara: lualatex: {
+% arara: --> shell: yes,
+% arara: --> draft: no,
+% arara: --> interaction: batchmode
+% arara: --> }
+% arara: clean: {
+% arara: --> extensions:
+% arara: --> ['aux', 'log', 'out']
+% arara: --> }
+\input{preamble}
+
+\begin{document}
+
+\begin{center}
+	\sffamily\bfseries
+	\textcolor{AmurmapleBlue!80!black}{\Large Taller de \LaTeX}~\emoji{writing-hand-light-skin-tone}
+	\logogem
+	\logouni \\
+	\textcolor{AmurmapleBlue!80!black}{Lista de Ejercicios de Reforzamiento}
+\end{center}
+
+\begin{center}
+	\fbox{\fbox{\parbox{5.5in}
+			{\centering
+				Responda las preguntas en los espacios provistos en
+				las hojas de preguntas.
+				Los argumentos y la claridad de las respuestas se
+				considerarán en la puntuación final.
+			}}}
+\end{center}
+\vspace{0.1in}
+\makebox[\textwidth]{Nombres y apellidos del alumno:\enspace\hrulefill}
+\vspace{0.2in}
+\makebox[\textwidth]{Nombres y apellidos del instructor:\enspace Carlos Aznarán.
+	\textcolor{black}{\faIcon{inbox}}~\href{mailto:caznaranl@uni.pe}{\texttt{caznaranl\MVAt uni.pe}}\hfill}
+
+\vspace*{-1.7\baselineskip}\setlength\belowdisplayshortskip{0pt}
+\subsection*{\sffamily\color{AmurmapleBlue!80!black}Instrucciones}
+
+\noindent
+Descargue el material de la
+\href{https://drive.google.com/drive/folders/1XrSPTzdgJXyY5q9rdA1zoEbKIxfG7LIR}{carpeta compartida\faGoogleDrive}.
+Luego, suba los ficheros
+\textcolor{AmurmapleBlue!80!black}{\mintinline{latex}|.tex|} con la
+solución en el directorio \textcolor{AmurmapleBlue!80!black}{\sffamily Solución/Nombre Apellido}.
+
+\begin{figure}[ht!]
+	\centering
+	\includegraphics[width=.82\paperwidth]{drive}
+\end{figure}
+
+\vspace*{-1.7\baselineskip}\setlength\belowdisplayshortskip{0pt}
+\subsection*{\sffamily\color{AmurmapleBlue!80!black}Ejercicios de clase~\emoji{teacher-light-skin-tone}}
+
+\begin{questions}
+	\input{question0}
+\end{questions}
+
+\cleardoublepage
+
+\subsection*{\sffamily\color{AmurmapleBlue!80!black}Ejercicios para la casa~\emoji{house}}
+
+\begin{questions}
+	\input{question1}
+	\input{question2}
+	\input{question3}
+	\input{question4}
+	\input{question5}
+	\input{question6}
+	% \input{question7}
+\end{questions}
+\vfill
+\begin{flushright}\sffamily\bfseries\color{AmurmapleBlue!80!black}
+	Grupo Estudiantil de Matemática\\[2mm]
+	Lima, sábado 6 de septiembre de 2025.
+\end{flushright}
+\end{document}
+
+\setbeamercolor{block body}{bg=cyan!10,fg=black}
+\setbeamercolor{block title}{bg=red!10,fg=black}
+
+\begin{columns}
+	\begin{column}{.32\paperwidth}
+		\begin{block}{Bloque simple}
+			Contenido.
+		\end{block}
+	\end{column}
+	\begin{column}{.32\paperwidth}
+		\begin{exampleblock}{Otro bloque}
+			Otro contenido.
+		\end{exampleblock}
+	\end{column}
+	\begin{column}{.32\paperwidth}
+		\begin{alertblock}{Observación}
+			¡Importante!
+		\end{alertblock}
+	\end{column}
+\end{columns}

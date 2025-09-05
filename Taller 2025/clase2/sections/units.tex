@@ -107,6 +107,39 @@
 \end{frame}
 
 \begin{frame}
+	Componer páginas a partir de cajas es fundamental en \LaTeX.
+	Una caja es un objeto rectangular con altura, profundidad y anchura.
+	Su contenido puede ser arbitrariamente complejo, incluyendo otras
+	cajas, caracteres, espacios, etc.
+	Una vez construida, \LaTeX{} la utiliza como un único objeto fijo
+	que se comporta de forma similar a un carácter (potencialmente enorme).
+	Una caja no se puede dividir ni dividir en líneas o páginas.
+	Las cajas se pueden mover hacia arriba, abajo, izquierda y derecha.
+	\LaTeX{} tiene tres tipos de cajas:
+
+	\begin{description}
+		\item[Izquierda derecha]
+
+		      El contenido de esta caja se compone de izquierda a derecha.
+		      Los saltos de línea son imposibles, y comandos como
+		      \mintinline{latex}|\\| y \mintinline{latex}|\newline| se
+		      ignoran o generan mensajes de error.
+
+		\item[Párrafos]
+
+		      Este tipo de caja puede contener varias líneas, que se
+		      componen en modo párrafo, como texto normal.
+		      Los párrafos se superponen.
+		      Su ancho se controla mediante un valor especificado por
+		      el usuario.
+
+		\item[Regla]
+
+		      Una línea (fina o gruesa) que se utiliza a menudo para
+		      separar diversos elementos lógicos en la página de salida,
+		      como filas y columnas de tablas, títulos y el texto
+		      principal.
+	\end{description}
+
 	\begin{block}{Cajas de texto}\input{sections/boxes}\end{block} % tex-fmt: skip
 \end{frame}
-% siunitx enumitem
