@@ -1,0 +1,33 @@
+name: Deploy pages
+
+on:
+  push:
+    branches: ["master"]
+    paths:
+      - Taller\ 2025/**
+  pull_request:
+    branches: ["master"]
+
+jobs:
+  deploy_pages:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Download artifact
+        uses: dawidd6/action-download-artifact@v16
+        with:
+          github_token: ${{secrets.GITHUB_TOKEN}}
+          workflow: latex.yml
+          name: PDF-artifact
+
+      - name: "Untar files"
+        run: |
+          tar -I zstd -xvf PDF.tar.zst
+          mkdir -p docs
+          mv Taller\ 2025/clase1/*.pdf docs
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: docs/public

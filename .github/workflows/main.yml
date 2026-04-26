@@ -1,0 +1,53 @@
+name: LaTeX C++ Review Dune Organization CI
+
+on:
+  push:
+    branches: ["master"]
+    paths:
+      - Taller\ 2025/**
+  pull_request:
+    branches: ["master"]
+  workflow_dispatch:
+
+jobs:
+  build_latex:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Partial Clone
+        shell: bash
+        run: |
+          REPO="https://${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git"
+          git config --global user.email github-actions@github.com
+          git config --global user.name github-actions
+          git clone -q --filter=blob:none --no-checkout --depth=1  --sparse $REPO .
+          git sparse-checkout set Taller\ 2025/
+          git checkout
+
+      - uses: addnab/docker-run-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          registry: ghcr.io
+          image: ghcr.io/cpp-review-dune/introductory-review/texlive:latest
+          options: -v ${{github.workspace}}:/work
+          shell: bash
+          run: |
+            sudo chown -R gitpod:gitpod /work
+            cd /work/Taller\ 2025/clase1 && arara main.tex
+
+      - name: Check pdf files
+        run: |
+          find Taller\ 2025/clase1 -type d \( -path Taller\ 2025/clase1/img -o -path Taller\ 2025/clase1/svg-inkscape \) -prune -false -o -type f -name "*.pdf" -exec file -- {} + | grep -q ' PDF '
+
+      - name: "Tar files"
+        run: |
+          sudo chown runner:docker -R .
+          tar --zstd -cf PDF.tar.zst Taller\ 2025/clase1/*.pdf
+
+      - uses: actions/upload-artifact@v7
+        with:
+          name: PDF-artifact
+          path: PDF.tar.zst
+          if-no-files-found: error
+          retention-days: 90
