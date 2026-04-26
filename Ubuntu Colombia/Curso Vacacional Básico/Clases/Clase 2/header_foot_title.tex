@@ -1,27 +1,23 @@
-\documentclass[10pt]{article}%{book}
-\usepackage[utf8x]{inputenc}
+% !TeX TXS-program:compile = txs:///lualatex | txs:///view
+\documentclass[10pt]{article}
 \usepackage[spanish]{babel}
-\spanishdatedel
-\usepackage{amsmath}
-\usepackage{amsfonts}
-\usepackage{amssymb}
 \usepackage[demo]{graphicx}
 \usepackage{lipsum}
 \usepackage{lscape}
 \usepackage{tikz}
 \usepackage{fancyhdr} %Nos permite configurar el contenido de los pies de ṕágina.
 \lhead{Autor}
-\rhead{pág. \thepage}
+\rhead{pág.~\thepage}
 \chead{\includegraphics[scale=.01]{demo}}
 \lfoot{\thesection}
 \cfoot{}
 \rfoot{\tikz \draw[magenta, opacity = 50] (0,0) circle[radius = 5pt];}
-\renewcommand{\headrulewidth}{0pt} %Se elimina la línea del encabezado.
+\renewcommand{\headrulewidth}{0pt} % Se elimina la línea del encabezado.
 \renewcommand{\footrulewidth}{.5pt}
-\usepackage[left = 2.5cm, right = 1cm, top = 3cm, bottom =1cm, foot = 5mm, head =1.5cm, width = 10cm]{geometry}%includeheadfoot
+\usepackage[left = 2.5cm,right = 1cm,top = 3cm,bottom =1cm,foot = 5mm,head =1.5cm,width = 10cm]{geometry}%includeheadfoot
 
 \author{Undg. Carlos Aznarán Laos}
-\title{Lección V2.2}
+\title{Lección v2.2}
 
 \begin{document}
 \maketitle
@@ -41,40 +37,42 @@
 	\thispagestyle{empty} %No afecta a l apágina de título encabezado o pie de página.
 	\newgeometry{hmargin ={1.5cm}, vmargin = {2cm}, nomarginpar, ignorefoot, ignorehead}
 	\center
-	\Huge{Título del libro}	\linebreak
-	\Large{Subtítulo del libro}
-	
-	\vspace{5cm}
-	
+	\Huge{Título}	\linebreak
+	\Large{Subtítulo}
+
+	\vspace{2cm}
+
 	\Large{Universidad Nacional de Ingeniería}	\linebreak
 	\small{Facultad de Ciencias}
-	
-	\vspace{5mm}
-	
+
+	\vspace{4mm}
+
 	\includegraphics[scale=.15]{demo}
-	
-	\vspace{5cm}
-	
+
+	\vspace{1cm}
+
 	\begin{minipage}{.4\textwidth}
 		Autor: Carlos Aznarán
 		\small{Prácticando con \LaTeX{}}
 	\end{minipage}
-
-	\hfill
+	
+%	\hfill
+	
 	\begin{minipage}{.4\textwidth}
 		\flushright
 		Jurado: Johnny Valverde	\linebreak
 		\small{Montoro}
 	\end{minipage}
 
-	\vspace{2cm}
-	
+	\vspace{1cm}
+
 	\begin{tikzpicture}
-		\draw[fill = magenta, opacity = .5] (0, .5) circle[radius =1];
-		\draw[fill = cyan, opacity =.5](.5, 0) circle[radius =1];
-		\draw[fill = yellow, opacity =.5](-.5,0) circle[radius =1];
+		\draw[fill=magenta,opacity=.5] (0, .5) circle[radius =1];
+		\draw[fill=cyan,opacity=.5](.5, 0) circle[radius =1];
+		\draw[fill=yellow,opacity=.5](-.5,0) circle[radius =1];
 	\end{tikzpicture}
-	Diciembre 13 de 2017
+
+	13 de diciembre de 2017.
 \end{titlepage}
 
 %\section{Capítulo uno}
@@ -84,14 +82,10 @@
 \section{Segunda sección}
 \lipsum[5-10]
 \end{document}
+
 Tarea: Hacer una carátula.
-
 Ver tomando el control de LaTeX.
-
 Llamar con myarticle.
-
 Ornaments
-
 Tarea: Hacer una página de título.
-
 Caminos y nodos mañana.

@@ -1,27 +1,18 @@
+% !TeX TXS-program:compile = txs:///lualatex | txs:///view
 \documentclass{article}
-\usepackage[utf8x]{inputenc}
 \usepackage[spanish]{babel}
 \usepackage{amsmath}
-\usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{lipsum}
 
-\input{colores.sty}%Apunta al archivo.
-
-%\newcommand{\cuadratica}{
-%\begin{equation}
-%	x_{1,2} = \frac{1}{2a}\Bigl(-b\pm \sqrt{b^{2}-4ac}\Bigr)
-%\end{equation}
-%}
-\input{dict_ecuaciones.tex}
-
-\input{cajas.tex}
-
-%\input{quimica.tex}
+\input{colores} % Apunta al archivo.
+\input{dict_ecuaciones}
+\input{cajas}
+\input{quimica}
 
 \newtheorem{definicion}{Definición}
 \newtheorem{obs}{Observación}[section]
-\title{Tomando el control de \LaTeX{}}
+\title{Tomando el control de \LaTeX}
 \author{Oromion}
 \date{\today}
 
@@ -33,7 +24,6 @@
 
 \lipsum[1]
 
-%\cudratica{}
 \cuadratica{}
 
 \lipsum[1]
@@ -41,7 +31,6 @@
 \cuadratica{}
 
 \Fourier[eq]
-
 
 \section{Sección 1}
 
@@ -70,4 +59,5 @@ Segunda observación
 Observación 2.1
 \end{obs}
 \end{document}
+
 Veremos ahora los comandos y su redefinición.
