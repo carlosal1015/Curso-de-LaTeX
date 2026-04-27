@@ -20,7 +20,7 @@ jobs:
           REPO="https://${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git"
           git config --global user.email github-actions@github.com
           git config --global user.name github-actions
-          git clone -q --filter=blob:none --no-checkout --depth=1  --sparse $REPO .
+          git clone -q --filter=blob:none --no-checkout --depth=1 --sparse $REPO .
           git sparse-checkout set Taller\ 2025/
           git checkout
 
@@ -34,7 +34,9 @@ jobs:
           shell: bash
           run: |
             sudo chown -R gitpod:gitpod /work
-            cd /work/Taller\ 2025/clase1 && arara main.tex
+            cd /work/Taller\ 2025/
+            pushd clase1 && arara main.tex && popd
+            pushd clase2 && arara main.tex && popd
 
       - name: Check pdf files
         run: |
@@ -43,7 +45,7 @@ jobs:
       - name: "Tar files"
         run: |
           sudo chown runner:docker -R .
-          tar --zstd -cf PDF.tar.zst Taller\ 2025/clase1/*.pdf
+          tar --zstd -cf PDF.tar.zst Taller\ 2025/clase*/*.pdf
 
       - uses: actions/upload-artifact@v7
         with:
