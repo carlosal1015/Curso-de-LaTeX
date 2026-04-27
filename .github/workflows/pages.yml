@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: Download artifact
-        uses: dawidd6/action-download-artifact@v16
+        uses: dawidd6/action-download-artifact@v20
         with:
           github_token: ${{secrets.GITHUB_TOKEN}}
           workflow: latex.yml
@@ -24,7 +24,7 @@ jobs:
         run: |
           tar -I zstd -xvf PDF.tar.zst
           mkdir -p docs
-          mv Taller\ 2025/clase1/*.pdf docs
+          mv Taller\ 2025/clase*.pdf docs
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4

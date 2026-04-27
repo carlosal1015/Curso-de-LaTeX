@@ -35,17 +35,18 @@ jobs:
           run: |
             sudo chown -R gitpod:gitpod /work
             cd /work/Taller\ 2025/
-            pushd clase1 && arara main.tex && popd
-            pushd clase2 && arara main.tex && popd
+            pushd clase1 && arara main.tex && mv main.pdf ../clase1.pdf && popd
+            pushd clase2 && arara main.tex && mv main.pdf ../clase2.pdf && popd
+            pushd clase3 && arara main.tex && mv main.pdf ../clase3.pdf && popd
 
       - name: Check pdf files
         run: |
-          find Taller\ 2025/clase1 -type d \( -path Taller\ 2025/clase1/img -o -path Taller\ 2025/clase1/svg-inkscape \) -prune -false -o -type f -name "*.pdf" -exec file -- {} + | grep -q ' PDF '
+          find Taller\ 2025/clase1 -type d \( -path Taller\ 2025/images -o -path Taller\ 2025/clase1/svg-inkscape \) -prune -false -o -type f -name "*.pdf" -exec file -- {} + | grep -q ' PDF '
 
       - name: "Tar files"
         run: |
           sudo chown runner:docker -R .
-          tar --zstd -cf PDF.tar.zst Taller\ 2025/clase*/*.pdf
+          tar --zstd -cf PDF.tar.zst Taller\ 2025/clase*.pdf
 
       - uses: actions/upload-artifact@v7
         with:
